@@ -12,11 +12,22 @@
     * AutoInstall
   # ModifyInstalledPackages
     * via broadband network connection
-    * via AdditionalInstallCd (where network poor)
+    * via AdditionalInstallDvd (where network poor)
   # Apply ConfigChanges and install Switched On special files
 
-= Installing the client software =
+= Installing the thin client software =
+This is only necessary if your Client PC network card/BIOS are not PXE boot-capable.
+  * InstallThinClientSoftware
 
 = Creating Installation Artefacts =
+These are the files necessary to complete the above steps to install the server and client.  These procedures are only necessary if you are a developer/tester and need to perform an installation incorporating system changes.
+  # CreatePackageModificationScript
+  # CreateAdditionalInstallDvd
+  # CreateConfigChangesArchive
   # CreateAutoInstallDvd
-  # 
+  # CreateClientInstallMedia
+
+= Checking software in/out =
+The following are stored in the Google Code repository:
+  # ConfigFiles - includes system/application config and any Switched On files not included in packages (i.e. packages installed in phases 1 and 2 of "Installing the server software")
+  # DevelopmentTools - for managing the development, installation and upgrade processes.
