@@ -18,5 +18,5 @@
 = Installing the client software =
 
 = Creating Installation Artefacts =
-  # CreateAutoInstallDVD
+  # CreateAutoInstallDvd
   # 
