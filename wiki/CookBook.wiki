@@ -13,3 +13,4 @@
     * http://so-class2.googlecode.com/files/autoyast-file.xml _sub in correct name for autoyast-file.xml_
     * floppy:///_autoyast-file_.xml  _sub in correct autoyast filename in root of floppy
     * device://_usb-device_/_autoyast-file_.xml  _e.g. usb-device=sdb1_
+  # Continue with installation
