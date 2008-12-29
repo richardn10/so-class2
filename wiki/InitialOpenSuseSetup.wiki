@@ -1,4 +1,17 @@
 #labels Phase-Deploy
 #Basic setup of OpenSUSE
 
+= Development Server =
 See [http://www.opensuse.org  www.opensuse.org] for instructions, though it's fairly straightforward if you work through the installation wizard.
+
+= Production Server =
+The disks need to be set up carefully with a software RAID configuration suggested as follows:
+
+|| *Disk 1 * ||  || *Disk 2 * ||
+|| Boot || 100MB? Petri? || Not used ||
+|| / (root)  || 10G - Petri, can this be RAID? || / (root) ||
+|| /exp home,tmp,var,local,srv  || Petri - OK to use symbolic links for these? 390G || /exp var home,tmp,var,local,srv ||
+
+|| *Disk 3 * ||  || *Disk 4 * ||
+|| /store (for VMs & backups) || 100G || /store ||
+|| /course || encrypted 300G || /course ||
