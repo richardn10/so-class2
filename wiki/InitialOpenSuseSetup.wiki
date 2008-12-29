@@ -1,4 +1,4 @@
 #labels Phase-Deploy
 #Basic setup of OpenSUSE
 
-See [http://www.opensuse.org  www.opensuse.org]for instructions, though it's fairly straightforward if you work through the installation wizard.
+See [http://www.opensuse.org  www.opensuse.org] for instructions, though it's fairly straightforward if you work through the installation wizard.
