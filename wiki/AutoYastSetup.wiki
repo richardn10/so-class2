@@ -1,4 +1,8 @@
-#summary One-sentence summary of this page.
+#labels Phase-Deploy
+#How to do autoyast to setup partitions and do standard Suse install
+
+= Overview =
+This is one way to complete phase 1 of the Switched On server installation.
 
 = Requirements =
   * OpenSUSE 11.1 DVD
