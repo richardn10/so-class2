@@ -1,0 +1,5 @@
+#How to use Supplementary Dvd to install new packages
+
+  # Run script to download/update package files - yet to be provided
+  # Run script to create/update a YAST repository including these files - to be done
+  # Run script to create DVD iso image and burn DVD - to be done
