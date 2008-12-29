@@ -1,0 +1,16 @@
+#summary One-sentence summary of this page.
+
+= Requirements =
+  * OpenSUSE 11.1 DVD
+  * Pre-prepared Autoyast file.  Currently not described here.
+
+= Autoyast with standard SUSE DVD=
+  # Boot from OpenSUSE 11.1 DVD
+  # Press "Esc" at boot menu within 2 seconds
+  # Enter following kernel parameter very CAREFULLY: *install=cdrom:// autoyast= *_one of the following:_
+    * *http://so-class2.googlecode.com/files/autoyast-file.xml * _sub in correct name for autoyast-file.xml_
+    * *floppy:///_autoyast-file_.xml *  _sub in correct autoyast filename in root of floppy _
+    * *device://_usb-device_/_autoyast-file_.xml *  _e.g. usb-device=sdb1 _
+    E.g. *install=cdrom:// autoyast=http://so-class2.googlecode.com/files/ay-ren-081229-1.xml * <br>
+    _Warning: If you enter this parameter incorrectly _ you will have to begin the installation from scratch and will not find out until some way into the process.
+  # Continue with installation
