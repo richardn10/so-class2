@@ -12,7 +12,7 @@
     * AutoInstall
   # ModifyInstalledPackages
     * via broadband network connection
-    * via AdditionalInstallCD (where network poor)
+    * via AdditionalInstallCd (where network poor)
   # Apply ConfigChanges and install Switched On special files
 
 = Installing the client software =
