@@ -6,7 +6,17 @@
   * Fast internet connection from the server (for downloads).  Most efficient if has DHCP server to auto-assign IP connection details
   * OpenSUSE 11.1 DVD - from [http://software.opensuse.org/]
 
-= To install development system =
+= Installing the server software =
+  # InitialOpenSuseSetup - partition and standard install with Gnome desktop:
+    * Use standard OpenSUSE 11.1 DVD (above)
+    * AutoInstall
+  # ModifyInstalledPackages
+    * via broadband network connection
+    * via AdditionalInstallCD (where network poor)
+  # Apply ConfigChanges and install Switched On special files
 
+= Installing the client software =
 
-AutoYastSetup
+= Creating Installation Artefacts =
+  # CreateAutoInstallDVD
+  # 
