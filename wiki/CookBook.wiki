@@ -1,5 +1,5 @@
 #labels Featured,Phase-Deploy
-= This page is Work in Progress and will change =
+= This page is Work in Progress and may change significantly =
 
 #Starting point of guidance for developers and sys admins
 
