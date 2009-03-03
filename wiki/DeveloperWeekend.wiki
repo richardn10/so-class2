@@ -34,6 +34,7 @@ So what are the types of challenge we will face?
  # Linux-ers (Tom): Setup of performance and usage monitoring tools (sadly this may need to include Microsoft PCs too)
  # Linux-ers:  Try make broadcast of video in LTSP environment efficient (Linux Terminal Server Project).
  # Create a script to convert all close questions in certain courses (specified in a help file) case-sensitive.  This is necessary for teaching English.  See http://moodle.org/mod/forum/discuss.php?d=36430&parent=170308  (comment made on Friday, 30 December 2005, 02:49 AM)
+ # Protect content.  e.g. Moodle database and files on encrypted disk with bios password?
  # There are plenty of other areas that need tackling, so let me know your skills if you can make it, and I'll try fit people to tasks in small teams with the necessary complementary skills.
 
 
