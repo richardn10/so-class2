@@ -1,0 +1,22 @@
+#How to run a Switched On Virtual Machine
+
+= Introduction =
+The easiest way to try out and develop the Switched On system is to run a Switched On "virtual machine" on your computer.  This is like running a pre-packaged computer inside your computer.  You won't even have to modify your own computer (host machine) except to install the engine (a program called VMWare Server) for running the "Switched On" computer (Virtual Machine).
+
+This "how to" will assume you are running a Windows PC, though the instructions apply to a Linux host machine with a few modifications.
+
+
+= Install VMWare Server =
+Download VMWare Server from the following page:
+
+http://www.vmware.com/products/server/
+(or ask for the CD at the Developer Weekend)
+
+You will have to register to get a licence key.  Look for a line like: 
+
+VMware Server 2 for Windows 	AA505-FHY0V-V32CQ-4TKUX
+
+Execute the file you have just downloaded (VMware-server-2.???.exe) and follow the instructions to install it.
+
+
+= Install the Switched On Virtual Machine (computer) =
