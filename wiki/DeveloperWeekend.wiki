@@ -2,6 +2,9 @@
 
 http://www.switchedon.org/images/SO_webbanner750px.jpg
 
+= "The Challenge" =
+TheChallenge
+
 = Provisional schedule: =
 
 == Saturday 4th ==
