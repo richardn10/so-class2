@@ -38,50 +38,46 @@ Extra notes:
 
 The teams should co-operate towards successfully demonstrating the whole scenario!
 
-== Simultaneous Video Playback and Performance Monitoring & Tuning ==
+== Workpackage_VideoAndPerformance ==
+*Simultaneous Video Playback and Performance Monitoring & Tuning +  Video mode flipping*
+
  * Tom Welsh (back-end) [ just Saturday ]
- * Phil Allnutt (front-end)
- * Ben Formesyn [ just Saturday ]
+ * Phil Allnutt (front-end and Adobe Premiere Integration)
+ * Ben Formesyn (back-end) [ just Saturday ]
+ * Edward Buckley (mainly front-end, partly back-end)
+ * Tim Finch (arriving Sat night, help with Adobe Premiere Integration)
 
 On Sat afternoon we will schedule a set of performance tests utilising all participants.
 
-== Configuration Tools ==
+== Workpackage_ConfigurationTools ==
  * Adam Bewsher
  * Ken Goddard
 
-== Payment tracking and Automatic logout ==
+== Workpackage_PaymentAndLogout ==
+*Payment tracking and Automatic logout*
+
  * Edward Ramsden
  * Peter Edwards
  * Peter Thorpe
 
-== Video mode flipping ==
- * Edward Buckley
- * Phil Allnutt helping some of time
- * Tim Finch (arriving Sat night)
+== Workpackage_GraphicDesign ==
+*Graphics and layout design*
 
-== Graphics and layout design ==
  * Neil Rogers
 
-== Produce Sample Courses ==
+== Workpackage_CourseConsultants ==
+*Produce demo video, sample course & guidelines*
+
  * Andy Howard - Computer Course, basic computer skills
  * Maureen Flett - Computer course?
  * Alex Flett - Business Skills course
  * Nathan Redmon - Personal Development
  * James Allen - Help the others enter things in Moodle, and generally get involved in techie aspects in the other teams as required.  Create a course if you desire!
-
+ * Tim Finch helping Sunday
 
 Output for each course: Outline of whole course and one lesson in detail, following the methodology principles implied in the scenario.  
 
 Output as a group: Guidance on how to create the materials iteratively, how to train the facilitators, producing a course handbook for facilitators and students alike, and how to assess and improve.
-
-
-== Sample teaching video ==
- * Andy Howard
- * Maureen Flett
- * Alex Flett
- * James Allen
- * Nathan Redmon
- * Tim Finch helping Sunday
 
 Output: the sample video and a list of guidelines to give to someone who will produce the videos from the footage.
 
