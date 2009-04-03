@@ -4,5 +4,5 @@ At the start of the developer weekend this reflects Richard's thoughts on what n
 
 Detail is to be added during the developer weekend by the team concerened, to form your output documentation.  Note:
  * You may add text to this wiki (click edit link above and then see "Wiki markup help on the right")
- * You may create new pages under this one, but please label the wiki links using the following pattern `Workpackage_WorkpackageName_YourAdditionalDescription`.  e.g. Workpackage_VideoAndPerformance_FlippingVideoViews
- * You may upload document files (or any other files).  Link to them from this page.  Name them `Workpackage_WorkpackageName_YourAdditionalDescription.extension` e.g. Workpackage_VideoAndPerformance_FlippingVideoViews.doc
+ * You may create new pages under this one, but please label the wiki links using the following pattern `Workpackage_WorkpackageName_YourAdditionalDescription`.  e.g. `Workpackage_VideoAndPerformance_FlippingVideoViews`
+ * You may upload document files (or any other files).  Link to them from this page.  Name them `Workpackage_WorkpackageName_YourAdditionalDescription.extension` e.g. `Workpackage_VideoAndPerformance_FlippingVideoViews.doc`
