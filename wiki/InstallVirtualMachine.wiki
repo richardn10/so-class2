@@ -6,7 +6,20 @@ The easiest way to try out and develop the Switched On system is to run a Switch
 This "how to" will assume you are using a Windows PC.  Linux users have to follow a few more steps to install the virtual machine that are not detailed here, though ask Richard if you need help.
 
 
-= Install VMWare Server =
+= Install VWare Server 1 =
+
+Download VMWare Server from...
+
+Randomly choose one of the following licence keys:
+92MD8-YAU0T-1C14L-480L8
+9AN69-Y0F89-191D2-404L1
+98M4D-Y2CAD-19MFQ-4059D
+9AMFX-YAU08-1CN6K-42HKR
+98MFD-Y8Y0D-11562-404H5
+
+
+
+= Install VMWare Server 2 (not recommended unless you have time to learn it! =
 Download VMWare Server from the following page:
 
 http://www.vmware.com/products/server/
