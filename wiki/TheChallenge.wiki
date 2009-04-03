@@ -39,9 +39,9 @@ Extra notes:
 The teams should co-operate towards successfully demonstrating the whole scenario!
 
 == Simultaneous Video Playback and Performance Monitoring & Tuning ==
- * Tom Welsh (backend) [just Saturday]
+ * Tom Welsh (back-end) [ just Saturday ]
  * Phil Allnutt (front-end)
- * Ben Formesyn [just Saturday]
+ * Ben Formesyn [ just Saturday ]
 
 On Sat afternoon we will schedule a set of performance tests utilising all participants.
 
