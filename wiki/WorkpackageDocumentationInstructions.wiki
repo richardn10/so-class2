@@ -6,3 +6,7 @@ Detail is to be added during the developer weekend by the team concerened, to fo
  * You may add text to this wiki (click edit link above and then see "Wiki markup help on the right")
  * You may create new pages under this one, but please label the wiki links using the following pattern `Workpackage_WorkpackageName_YourAdditionalDescription`.  e.g. `Workpackage_VideoAndPerformance_FlippingVideoViews`
  * You may upload document files (or any other files).  Link to them from this page.  Name them `Workpackage_WorkpackageName_YourAdditionalDescription.extension` e.g. `Workpackage_VideoAndPerformance_FlippingVideoViews.doc`
+
+Make sure only one person from your workpackage group is updating a wiki page at a time, or you'll end up overwriting each other!  To avoid this, you may:
+ * Maintain strict control to ensure only one person edits a given page at a time
+ * Create different pages for each person, if you can logically split your work into sub-areas taken on by different individuals
