@@ -1,0 +1,12 @@
+#summary More detailed info describing the workpackage.
+
+Go back to TheChallenge.
+
+= Introduction =
+Read WorkpackageDocumentationInstructions
+
+= Requirements =
+
+
+= Team documentation =
+(Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
