@@ -38,6 +38,8 @@ Extra notes:
 
 The teams should co-operate towards successfully demonstrating the whole scenario!
 
+Click on the workpackage titles for more detailed information.
+
 == Workpackage_VideoAndPerformance ==
 *Simultaneous Video Playback and Performance Monitoring & Tuning +  Video mode flipping*
 
