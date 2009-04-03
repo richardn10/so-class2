@@ -1,6 +1,6 @@
 #summary How to use the Workpackage Wiki pages.
 
-At the start of the developer weekend this reflects Richard's thoughts on what needs to be done.
+At the start of the developer weekend these wiki pages reflect Richard's thoughts on what needs to be done.
 
 Detail is to be added during the developer weekend by the team concerened, to form your output documentation.  Note:
  * You may add text to this wiki (click edit link above and then see "Wiki markup help on the right")
