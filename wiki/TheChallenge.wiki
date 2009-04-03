@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary What we hope to demonstrate at the end of the Switched On Developer Weekend.
 
 = Scenario =
 
@@ -29,3 +29,57 @@ One of the students then pays a further amount, registers on a PC and logs in to
 This scenario actually begins with configuring the computer system and installing the lesson.  A script us run on a development server in the Switched On Malda HQ.  This pulls the software artefacts for installing and configuring the system out of a source code repository and builds a directory tree from which installation is performed.  This tree is burned to a CD.  The CD is run after a standard Gnome installation of OpenSUSE 11.1 on a Switched On Training Centre server.  Once the setup CD has been run, a Switched On configuration tool is started on the system that installs the Switched On and Moodle databases (containing existing users and course materials).  As a separate step, the video and other multimedia artefacts are installed through this same tool, though they are pulled off a DVD already created by the lesson department.
 
 The scenario ends with an assessor logging into Moodle and noting student attendance, payments and performance.  The assessor also infers strengths and weaknesses in the course materials and the facilitator.  Note that Moodle already provides both summaries and detailed results for the computer-based exercises.
+
+Extra notes:
+ # The Moodle interface should be customised through style-sheets and graphics.  The configuration tool should also be professional and attractive.  Animated effects may be added to increase the feel of quality and create a good experience.  The Switched On branding should be applied throughout.
+ # It's not that bad!  Some members have been discussing how to do this.
+
+= Initial assignment of teams =
+
+The teams should co-operate towards successfully demonstrating the whole scenario!
+
+== Simultaneous Video Playback and Performance Monitoring & Tuning ==
+ * Tom Welsh (backend) [just Saturday]
+ * Phil Allnutt (front-end)
+ * Ben Formesyn [just Saturday]
+
+On Sat afternoon we will schedule a set of performance tests utilising all participants.
+
+== Configuration Tools ==
+ * Adam Bewsher
+ * Ken Goddard
+
+== Payment tracking and Automatic logout ==
+ * Edward Ramsden
+ * Peter Edwards
+ * Peter Thorpe
+
+== Video mode flipping ==
+ * Edward Buckley
+ * Phil Allnutt helping some of time
+ * Tim Finch (arriving Sat night)
+
+== Graphics and layout design ==
+ * Neil Rogers
+
+== Produce Sample Courses ==
+ * Andy Howard - Computer Course, basic computer skills
+ * Maureen Flett - Computer course?
+ * Alex Flett - Business Skills course
+ * Nathan Redmon - Personal Development
+
+Output for each course: Outline of whole course and one lesson in detail, following the methodology principles implied in the scenario.  Also guidance on how to create the materials iteratively, how to train the facilitators and how to assess and improve.
+
+
+== Sample teaching video ==
+ * Andy Howard
+ * Maureen Flett
+ * Alex Flett
+ * Nathan Redmon
+ * Tim Finch helping Sunday
+
+
+= Technical setup =
+ * Central server running OpenSUSE 11.1 x86 i586
+ * Student computers to run Firefox web browser (2+) and IE (6+) with Flash player.
+ * Moodle uses: MySQL backend, Apache, PHP
