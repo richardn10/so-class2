@@ -8,7 +8,7 @@ This "how to" will assume you are using a Windows PC.  Linux users have to follo
 
 = Install VWare Server 1 =
 
-Download VMWare Server from...
+Obtain the VMWare Software from the External HD floating around.
 
 Randomly choose one of the following licence keys:
 
@@ -39,3 +39,5 @@ Execute the file you have just downloaded (VMware-server-2.???.exe) and follow t
 
 
 = Install the Switched On Virtual Machine (computer) =
+
+Obtain the Virtual Machine(s) from the External HD floating around.
