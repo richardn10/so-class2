@@ -1,21 +1,10 @@
 #summary More detailed info describing the workpackage.
 
 = Introduction =
-WorkpackageDocumentationInstructions
+Read WorkpackageDocumentationInstructions
 
-At the start of the developer weekend this reflects Richard's thoughts on what needs to be done.
-
-Detail is to be added during the developer weekend by the team concerened, to form your output documentation.  Note:
- * You may add text to this wiki (click edit link above and then see "Wiki markup help on the right")
- * You may create new pages under this one, but please label the wiki links using the following pattern `Workpackage_WorkpackageName_YourAdditionalDescription`.  e.g. Workpackage_VideoAndPerformance_FlippingVideoViews
- * You may upload document files (or any other files).  Link to them from this page.  Name them `Workpackage_WorkpackageName_YourAdditionalDescription.extension` e.g. Workpackage_VideoAndPerformance_FlippingVideoViews.doc
-
-Add your content here.
+= Requirements =
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Team documentation =
+(Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
