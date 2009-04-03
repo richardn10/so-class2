@@ -67,17 +67,23 @@ On Sat afternoon we will schedule a set of performance tests utilising all parti
  * Maureen Flett - Computer course?
  * Alex Flett - Business Skills course
  * Nathan Redmon - Personal Development
+ * James Allen - Help the others enter things in Moodle, and generally get involved in techie aspects in the other teams as required.  Create a course if you desire!
 
-Output for each course: Outline of whole course and one lesson in detail, following the methodology principles implied in the scenario.  Also guidance on how to create the materials iteratively, how to train the facilitators and how to assess and improve.
+
+Output for each course: Outline of whole course and one lesson in detail, following the methodology principles implied in the scenario.  
+
+Output as a group: Guidance on how to create the materials iteratively, how to train the facilitators, producing a course handbook for facilitators and students alike, and how to assess and improve.
 
 
 == Sample teaching video ==
  * Andy Howard
  * Maureen Flett
  * Alex Flett
+ * James Allen
  * Nathan Redmon
  * Tim Finch helping Sunday
 
+Output: the sample video and a list of guidelines to give to someone who will produce the videos from the footage.
 
 = Technical setup =
  * Central server running OpenSUSE 11.1 x86 i586
