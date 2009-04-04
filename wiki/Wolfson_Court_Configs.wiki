@@ -13,3 +13,10 @@ The key is 5umm3rc0nf
 
 = Moodle locally =
 [http://192.168.11.99/moodle/login/index.php Login: 192.168.11.99/moodle/login/index.php]
+
+|| Username || Password ||
+|| admin || moodle ||
+|| pair1 || password ||
+|| pair2 || password ||
+|| pair3 || password ||
+|| pair4 || password ||
