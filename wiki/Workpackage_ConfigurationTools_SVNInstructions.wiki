@@ -14,11 +14,11 @@ To keep all our files safe and in an organised structure, you will need to insta
 
 === Installing TortoiseSVN (Windows) ===
 
-  * Install TortoiseSVN (if you have an existing version of TortoiseSVN, uninstall it and restart your computer before upgrading or there may be problems)
+Install TortoiseSVN (if you have an existing version of TortoiseSVN, uninstall it and restart your computer before upgrading or there may be problems)
 
 Go to this link for the download [http://tortoisesvn.net/downloads]
-   - for 32 bit computers use the link TortoiseSVN-1.6.0.15855-win32-svn-1.6.0.msi
-   - for 64 bit computers use the link TortoiseSVN-1.6.0.15855-x64-svn-1.6.0.msi
+  * for 32 bit computers use the link TortoiseSVN-1.6.0.15855-win32-svn-1.6.0.msi
+  * for 64 bit computers use the link TortoiseSVN-1.6.0.15855-x64-svn-1.6.0.msi
 
 === Checking out (getting) the Switched On files ===
 
