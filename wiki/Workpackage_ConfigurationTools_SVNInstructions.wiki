@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Instructions on installing SVN or TortoiseSVN and using the SO repository.
 
 = Introduction =
 
