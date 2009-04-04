@@ -49,7 +49,7 @@ To get the Switched On files to your computer, you need to "check them out" of t
       You can either select "HEAD revision" to get the latest version with all changes, or you can enter a revision number to get a particular revision (click "Show Log" to see the revisions)
     * Click OK
 
-  * If prompted for your username and password, enter the details you find here:
+  * If prompted for your username and password, enter the details you find here (you'll need to log in to google for this):
 	[http://code.google.com/p/so-class2/source/checkout]
 
 
