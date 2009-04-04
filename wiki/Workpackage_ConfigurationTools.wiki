@@ -9,6 +9,7 @@ Read WorkpackageDocumentationInstructions
 
 = Setting up SVN =
 Read Workpackage_ConfigurationTools_SVNInstructions 
+Read Workpackage_ConfigurationTools_SVNInstructions 
 
 = Team documentation =
 (Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
