@@ -8,11 +8,13 @@ This page contains all configuration settings for the SwitchedOn Developers' Wee
 = Wireless Network (internet only) =
 
 The wireless network at Wolfson Court is called SkillsForCareAP
+
 The key is 5umm3rc0nf
 
 = Wireless Network (SwitchedOn + internet) =
 
 SSID: SwitchedOn
+
 Key (WPA passphrase): buckley30
 
 = Printer =
