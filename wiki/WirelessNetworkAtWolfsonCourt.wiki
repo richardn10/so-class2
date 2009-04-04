@@ -1,0 +1,7 @@
+#summary Wireless Internet Connection at Wolfson Court
+
+= Introduction =
+
+The wireless network at Wolfson Court is called SkillsForCareAP
+
+The key is 5umm3rc0nf
