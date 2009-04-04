@@ -43,8 +43,8 @@ To get the Switched On files to your computer, you need to "check them out" of t
   * Right click on your new folder and a menu will come up
     * click the SVN Checkout... menu item
       In the "URL of repository" box, type:
-        {{{https://so-class2.googlecode.com/svn/trunk/}}}
-        (if you want you can replace {{{trunk/}}} with a branch or tag version you want to use, but if you don'tknow what this is, leave it as {{{trunk/}}})
+      {{{https://so-class2.googlecode.com/svn/trunk/}}}
+      (if you want you can replace {{{trunk/}}} with a branch or tag version you want to use, but if you don't know what this is, leave it as {{{trunk/}}})
 
       You can either select "HEAD revision" to get the latest version with all changes, or you can enter a revision number to get a particular revision (click "Show Log" to see the revisions)
     * Click OK
