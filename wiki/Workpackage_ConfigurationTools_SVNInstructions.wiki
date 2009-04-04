@@ -31,26 +31,38 @@ Once the file has been downloaded double click on the downloaded file. This will
   * Click 'next'
   * Click the 'install' button
   * Click 'next'
-  * restart your comuter when prompted to do so
+  * Restart your computer if prompted to do so
 
 
 === Checking out (getting) the Switched On files ===
 
+To get the Switched On files to your computer, you need to "check them out" of the repository.  To do this:
+
   * Create a new folder anywhere on your computer (perhaps in Documents).
-    * Call the new Folder "Switched On" (this actually can be whatever you like).
+  * Call the new Folder "Switched On" (this actually can be whatever you like).
   * Right click on your new folder and a menu will come up
     * click the SVN Checkout... menu item
-      * In the "URL of repository" box, type:
-{{{https://so-class2.googlecode.com/svn/trunk/}}}
+      In the "URL of repository" box, type:
+        {{{https://so-class2.googlecode.com/svn/trunk/}}}
+#        (if you want you can replace {{{trunk/}}} with a branch or tag version you want to use)
 
-			(if you want you can replace trunk/ with a branch or tag version you want to use)
-
-        * You can either select "HEAD revision" to get the latest version with all changes, or
-      * You can enter a revision number to get a particular revision (click "Show Log" to see the revisions)
-      * Click OK
+      You can either select "HEAD revision" to get the latest version with all changes, or you can enter a revision number to get a particular revision (click "Show Log" to see the revisions)
+    * Click OK
 
   * If prompted for your username and password, enter the details you find here:
 	[http://code.google.com/p/so-class2/source/checkout]
 
 
 	(Click "googlecode.com password" to get your Google Code password)
+
+=== Committing your changes ===
+
+Once you've finished creating, editing or deleting files and you want to share them with everyone, you'll need to "commit" them to the repository.  *Please make sure that you only commit working changes to the repository.*  This will ensure that anyone who checks out the files will get a working copy of everything.
+
+To commit your changes:
+
+  * Right click on the "Switched On" folder (or whatever you called it when you created it before).
+  * Click "SVN Commit..."
+  * Type a message in the top box describing the changes that you have made.
+  * Select the changes that you want to commit from the list box.  If you can't remember what the changes are, you can double click on the file to run a "diff".  _This may not be helpful for files like pictures, but it will work for text files._
+  * Click Ok to commit the changes.
