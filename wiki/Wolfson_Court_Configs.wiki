@@ -5,11 +5,20 @@
 This page contains all configuration settings for the SwitchedOn Developers' Weekend at Wolfson Court
 
 
-= Wireless Network=
+= Wireless Network (internet only) =
 
 The wireless network at Wolfson Court is called SkillsForCareAP
-
 The key is 5umm3rc0nf
+
+= Wireless Network (SwitchedOn + internet) =
+
+SSID: SwitchedOn
+Key (WPA passphrase): buckley30
+
+= Printer =
+
+Connect to SwitchedOn wireless network.
+IP: 192.168.0.8
 
 = Moodle locally =
 [http://192.168.11.99/moodle/login/index.php Login: 192.168.11.99/moodle/login/index.php]
