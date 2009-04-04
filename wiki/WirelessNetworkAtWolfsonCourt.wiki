@@ -1,6 +1,11 @@
-#summary Wireless Internet Connection at Wolfson Court
+#summary Wolfson Court Configuration Settings
 
 = Introduction =
+
+This page contains all configuration settings for the SwitchedOn Developers' Weekend at Wolfson Court
+
+
+= Wireless Network=
 
 The wireless network at Wolfson Court is called SkillsForCareAP
 
