@@ -20,3 +20,10 @@ The key is 5umm3rc0nf
 || pair2 || password ||
 || pair3 || password ||
 || pair4 || password ||
+
+= HP Photosmart 8450 printer =
+Is available over the network at IP address 192.168.0.8
+
+Drivers are available to download direct from the HP site:
+
+[http://h20180.www2.hp.com/apps/Nav?h_pagetype=s-002&h_lang=en&h_cc=uk&h_product=402151&h_client=S-A-R163-1&h_page=hpcom&lang=en&cc=uk&submit=Â» Printer Drivers]
