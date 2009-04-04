@@ -23,7 +23,7 @@ Connect to SwitchedOn wireless network.
 IP: 192.168.0.8
 
 = Moodle locally =
-[http://192.168.0.11/moodle/login/index.php Login: 192.168.0.11/moodle/login/index.php]
+[http://192.168.0.12/moodle/login/index.php Login: 192.168.0.12/moodle/login/index.php]
 
 || Username || Password ||
 || admin || moodle ||
