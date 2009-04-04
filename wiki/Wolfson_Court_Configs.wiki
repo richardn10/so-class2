@@ -10,3 +10,6 @@ This page contains all configuration settings for the SwitchedOn Developers' Wee
 The wireless network at Wolfson Court is called SkillsForCareAP
 
 The key is 5umm3rc0nf
+
+= Moodle locally =
+[192.168.1.99/moodle/login/index.php Login: 192.168.1.99/moodle/login/index.php]
