@@ -7,6 +7,9 @@ Read WorkpackageDocumentationInstructions
 
 = Requirements =
 
+= Video Playback: Multiple playback synchronisation =
+
+For investigation of possibilities for this, read VideoPlaybackSynchInvestigation
 
 = Team documentation =
 (Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
