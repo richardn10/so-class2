@@ -19,11 +19,22 @@
 # loop through each line of the file
 # if the line does not begin with # and is not blank, then
 # install that package
-if [ -f packages ]
+file=packages
+if [ -f $file ]
 then
-  for i in 1 2 3
+  x=0
+  while [ $x -lt $(wc -l < $file) ]
   do
-    echo "$i"
+    let x=x+1
+    line=`head -n $x $file | tail -n 1`
+    case "$line" in
+      "") ;;
+      \#*) ;;
+      * ) 
+          echo "Installing $line..."
+          zypper install $line
+          ;;
+    esac
   done
 fi
 

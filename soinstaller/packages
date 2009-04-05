@@ -1,5 +1,6 @@
-this
-that
-#not this
+# Switched On package list
+#
+# This file is used by installer to install any packages that are required
+# add the name of the packages one on each line below
 
-that other one
+subversion
