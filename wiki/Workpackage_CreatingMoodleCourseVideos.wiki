@@ -1,0 +1,21 @@
+#summary Breakdown of the work done at SO SpringOfCode09 on videroing a classroom course and making them into FLV files ready for Moodle
+
+= Introduction =
+
+This ia a list of things we learnt when trying to make videos of classroom courses to include on moodle at the SO SpringOfCode09 weekend
+
+= Details =
+
+Tim needs to blog on these topics (not yet done) in no particualr order
+  * issues when filming
+  * issues converting classroom course into segmented blocks that can be moodled
+  * use of premiere
+  * exporting power point slides
+  * inventing course nomenclature
+  * Using Camstudio to record screen manouvres
+  * types of content that we videoed (not all just pieces to camera)
+  * issues about renderding camstudio avi file in premiere - used after effects
+  * Exporting settings in sorenson squeeze
+
+Also on moodle
+  * concept of 
