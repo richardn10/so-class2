@@ -18,7 +18,7 @@ You'll find information here on:
 Read [Workpackage_Repository_InstallingSVN]
 
 == Checking out files ==
-Read [Workpackage_Repository_CheckngOutFiles]
+Read [Workpackage_Repository_CheckingOutFiles]
 
 == Committing your changes ==
 Read [Workpackage_Repository_CommittingChanges]
