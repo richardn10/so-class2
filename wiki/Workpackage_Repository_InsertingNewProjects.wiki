@@ -21,7 +21,7 @@ This will create a directory under your current directory called so-class2 with 
 == Inserting a new project with TortoiseSVN on Windows ==
 
   * Go to the folder where your main project folder is.  (eg. If your main project is a folder called {{{lessons}}} and this is in your {{{Documents}}} folder, go to the {{{Documents}}} folder).
-  * Right click on the folder and a menu will come up
+  * Right click on the folder ({{{lessons}}} in this example) and a menu will come up
     * click the {{{TortoiseSVN}}} menu item
     * click the {{{Import...}}} menu item
       In the "URL of repository" box, type:
