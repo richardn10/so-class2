@@ -1,0 +1,47 @@
+#summary Tips for installing Moodle
+
+= Introduction =
+
+Add your content here.
+
+= Pre requisites =
+
+ * LAMP (Linux Apache MySQL PHP) installed!
+
+= Install of Moodle =
+
+TODO... Richard did it!
+
+= Post-install system config =
+
+These are changes that don't need to be in source control (subversion), since they are system configuration items - even though they require changes to some files.
+
+# Allow symbolic links.<br />
+# (By default these aren't allowed from a system security perspective... however moodle uses symbolic links for e.g. images.)<br />
+#<br />
+vi /etc/apache2/conf.d/moodle_include.conf
+  within '<Directory /srv/www/moodle>'
+  modify
+    'Options None'
+  to be
+    'Options FollowSymLinks'
+
+# Allow apache to write to the moodle and moodledata directories.<br />
+# (Apache runs as root, but its client threads run as wwwrun.)<br />
+# Specifically the moodledata/sessions/ directory - otherwise moodle authenticates you, but doesn't remember you as being logged in.<br />
+# Also allow the users group to write files in the directory.<br />
+#<br />
+  chown -R wwwrun:users /srv/www/moodle
+  chown -R wwwrun:users /srv/www/moodledata
+#<br />
+  chmod -R 775 /srv/www/moodle
+  chmod -R 775 /srv/www/moodledata
+
+# Since the local network (whilst in Cambridge at least) doesn't have a DNS server, don't have moodle re-write the URL to use the domain name of the server.<br />
+# Just use the IP instead.<br />
+#<br />
+vi /srv/www/moodle/config.php
+  Modify the '$CFG->wwwroot' value to be
+    'http://192.168.0.50/moodle'
+  Instead of the e.g. default
+    'http://linux-wmf0/moodle'
