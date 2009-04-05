@@ -15,3 +15,11 @@ In setting up the moodle on 192.168.0.50 (linux-wmf0) I made the following accou
 
 *pupil* was connected to moodle pupil101@gmail.com email address, and assigned the roles
 *student*
+
+= GMail accounts =
+
+moodleteacher101   password: swan
+
+moodlepupil101     password: swan
+
+security answer: cambridge
