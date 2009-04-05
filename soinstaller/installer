@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# installer
+#
+# Copyright (c) 2009, Switched On
+#
+# Install script for updating and configuring a base OpenSUSE 11.1 
+# installation to make it a "Switched On" machine.
+#
+#
+
+
+
+#==================
+# Install packages
+#==================
+# Check file exists
+# if not, assume no packages and continue
+# loop through each line of the file
+# if the line does not begin with # and is not blank, then
+# install that package
+if [ -f packages ]
+then
+  for i in 1 2 3
+  do
+    echo "$i"
+  done
+fi
+
