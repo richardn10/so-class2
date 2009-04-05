@@ -8,10 +8,13 @@ If you've been working on a new project, or a new section of a project, you will
 
 == Inserting a new project with SVN on Linux ==
 
-*INCORRECT*
-  * Log into [http://code.google.com/p/so-class2/source/checkout] and copy the top of the two examples _the one that has {{{https://}}} not {{{http://}}}_ (if there's only one example, you've not yet logged in).
+  * Log into [http://code.google.com/p/so-class2/source/checkout] and make a note of the username on the end of the top of the two examples _the one that has {{{https://}}} not {{{http://}}}_ (if there's only one example, you've not yet logged in).
 
-  * If you're asked for your password, click "googlecode.com password" on the googlecode page to get your Google Code password)
+  * Go to the folder where your main project folder is.  (eg. If your main project is a folder called {{{lessons}}} and this is in your {{{docs}}} folder, go into the {{{docs}}} folder).
+
+  * Type {{{svn import lessons https://so-class2.googlecode.com/svn/trunk/lessons -m "LESSONS: First Import"}}}  Change the message to reflect the project more accurately.
+
+  * If you're asked for your password, you can click "googlecode.com password" on the googlecode page to get your Google Code password)
 
 This will create a directory under your current directory called so-class2 with all the files in it.
 
@@ -25,8 +28,8 @@ This will create a directory under your current directory called so-class2 with 
     * click the {{{TortoiseSVN}}} menu item
     * click the {{{Import...}}} menu item
       In the "URL of repository" box, type:
-      {{{https://so-class2.googlecode.com/svn/trunk/project/}}}
-      Replace the word {{{project}}} with a name for your project.  Don't forget to have a {{{/}}} on the end!
+      {{{https://so-class2.googlecode.com/svn/trunk/lessons/}}}
+      Replace the word {{{lessons}}} with the actual name for your project.  Don't forget to have a {{{/}}} on the end!
     * Type in a message describing the project you are inserting
     * Click OK
 
