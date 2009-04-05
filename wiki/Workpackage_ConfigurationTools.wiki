@@ -1,14 +1,14 @@
-#summary More detailed info describing the workpackage.
+#summary Create HQ CDs for distributing the system and develop the Switched On Configuration Tool for managing classroom servers.
 
 Go back to TheChallenge.
 
 = Introduction =
-Read WorkpackageDocumentationInstructions
+The configuration of Switched On has several parts:
+  # A *tool creation script* to get all resouces from HQ and create an Installation CD containing all needed pckages, configuration file and artefacts.
+  # An *install script* which will turn an openSUSE 11.1 machine into a _Switched On_ machine, installing all needed packages, configuration files and artefacts.
+  # The *Switched On Configuration Tool* - which runs automatically in a browser from the Installation CD once the machine has been _Switched On_.  This allows installing of Lessons, Media and (perhaps) users contained on the CD.
 
 = Requirements =
-
-= Setting up SVN =
-Read [Workpackage_ConfigurationTools_SVNInstructions]
 
 = Team documentation =
 (Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
