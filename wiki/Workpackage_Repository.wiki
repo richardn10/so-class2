@@ -1,16 +1,27 @@
-#summary One-sentence summary of this page.
+#summary Information about the Switched On repository on Google Code.
 
 = Introduction =
 
-Add your content here.
+All our work (pictures, documentation, cofiguration files and scripts) will be stored on the Google Code repository.
 
+This repository is a Subversion (SVN) repository and as such, you need to use subversion software it store your files on it and to get access to other people's work.
+
+You'll find information here on:
+  * Installing subversion on your computer
+  * Checking out files (getting them from the repository)
+  * Committing your changes (writing your new or modified files to the repository)
+  * Inserting new projects into the repository
 
 = Details =
 
-== Setting up SVN ==
-Read [Workpackage_Repository_SVNInstructions]
+== Installing subversion on your computer ==
+Read [Workpackage_Repository_InstallingSVN]
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Checking out files ==
+Read [Workpackage_Repository_CheckngOutFiles]
+
+== Committing your changes ==
+Read [Workpackage_Repository_CommittingChanges]
+
+== Inserting new projects ==
+Read [Workpackage_Repository_InsertingNewProjects]
