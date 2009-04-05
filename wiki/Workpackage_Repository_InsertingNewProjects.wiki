@@ -1,13 +1,14 @@
-#summary One-sentence summary of this page.
+#summary Instructions for inserting a new project into the repository.
 
 = Introduction =
 
-Add your content here.
-
+If you've been working on a new project, or a new section of a project, you will eventually want to insert it into the repository so that it can be shared with everyone and you can keep track of versions.
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Inserting a new project with SVN on Linux ==
+
+== Inserting a new project with TortoiseSVN on Windows ==
+
+  * Go to the folder where your main project folder is.  (eg. If your main project is a folder called {{{lessons}}} and this is in your {{{Documents}}} folder, go to the {{{Documents}}} folder).
+  * Right click on the folder... to be continued...
