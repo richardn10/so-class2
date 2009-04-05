@@ -27,7 +27,7 @@ This will create a directory under your current directory called so-class2 with 
       In the "URL of repository" box, type:
       {{{https://so-class2.googlecode.com/svn/trunk/project/}}}
       Replace the word {{{project}}} with a name for your project.  Don't forget to have a {{{/}}} on the end!
-    * Type in a message descriing the project you are inserting
+    * Type in a message describing the project you are inserting
     * Click OK
 
   * If prompted for your username and password, enter the details you find here (you'll need to log in to google for this):
