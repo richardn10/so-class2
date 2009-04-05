@@ -27,6 +27,14 @@ IP: 192.168.0.8
 
 || Username || Password ||
 || admin || moodle ||
+|| teacher || moodle ||
+|| pupil || moodle ||
+
+
+The following list are the users on .0.12 - from Sunday 5th April we are using .0.50 linux server
+
+|| Username || Password ||
+|| admin || moodle ||
 || pair1 || password ||
 || pair2 || password ||
 || pair3 || password ||
