@@ -21,7 +21,8 @@ You might want to run {{{svn status}}} again and check that there are no unexpec
 == Committing your changes with SVN on Linux ==
 In the "so-class2" directory, run {{{svn commit -m "PROJECT: a comment to describe your changes here"}}}
 
-*Please prepend the name of the project to the commit message.*  This will make it much easier to see which commit messages affected which project. Thanks.
+*Please prepend the name of the project to the commit message.*
+This will make it much easier to see which commit messages affected which project. Thanks.
 
 
 == Committing your changes with TortoiseSVN on Windows ==
