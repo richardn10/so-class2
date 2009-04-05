@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Now that you have subversion on your computer (if you don't, read Workpackage_Repository_InstallingSVN), you may want to have a look at all the files everyone has been creating.  You do this by getting a copy of the files from the repository.  This is simple, and is called Checking Out the files.
+Now that you have subversion on your computer (if you don't, read [Workpackage_Repository_InstallingSVN]), you may want to have a look at all the files everyone has been creating.  You do this by getting a copy of the files from the repository.  This is simple, and is called Checking Out the files.
 
 = Details =
 
