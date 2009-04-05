@@ -27,7 +27,7 @@ IP: 192.168.0.8
 
 || Username || Password || Roles ||
 || admin || moodle || has full administrative rights to the moodle install ||
-|| teacher || moodle || has full ability to set up and edit courses for pupils to run ||
+|| *teacher* || moodle || has full ability to set up and edit courses for pupils to run ||
 || pupil || moodle || only has the ability to do a course, not edit it ||
 
 
