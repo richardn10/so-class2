@@ -25,7 +25,7 @@ This will create a directory under your current directory called so-class2 with 
     * click the {{{TortoiseSVN}}} menu item
     * click the {{{Import...}}} menu item
       In the "URL of repository" box, type:
-      {{{https://so-class2.googlecode.com/svn/trunk/*project/*}}}
+      {{{https://so-class2.googlecode.com/svn/trunk/project/}}}
       Replace the word {{{project}}} with a name for your project.  Don't forget to have a / on the end!
     * Type in a message descriing the project you are inserting
     * Click OK
