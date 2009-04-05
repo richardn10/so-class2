@@ -1,0 +1,50 @@
+#! /bin/sh
+
+# autorun binary for Linux CDs. Put this file on the CD in the root
+# directory.  It will execute automatically when the CD is inserted.
+# It looks for a browser and runs it on index.html or similar.
+
+# Copyleft 1999, 2000, 2001, 2002 Silmaril Consultants
+# Terms of the GNU General Public License apply.
+
+###################################################################
+CURRENTDIR = $(dirname $0)
+
+
+BROWSER=`which mozilla 2>&1`
+
+if [ ! -x "$BROWSER" ]; then
+
+    BROWSER=`which netscape`
+
+    if [ ! -x "$BROWSER" ]; then
+
+	BROWSER=`which opera`
+
+	if [ ! -x "$BROWSER" ]; then
+
+	    BROWSER=`which konqueror`
+
+	    if [ ! -x "$BROWSER" ]; then
+
+		echo No known browser available
+		exit 1
+
+	    fi
+
+	fi
+
+    fi
+
+fi
+
+HOMEPAGE=`grep homepage autorun.inf | awk 'BEGIN {FS="="} {print $2}'`
+
+
+if [ ! -f "$HOMEPAGE" ]; then
+
+    $BROWSER $CURRENTDIR index.html &
+
+fi
+
+exit 0
