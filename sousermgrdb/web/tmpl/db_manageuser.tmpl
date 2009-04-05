@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+   <head>
+      <title>SwitchedOn: User Manager</title>
+	<meta http-equiv="Content-Language" content="English" />
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta name="author" content="SwitchedOn" />
+	<meta name="description" content="Empowering ethically through IT" />
+	<meta name="keywords" content="switchedon, switched, on, IT, computer, internet, underprivileged, ethically" />	
+	<meta name="Robots" content="index,follow" />
+      <link href="tmpl/styles/sousermgr.css" rel="stylesheet" type="text/css" />
+
+   </head>
+
+   <body>
+        <div id="container">
+
+            <div id="container-header">
+                <div id="container-name"><span>Switched</span>On</div>
+		<div id="container-slogan">User Manager</div>
+            </div>
+            
+	    <div id="container-eyecatcher">
+                <div id="container-navigation"><ul id="navigation"><li><a href="#">Home</a></li><li><a href="#">Register Users Attendance</a></li><li><a href="db_adduser.php">Add User</a></li><li><a href="db_manageusers.php">Manage Users and Subscriptions</a></li><li><a href="#">Logout</a></li></ul></div>
+            <img src="tmpl/images/SO_eyecatcher.jpg" alt="SwitchedOn picture" />
+	    </div>
+
+            <div id="container-content">
+
+		<div id="content">
+                
+                	<h1><TMPL_VAR NAME="title"> <span><TMPL_VAR NAME="body"></span></h1>
+
+                	<p>Please update any of the information below, then click Submit.
+</p>
+
+  <form id="fm-form" method="post" action="db_putstudent.php" >
+    <fieldset>
+    <legend>Personal Information</legend>
+    <div class="fm-req">
+      <label for="fm-firstname">First name(s):</label>
+      <input name="firstname" id="fm-firstname" type="text" value="<TMPL_VAR NAME='firstname'>" />
+      <input name="student_id" id="fm-id" type="hidden" value="<TMPL_VAR NAME='id'>" />
+    </div>
+    <div class="fm-req">
+      <label for="fm-lastname">Last name:</label>
+      <input name="lastname" id="fm-lastname" type="text" value="<TMPL_VAR NAME='lastname'>" />
+    </div>
+    <div class="fm-opt">
+      <label for="fm-dob">Date of Birth:</label>
+      <select id="fm-dobday" name="dobday">
+        <option value="01"<TMPL_IF NAME='dobday01'> checked</TMPL_IF>>01</option>
+        <option value="02"<TMPL_IF NAME='dobday02'> checked</TMPL_IF>>02</option>
+        <option value="03"<TMPL_IF NAME='dobday03'> checked</TMPL_IF>>03</option>
+        <option value="04"<TMPL_IF NAME='dobday04'> checked</TMPL_IF>>04</option>
+        <option value="05"<TMPL_IF NAME='dobday05'> checked</TMPL_IF>>05</option>
+        <option value="06"<TMPL_IF NAME='dobday06'> checked</TMPL_IF>>06</option>
+        <option value="07"<TMPL_IF NAME='dobday07'> checked</TMPL_IF>>07</option>
+        <option value="08"<TMPL_IF NAME='dobday08'> checked</TMPL_IF>>08</option>
+        <option value="09"<TMPL_IF NAME='dobday09'> checked</TMPL_IF>>09</option>
+        <option value="10"<TMPL_IF NAME='dobday10'> checked</TMPL_IF>>10</option>
+        <option value="11"<TMPL_IF NAME='dobday11'> checked</TMPL_IF>>11</option>
+        <option value="12"<TMPL_IF NAME='dobday12'> checked</TMPL_IF>>12</option>
+        <option value="13"<TMPL_IF NAME='dobday13'> checked</TMPL_IF>>13</option>
+        <option value="14"<TMPL_IF NAME='dobday14'> checked</TMPL_IF>>14</option>
+        <option value="15"<TMPL_IF NAME='dobday15'> checked</TMPL_IF>>15</option>
+        <option value="16"<TMPL_IF NAME='dobday16'> checked</TMPL_IF>>16</option>
+        <option value="17"<TMPL_IF NAME='dobday17'> checked</TMPL_IF>>17</option>
+        <option value="18"<TMPL_IF NAME='dobday18'> checked</TMPL_IF>>18</option>
+        <option value="19"<TMPL_IF NAME='dobday19'> checked</TMPL_IF>>19</option>
+        <option value="20"<TMPL_IF NAME='dobday20'> checked</TMPL_IF>>20</option>
+        <option value="21"<TMPL_IF NAME='dobday21'> checked</TMPL_IF>>21</option>
+        <option value="22"<TMPL_IF NAME='dobday22'> checked</TMPL_IF>>22</option>
+        <option value="23"<TMPL_IF NAME='dobday23'> checked</TMPL_IF>>23</option>
+        <option value="24"<TMPL_IF NAME='dobday24'> checked</TMPL_IF>>24</option>
+        <option value="25"<TMPL_IF NAME='dobday25'> checked</TMPL_IF>>25</option>
+        <option value="26"<TMPL_IF NAME='dobday26'> checked</TMPL_IF>>26</option>
+        <option value="27"<TMPL_IF NAME='dobday27'> checked</TMPL_IF>>27</option>
+        <option value="28"<TMPL_IF NAME='dobday28'> checked</TMPL_IF>>28</option>
+        <option value="29"<TMPL_IF NAME='dobday29'> checked</TMPL_IF>>29</option>
+        <option value="30"<TMPL_IF NAME='dobday30'> checked</TMPL_IF>>30</option>
+        <option value="31"<TMPL_IF NAME='dobday31'> checked</TMPL_IF>>31</option>
+      </select>
+      <select id="fm-dobmonth" name="dobmonth">
+        <option value="01"<TMPL_IF NAME='dobmonth01'> checked</TMPL_IF>>January</option>
+        <option value="02"<TMPL_IF NAME='dobmonth02'> checked</TMPL_IF>>February</option>
+        <option value="03"<TMPL_IF NAME='dobmonth03'> checked</TMPL_IF>>March</option>
+        <option value="04"<TMPL_IF NAME='dobmonth04'> checked</TMPL_IF>>April</option>
+        <option value="05"<TMPL_IF NAME='dobmonth05'> checked</TMPL_IF>>May</option>
+        <option value="06"<TMPL_IF NAME='dobmonth06'> checked</TMPL_IF>>June</option>
+        <option value="07"<TMPL_IF NAME='dobmonth07'> checked</TMPL_IF>>July</option>
+        <option value="08"<TMPL_IF NAME='dobmonth08'> checked</TMPL_IF>>August</option>
+        <option value="09"<TMPL_IF NAME='dobmonth09'> checked</TMPL_IF>>September</option>
+        <option value="10"<TMPL_IF NAME='dobmonth10'> checked</TMPL_IF>>October</option>
+        <option value="11"<TMPL_IF NAME='dobmonth11'> checked</TMPL_IF>>November</option>
+        <option value="12"<TMPL_IF NAME='dobmonth12'> checked</TMPL_IF>>December</option>
+      </select>
+      <select id="fm-dobyear" name="dobyear">
+        <option value="1950"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1950</option>
+        <option value="1951"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1951</option>
+        <option value="1952"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1952</option>
+        <option value="1953"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1953</option>
+        <option value="1954"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1954</option>
+        <option value="1955"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1955</option>
+        <option value="1956"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1956</option>
+        <option value="1957"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1957</option>
+        <option value="1958"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1958</option>
+        <option value="1959"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1959</option>  
+        <option value="1960"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1960</option>
+        <option value="1961"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1961</option>
+        <option value="1962"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1962</option>
+        <option value="1963"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1963</option>
+        <option value="1964"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1964</option>
+        <option value="1965"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1965</option>
+        <option value="1966"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1966</option>
+        <option value="1967"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1967</option>
+        <option value="1968"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1968</option>
+        <option value="1969"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1969</option>
+        <option value="1970"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1970</option>
+        <option value="1971"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1971</option>
+        <option value="1972"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1972</option>
+        <option value="1973"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1973</option>
+        <option value="1974"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1974</option>
+        <option value="1975"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1975</option>
+        <option value="1976"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1976</option>
+        <option value="1977"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1977</option>
+        <option value="1978"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1978</option>
+        <option value="1979"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1979</option>
+        <option value="1980"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1980</option>
+        <option value="1981"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1981</option>
+        <option value="1982"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1982</option>
+        <option value="1983"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1983</option>
+        <option value="1984"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1984</option>
+        <option value="1985"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1985</option>
+        <option value="1986"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1986</option>
+        <option value="1987"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1987</option>
+        <option value="1988"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1988</option>
+        <option value="1989"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1989</option>
+        <option value="1990"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1990</option>
+        <option value="1991"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1991</option>
+        <option value="1992"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1992</option>
+        <option value="1993"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1993</option>
+        <option value="1994"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1994</option>
+        <option value="1995"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1995</option>
+        <option value="1996"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1996</option>
+        <option value="1997"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1997</option>
+        <option value="1998"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1998</option>
+        <option value="1999"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>1999</option>
+        <option value="2000"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2000</option>
+        <option value="2001"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2001</option>
+        <option value="2002"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2002</option>
+        <option value="2003"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2003</option>
+        <option value="2004"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2004</option>
+        <option value="2005"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2005</option>
+        <option value="2006"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2006</option>
+        <option value="2007"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2007</option>
+        <option value="2008"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2008</option>
+        <option value="2009"<TMPL_IF NAME='dobyear1950'> checked</TMPL_IF>>2009</option>		
+      </select>
+    </div>
+    <div class="fm-req">
+      <label for="fm-username">Username:</label>
+      <input name="username" id="fm-username" type="text" value="<TMPL_VAR NAME='username'>"/>
+    </div>
+    <div class="fm-req">
+      <label for="fm-password">Password:</label>
+      <input name="password" id="fm-password" type="password" value="<TMPL_VAR NAME='password'>"/>
+    </div>	
+    </fieldset>
+	
+    <fieldset>
+    <legend>Address </legend>
+    <div class="fm-opt">
+      <label for="fm-addr">Building number:</label>
+      <input id="fm-addr" name="building" type="text" value="<TMPL_VAR NAME='building'>"/>
+    </div>
+    <div class="fm-opt">
+      <label for="fm-street">Street:</label>
+      <input id="fm-street" name="street" type="text" value="<TMPL_VAR NAME='street'>"/>
+    </div>
+    <div class="fm-opt">
+      <label for="fm-city">City or Town:</label>
+      <input id="fm-city" name="city" type="text" value="<TMPL_VAR NAME='city'>"/>
+    </div>
+    <div class="fm-opt">
+      <label for="fm-district">District:</label>
+      <input id="fm-district" name="district" type="text" value="<TMPL_VAR NAME='district'>"/>
+    </div>
+    <div class="fm-req">
+      <label for="fm-postcode">Postcode:</label>
+      <input id="fm-postcode" name="postcode" type="text" value="<TMPL_VAR NAME='postcode'>"/>
+    </div>
+    </fieldset>
+    <fieldset>
+
+    <legend>Contact Information</legend>
+    <div class="fm-req">
+      <label for="fm-telephone">Telephone:</label>
+      <input id="fm-telephone" name="telephone" type="text" title="Enter Phone Number in xxx-xxx-xxxx format" value="<TMPL_VAR NAME='telephone'>"/>
+    </div>
+    <div class="fm-opt">
+      <label for="fm-mobile">Mobile:</label>
+      <input id="fm-mobile" name="mobile" type="text" value="<TMPL_VAR NAME='mobile'>"/>
+    </div>
+    </fieldset>
+
+    <div id="fm-submit" class="fm-req">
+      <input name="Submit" value="Submit" type="submit" /><br /><br />
+    </div>
+  </form>
+			
+			
+		</div> <!-- CONTENT END -->
+
+		<div id="border">
+			<h4>More About Us</h4>
+			<ul id="subnavigation">
+				<li><a href="http://www.switchedon.org/">SwitchedOn</a></li><!--<li><a href="#">Link to a subpage 2</a></li><li><a href="#">Link to a subpage 3</a></li>-->
+			</ul>
+			<hr />
+
+			<h4>Latest News</h4>
+			<ul id="news">
+				<li>This is a beta site</li>
+				<li>Produced at the SwitchedOn Developer workship</li>
+				<li>04/04/09</li>
+			</ul>
+
+			<hr />
+
+			<h4>Our Address</h4>
+			<p>Switched On (International)<br />
+3 Cranborne Chase<br />
+IPSWICH<br />
+IP4 3EQ<br />
+England<br /><br />
+
+Registered charity No:<br />1116769<br /><br />
+				
+Registered company No:<br />5907599<br /><br />
+
+				
+E-Mail: <a href="mailto:admin@switchedon.org">admin@switchedon.org</a>
+			</p>
+
+		</div>
+
+	    </div>
+
+            <div id="container-footer">
+                 <div id="footer">
+                    <div id="footer-copyright">&copy; 2009 switchedon.org - all rights reserved. <a href="#">Terms of use</a></div><div id="footer-meta"><a href="http://validator.w3.org/check?uri=referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.christian-pansch.de" title="Webdesign Bremen">Design by christian-pansch.de</a> </div></div>
+            </div>
+
+        </div> <!-- ENDE container -->
+   </body>
+</html>
