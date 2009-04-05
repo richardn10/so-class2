@@ -8,27 +8,32 @@
 # Terms of the GNU General Public License apply.
 
 ###################################################################
-CURRENTDIR = $(dirname $0)
+CURRENTDIR=$(dirname $0)
 
 
 BROWSER=`which mozilla 2>&1`
 
 if [ ! -x "$BROWSER" ]; then
 
-    BROWSER=`which netscape`
-
+    BROWSER=`which firefox`
+    
     if [ ! -x "$BROWSER" ]; then
 
-	BROWSER=`which opera`
+        BROWSER=`which netscape`
 
-	if [ ! -x "$BROWSER" ]; then
+        if [ ! -x "$BROWSER" ]; then
 
-	    BROWSER=`which konqueror`
+	    BROWSER=`which opera`
 
 	    if [ ! -x "$BROWSER" ]; then
 
-		echo No known browser available
-		exit 1
+	        BROWSER=`which konqueror`
+
+	        if [ ! -x "$BROWSER" ]; then
+
+		    echo No known browser available
+		    exit 1
+                fi
 
 	    fi
 
@@ -38,13 +43,17 @@ if [ ! -x "$BROWSER" ]; then
 
 fi
 
-HOMEPAGE=`grep homepage autorun.inf | awk 'BEGIN {FS="="} {print $2}'`
+HOMEPAGE=""
+if [ -f "$CURRENTDIR/autorun.inf" ]; then
+    HOMEPAGE=`grep homepage $CURRENTDIR/autorun.inf | awk 'BEGIN {FS="="} {print $2}'`
+fi
 
-
-if [ ! -f "$HOMEPAGE" ]; then
-
-    $BROWSER $CURRENTDIR index.html &
-
+if [ -f "$HOMEPAGE" ]; then
+    $BROWSER $HOMEPAGE &
+else
+    if [ -f "$CURRENTDIR/index.html" ]; then
+        $BROWSER $CURRENTDIR/index.html &
+    fi
 fi
 
 exit 0
