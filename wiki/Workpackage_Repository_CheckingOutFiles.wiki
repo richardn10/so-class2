@@ -8,7 +8,7 @@ Now that you have subversion on your computer (if you don't, read [Workpackage_R
 
 == Checking out the Switched On files with SVN on Linux ==
 
-  * Log into [http://code.google.com/p/so-class2/source/checkout] and copy the top of the two examples _the one that has {{{https://}}} not {{{http://}}}_ (if there's only one example, you've not yet logged in).
+  * Log into [http://code.google.com/p/so-class2/source/checkout] and copy the top of the two examples *the one that has {{{https://}}} not {{{http://}}}* (if there's only one example, you've not yet logged in).
 
   * If you're asked for your password, click "googlecode.com password" on the googlecode page to get your Google Code password)
 
