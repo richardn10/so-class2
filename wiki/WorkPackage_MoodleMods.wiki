@@ -17,4 +17,4 @@ Edited the moodle/theme/standardwhite/header.html file to include the javascript
 *Adding a new video*
 
   * Add your flv (384 x 288) to the moodle/theme/standardwhite/flash/flv/ directory
-  * In the wysiwyg editor click on the html button to switch to html editing and insert the code : <div class="so_flv" rel="myflvfile"></div> where my flvfile is the name of your flv without the file extension.
+  * In the wysiwyg editor click on the html button to switch to html editing and insert the code : `<div class="so_flv" rel="myflvfile"></div>` where my flvfile is the name of your flv without the file extension.
