@@ -1,0 +1,54 @@
+#summary Description of the soClass_Timer Service
+
+= Introduction =
+
+The soClassTimer service is a Windows Service that logs off a user from a workstation after a designated period of time has elapsed.
+
+This page describes the work done to date (07/04/2009).
+
+== SVN Details ==
+
+The source code is in the so_classTimer folder.  The service has been written in C# using version 2.0 of the .Net Framework.
+
+== Installing the Service ==
+
+After the code has been compiled the service must be registered on the machine so that it appears in the list of services.  To do that, place the regsvc.bat file in the same folder as the so_classTimer.exe file and run it.  To remove the service, do the same with unregsvc,bat.
+
+== Current Functionality ==
+
+This code is found in the serviceTask function.
+
+1. Get the name of the computer.
+
+2. Search the event log for the most recent logoff event (event code 4647) for the user.
+
+3. Search the event log for the most recent logon event (event code 4624) for the user.
+
+4. Continue if the logon time was later than the logoff time.
+
+5. Connect to the so_class database on the server.
+
+6. select iMinutes from tblworkstation where strWorkstation = this workstation name.
+
+7. If the time elapsed since the last logon has exceeded what is defined in tblworkstation then continue.
+
+8. Use WMI to connect to the workstation.
+
+9. Send a Win32Shutdown command to logoff the machine.
+
+
+== ToDo List ==
+
+1. Include tblworkstation in the creation script for the so_class database.
+
+2. Store the user's logon name in tblworkstation and retrieve it before steps 2 and 3 above.
+
+3. Add a new field to tblworkstation that will store the date and time of the last communication from the workstation.  Update this field from the so_classTimer service.  This will enable the facilitator to see if the service has crashed.
+
+4. Warn the user 5 minutes before logging off.
+
+5. Store the elapsed time since the last logon in tblworkstation.  This will enable the facilitator to see if any user has prevented the service from logging them off.
+
+6. Store the IP address of the database server in the workstations registry and retrieve it in stage 6 above.
+
+7. Create a user called so_classTimer on the database (password is currently hard-coded as password).
