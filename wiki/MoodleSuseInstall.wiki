@@ -113,7 +113,7 @@ vi /srv/www/moodle/config.php
   Instead of the e.g. default
     'http://linux-wmf0/moodle'
 
-= Upgrade =
+= Move Moodle to new server (and upgrade) =
 The following worked from openSUSE 11.0 to openSUSE 11.1
 
 Adapted from: http://docs.moodle.org/en/Upgrading
@@ -124,6 +124,11 @@ Backup 11.0 database:
 {{{
 mysqldump -u root -p -C -Q -e -a moodle > moodle-backup-DATE.sql
 }}}
+
+# Backup moodledata
+   # cp -Rp /srv/www/moodledata store/
+
+# Move to new server or reinstall OS
 
 # Create the database for moodle (as above)
 {{{
@@ -137,18 +142,17 @@ mysqldump -u root -p -C -Q -e -a moodle > moodle-backup-DATE.sql
    mysql> quit
 }}}
 
-# Backup moodledata
-   # cp -Rp /srv/www/moodledata store/
-
-# Move to new server or reinstall OS
-
 # Copy in moodledata
    # cp -Rp store/moodledata /srv/www/
 
-# Install base software - 
-Install mysql and moodle
+Note there should not be a /srv/www/moodle directory.  This is to be installed next.
 
-Also install xmlrpc for php (will be reminded of later if don't do now).
+# Install base software - 
+Install:
+ * mysql
+ * php
+ * moodle
+ * xmlrpc for php (will be reminded of later if don't do now).
 
 # Install the backed-up database
    # mysql -u root (-p) moodle < moodle-backup-DATE.sql
