@@ -131,8 +131,7 @@ mysqldump -u root -p -C -Q -e -a moodle > moodle-backup-DATE.sql
    or (if you havn't set the mysql-password):
    # mysql -u root
    mysql> CREATE DATABASE moodle DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-   mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON mo
-odle.* TO moodleuser@localhost IDENTIFIED BY 'passwd';
+   mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO moodleuser@localhost IDENTIFIED BY 'passwd';
    mysql> flush privileges;
    mysql> quit
 
@@ -150,7 +149,5 @@ This step runs code to upgrade the database that has been installed.
 Go to http://localhost/moodle/admin/
 
 Follow the prompts.
-
-
 
 
