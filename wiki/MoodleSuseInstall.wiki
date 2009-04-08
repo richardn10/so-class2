@@ -19,8 +19,7 @@ Notes from /usr/share/doc/packages/moodle/README.SuSE
    or (if you havn't set the mysql-password):
    # mysql -u root
    mysql> CREATE DATABASE moodle DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-   mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON mo
-odle.* TO moodleuser@localhost IDENTIFIED BY 'passwd';
+   mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO moodleuser@localhost IDENTIFIED BY 'passwd';
    mysql> flush privileges;
    mysql> quit
 
@@ -127,6 +126,7 @@ mysqldump -u root -p -C -Q -e -a moodle > moodle-backup-DATE.sql
 }}}
 
 # Create the database for moodle (as above)
+{{{
 1) Start mysql (rcmysql start) and create a database for Moodle as root:
    # mysql -u root -p
    or (if you havn't set the mysql-password):
@@ -135,6 +135,7 @@ mysqldump -u root -p -C -Q -e -a moodle > moodle-backup-DATE.sql
    mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO moodleuser@localhost IDENTIFIED BY 'passwd';
    mysql> flush privileges;
    mysql> quit
+}}}
 
 # Backup moodledata
    # cp -Rp /srv/www/moodledata store/
