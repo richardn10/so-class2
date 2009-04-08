@@ -163,3 +163,5 @@ This step runs code to upgrade the database that has been installed.
 Go to http://localhost/moodle/admin/
 
 Follow the prompts.
+
+Follow "Post-install system config" instructions above.
