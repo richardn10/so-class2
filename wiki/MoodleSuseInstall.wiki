@@ -118,6 +118,7 @@ vi /srv/www/moodle/config.php
 The following worked from openSUSE 11.0 to openSUSE 11.1
 
 Adapted from: http://docs.moodle.org/en/Upgrading
+Note the above instructions (adapted from) assume upgrading moodle in place, i.e. that the database and that moodledata are unchanged from the previous version.  Moodle upgrades these automatically.  However, these instructions assume a fresh OS install.
 
 Backup 11.0 database:
 
@@ -135,6 +136,14 @@ mysqldump -u root -p -C -Q -e -a moodle > moodle-backup-DATE.sql
    mysql> flush privileges;
    mysql> quit
 
+# Backup moodledata
+   # cp -Rp /srv/www/moodledata store/
+
+# Move to new server or reinstall OS
+
+# Copy in moodledata
+   # cp -Rp store/moodledata /srv/www/
+
 # Install base software - 
 Install mysql and moodle
 
@@ -149,5 +158,3 @@ This step runs code to upgrade the database that has been installed.
 Go to http://localhost/moodle/admin/
 
 Follow the prompts.
-
-
