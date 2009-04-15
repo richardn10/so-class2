@@ -1,5 +1,6 @@
 #summary Starting point of guidance for developers and sys admins
 #labels Featured,Phase-Deploy
+#sidebar TableOfContents
 
 Go back to [Home].
 
