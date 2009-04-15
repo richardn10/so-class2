@@ -1,2 +1,2 @@
- * First page
- * Second page
+First page
+Second page
