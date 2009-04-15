@@ -1,8 +1,8 @@
-* _*Switched On*_
+* *_Switched On_*
 
 * [TheChallenge The Challenge]
 
-* [Workpackages _*_Workpackages*]
+* [Workpackages Workpackages]
  * [Workpackage_VideoAndPerformance Video and Performance]
  * [Workpackage_ConfigurationTools Configuration Tools]
  * [Workpackage_Repository The Repository]
