@@ -1,11 +1,10 @@
 #summary Instructions on installing SVN or TortoiseSVN and using the SO repository.
 
+<wiki:toc max_depth="2" />
+
 = Introduction =
 
-To keep all our files safe and in an organised structure, you will need to install SVN (Linux) or TortoiseSVN (Windows) on your computer.  For the MAC users amongst us... please edit this and tell us how you did it :-) I might get some time later in the weekend - sorry.
-
-
-= Details =
+To keep all our files safe and in an organised structure, you will need to install SVN (Linux) or TortoiseSVN (Windows) on your computer.  For the MAC users amongst us... please edit this and tell us how you did it :-)
 
 == Installing SVN for Linux ==
 
