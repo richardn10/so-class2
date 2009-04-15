@@ -16,7 +16,7 @@ Read WorkpackageDocumentationInstructions
 
 = Team documentation =
 
-Click here for information on [Workpackage_CourseContent_CreatingMoodleCourseVideo creating a Moodle course video].
+Click here for information on [Workpackage_CourseContent_CreatingMoodleCourseVideos creating a Moodle course video].
 
 ----
 
