@@ -15,6 +15,6 @@ The configuration of Switched On has several parts:
 
 ----
 
-= Work Package Team Members =
+= Workpackage Team Members =
  * Adam Bewsher
  * Ken Goddard
