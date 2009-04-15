@@ -1,8 +1,8 @@
+#summary Required functionality.
+
 = This page is Work in Progress and will be revised very substantially =
 
 See SO_DeveloperWeekend for more accurate requirements.
-
-#Required functionality.
 
 BackLog of stories
 
