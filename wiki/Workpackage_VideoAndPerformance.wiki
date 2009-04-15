@@ -2,6 +2,13 @@
 
 Go back to TheChallenge.
 
+= Team Members =
+ * Tom Welsh (back-end) [ just Saturday ]
+ * Phil Allnutt (front-end and Adobe Premiere Integration)
+ * Ben Formesyn (back-end) [ just Saturday ]
+ * Edward Buckley (mainly front-end, partly back-end)
+ * Tim Finch (arriving Sat night, help with Adobe Premiere Integration)
+
 = Introduction =
 Read WorkpackageDocumentationInstructions
 
