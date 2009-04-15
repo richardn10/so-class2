@@ -10,3 +10,14 @@ Read WorkpackageDocumentationInstructions
 
 = Team documentation =
 (Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
+
+----
+
+= Workpackage Team Members =
+
+ * Andy Howard - Computer Course, basic computer skills
+ * Maureen Flett - Computer course?
+ * Alex Flett - Business Skills course
+ * Nathan Redmon - Personal Development
+ * James Allen - Help the others enter things in Moodle, and generally get involved in techie aspects in the other teams as required.  Create a course if you desire!
+ * Tim Finch
