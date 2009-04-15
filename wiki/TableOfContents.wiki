@@ -8,6 +8,6 @@
  * [Workpackage_Repository The Repository]
  * [Workpackage_PaymentAndLogout Payment and Logout]
  * [Workpackage_GraphicDesign Graphic Design]
- * [Workpackage_CourseConsultants Course Content]
+ * [Workpackage_CourseContent Course Content]
 
 * [WorkpackageDocumentationInstructions Workpackage Documentation Instructions]
