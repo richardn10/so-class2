@@ -1,7 +1,7 @@
 #summary Required functionality.
 #sidebar TableOfContents
 
-Go back to [WikiHome Home].
+Go back to [Home].
 
 = This page is Work in Progress and will be revised very substantially =
 
