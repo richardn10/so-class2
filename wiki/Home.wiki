@@ -1,4 +1,5 @@
 #Switched On Classroom - Home
+#sidebar TableOfContents
 
 = Introduction =
 
