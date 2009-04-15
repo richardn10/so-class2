@@ -1,7 +1,7 @@
+#summary Starting point of guidance for developers and sys admins
 #labels Featured,Phase-Deploy
-= This page is Work in Progress and may change significantly =
 
-#Starting point of guidance for developers and sys admins
+= This page is Work in Progress and may change significantly =
 
 = Development server requirements =
   * Server with at least 6GB HD & 512 MB RAM. [http://www.vmware.com/products/server/ VMWare Server] recommended
