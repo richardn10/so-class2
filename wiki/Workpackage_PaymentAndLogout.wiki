@@ -1,15 +1,18 @@
 #summary More detailed info describing the workpackage.
+#sidebar TableOfContents
 
-Go back to TheChallenge.
+Go back to [Workpackages].
 
 = Introduction =
 Read WorkpackageDocumentationInstructions
 
 = Requirements =
 
+For details on setting up the the Moodle and Switched On databases, [Workpackage_PaymentAndLogout_Database click here].
 
 = Team documentation =
-(Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
+
+For details on the Auto Logout class, [Workpackage_PaymentAndLogout_soClassTimer click here].
 
 ----
 

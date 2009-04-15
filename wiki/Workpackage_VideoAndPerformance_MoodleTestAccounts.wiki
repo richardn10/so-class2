@@ -1,4 +1,7 @@
 #summary The test accounts we set up on Moodle running on  linux-wmf0 (192.168.0.50 on test LAN at Cambridge)
+#sidebar TableOfContents
+
+Go back to [Workpackage_VideoAndPerformance Video and Performance]
 
 = Introduction =
 

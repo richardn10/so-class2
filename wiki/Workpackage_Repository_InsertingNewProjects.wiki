@@ -1,4 +1,7 @@
 #summary Instructions for inserting a new project into the repository.
+#sidebar TableOfContents
+
+Go back to [Workpackage_Repository The Repository]
 
 = Introduction =
 

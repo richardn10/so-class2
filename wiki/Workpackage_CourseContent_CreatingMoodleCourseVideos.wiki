@@ -1,4 +1,7 @@
 #summary Breakdown of the work done at SO SpringOfCode09 on videroing a classroom course and making them into FLV files ready for Moodle
+#sidebar TableOfContents
+
+Go back to [Workpackage_CourseContent Course Content]
 
 = Introduction =
 

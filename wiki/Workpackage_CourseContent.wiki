@@ -1,6 +1,7 @@
 #summary More detailed info describing the workpackage.
+#sidebar TableOfContents
 
-Go back to TheChallenge.
+Go back to [Workpackages].
 
 = Introduction =
 Read WorkpackageDocumentationInstructions
@@ -14,7 +15,8 @@ Read WorkpackageDocumentationInstructions
   _*_Output:* the sample video and a list of guidelines to give to someone who will produce the videos from the footage.
 
 = Team documentation =
-(Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
+
+Click here for information on [Workpackage_CourseContent_CreatingMoodleCourseVideo creating a Moodle course video].
 
 ----
 

@@ -1,6 +1,7 @@
 #summary Create HQ CDs for distributing the system and develop the Switched On Configuration Tool for managing classroom servers.
+#sidebar TableOfContents
 
-Go back to TheChallenge.
+Go back to [Workpackages].
 
 = Introduction =
 The configuration of Switched On has several parts:

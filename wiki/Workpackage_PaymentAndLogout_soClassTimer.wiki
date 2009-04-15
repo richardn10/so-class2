@@ -1,4 +1,7 @@
 #summary Description of the soClass_Timer Service
+#sidebar TableOfContents
+
+Go back to [Workpackage_PaymentAndLogout Payment and Logout]
 
 = Introduction =
 

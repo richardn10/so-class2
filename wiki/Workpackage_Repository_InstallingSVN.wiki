@@ -1,7 +1,7 @@
 #summary Instructions on installing SVN or TortoiseSVN and using the SO repository.
 #sidebar TableOfContents
 
-<wiki:toc max_depth="2" />
+Go back to [Workpackage_Repository The Repository]
 
 = Introduction =
 

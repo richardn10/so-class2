@@ -1,4 +1,7 @@
 #summary Installing, etc. the MySQL database(s)
+#sidebar TableOfContents
+
+Go back to [Workpackage_PaymentAndLogout Payment and Logout]
 
 = Introduction =
 

@@ -1,4 +1,7 @@
 #summary Information about the Switched On repository on Google Code.
+#sidebar TableOfContents
+
+Go back to [Workpackages].
 
 = Introduction =
 

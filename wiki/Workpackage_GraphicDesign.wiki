@@ -1,6 +1,7 @@
 #summary More detailed info describing the workpackage.
+#sidebar TableOfContents
 
-Go back to TheChallenge.
+Go back to [Workpackages].
 
 = Introduction =
 Read WorkpackageDocumentationInstructions

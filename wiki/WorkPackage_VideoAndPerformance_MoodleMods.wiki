@@ -1,4 +1,7 @@
 #summary One-sentence summary of this page.
+#sidebar TableOfContents
+
+Go back to [Workpackage_VideoAndPerformance Video and Performance]
 
 = Introduction =
 

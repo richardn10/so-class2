@@ -1,18 +1,21 @@
 #summary More detailed info describing the workpackage.
+#sidebar TableOfContents
 
-Go back to TheChallenge.
+Go back to [Workpackages].
 
 = Introduction =
 Read WorkpackageDocumentationInstructions
 
 = Requirements =
 
-= Video Playback: Multiple playback synchronisation =
+== Video Playback: Multiple playback synchronisation ==
 
-For investigation of possibilities for this, read VideoPlaybackSynchInvestigation
+For investigation of possibilities for this, read the [Workpackage_VideoAndPerformance_VideoPlaybackSynchInvestigation video playback sync investigation]
 
 = Team documentation =
-(Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
+
+Details of the Moodle test user accounts are [Workpackage_VideoAndPerformance_MoodleTestAccounts here].
+Details of the modifications to Moodle to allow video playback are [Workpackage_VideoAndPerformance_MoodleMods here].
 
 ----
 

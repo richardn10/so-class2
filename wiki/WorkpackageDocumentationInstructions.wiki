@@ -1,4 +1,7 @@
 #summary How to use the Workpackage Wiki pages.
+#sidebar TableOfContents
+
+Go back to [Home].
 
 At the start of the developer weekend these wiki pages reflect Richard's requirements.  These may be modified as issues arise.  Richard will modify this text if necessary.
 

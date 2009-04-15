@@ -1,4 +1,7 @@
-Go back to [Workpackage_VideoAndPerformance]
+#summary Investigation of possibilities for how to playback synchronised video files across multiple clients.
+#sidebar TableOfContents
+
+Go back to [Workpackage_VideoAndPerformance Video and Performance]
 
 = Introduction =
 

@@ -1,4 +1,7 @@
 #summary Instructions on checking out subversion files.
+#sidebar TableOfContents
+
+Go back to [Workpackage_Repository The Repository]
 
 = Introduction =
 

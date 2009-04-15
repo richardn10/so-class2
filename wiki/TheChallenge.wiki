@@ -1,5 +1,7 @@
 #summary What we hope to demonstrate at the end of the Switched On Developer Weekend, and the team assignments.
 
+Go back to [Home].
+
 = Scenario =
 
 The setting is a computer training centre in Kotwali village, Malda, West Bengal, India.
