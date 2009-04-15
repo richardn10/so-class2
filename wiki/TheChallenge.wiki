@@ -1,7 +1,7 @@
 #summary What we hope to demonstrate at the end of the Switched On Developer Weekend, and the team assignments.
 #sidebar TableOfContents
 
-Go back to [WikiHome Home].
+Go back to [Home].
 
 = Scenario =
 
