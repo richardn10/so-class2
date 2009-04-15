@@ -11,3 +11,7 @@ You'll find information here on:
   * [Workpackage_Repository_CheckingOutFiles Checking out files] (getting them from the repository)
   * [Workpackage_Repository_CommittingChanges Committing your changes] (writing your new or modified files to the repository)
   * [Workpackage_Repository_InsertingNewProjects Inserting new projects into the repository]
+
+= Work Package Team Members =
+ * Adam Bewsher
+ * Ken Goddard
