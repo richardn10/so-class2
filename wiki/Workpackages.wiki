@@ -1,0 +1,53 @@
+#summary A list of the workpackages that make up this project.
+
+= Introduction =
+All these workpackages should co-operate towards successfully demonstrating [TheChallege the whole scenario]!
+
+Click on the workpackage titles for more detailed information.
+
+== [Workpackage_VideoAndPerformance Video and Performance] ==
+*Simultaneous Video Playback and Performance Monitoring & Tuning +  Video mode flipping*
+
+ * Tom Welsh (back-end) [ just Saturday ]
+ * Phil Allnutt (front-end and Adobe Premiere Integration)
+ * Ben Formesyn (back-end) [ just Saturday ]
+ * Edward Buckley (mainly front-end, partly back-end)
+ * Tim Finch (arriving Sat night, help with Adobe Premiere Integration)
+
+On Sat afternoon we will schedule a set of performance tests utilising all participants.
+
+== [Workpackage_ConfigurationTools Configuration Tools] ==
+ * Adam Bewsher
+ * Ken Goddard
+
+== [Workpackage_Repository The Repository] ==
+ * Adam Bewsher
+ * Ken Goddard
+
+== [Workpackage_PaymentAndLogout Payment and Logout] ==
+*Payment tracking and Automatic logout*
+
+ * Edward Ramsden
+ * Peter Edwards
+ * Peter Thorpe
+
+== [Workpackage_GraphicDesign Graphic Design] ==
+*Graphics and layout design*
+
+ * Neil Rogers
+
+== [Workpackage_CourseConsultants Course Content] ==
+*Produce demo video, sample course & guidelines*
+
+ * Andy Howard - Computer Course, basic computer skills
+ * Maureen Flett - Computer course?
+ * Alex Flett - Business Skills course
+ * Nathan Redmon - Personal Development
+ * James Allen - Help the others enter things in Moodle, and generally get involved in techie aspects in the other teams as required.  Create a course if you desire!
+ * Tim Finch helping Sunday
+
+Output for each course: Outline of whole course and one lesson in detail, following the methodology principles implied in the scenario.  
+
+Output as a group: Guidance on how to create the materials iteratively, how to train the facilitators, producing a course handbook for facilitators and students alike, and how to assess and improve.
+
+Output: the sample video and a list of guidelines to give to someone who will produce the videos from the footage.
