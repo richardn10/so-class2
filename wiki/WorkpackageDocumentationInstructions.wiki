@@ -3,7 +3,7 @@
 At the start of the developer weekend these wiki pages reflect Richard's requirements.  These may be modified as issues arise.  Richard will modify this text if necessary.
 
 Please *add* detail to your team's wiki page during the developer weekend, as it will be the output documentation.  Note:
- * You may add text to this wiki (click "edit this page" link above and then see "Wiki markup help on the right")
+ * You may add text to this wiki (click "edit this page" link above and then see "Wiki markup help on the right").  Detailed Wiki syntax is available [http://code.google.com/p/support/wiki/WikiSyntax here].
  * You may create new pages under this one, but please label the wiki links using the following pattern `Workpackage_WorkpackageName_YourAdditionalDescription`.  e.g. `Workpackage_VideoAndPerformance_FlippingVideoViews`
  * You may upload document files (or any other files).  Link to them from this page.  Name them `Workpackage_WorkpackageName_YourAdditionalDescription.extension` e.g. `Workpackage_VideoAndPerformance_FlippingVideoViews.doc`
 
