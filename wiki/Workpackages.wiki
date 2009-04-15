@@ -23,5 +23,5 @@ Click on the workpackage titles for more detailed information.
 == [Workpackage_GraphicDesign Graphic Design] ==
  Graphics and layout design
 
-== [Workpackage_CourseConsultants Course Content] ==
+== [Workpackage_CourseContent Course Content] ==
  Production of demo video, sample course & guidelines
