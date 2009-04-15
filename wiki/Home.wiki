@@ -1,8 +1,13 @@
 #summary Switched On Classroom - Home
+#sidebar TableOfContents
 
 = Introduction =
 
 This wiki is intended for the Switched On development team.
 
 
-[WikiHome Click here to go to enter the Wiki].
+= Sections =
+
+  * UserStories - Functions required
+  * CookBook
+  * 
