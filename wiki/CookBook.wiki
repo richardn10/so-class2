@@ -3,6 +3,8 @@
 
 = This page is Work in Progress and may change significantly =
 
+Go back to [Home].
+
 = Development server requirements =
   * Server with at least 6GB HD & 512 MB RAM. [http://www.vmware.com/products/server/ VMWare Server] recommended
   * Fast internet connection from the server (for downloads).  Most efficient if has DHCP server to auto-assign IP connection details
