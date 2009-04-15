@@ -1,4 +1,5 @@
 #summary Required functionality.
+#sidebar TableOfContents
 
 Go back to [Home].
 
