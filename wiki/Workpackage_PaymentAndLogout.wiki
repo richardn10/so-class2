@@ -10,3 +10,10 @@ Read WorkpackageDocumentationInstructions
 
 = Team documentation =
 (Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
+
+----
+
+= Workpackage Team Members =
+ * Edward Ramsden
+ * Peter Edwards
+ * Peter Thorpe
