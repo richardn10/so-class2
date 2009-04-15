@@ -2,6 +2,10 @@
 
 Go back to TheChallenge.
 
+= Team Members =
+ * Adam Bewsher
+ * Ken Goddard
+
 = Introduction =
 The configuration of Switched On has several parts:
   # A *tool creation script* to get all resouces from HQ and create an Installation CD containing all needed pckages, configuration file and artefacts.
