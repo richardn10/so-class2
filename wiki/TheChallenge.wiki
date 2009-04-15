@@ -36,7 +36,7 @@ Extra notes:
 
 = Workpackages =
 
-Click [Workpackages here] to see the details of the Workpackages in this project.
+Click [Workpackages here] to see details of the Workpackages in this project.
 
 = Technical setup =
  * Central server running OpenSUSE 11.1 x86 i586
