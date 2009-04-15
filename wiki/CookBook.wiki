@@ -2,7 +2,7 @@
 #labels Featured,Phase-Deploy
 #sidebar TableOfContents
 
-Go back to [WikiHome Home].
+Go back to [Home].
 
 = This page is Work in Progress and may change significantly =
 
