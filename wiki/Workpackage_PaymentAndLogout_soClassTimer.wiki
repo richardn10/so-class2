@@ -37,10 +37,10 @@ This code is found in the serviceTask function.
 
 8. Use WMI to connect to the workstation.
 
-9. Send a Win32Shutdown command to logoff the machine.
+9. Send a !Win32Shutdown command to logoff the machine.
 
 
-== ToDo List ==
+== !ToDo List ==
 
 1. Include tblworkstation in the creation script for the so_class database.
 
