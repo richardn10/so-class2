@@ -13,6 +13,8 @@ The configuration of Switched On has several parts:
 = Team documentation =
 (Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
 
+----
+
 = Work Package Team Members =
  * Adam Bewsher
  * Ken Goddard
