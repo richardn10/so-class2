@@ -7,7 +7,7 @@ All our work (pictures, documentation, cofiguration files and scripts) will be s
 This repository is a Subversion (SVN) repository and as such, you need to use subversion software it store your files on it and to get access to other people's work.
 
 You'll find information here on:
-  * Installing subversion on your computer: Read [Workpackage_Repository_InstallingSVN]
-  * Checking out files (getting them from the repository): Read [Workpackage_Repository_CheckingOutFiles]
-  * Committing your changes (writing your new or modified files to the repository): Read [Workpackage_Repository_CommittingChanges]
-  * Inserting new projects into the repository: Read [Workpackage_Repository_InsertingNewProjects]
+  * [Workpackage_Repository_InstallingSVN Installing subversion on your computer]
+  * [Workpackage_Repository_CheckingOutFiles Checking out files] (getting them from the repository)
+  * [Workpackage_Repository_CommittingChanges Committing your changes] (writing your new or modified files to the repository)
+  * [Workpackage_Repository_InsertingNewProjects Inserting new projects into the repository]
