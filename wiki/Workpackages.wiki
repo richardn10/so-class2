@@ -1,7 +1,7 @@
 #summary A list of the workpackages that make up this project.
 #sidebar TableOfContents
 
-Go back to [WikiHome Home].
+Go back to [Home].
 
 = Introduction =
 All these workpackages should co-operate towards successfully demonstrating [TheChallenge the whole scenario]!
