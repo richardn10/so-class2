@@ -22,9 +22,3 @@ Click on the workpackage titles for more detailed information.
 
 == [Workpackage_CourseConsultants Course Content] ==
  Production of demo video, sample course & guidelines
-
-  _*_Output for each course:* Outline of whole course and one lesson in detail, following the methodology principles implied in the scenario.  
-
-  _*_Output as a group:* Guidance on how to create the materials iteratively, how to train the facilitators, producing a course handbook for facilitators and students alike, and how to assess and improve.
-
-  _*_Output:* the sample video and a list of guidelines to give to someone who will produce the videos from the footage.
