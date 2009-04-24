@@ -8,6 +8,9 @@ This wiki is intended for the Switched On development team.
 
 = Sections =
 
+  * [Challenge The Challenge] - given to us at the April 2009 Developers Weekend.
+  * [Workpackages] from the Developers Weekend.
+   * [WorkpackageDocumentationInstructions Documentation Instructions] for the Workpackage wiki pages.
   * UserStories - Functions required
   * CookBook
   * 
