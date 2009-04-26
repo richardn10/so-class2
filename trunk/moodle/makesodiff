@@ -1,0 +1,103 @@
+#!/bin/sh
+
+#
+# This script compares an original directory and a new directory (ie a copy of the original with
+# changes), and creates a .tar.gz file with any new files (in their correct directory structure),
+# a .deletedfiles file with a list of files and directories that have been deleted, and a .patch
+# file with any changes to existing files.
+#
+# Thus, to recreate a copy of the modified files from the original, you:
+#  Download and untar the original directory
+#  Delete the files listed in the .deletedfile file
+#  Patch the directory with the .patch file
+#  Download and untar the .tar.gz file in the base directory to create all the new files
+#
+
+#
+##
+### THINGS THAT CAN BE CHANGED
+##
+#
+
+# Where the original files are
+OLD_DIR='moodle-1.9.3'
+
+# Where the modified files are
+NEW_DIR='moodle-1.9.3-SO'
+
+# Directories that will be created (and deleted) by this script
+# - make sure they are not names of existing directories that you need!
+TEMP_DIR='moodle-1.9.3-SO-stripped'
+PATCH_DIR='moodle-1.9.3-1.9.3-SO-patch'
+
+#
+##
+### YOU SHOULDN'T NEED TO CHANGE BELOW HERE
+##
+#
+
+# Save a copy of the current directory so we can come back here later
+CURRENT_DIR=`pwd`
+
+# Remove the temp directories and create a copy of the modified directory
+# that we can play with without changing the actual files!
+echo "Removing old temporary directories and creating new ones (1 min)."
+rm -rf "$TEMP_DIR"
+rm -rf "$PATCH_DIR"
+cp -r "$NEW_DIR" "$TEMP_DIR"
+
+# Move all the new files and directories into the new patch files directory,
+# ready for taring.
+echo "Creating $PATCH_DIR.tar.gz file containing new files (4 mins)."
+for i in `find $TEMP_DIR`
+do
+  if [[ -e $i ]]
+  then
+    FILE_NAME=`echo "$i" | sed -e 's_^\('"$TEMP_DIR"'\)_'"$OLD_DIR"'_'`
+    if [[ ! -e $FILE_NAME ]]
+    then
+      PATCHFILE_NAME=`echo "$i" | sed -e 's_^\('"$TEMP_DIR"'\)_'"$PATCH_DIR"'_'`
+      DIR_NAME=`echo $PATCHFILE_NAME | sed -e 's_/[^/]*$__'`
+      if [[ ! -d $DIR_NAME ]]
+      then
+        mkdir -p $DIR_NAME
+      fi
+      mv "$i" "$PATCHFILE_NAME"
+    fi
+  fi
+done
+
+# tar the file and move it to the current directory
+cd "$PATCH_DIR"
+tar -zcf "$PATCH_DIR.tar.gz" *
+mv "$PATCH_DIR.tar.gz" "$CURRENT_DIR"
+cd "$CURRENT_DIR"
+
+# Make the .patch file with all the edited files in it.
+echo "Creating patch file $OLD_DIR-$NEW_DIR.patch containing changes."
+diff -aur "$OLD_DIR" "$TEMP_DIR" > "$OLD_DIR-$NEW_DIR.patch"
+
+
+# Create the .deletedfiles file, which contains a list of the directories and files in the 
+# original directory which no longer exist.
+echo "Creating $OLD_DIR-$NEW_DIR.deletedfiles which contains files no longer needed (4 mins)."
+FILE_LIST=''
+for i in `find $OLD_DIR`
+do
+  FILE_NAME=`echo "$i" | sed -e 's_^\('"$OLD_DIR"'\)_'"$NEW_DIR"'_'`
+  if [[ ! -e $FILE_NAME ]]
+  then
+    if [[ ! -L $FILE_NAME ]]
+    then
+      FILE_LIST="$FILE_LIST $i"
+    fi
+  fi
+done
+
+echo $FILE_LIST | sed -e 's_ '"$OLD_DIR"'_\n'"$OLD_DIR"'_g' > "$OLD_DIR-$NEW_DIR.deletedfiles" 
+
+echo "Removing temporary directories."
+rm -rf "$TEMP_DIR"
+rm -rf "$PATCH_DIR"
+
+echo "Finished!"
