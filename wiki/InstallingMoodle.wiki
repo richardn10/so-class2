@@ -21,7 +21,9 @@ The quick and the ugly to geting Moodle up running (assuming you're using a SUSE
     * moodle-1.9.3-moodle-1.9.3-SO.deletedfiles
     * moodle-1.9.3-moodle-1.9.3-SO.patch
     * moodle-1.9.3-1.9.3-SO-patch.tar.gz
-  # Delete each of the files listed in the .deletedfiles file. *NOTE: I'm going to change this - it's got problems.  Please note that the files you want to remove are not the ones from the original directory, but from the -SO directory!*
+  # Make the .deletedfiles file executable with:
+    `chmod 755 moodle-1.9.3-moodle-1.9.3-SO.deletedfiles`
+  # Run the .deletedfiles script to remove all files that should be deleted in the Switched On distribution.
   # Run the following command to patch the files:
     `patch -p1 < moodle-1.9.3-moodle-1.9.3-SO.patch`
   # Run the following command to extract the new files into the correct places:
@@ -41,7 +43,7 @@ When you've finished developing Switched On Moodle, please get the script `makes
 Change the permissions so you can run it:  `chmod 755 makesodiff`
 And run it:  `./makesodiff`
 
-It will take about 9 minutes to finish creating the patch files and when it has you'll have:
+It will take about 10 minutes to finish creating the patch files and when it has you'll have:
   * moodle-1.9.3-moodle-1.9.3-SO.deletedfiles
   * moodle-1.9.3-moodle-1.9.3-SO.patch
   * moodle-1.9.3-1.9.3-SO-patch.tar.gz
