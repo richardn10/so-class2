@@ -3,6 +3,8 @@
 
 Go back to [Workpackage_VideoAndPerformance Video and Performance]
 
+See [InstallingMoodle Installing Moodle] for information on setting up Moodle on a Switched On development machine.
+
 = Introduction =
 
 This section details the modifications and customisation made to the moodle code to include features and functionality not available with the current release of moodle. 
