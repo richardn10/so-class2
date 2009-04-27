@@ -1,4 +1,4 @@
-* _*__Switched On__*_
+* *_Switched On_*
 
 * [TheChallenge The Challenge]
 
@@ -10,7 +10,7 @@
  * [Workpackage_GraphicDesign Graphic Design]
  * [Workpackage_CourseContent Course Content]
 
-* _*_Things you may want to do_*_
+* *Things you may want to do*
  * [InstallingMoodle Installing Moodle]
 
 * [WorkpackageDocumentationInstructions Workpackage Documentation Instructions]
