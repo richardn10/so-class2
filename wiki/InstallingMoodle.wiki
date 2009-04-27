@@ -1,0 +1,51 @@
+#summary Instructions on setting up Moodle on a Switched On development machine.
+
+*Table of Contents*
+
+<wiki:toc max_depth="1" />
+
+= Introduction =
+
+This document is a draft and in need of (serious) improvement!
+
+= Installing Moodle =
+
+The quick and the ugly to geting Moodle up running (assuming you're using a SUSE Linux):
+
+  # Install Moodle 1.9.3  You can get it [http://download.moodle.org/stable19/moodle-1.9.4.tgz here]
+    * All examples following assume that the moodle directory is called moodle-1.9.3 - keeping it called this will keep things simple for now.
+  # Copy the original moodle files:
+    `cp -r moodle-1.9.3 moodle-1.9.3-SO`
+    * The `moodle-1.9.3-SO` directory is the working directory, make all changes here - keep the original directory untouched for creating the patch in the future.
+  # Get the following files from the SVN repository under moodle and save them into the `moodle-1.9.3-SO` directory:
+    * moodle-1.9.3-moodle-1.9.3-SO.deletedfiles
+    * moodle-1.9.3-moodle-1.9.3-SO.patch
+    * moodle-1.9.3-1.9.3-SO-patch.tar.gz
+  # Delete each of the files listed in the .deletedfiles file. *NOTE: I'm going to change this - it's got problems.  Please note that the files you want to remove are not the ones from the original directory, but from the -SO directory!*
+  # Run the following command to patch the files:
+    `patch -p1 < moodle-1.9.3-moodle-1.9.3-SO.patch`
+  # Run the following command to extract the new files into the correct places:
+    `tar -zxf moodle-1.9.3-1.9.3-SO-patch.tar.gz`
+  # Remove the three files you copied into the base directory, namely:
+    * moodle-1.9.3-moodle-1.9.3-SO.deletedfiles
+    * moodle-1.9.3-moodle-1.9.3-SO.patch
+    * moodle-1.9.3-1.9.3-SO-patch.tar.gz
+  # Your moodle is now a Switched On moodle... hopefully!
+
+Please note that I will be making a script to do all this in the near future.
+
+= Creating the patch files for the repository = 
+
+When you've finished developing Switched On Moodle, please get the script `makesodiff` from the moodle project in the repository.  You shouldn't need to edit the script if you've used the recommended directory names.  But, please make sure the names of the original (old) directory and the modified (new) directory are correct in the script.
+
+Change the permissions so you can run it:  `chmod 755 makesodiff`
+And run it:  `./makesodiff`
+
+It will take about 9 minutes to finish creating the patch files and when it has you'll have:
+  * moodle-1.9.3-moodle-1.9.3-SO.deletedfiles
+  * moodle-1.9.3-moodle-1.9.3-SO.patch
+  * moodle-1.9.3-1.9.3-SO-patch.tar.gz
+
+If you haven't used the recommended names for the directories, these will have different names which will depend on the names of your original and Switched On moodle directories.  Please upload these patch files to the repository.
+
+_If you have questions, please ask Adam before committing to the repository!_
