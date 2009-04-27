@@ -10,4 +10,7 @@
  * [Workpackage_GraphicDesign Graphic Design]
  * [Workpackage_CourseContent Course Content]
 
+* *Things you may want to do*
+ * [InstallingMoodle Installing Moodle]
+
 * [WorkpackageDocumentationInstructions Workpackage Documentation Instructions]
