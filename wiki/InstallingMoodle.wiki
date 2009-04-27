@@ -7,6 +7,7 @@
 = Introduction =
 
 This document is a draft and in need of (serious) improvement!
+I've had some more thoughts on this and think I'll change the approach AGAIN! :-)  In the mean time, use these instructions -- Adam.
 
 = Installing Moodle =
 
