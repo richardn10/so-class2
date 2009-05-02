@@ -14,8 +14,8 @@ For investigation of possibilities for this, read the [Workpackage_VideoAndPerfo
 
 = Team documentation =
 
-Details of the Moodle test user accounts are [Workpackage_VideoAndPerformance_MoodleTestAccounts here].
-Details of the modifications to Moodle to allow video playback are [Workpackage_VideoAndPerformance_MoodleMods here].
+Details of the Moodle test user accounts are here - [Workpackage_VideoAndPerformance_MoodleTestAccounts].
+Details of the modifications to Moodle to allow video playback are here - [Workpackage_VideoAndPerformance_MoodleMods].
 
 ----
 
