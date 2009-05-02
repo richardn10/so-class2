@@ -10,6 +10,10 @@ This document is a draft and in need of (serious) improvement!
 
 *I've had some more thoughts on this and think I'll change the approach AGAIN! :-)  In the mean time, use these instructions _-- Adam._*
 
+= Requirements =
+Subversion Client
+E.g. TortoiseSVN - see [Workpackage_Repository_InstallingSVN]
+
 = Installing Moodle =
 
 The quick and the ugly to geting Moodle up running (assuming you're using a SUSE Linux):
