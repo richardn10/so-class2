@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Summary of Switched On Developer weekend - Fleet (or near) 3-4th October '09
 
 = Introduction =
 
