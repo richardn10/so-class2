@@ -1,0 +1,56 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+The Switched On October 2009 weekend is to be combined with the Christian IT Professionals gathering to make for a bonanza, action-packed, full-of-meaningful, fantastically fun weekend that will change the world for many people!
+
+= The Workpackages =
+These will be focused and, hopefully, realistic.  We did our blue-sky thinking at the last event.  Now we're churning out the goods!
+  # Source code control & system installation scripts - led by Mr Adam!
+  # Finishing the system to charge for use of the computers & auto switch off after time-out  (PHP with agents on MS, Linux and Thin client systems) - Edward R, a Linux scripter & some PHP help needed!  Completing the valiant work done last time by The Petes and Edward.
+  # Moodle inline video capability - Phil Allnutt to complete (and get in the Moodle code-base upstream with Adam's help?)
+  # Creating a short training course in moodle on how to create the video element of moodle training courses - led by Tim.  Can Bob help?  How about Farai?  The aim is to have something we can get Indians to use to create video content using footage of 7 lessons of Merja teaching English we shot in India.  We'll add questions and peer-based exercises independently.  See the following for some clips to give ideas.  Tim and team made great strides last time - now it needs to be refined and documented - moodle-style!
+  # Moodle appearance changes - implementation of stuff Neil created last time, with some negotiation over implementation effort/benefit/maintainability as Moodle morphs in coming releases.  PHP/Web developers needed!
+  # Enhancements to the Perl scripts for analysing Moodle test results?  - James A, are you coming?
+
+The workpackage sections on this site will be updated over the next few weeks to define these tasks more tightly (Thanks to Adam for all his hard work on this lot)
+
+
+= Extra skills still needed =
+In addition to those folks' skills, who've said they're coming, we still need
+  * PHP coming out of our ears
+  * Trainers/educationalists
+  * More media folks?
+  * Some Linux experience
+  * People who love life and Jesus!
+
+= People who say they're coming =
+  * Edward R
+  * Tim F
+  * Edward B
+  * Phil A
+  * Neil R
+  * Adam
+  * Richard N
+  * Ben F - possibly for a day
+  * CITPers we love you and your skillsets!
+
+= Draft agenda =
+== Sat 3rd Oct ==
+  * 10am arrive and coffee 
+  * 10:30am Intro tasks - this time they'll be focused and well-specified cos we need results!!
+  * 11:30 Work and work, with some breaks when we feel like lunch, dinner, drinks etc. Adam on hand to ensure your works get checked-in to the great big system in the clouds (we're under grace though ;-)
+  * Sometime - stop for sleep
+
+== Sun 4th Oct ==
+  * 10.30am - Fleet Family Church meeting (Let's be a blessing!)
+  * Pub Lunch
+  * 2 till whenever - back at it for the daring of heart!  With lots of fun, and checking-in!
+  * Feel satisfied with our works!
+  * Go back to work for a rest!
+
+= Accommodation =
+Due to a clash with the radiator fitters, each one can go home (or to a Travelodge) in peace.  I suspect some lifts can be arranged for those who are wheely-challenged.
+
+= Location =
+Mr Edward R, please will you add links...
