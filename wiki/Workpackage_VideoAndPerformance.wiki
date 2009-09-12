@@ -8,14 +8,24 @@ Read WorkpackageDocumentationInstructions
 
 = Requirements =
 
-== Video Playback: Multiple playback synchronisation ==
+== Specific questions/strategies to be addressed if time ==
+  * How record voices of students?
+  * How amplify student voices but get rid of noise?
+  * Technique add in corrections to the videos later on:
+  ** if realise at end of class, Merja present to a few students while she and hair look same
+  ** could just put up a slide – e.g. of dictionary definition (e.g. of humid)
+  ** could at end of following lesson just record her voice and that of students in CCQs and have slide as visual (cos they will look different)
 
-For investigation of possibilities for this, read the [Workpackage_VideoAndPerformance_VideoPlaybackSynchInvestigation video playback sync investigation]
 
 = Team documentation =
 
 Details of the Moodle test user accounts are here - [Workpackage_VideoAndPerformance_MoodleTestAccounts].
 Details of the modifications to Moodle to allow video playback are here - [Workpackage_VideoAndPerformance_MoodleMods].
+
+
+== Back-burner, not for Oct Dev w/e - Video Playback: Multiple playback synchronisation ==
+
+For investigation of possibilities for this, read the [Workpackage_VideoAndPerformance_VideoPlaybackSynchInvestigation video playback sync investigation]
 
 ----
 
