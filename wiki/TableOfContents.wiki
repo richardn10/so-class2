@@ -16,3 +16,5 @@
  * [InstallingMoodle Installing Moodle]
 
 * [WorkpackageDocumentationInstructions Workpackage Documentation Instructions]
+
+[Contributor_Agreement] - Sign and send!
