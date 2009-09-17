@@ -1,0 +1,9 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Click the link below to sign and send a contributor agreement - preferably as an email attachment.
+
+In summary, this makes both you and Switched On (International) joint owners of your contribution so we can use it as we see fit without reference to each other.  This could allow Switched On to use your code commercially in the future in order to help towards being financially self-sustainable.  Your code will not be exploited for personal benefit as Switched On is legally (and morally) obliged to operate as a non-profit organisation for public benefit.  See our page on the UK Charity Commission site for details [http://www.charitycommission.gov.uk/SHOWCHARITY/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1116769&SubsidiaryNumber=0 click here].
+
+Please email a scan to admin[DELETE]@switchedon[DELETE].org
