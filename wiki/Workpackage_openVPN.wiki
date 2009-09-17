@@ -14,7 +14,7 @@ Summary: Configuration of the Switched On central server and clients to enable v
 
 The following two VPNs are required:
   * A developer VPN e.g. for use during the developer weekends to enable access to each other's PCs on collaborative workpackages.  Developers will be running Windows XP, Vista and maybe flavours of Linux
-  * A support VPN to be used to provide admin support to the learning centres.  Currently the Ychtus centre's main server is on SUSE Linux 10.3 64bit.  The Burmese community laptop will run Wondows Vista Home Basic.
+  * A support VPN to be used to provide admin support to the learning centres.  Currently the Ychtus centre's main server is on SUSE Linux 10.3 64bit.  The Burmese community laptop will run Wondows Vista Home Basic.  The only alternative is to open ports in firewalls, do port forwarding and set up dynamic DNS but experience has shown this to be very tedious task when trying to do it remotely because of trying to guide the local admin person (often v inexperienced) through router setup pages.  Better to point them to a web site to download an openVPN client and give them a simple set of instructions to configure it.
 
 An OpenVPN server Virtual machine will be set up on a central Switched On server which you will be given access to.  This should be made to run with minimum memory necessary in normal use.  e.g. the graphical interface will be disabled on boot up.  Access will be via SSH and tightVNC over SSH.  Richard can give instructions on how to do this.  Please provide Richard with the ports/port range that need to be accessible from the Internet.
 
