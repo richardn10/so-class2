@@ -1,6 +1,6 @@
 #summary Agreement to be signed by everyone contributing to the Switched On project.
 
-= Introduction =
+= Contributor Agreement =
 
 Click the link below to sign and send a contributor agreement - preferably as an email attachment.  Please do this before you start contributing code or other artefacts to the Switched On site (or as soon as possible).
 
