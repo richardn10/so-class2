@@ -5,9 +5,15 @@
 = Commands used =
 (Login as root first)
 {{{
-yast2 -i openvpn #install openvpn package
+#install openvpn package
+yast -i openvpn
+
+#copy key management directory
+cp -r /usr/share/openvpn/easy-rsa /etc/openvpn/
+
+#move to key generation directory
+cd /etc/openvpn/easy-rsa/2.0/
+
 
 }}}
-
-
 
