@@ -1,0 +1,13 @@
+#The technical details for the installed OpenVPN server. Only needed for recovery of server.
+
+*This is a page in progress, information here is probably not useful for anyone, except the one making this page*
+
+= Commands used =
+(Login as root first)
+{{{
+yast2 -i openvpn #install openvpn package
+
+}}}
+
+
+
