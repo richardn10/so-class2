@@ -26,10 +26,11 @@ Happy coding and configuring!
 
 = Team documentation =
 
-
+= Status =
+In progress
 
 ----
 
 = Workpackage Team Members =
- * Peter Smit?
+ * Peter Smit
  * Richard Newbould
