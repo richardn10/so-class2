@@ -14,6 +14,28 @@ cp -r /usr/share/openvpn/easy-rsa /etc/openvpn/
 #move to key generation directory
 cd /etc/openvpn/easy-rsa/2.0/
 
+#download vars file
+
+
+#set environment variables (the extra dot is no mistake)
+. ./vars
+
+#clean all certificates
+./clean-all
+
+#create authority
+./build-ca
+
+#create server certificate (just take defaults (press enter) and y)
+./build-key-server server
+
+#create dh keys
+./build-dh
+
+#go to main openvpn dir
+cd /etc/openvpn/
+
+#download server configuration
+
 
 }}}
-
