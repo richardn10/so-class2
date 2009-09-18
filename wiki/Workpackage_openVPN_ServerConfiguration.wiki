@@ -14,7 +14,7 @@ cp -r /usr/share/openvpn/easy-rsa /etc/openvpn/
 #move to key generation directory
 cd /etc/openvpn/easy-rsa/2.0/
 
-#download vars file
+#download vars file and openssl.cnf file
 
 
 #set environment variables (the extra dot is no mistake)
@@ -32,10 +32,22 @@ cd /etc/openvpn/easy-rsa/2.0/
 #create dh keys
 ./build-dh
 
+#create and revoke a certificate (to be able to test revocation and to initialize the revocation db)
+./build-key test_revoked_client
+./revoke-full test_revoked_client
+
 #go to main openvpn dir
 cd /etc/openvpn/
 
 #download server configuration
+
+
+#let the server start automatically
+chkconfig -a openvpn
+
+#start the server
+service openvpn start
+
 
 
 }}}
