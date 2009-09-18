@@ -11,7 +11,7 @@
  * [Workpackage_PaymentAndLogout Payment and Logout]
  * [Workpackage_GraphicDesign Graphic Design]
  * [Workpackage_CourseContent Course Content]
- * [Workpackage_openVPN]
+ * [Workpackage_VPN]
 
 * *Things you may want to do*
  * [InstallingMoodle Installing Moodle]
