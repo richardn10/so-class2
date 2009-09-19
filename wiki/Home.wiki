@@ -13,3 +13,6 @@ This wiki is intended for the Switched On development team.
    * [WorkpackageDocumentationInstructions Documentation Instructions] for the workpackage wiki pages.
   * UserStoriesBacklog - Functionality to be developed later.
   * CookBook
+
+
+Discussions take place on our [http://groups.google.com/group/so-class2 Google group].
