@@ -13,9 +13,9 @@ The configuration of Switched On has several parts:
 
   * Base configuration should be the same for all main servers (thin client server)
   * Must be some configurations specific to each centre, that will be applied the same each time the system is installed (i.e. at a particular centre):
-  ** Server name
-  ** Network address ranged used in the classroom
-  ** VPN setup - certificate installed etc
+    * Server name
+    * Network address ranged used in the classroom
+    * VPN setup - certificate installed etc
 
 = Team documentation =
 (Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
