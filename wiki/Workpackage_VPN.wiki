@@ -1,7 +1,5 @@
 #summary Virtual private networks
 
-#sidebar TableOfContents
-
 Go back to [Workpackages].
 
 = Introduction =
