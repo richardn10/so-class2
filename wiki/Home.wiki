@@ -11,5 +11,5 @@ This wiki is intended for the Switched On development team.
   * [TheChallenge The Challenge] - given to us at the April 2009 Developers Weekend.
   * [Workpackages] from the Developers Weekend.
    * [WorkpackageDocumentationInstructions Documentation Instructions] for the workpackage wiki pages.
-  * UserStories - Functions required
+  * UserStoriesBacklog - Functionality to be developed later.
   * CookBook
