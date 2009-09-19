@@ -26,5 +26,5 @@ Click on the workpackage titles for more detailed information.
 == [Workpackage_CourseContent Course Content] ==
  Production of demo video, sample course & guidelines
 
-== [Workpackage_openVPN] ==
+== [Workpackage_VPN] ==
  Configuration of the Switched On central server and clients to enable virtual private networking for joint development and easy access to learning centre networks for administration and support.
