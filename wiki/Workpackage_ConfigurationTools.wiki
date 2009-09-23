@@ -6,8 +6,13 @@ Go back to [Workpackages].
 = Introduction =
 The configuration of Switched On has several parts:
   # A *tool creation script* to get all resouces from HQ and create an Installation CD containing all needed pckages, configuration file and artefacts.
+  This will either be run from HQ and the CDs shipped to the centres, or it can be run from the centres and will get the information from HQ over the internet (for when link speeds get fast enough).
+
   # An *install script* which will turn an openSUSE 11.1 machine into a _Switched On_ machine, installing all needed packages, configuration files and artefacts.
+  This runs at the centres from the CD created in step 1.  It should be fully automaic (or as near to as possible).
+
   # The *Switched On Configuration Tool* - which runs automatically in a browser from the Installation CD once the machine has been _Switched On_.  This allows installing of Lessons, Media and (perhaps) users contained on the CD.
+  The same CD as step 2, but once it has detected that the machine has been switched on, then this is run.
 
 = Requirements =
 
@@ -19,9 +24,32 @@ The configuration of Switched On has several parts:
 
 = Team documentation =
 (Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
+To Be Written - AB
+
+= Tasks =
+
+||*Description*                                     ||*Developer*||*Started*||*Complete*||
+||_Tool Creation Script_                            || .         || .       || .        ||
+|| Script that creates CD from a specified dirctory || .         || .       || .        ||
+|| Script that downloads that directory from a server || .       || .       || .        ||
+||.                                                 || .         || .       || .        ||
+||_Installation Script_                             || .         || .       || .        ||
+|| Installs packages (moodle, apache, etc.)         || .         || .       || .        ||
+|| Install extra Switched On files                  || .         || .       || .        ||
+|| Install configuration files                      || .         || .       || .        ||
+|| Requests centre ID and gets settings from file   || .         || .       || .        ||
+||.                                                 || .         || .       || .        ||
+||_Switced On Configuration Tool_                   || .         || .       || .        ||
+|| Javascript or php which will detect the state of the machine || .     || .       || .        ||
+|| Upgrade Lessons                                  || .         || .       || .        ||
+|| Upgrade Media                                    || .         || .       || .        ||
+|| Upgrade Users                                    || .         || .       || .        ||
+|| Upgrade Switched On                              || .         || .       || .        ||
+|| Upgrade/Reset Site Confguration                  || .         || .       || .        ||
+
 
 ----
 
 = Workpackage Team Members =
  * Adam Bewsher
- * Ken Goddard
+ * Ken Goddard (at first dev. weekend)
