@@ -3,6 +3,9 @@
 
 Go back to [Workpackages].
 
+<h1>Table of Contents</h1>
+<wiki:toc max_depth="1" />
+
 = Introduction =
 The configuration of Switched On has several parts:
   # A *tool creation script* to get all resouces from HQ and create an Installation CD containing all needed pckages, configuration file and artefacts.
