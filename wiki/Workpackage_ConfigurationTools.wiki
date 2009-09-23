@@ -25,30 +25,34 @@ The configuration of Switched On has several parts:
     * Network address ranged used in the classroom
     * VPN setup - certificate installed etc
 
-= Team documentation =
-(Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
-To Be Written - AB
-
 = Tasks =
 
 ||*Description*                                     ||*Developer*||*Started*||*Complete*||
-||_Tool Creation Script_                            || .         || .       || .        ||
-|| Script that creates CD from a specified dirctory || .         || .       || .        ||
-|| Script that downloads that directory from a server || .       || .       || .        ||
-||.                                                 || .         || .       || .        ||
-||_Installation Script_                             || .         || .       || .        ||
-|| Installs packages (moodle, apache, etc.)         || .         || .       || .        ||
-|| Install extra Switched On files                  || .         || .       || .        ||
-|| Install configuration files                      || .         || .       || .        ||
-|| Requests centre ID and gets settings from file   || .         || .       || .        ||
-||.                                                 || .         || .       || .        ||
-||_Switced On Configuration Tool_                   || .         || .       || .        ||
-|| Javascript or php which will detect the state of the machine || .     || .       || .        ||
-|| Upgrade Lessons                                  || .         || .       || .        ||
-|| Upgrade Media                                    || .         || .       || .        ||
-|| Upgrade Users                                    || .         || .       || .        ||
-|| Upgrade Switched On                              || .         || .       || .        ||
-|| Upgrade/Reset Site Confguration                  || .         || .       || .        ||
+||_Tool Creation Script_                            || .      || .        || .        ||
+|| Script that creates CD from a specified dirctory || .      || .        || .        ||
+|| Script that downloads that directory from a server || .    || .        || .        ||
+||.                                                 || .      || .        || .        ||
+||_Installation Script_                             || .      || .        || .        ||
+|| Installs packages (moodle, apache, etc.)         || .      || .        || .        ||
+|| Install extra Switched On files                  || .      || .        || .        ||
+|| Install configuration files                      || .      || .        || .        ||
+|| Requests centre ID and gets settings from file   || .      || .        || .        ||
+||.                                                 || .      || .        || .        ||
+||_Switced On Configuration Tool_                   || .      || .        || .        ||
+|| Javascript or php which will detect the state of the machine || .      || .        || .         ||
+|| Upgrade Lessons                                  || .      || .        || .        ||
+|| Upgrade Media                                    || .      || .        || .        ||
+|| Upgrade Users                                    || .      || .        || .        ||
+|| Upgrade Switched On                              || .      || .        || .        ||
+|| Upgrade/Reset Site Confguration                  || .      || .        || .        ||
+||.                                                 || .      || .        || .        ||
+||_Documentation_                                   || .      || .        || .        ||
+|| Update Wiki documentation for this workpackage.  || AB     || 23/09/09 || .        ||
+
+
+= Team documentation =
+(Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
+To Be Written - AB
 
 
 ----
