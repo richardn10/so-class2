@@ -5,6 +5,12 @@ Go back to [Workpackages].
 = Introduction =
 Read WorkpackageDocumentationInstructions
 
+= Created Pages = 
+    * [Workpackage_VPN_ServerConfiguration]
+    * [Workpackage_VPN_Client]
+    * [Workpackage_VPN_Client_Windows]
+    * [Workpackage_VPN_Client_Linux]
+
 = Requirements =
 
 == Specific questions/strategies to be addressed if time ==
