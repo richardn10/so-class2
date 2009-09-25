@@ -1,10 +1,12 @@
 #summary Manual for managing certificates (Admin)
 
+All this actions have to be performed on the vpn server. Copy files from and to the svn server with scp (Linux) or WinSCP (Windows)
+
 = Signing Certificates =
 
   * Person will send a .csr file. Store this file as `[`username`]`.csr in /etc/openvpn/key_manager/keys
 
-  * Check or certificate already exists (see here). If a certificate with that name already exists, first revoke the old one (see here).
+  * Check or certificate already exists (see below). If a certificate with that name already exists, first revoke the old one (see below).
 
   * Move to key_manager directory and sign request
 {{{
