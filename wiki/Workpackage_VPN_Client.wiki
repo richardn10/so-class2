@@ -1,13 +1,14 @@
-#summary One-sentence summary of this page.
+#summary Instructions for installing VPN Client and requesting certificates
 
 = Introduction =
 
-Add your content here.
+This pages describe how to set up a Open VPN client to connect with the Switched On network. Also it describes to procedures to get the necessary access files.
 
+= Installation Client =
 
-= Details =
+  * [Workpackage_VPN_Client_Windows]
+  * [Workpackage_VPN_Client_Linux]
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Certificate procedure =
+
+  * [Workpackage_VPN_Certificate_Procedure]
