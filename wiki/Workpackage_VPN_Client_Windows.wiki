@@ -1,5 +1,6 @@
 #summary Installation of OpenVPN client on Windows
 
+*This is a page in progress, information here is probably not useful for anyone, except the one making this page*
 
 = Installation of the OpenVPN client on Windows =
 
