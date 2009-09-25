@@ -8,14 +8,14 @@
 sudo yast2 -i openvpn # for OpenSuse
 sudo apt-get install openvpn #for Debian/Ubuntu
 yum install openvpn #for Fedora/RedHat/CentOS
-}}
+}}}
 
   * Copy the certificate manager to your home folder (for example)
 {{{
 cp -r /usr/share/openvpn/easy-rsa/2.0 ~/certificate_manager # for OpenSuse
 cp -r /usr/share/doc/openvpn/examples/easy-rsa/2.0 ~/certificate_manager # for Debian/Ubuntu
 cp -r /usr/share/doc/packages/openvpn/easy-rsa/2.0 ~/certificate_manager #for Fedora/RedHat/CentOS
-}}
+}}}
 
   * Go to the certificate_manager directory and download some configuration files
 {{{
