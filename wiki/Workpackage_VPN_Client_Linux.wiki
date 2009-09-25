@@ -1,5 +1,7 @@
 #summary VPN Client installation for Linux
 
+*This is a page in progress, information here is probably not useful for anyone, except the one making this page*
+
 = VPN Client installation on Linux =
 
   * Open a terminal window
