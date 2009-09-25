@@ -1,0 +1,30 @@
+#summary Manual for managing certificates (Admin)
+
+= Signing Certificates =
+
+  * Person will send a .csr file. Store this file as `[`username`]`.csr in /etc/openvpn/key_manager/keys
+
+  * Check or certificate already exists (see here). If a certificate with that name already exists, first revoke the old one (see here).
+
+  * Move to key_manager directory and sign request
+{{{
+cd /etc/openvpn/key_manager
+. ./vars
+./sign-req `[`username`]` # No extension
+}}}
+
+  * Send back the certificate (`[`username`]`.crt)
+
+
+= Revoking a certificate =
+{{{
+cd /etc/openvpn/key_manager
+. ./vars
+./revoke-full `[`username`]` # No extension
+}}}
+
+= See the database of certificates =
+{{{
+less /etc/openvpn/key_manager/keys/index.txt
+}}}
+Every line shows a certificate. V means Valid, R means Revoked. CN is the certificate name
