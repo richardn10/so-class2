@@ -18,7 +18,7 @@
     * The file `[`username`]`.csr in the directory C:\Documents and Settings\`[`username`]`\switchedon_vpn\ 
       DO NEVER SEND THE `[`username`]`.key FILE TO ANYONE
 
-  * The admin will send a file back. Save this file in the directory C:\Documents and Settings\[username]\switchedon_vpn\
+  * The admin will send a file back. Save this file in the directory C:\Documents and Settings\`[`username`]`\switchedon_vpn\
 
 = Starting the Connection =
   * right-click on the OpenVPN icon in the taskbar
