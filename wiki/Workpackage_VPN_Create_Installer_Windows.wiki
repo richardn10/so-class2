@@ -1,0 +1,10 @@
+#summary Instructions to rebuild the VPN installer for Windows
+
+This steps need to be performed on Windows!
+
+= Rebuilding the Windows VPN installer =
+  * check out the vpnconfig/vpnclient_windows directory from svn
+  * download the latest installer source from [http://www.openvpn.se/files/install_packages_source/ here]
+  * copy the SwitchedOn specific files from svn over the source directory
+  * build the installer ([http://nsis.sourceforge.net/Download NullSoft] required)
+  * add the new Installer into svn and update [Workpackage_VPN_Client_Windows this wikipage]
