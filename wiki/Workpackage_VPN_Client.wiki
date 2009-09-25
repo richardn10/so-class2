@@ -6,8 +6,8 @@ This pages describe how to set up a Open VPN client to connect with the Switched
 
 = Installation Client =
 
-  * [Workpackage_VPN_Client_Windows]
-  * [Workpackage_VPN_Client_Linux]
+  * [Workpackage_VPN_Client_Windows Instructions for Windows]
+  * [Workpackage_VPN_Client_Linux Instructions for Linux]
 
 = Certificate procedure =
 
