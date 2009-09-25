@@ -10,6 +10,8 @@ Read WorkpackageDocumentationInstructions
     * [Workpackage_VPN_Client]
     * [Workpackage_VPN_Client_Windows]
     * [Workpackage_VPN_Client_Linux]
+    * [Workpackage_VPN_Certificate_Admin_Manual]
+    * [Workpackage_VPN_Create_Installer_Windows]
 
 = Requirements =
 
