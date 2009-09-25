@@ -31,10 +31,10 @@ wget
 ./build-req
 }}}
 
-  * Send the file "keys/[yourname].req" to the switchedon admin. DO NOT SHARE THE .key FILE!
+  * Send the file "keys/`[`yourname`]`.req" to the switchedon admin. DO NOT SHARE THE .key FILE!
 
-  * The admin sends back a [yourname].crt file. Place this in the keys folder.
-  * The admin sends also a [yourname].conf file. Place this file in your home directory. If you putted your certificates in a different folder, change this file accordingly
+  * The admin sends back a `[`yourname`]`.crt file. Place this in the keys folder.
+  * The admin sends also a `[`yourname`]`.conf file. Place this file in your home directory. If you putted your certificates in a different folder, change this file accordingly
   * Start the openvpn client (in your home folder)
 {{{
 sudo openvpn [yourname].conf
