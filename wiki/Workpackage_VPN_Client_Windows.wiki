@@ -1,8 +1,19 @@
-#summary One-sentence summary of this page.
+#summary Installation of OpenVPN client on Windows
 
-= Introduction =
 
-Add your content here.
+= Installation of the OpenVPN client on Windows =
+
+  * Download the OpenVPN package from [http://openvpn.se/files/install_packages/openvpn-2.0.9-gui-1.0.3-install.exe here] (or [http://openvpn.se/download.html]). If it askes, save the file on the Desktop
+  * Start the installation by double clicking on the openvpn-2.0.9-gui-1.0.3-install.exe file.
+  * If asked or the application is trustable, choose run.
+  * Choose next and I agree until the following screen.
+  * Select "My Certificate Wizard" and deselect "TAP-Win32 Virtual Ethernet Adapter"
+  * Choose next (2x)
+  * Choose Install
+  * Choose Finish
+
+  * Start the Certificate Wizard by going to Start-> All Programs -> OpenVPN -> My Certificate Wizard
+
 
 
 = Details =
