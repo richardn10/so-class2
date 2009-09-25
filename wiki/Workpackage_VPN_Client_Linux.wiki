@@ -1,13 +1,46 @@
-#summary One-sentence summary of this page.
+#summary VPN Client installation for Linux
 
-= Introduction =
+= VPN Client installation on Linux =
 
-Add your content here.
+  * Open a terminal window
+  * Use the package manager to install openvpn
+{{{
+sudo yast2 -i openvpn # for OpenSuse
+sudo apt-get install openvpn #for Debian/Ubuntu
+yum install openvpn #for Fedora/RedHat/CentOS
+}}
 
+  * Copy the certificate manager to your home folder (for example)
+{{{
+cp -r /usr/share/openvpn/easy-rsa/2.0 ~/certificate_manager # for OpenSuse
+cp -r /usr/share/doc/openvpn/examples/easy-rsa/2.0 ~/certificate_manager # for Debian/Ubuntu
+cp -r /usr/share/doc/packages/openvpn/easy-rsa/2.0 ~/certificate_manager #for Fedora/RedHat/CentOS
+}}
 
-= Details =
+  * Go to the certificate_manager directory and download some configuration files
+{{{
+cd ~/certificate_manager
+wget
+wget
+wget
+}}}
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * Generate a key request. Give as name the name you got from the SwitchedOn admin
+{{{
+. ./vars
+./build-req
+}}}
+
+  * Send the file "keys/[yourname].req" to the switchedon admin. DO NOT SHARE THE .key FILE!
+
+  * The admin sends back a [yourname].crt file. Place this in the keys folder.
+  * The admin sends also a [yourname].conf file. Place this file in your home directory. If you putted your certificates in a different folder, change this file accordingly
+  * Start the openvpn client (in your home folder)
+{{{
+sudo openvpn [yourname].conf
+}}}
+
+  * Test the connection (for example with ping)
+{{{
+ping 10.20.0.1
+}}}
