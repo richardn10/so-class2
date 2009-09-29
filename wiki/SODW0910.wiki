@@ -11,7 +11,6 @@ These will be focused and, hopefully, realistic.  We did our blue-sky thinking a
   # Moodle inline video capability - Phil Allnutt to complete (and get in the Moodle code-base upstream with Adam's help?)
   # Creating a short training course in moodle on how to create the video element of moodle training courses - led by Tim.  Can Bob help?  How about Farai?  The aim is to have something we can get Indians to use to create video content using footage of 7 lessons of Merja teaching English we shot in India.  We'll add questions and peer-based exercises independently.  See the following for some clips to give ideas - http://www.switchedon.org/Technical.asp.  Tim and team made great strides last time - now it needs to be refined and documented - moodle-style!
   # Moodle appearance changes - implementation of stuff Neil created last time, with some negotiation over implementation effort/benefit/maintainability as Moodle morphs in coming releases.  PHP/Web developers needed!
-  # Enhancements to the Perl scripts for analysing Moodle test results?  - James A, are you coming?
 
 The workpackage sections on this site will be updated over the next few weeks to define these tasks more tightly (Thanks to Adam for all his hard work on this lot)
 
