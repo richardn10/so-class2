@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html<?php echo $direction ?>>
+<head>
+    <?php echo $meta ?>
+    <meta name="keywords" content="moodle, <?php echo $title ?> " />
+    <title><?php echo $title ?></title>
+    <link rel="shortcut icon" href="<?php echo $CFG->themewww .'/'. current_theme() ?>/favicon.ico" />
+    <?php include("$CFG->javascript"); ?>
+<script type="text/javascript" src="<?php echo $CFG->themewww .'/'. current_theme() ?>/js/swfobject.js"></script>
+<script type="text/javascript" src="<?php echo $CFG->themewww .'/'. current_theme() ?>/js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript">
+function writeVideo(flv,container){
+	var s1 = new SWFObject("<?php echo $CFG->wwwroot ?>/file_so.php/_videoplayer/player.swf","ply","384","323","9","#FFFFFF");
+	s1.addParam("allowfullscreen","true");
+	s1.addParam("allowscriptaccess","always");
+	s1.addParam('wmode','opaque');
+	s1.addParam("flashvars","file=<?php echo $CFG->wwwroot ?>/file_so.php/"+ flv +".flv&skin=<?php echo $CFG->wwwroot ?>/file_so.php/_videoplayer/stylish.swf&backcolor=000000&frontcolor=eeeeee");
+	s1.write(container);
+}
+
+var currentState = "NONE"; 
+var previousState = "NONE"; 
+
+var player = null;
+function playerReady(thePlayer) {
+	player = document.getElementById(thePlayer.id);
+	addListeners();
+}
+
+function addListeners() {
+	if (player) { 
+		player.addModelListener("STATE", "stateListener");
+	} else {
+		setTimeout("addListeners()",100);
+	}
+}
+
+function stateListener(obj) { //IDLE, BUFFERING, PLAYING, PAUSED, COMPLETED
+	currentState = obj.newstate; 
+	previousState = obj.oldstate; 
+
+	if ((currentState == "COMPLETED")&&(previousState == "PLAYING")) {
+		alert('well done!! press continue to proceed');
+		//$("#pageform").submit();
+	}
+}
+
+
+$(document).ready(function() {
+    $('.so_flv').each(function(i){
+        $(this).attr('id','so_container'+ i);
+        flv = $(this).attr('rel');
+        writeVideo(flv,"so_container"+ i);
+    });    
+});
+</script>
+</head>
+
+<body<?php
+    echo " $bodytags";
+    if ($focus) {
+        echo " onload=\"setfocus()\"";
+    }
+    ?>>
+
+<div id="page">
+
+<?php //Accessibility: 'headermain' is now H1, see theme/standard/styles_layout.css: .headermain
+      if ($home) {  // This is what gets printed on the home page only
+?>
+    <?php print_container_start(true, '', 'header-home'); ?>
+        <h1 class="headermain">
+        	<a href="<?php echo $CFG->wwwroot ?>">
+        		<img src="<?php echo $CFG->themewww .'/'. current_theme() ?>/images/SO_logo.gif" alt="<?php echo $heading ?>" />
+        	</a>
+        </h1>
+        <div class="headermenu"><?php echo $menu ?></div>
+    <?php print_container_end(); ?>
+<?php } else if ($heading) {  // This is what gets printed on any other page with a heading
+?>
+    <?php print_container_start(true, '', 'header'); ?>
+        <h1 class="headermain">
+        	<a href="<?php echo $CFG->wwwroot ?>">
+        		<img src="<?php echo $CFG->themewww .'/'. current_theme() ?>/images/SO_logo.gif" alt="<?php echo $heading ?>" />
+        	</a>
+        </h1>
+        <div class="headermenu"><?php echo $menu ?></div>
+    <?php print_container_end(); ?>
+<?php } ?>
+<?php //Accessibility: breadcrumb trail/navbar now a DIV, not a table.
+      if ($navigation) { // This is the navigation bar with breadcrumbs  ?>
+    <div class="navbar clearfix">
+        <div class="breadcrumb"><?php print_navigation($navigation); ?></div>
+        <div class="navbutton"><?php echo $button; ?></div>
+    </div>
+<?php } else if ($heading) { // If no navigation, but a heading, then print a line
+?>
+        <hr />
+<?php } ?>
+    <!-- END OF HEADER -->
+    <?php print_container_start(true, '', 'content'); ?>
