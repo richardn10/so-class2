@@ -13,3 +13,11 @@ Please *add* detail to your team's wiki page during the developer weekend, as it
 Make sure only one person from your workpackage group is updating a wiki page at a time, or you'll end up overwriting each other!  To avoid this:
  * Maintain strict control to ensure only one person edits a given page at a time, or,
  * Create one or more sub-pages if you can logically split your work into sub-areas taken on by different individuals.
+
+= Images and other files as part of deliverables =
+Put images needed on your wiki pages in svn under wiki/Workpackage_Name/image.png
+
+Other files you may need should also be stored in the subversion under:
+Workpackage_Name/suitable path
+
+Please do this rather than putting things in the download seciont of the wiki.  You work will be preserved better if kept in subversion.
