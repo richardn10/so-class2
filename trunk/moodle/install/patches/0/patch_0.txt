@@ -1,0 +1,33 @@
+# $Id$
+#
+
+description=Core install of 1.9.3 - this is the very first initial install of SO Moodle!
+
+moodle-core-package-url=http://download.moodle.org/stable19/moodle-1.9.3.tgz
+
+# The filename created locally from the url, only required if the url is set.
+# This must be set if moodle-core-package-url is.
+moodle-core-package-file=moodle-1.9.3.tgz
+
+# Currently, the core moodle tgz extracts everything to a 'moodle' dir.
+# However we can't assume this will always be the case.
+moodle-core-package-subdir=moodle
+
+# The dir to install moodle inside e.g. /srv/www/
+moodle-www-subdir=moodle
+
+# If yes, then the files from moodle_www-so-mods are used.
+# If no, then moodle_www-so-mods is not used for this patch.
+# HOWEVER - if moodle-core-package-url is set, then this must be yes, since
+# a core package will cause a recreate of the moodle www dir.
+patch-www=yes
+
+# The patch install script will also look for and make use of a file named
+# patch_$patchId-db.sql
+# Any .sql.gz files are automatically gunzip'd by the install script.
+#
+
+# This should only every be blank for the initial install (patchId=0).
+# Otherwise should be "moodle" (with no quotes).
+# This is used (if the db patch file exists) to backup the database, and also to apply subsequent patches against.
+db-existing-schema=
