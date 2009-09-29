@@ -1,0 +1,25 @@
+<table cellpadding="9" cellspacing="0">
+  <tr valign="top">
+    <td align="right">
+       <?php print_string('configcontent', 'block_inline_flv'); ?>:
+    </td>
+    <td>
+       <input type="text" name="title" size="30" value="<?php echo $this->config->title; ?>" />
+    </td>
+  </tr>
+  <tr valign="top">
+    <td align="right">
+       <?php print_string('configcontent', 'block_inline_flv'); ?>:
+    </td>
+    <td>
+       <?php echo $CFG->dataroot_so_data ?>/
+       <input type="text" name="flvName" size="30" value="<?php echo $this->config->flvName; ?>" />
+       .flv
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" value="<?php print_string('savechanges') ?>" />
+    </td>
+  </tr>
+</table>
