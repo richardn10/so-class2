@@ -1,0 +1,273 @@
+# (Note: do not include e.g. #!/bin.sh since this is created by shar)
+#
+# (c) SwitchedOn
+#
+# $Id$
+#
+# This is used by create_install_package.sh to create a shar installer.
+# The contents of this file get appended to the shar file.
+#
+# Pre-requisites:
+#  - create_install_package.sh has been run!
+#  - apache is installed
+#  - apache is configured as required (moodle-required modifications)
+#  - mysql is installed and running
+#
+
+##########################################################
+# Start of install script for shar files
+##########################################################
+
+# These variables are pushed into the shar script by the patch install creator:
+#  PATCH_ID
+#  PATCH_DESC
+#  MOODLE_CORE_PACKAGE
+#  MOODLE_CORE_PACKAGE_SUBDIR
+#  MOODLE_WWW_SUBDIR
+#  DB_EXISTING_SCHEMA
+#  SHAR_DIR
+#
+
+echo "*******************"
+echo ""
+echo ""
+echo "** install files have been un-shar'd"
+echo ""
+echo "** Starting SwitchedOn installation of moodle patch $MOODLE_CORE_PACKAGE: $PATCH_DESC"
+echo ""
+
+if [ $# -ne 5 ] ;then
+    echo "ERROR: wrong arguments supplied"
+    echo ""
+	echo "usage: $0 mysqlUser mysqlPassword wwwDir wwwDirOwnership wwwDirPermissions
+	echo ""
+	echo "   e.g. $0 root myrootpassword /srv/www wwwuser:wwwgroup 750
+	
+	exec 1>&3 2>&4
+	exit 1
+fi
+
+cd `dirname $0`
+thisDir=`pwd`
+
+OUTPUT_DIR=$thisDir/output
+if [ -d "$OUTPUT_DIR" ]; then
+	rm -r $OUTPUT_DIR
+fi
+mkdir $OUTPUT_DIR
+
+# save stdout and stderr to file descriptors 3 and 4, then redirect them to "foo"
+# TODO: enable
+#exec 3>&1 4>&2 >$OUTPUT_DIR/patch_install.log 2>&1
+
+mysqlUser=$1
+mysqlPasswd=$2
+wwwDir=$3
+wwwDirOwnership=$4
+wwwDirPerms=$5
+
+# Make sure the dir params don't end in slash.
+wwwDir=`echo "$wwwDir" | sed 's/^\(.*\)\/$/\1/'`
+
+wwwMoodleDir=$wwwDir/$MOODLE_WWW_SUBDIR
+
+if [ ! -d "$wwwDir" ]; then
+	echo "ERROR: wwwDir ($wwwDir) doesn't exist"
+	exec 1>&3 2>&4
+	exit 1
+fi
+
+
+
+# Some specific files may be compressed that need de-compressing...
+#
+# SQL files
+#
+gunzip $SHAR_DIR/*.sql.gz
+
+
+
+# Patch the database if required.
+#
+patchDbFile=patch_$PATCH_ID-db.sql
+if [ ! -f $SHAR_DIR/$patchDbFile ] ;then
+	echo ""
+	echo "** No patching of database requested"
+	echo ""
+else
+	echo ""
+	echo "** Patching database as requested (using $SHAR_DIR/$patchDbFile)"
+	echo ""
+	
+	if [ "$DB_EXISTING_SCHEMA" = "" ] ;then
+		echo "** not backing up db, as it doesn't (yet) exist"
+	else
+		echo "**   backing up db"
+		
+		dbBackupFile=$OUTPUT_DIR/db-backup_$DB_EXISTING_SCHEMA.sql
+		
+		mysqldump --user=$mysqlUser --password=$mysqlPasswd --create-options $DB_EXISTING_SCHEMA > $dbBackupFile
+		if [ $? -ne 0 ] ;then
+			echo "ERROR: couldn't backup database"
+			exec 1>&3 2>&4
+			exit 1
+		fi
+		gzip $dbBackupFile
+	fi
+	
+	# We need to be in the same dir as the sql file, since it might reference other files.
+	cd $SHAR_DIR
+	
+	# Apply the required patch SQL to the database.
+	# This doesn't select a database - since the patch SQL may do things
+	# against different schemas (the extreme being that it renames the moodle schema!)
+	# Therefore the patch SQL file *must* choose the schemas itself that its affecting.
+	#
+	mysql --user=$mysqlUser --password=$mysqlPasswd < $patchDbFile
+	if [ $? -ne 0 ] ;then
+		echo "ERROR: couldn't patch database"
+		exec 1>&3 2>&4
+		exit 1
+	fi
+	echo "**   patched database"
+	
+	# Back to this script's dir.
+	cd $thisDir
+fi
+
+
+# Install core moodle package if required.
+#
+if [ ! -f $thisDir/$SHAR_DIR/$MOODLE_CORE_PACKAGE ] ;then
+	echo ""
+	echo "** No installation of core moodle package requested"
+	echo ""
+else
+	echo ""
+	echo "** installing moodle base at $wwwMoodleDir"
+	echo ""
+	
+	# If the moodle www dir exists, backup and then rename it.
+	# Therefore this is effectively having it deleted and created from scratch.
+	#
+	if [ ! -d $wwwMoodleDir ] ;then
+		echo "**   moodle www dir doesn't exist; not backing up"
+	else
+		echo "**   moodle www dir exists"
+		
+		echo "**   backing up moodle www"
+		
+		# Actually go into the dir, so that the backup archive doesn't contain the full path.
+		cd $wwwDir
+		tar cvf - $MOODLE_WWW_SUBDIR | gzip -c > $OUTPUT_DIR/moodle_www-backup.tar.gz
+		if [ $? -ne 0 ] ;then
+			echo "ERROR: couldn't backup moodle www"
+			exec 1>&3 2>&4
+			exit 1
+		fi
+		cd $thisDir
+		
+		echo "**   renaming moodle www"
+		
+		mv $wwwMoodleDir _$wwwMoodleDir.patch-PATCH_ID-`date +%Y%m%d`
+	fi
+	
+	# Extract the core package to a temp dir.
+	#
+	# Create the temp dir.
+	moodleCorePackageTmpDir=$OUTPUT_DIR/moodle_www_core_tmp
+	mkdir $moodleCorePackageTmpDir
+	if [ ! -d $moodleCorePackageTmpDir ] ;then
+		echo "ERROR: couldn't create moodleCorePackageTmpDir ($moodleCorePackageTmpDir)"
+		exec 1>&3 2>&4
+		exit 1
+	fi
+	#
+	# Extract the package.
+	tar -zxvf $thisDir/$SHAR_DIR/$MOODLE_CORE_PACKAGE --directory $moodleCorePackageTmpDir
+	if [ $? -ne 0 ] ;then
+		echo "ERROR: couldn't extract core moodle package ($MOODLE_CORE_PACKAGE)"
+		exec 1>&3 2>&4
+		exit 1
+	fi
+	
+	# Move the extracted package contents to www
+	#
+	# Either the package will have extracted to no subdir...
+	if [ "$MOODLE_CORE_PACKAGE_SUBDIR" = "" ] ;then
+		echo "** moving core package contents to $wwwMoodleDir; no subdir"
+		
+		mv $moodleCorePackageTmpDir $wwwMoodleDir
+		if [ ! -d $wwwMoodleDir ] ;then
+			echo "ERROR: moodleCorePackageTmpDir didn't move to wwwMoodleDir ($wwwMoodleDir)"
+			exec 1>&3 2>&4
+			exit 1
+		fi
+		
+	# ... Or the package will have extracted to a specific subdir.
+	else
+		echo "** moving core package contents to $wwwMoodleDir; subdir"
+		
+		mv $moodleCorePackageTmpDir/$MOODLE_CORE_PACKAGE_SUBDIR $wwwMoodleDir
+		if [ ! -d $wwwMoodleDir ] ;then
+			echo "ERROR: moodleCorePackageTmpDir/$MOODLE_CORE_PACKAGE_SUBDIR didn't move to wwwMoodleDir ($wwwMoodleDir)"
+			exec 1>&3 2>&4
+			exit 1
+		fi
+		
+		# This directory should now be empty.
+		rmdir $moodleCorePackageTmpDir
+	fi
+	
+	# Modify config.php
+	#
+	# Set $CFG->dirroot to the actual moodle install dir 
+	##echo `echo "\\$CFG->dirroot   = '/srv/www/moodle';" | sed "s/^\(\\$CFG->dirroot[ ]*=[ ]*'\).*\(';\)$/\1blah\2/"`
+	#sed "s/\(\\$CFG->dirroot[ ]*=[ ]*'\).*\(';\)/\1$wwwMoodleDir\2/" $wwwMoodleDir/config.php > $wwwMoodleDir/config.php.tmp
+	#if [ $? -ne 0 ] ;then
+	#	echo "ERROR: couldn't modify config.php"
+	#	exec 1>&3 2>&4
+	#	exit 1
+	#fi
+	#
+	#mv $wwwMoodleDir/config.php.tmp $wwwMoodleDir/config.php
+	#
+	#sed "s/\(\\$CFG->dirroot[ ]*=[ ]*'\).*\(';\)/\1blah\2/" config.php > config.php.
+fi
+
+# Install moodle so mods if required.
+#
+if [ ! -f $thisDir/$SHAR_DIR/patch_$PATCH_ID-moodle_www-so-mods.tar.gz ] ;then
+	echo ""
+	echo "** No installation of moodle mods requested"
+	echo ""
+else
+	echo ""
+	echo "** Installing moodle so mods as requested, in $wwwMoodleDir"
+	echo ""
+	
+	cd $wwwMoodleDir
+	tar -zxvf $thisDir/$SHAR_DIR/patch_$PATCH_ID-moodle_www-so-mods.tar.gz
+	if [ $? -ne 0 ] ;then
+		echo "ERROR: couldn't extract moodle so mods"
+		exec 1>&3 2>&4
+		exit 1
+	fi
+fi
+
+chown -R $wwwDirOwnership $wwwMoodleDir
+chmod -R $wwwDirPerms $wwwMoodleDir
+
+echo ""
+echo ""
+echo "** Completed SwitchedOn installation of moodle patch $MOODLE_CORE_PACKAGE: $PATCH_DESC"
+echo ""
+echo "** any errors?!"
+echo ""
+
+
+# restore stdout and stderr
+exec 1>&3 2>&4
+
+
+exit 0
