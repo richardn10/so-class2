@@ -26,5 +26,8 @@ Click on the workpackage titles for more detailed information.
 == [Workpackage_CourseContent Course Content] ==
  Production of demo video, sample course & guidelines
 
-== [Workpackage_VPN] ==
+== [Workpackage_VPN VPN] ==
  Configuration of the Switched On central server and clients to enable virtual private networking for joint development and easy access to learning centre networks for administration and support.
+
+== [Workpackage_Moodle_Results_Summariser Moodle Results Summariser] ==
+ A tool to analyse the Moodle test results of batches of students to help pick out key features.
