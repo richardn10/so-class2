@@ -12,6 +12,7 @@
  * [Workpackage_GraphicDesign Graphic Design]
  * [Workpackage_CourseContent Course Content]
  * [Workpackage_VPN Virtual Private Networks]
+ * [Workpackage_Moodle_Results_Summariser Moodle Results Summariser]
 
 * *Things you may want to do*
  * [InstallingMoodle Installing Moodle]
