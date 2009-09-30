@@ -114,6 +114,9 @@ if [ "$patchWww" = "yes" ] ;then
 	fi
 	cd ../../moodle_www-so-mods
 	
+	# This customisations patch will contain e.g. the .svn dirs.
+	# It doesn't really matter though...
+	#
 	#tar cvf $thisDir/$SHAR_DIR/patch_$patchId-moodle_www-so-mods.tar *
 	#gzip $thisDir/$SHAR_DIR/patch_$patchId-moodle_www-so-mods.tar
 	tar cvf - * | gzip -c > $thisDir/$SHAR_DIR/patch_$patchId-moodle_www-so-mods.tar.gz
