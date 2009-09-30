@@ -1,0 +1,87 @@
+# These methods were each tried for capturing MySQL queries.
+# None useful for our requirements - since they don't output "pure" queries
+# that can be executed against the db with no manual (human) parsing.
+
+
+# FIRST METHOD ATTEMPTED
+#
+# MySQL query logging is not that useful, since mysqld
+# Doesn't literally log the statements - it adds other info.
+#
+Enable MySQL query logging
+	# for mysql 5.0
+	Ubuntu
+		sudo vi /etc/mysql/my.cnf
+			un-comment (or create):
+				log             = /var/log/mysql/mysql.log
+		sudo /etc/init.d/mysql restart
+	
+	# for mysql 5.1	
+	SET GLOBAL general_log = 'ON';
+	SET GLOBAL general_log_file = '/var/log/mysql/mysql-query.log';
+	-- do stuff...
+	SET GLOBAL general_log = 'ON';
+
+
+
+# SECOND METHOD ATTEMPTED
+#
+# (using tcpdump - not parsing output)
+#
+# configure moodle to connect to 127.0.0.1 (and not localhost)
+# otherwise tcpdump won't catch the packets
+# (needs to connect to ip, rather than unix socket)
+#
+vi /srv/www/moodle/config.php
+  $CFG->dbhost    = '127.0.0.1';
+#
+# This initially seems to work - but then breaks when queries run over multiple lines.
+#cat tcpdump.out | strings | grep -iE '^(UPDATE|DELETE|INSERT|SET|COMMIT|ROLLBACK|CREATE|DROP|ALTER)' | sed 's/$/;/g' >tcpdump.sql
+
+
+
+# THIRD METHOD ATTEMPTED
+#
+# (using tcpdump - and parsing output)
+#
+# This method is not used, due to the MySQL protocol - i.e. lots of "garbage"
+# that we can't (i.e. don't know how to!) parse, is also printed out.
+#
+# http://planet.mysql.com/entry/?id=17214
+# http://www.mysqlperformanceblog.com/2008/11/07/poor-mans-query-logging/
+#
+# configure moodle to connect to 127.0.0.1 (and not localhost)
+# otherwise tcpdump won't catch the packets
+# (needs to connect to ip, rather than unix socket)
+#
+vi /srv/www/moodle/config.php
+  $CFG->dbhost    = '127.0.0.1';
+#
+# Need to get tcpdump to write to an output file, otherwise any other
+# processing we do can't be redirected to a file (since the output is
+# then cut short).
+sudo tcpdump -i any -s 0 -l -w - dst port 3306 -w tcpdump.out
+#
+cat tcpdump.out | strings > tcpdump.strings
+#
+# We can't filter out specific queries (e.g. SELECT) here,
+# since this is handling queries that run over multiple lines.
+# Append ; to the end of every statement (I don't know whether that's due to Moodle, or just the MySQL protocol).
+#
+# Ignore:
+#  empty lines
+#  lines that end with @  (otherwise we end up with loads of weird characters!)
+#
+perl -e 'while(<>) {
+  chomp;
+  next if /^[^ ]+[ ]*$/;
+  next if /^.*\@$/;
+  if(/^(SELECT|UPDATE|DELETE|INSERT|SET|COMMIT|ROLLBACK|CREATE|DROP|ALTER|SHOW)/i) {
+    if (defined $q) { print "$q;\n"; }
+    $q=$_;
+  } else {
+    $_ =~ s/^[ \t]+//; $q.=" $_";
+  }
+}' tcpdump.strings > tcpdump.sql
+grep -viE "^(SELECT|SHOW).*" tcpdump.sql > tcpdump.moodle.sql
+mv tcpdump.moodle.sql patchIdDir/
