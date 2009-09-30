@@ -123,7 +123,7 @@ else
 	# against different schemas (the extreme being that it renames the moodle schema!)
 	# Therefore the patch SQL file *must* choose the schemas itself that its affecting.
 	#
-	mysql --user=$mysqlUser --password=$mysqlPasswd < $patchDbFile
+	mysql --user=$mysqlUser --password=$mysqlPasswd < $patchDbFile > $OUTPUT_DIR/mysql-db-patch.log
 	if [ $? -ne 0 ] ;then
 		echo "ERROR: couldn't patch database"
 		exec 1>&3 2>&4
@@ -144,11 +144,10 @@ if [ ! -f $thisDir/$SHAR_DIR/$MOODLE_CORE_PACKAGE ] ;then
 	echo ""
 else
 	echo ""
-	echo "** installing moodle base at $wwwMoodleDir"
+	echo "** installing moodle core at $wwwMoodleDir"
 	echo ""
 	
-	# If the moodle www dir exists, backup and then rename it.
-	# Therefore this is effectively having it deleted and created from scratch.
+	# If the moodle www dir exists, backup and then delete it.
 	#
 	if [ ! -d $wwwMoodleDir ] ;then
 		echo "**   moodle www dir doesn't exist; not backing up"
@@ -167,9 +166,10 @@ else
 		fi
 		cd $thisDir
 		
-		echo "**   renaming moodle www"
+		echo "**   deleting moodle www"
 		
-		mv $wwwMoodleDir _$wwwMoodleDir.patch-PATCH_ID-`date +%Y%m%d`
+		# If we don't delete this, then the later move of the tmp extract will fail.
+		rm -rf $wwwMoodleDir
 	fi
 	
 	# Extract the core package to a temp dir.
@@ -220,6 +220,7 @@ else
 	fi
 	
 	# Modify config.php
+	# TODO: not yet done... if at all!
 	#
 	# Set $CFG->dirroot to the actual moodle install dir 
 	##echo `echo "\\$CFG->dirroot   = '/srv/www/moodle';" | sed "s/^\(\\$CFG->dirroot[ ]*=[ ]*'\).*\(';\)$/\1blah\2/"`
