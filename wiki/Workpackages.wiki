@@ -9,7 +9,7 @@ All these workpackages should co-operate towards successfully demonstrating [The
 Click on the workpackage titles for more detailed information.
 
 == [Workpackage_VideoAndPerformance Video and Performance] ==
- Simultaneous Video Playback and Performance Monitoring & Tuning +  Video mode flipping
+ On hold: Simultaneous Video Playback and Performance Monitoring & Tuning +  Video mode flipping
 
 == [Workpackage_ConfigurationTools Configuration Tools] ==
  Installation CD/DVD and configuration utility for Switched On setup.
@@ -24,10 +24,13 @@ Click on the workpackage titles for more detailed information.
  Graphics and layout design
 
 == [Workpackage_CourseContent Course Content] ==
- Production of demo video, sample course & guidelines
+ On hold: Production of demo video, sample course & guidelines
 
 == [Workpackage_VPN VPN] ==
  Configuration of the Switched On central server and clients to enable virtual private networking for joint development and easy access to learning centre networks for administration and support.
 
 == [Workpackage_Moodle_Results_Summariser Moodle Results Summariser] ==
- A tool to analyse the Moodle test results of batches of students to help pick out key features.
+ On hold: A tool to analyse the Moodle test results of batches of students to help pick out key features.
+
+[Workpackage_Meta_Moodle_Course Meta-Moodle Course]
+  Create a course on how to create Moodle courses, that can be used by locals in India to develop Switched On courses.  Currently focusing on training someone with some experience with computers in how to edit up videos from the lessons.
