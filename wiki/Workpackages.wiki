@@ -32,5 +32,5 @@ Click on the workpackage titles for more detailed information.
 == [Workpackage_Moodle_Results_Summariser Moodle Results Summariser] ==
  On hold: A tool to analyse the Moodle test results of batches of students to help pick out key features.
 
-[Workpackage_Meta_Moodle_Course Meta-Moodle Course]
+== [Workpackage_Meta_Moodle_Course Meta-Moodle Course] ==
   Create a course on how to create Moodle courses, that can be used by locals in India to develop Switched On courses.  Currently focusing on training someone with some experience with computers in how to edit up videos from the lessons.
