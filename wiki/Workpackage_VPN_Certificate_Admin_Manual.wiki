@@ -29,4 +29,11 @@ cd /etc/openvpn/key_manager
 {{{
 less /etc/openvpn/key_manager/keys/index.txt
 }}}
+for all certificates
+or
+{{{
+grep ^V /etc/openvpn/key_manager/keys/index.txt
+}}}
+for all valid certificates.
+
 Every line shows a certificate. V means Valid, R means Revoked. CN is the certificate name
