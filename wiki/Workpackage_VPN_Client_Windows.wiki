@@ -16,7 +16,7 @@
 
   * Email to the Switched On Admin (admin@switchedon.org) one of the following:
     * The text that is displayed when clicked on "Create Request"
-    * The file `[`username`]`.csr in the directory C:\Documents and Settings\`[`username`]`\switchedon_vpn\  (replace [username] with the name you used in the name field)
+    * The file `[`username`]`.csr in the directory C:\Documents and Settings\`[`username`]`\switchedon_vpn\  (replace `[`username`]` with the name you used in the name field)
       DO NEVER SEND THE `[`username`]`.key FILE TO ANYONE
 
   * The admin will send a file back. Save this file in the directory C:\Documents and Settings\`[`username`]`\switchedon_vpn\
