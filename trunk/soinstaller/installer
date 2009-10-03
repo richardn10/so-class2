@@ -32,7 +32,7 @@ then
       \#*) ;;
       * ) 
           echo "Installing $line..."
-          zypper install $line
+          zypper -n install $line
           ;;
     esac
   done
