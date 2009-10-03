@@ -29,8 +29,8 @@ The configuration of Switched On has several parts:
 
 ||*Description*                                     ||*Developer*||*Started*||*Complete*||
 ||_Tool Creation Script_                            || .      || .        || .        ||
-|| Script that creates CD from a specified dirctory || .      || .        || .        ||
-|| Script that downloads that directory from a server || .    || .        || .        ||
+|| Script that will create an installation directory || .     || .        || .        ||
+|| Script that creates CD from a specified directory || .     || .        || .        ||
 ||.                                                 || .      || .        || .        ||
 ||_Installation Script_                             || .      || .        || .        ||
 || Installs packages (moodle, apache, etc.)         || .      || .        || .        ||
