@@ -12,10 +12,10 @@ All this actions have to be performed on the vpn server. Copy files from and to 
 {{{
 cd /etc/openvpn/key_manager
 . ./vars
-./sign-req `[`username`]` # No extension
+./sign-req username # No extension
 }}}
 
-  * Send back the certificate (`[`username`]`.crt)
+  * Send back the certificate (username.crt)
 
 
 = Revoking a certificate =
