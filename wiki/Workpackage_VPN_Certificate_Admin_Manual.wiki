@@ -2,6 +2,8 @@
 
 All this actions have to be performed on the vpn server. Copy files from and to the svn server with scp (Linux) or WinSCP (Windows)
 
+Best to receive the certificates as files created by .  If certificate is received as copy/paste into an email, ensure is created as Unix file with not extra blank lines inserted, a single new line at the and end the Certificate Starts and Ends labels in place.
+
 = Signing Certificates =
 
   * Person will send a .csr file. Store this file as `[`username`]`.csr in /etc/openvpn/key_manager/keys
