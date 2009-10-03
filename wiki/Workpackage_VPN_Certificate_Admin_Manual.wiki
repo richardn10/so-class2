@@ -15,14 +15,14 @@ cd /etc/openvpn/key_manager
 ./sign-req username # No extension
 }}}
 
-  * Send back the certificate (username.crt)
+  * Send back the certificate (`[`username`]`.crt)
 
 
 = Revoking a certificate =
 {{{
 cd /etc/openvpn/key_manager
 . ./vars
-./revoke-full `[`username`]` # No extension
+./revoke-full [username] # No extension
 }}}
 
 = See the database of certificates =
