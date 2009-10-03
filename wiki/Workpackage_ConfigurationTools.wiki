@@ -28,6 +28,9 @@ The configuration of Switched On has several parts:
 = Tasks =
 
 ||*Description*                                     ||*Developer*||*Started*||*Complete*||
+||_Switched On Splash Screen_                       || .      || .        || .        ||
+|| Put the switched on logo on the openSUSE splah   || NR&AB  || 3/10/09  || 3/10/09  ||
+||.                                                 || .      || .        || .        ||
 ||_Tool Creation Script_                            || .      || .        || .        ||
 || Script that will create an installation directory || .     || .        || .        ||
 || Script that creates CD from a specified directory || .     || .        || .        ||
@@ -54,6 +57,29 @@ The configuration of Switched On has several parts:
 (Description of your product, dependencies, how to install, use, modify, outstanding issues etc.)
 To Be Written - AB
 
+== Methods ==
+Here are some notes on the methods used to do some things:
+=== To change the splash screen ===
+  # Find the resolution
+The resolution we are using for our splash screen is 800x600.
+This was found out by running:  `sudo /sbin/mkinitrd`
+It is on the second last line after "Bootsplash"
+
+  # Get the splash screen
+The splash screen we use was located in `/etc/bootsplash/themes/openSUSE/images/silent-800x600.jpg`
+This was uploaded to the repository in revision 353 (you can get the original there).
+
+  # Edit the splash screen
+This was edited with Photoshop CS3 and saved NOT progressive.
+The colour mode changes when you do this so we had to load it in the GIMP and re-save it with Not Progressive, Mode = YCbCr and 2x2,1x1,1x1 as the Subsampling.
+
+  # Copy this file back over the original in `/etc/bootsplash/themes/openSUSE/images/silent-800x600.jpg`
+
+  # Update the ramdisk image used to boot Linux
+Run `sudo /sbin/mkinitrd` again.  This time it will be using the new splash!
+The first time we did this it complained about the picture not being a 221111 jpeg.  The steps above fixed that.
+
+  # Reboot to test and enjoy.
 
 ----
 
