@@ -18,18 +18,28 @@ The configuration of Switched On has several parts:
   The same CD as step 2, but once it has detected that the machine has been switched on, then this is run.
 
 == Tentative mapping of install/config stages to physical media ==
+
+=== Install ===
 || Media / Stage || Individual steps ||
 || Backup data if is existing system || User accounts, Moodle non-course info (i.e. courses and media will be installed later) ||
 || SUSE: installation standard distro || e.g. OpenSUSE 11.1, 2, ... ||
 || SO install CD (operation) || Add RPMs for SO-needed apps.  e.g. Apache, MySQL, ... ||
 || SO install CD || SO-specific, global config of system ||
-|| SO install CD || SO-specific & centre-specific config of system ||
+|| SO install CD || SO-specific, centre-specific config of system ||
 || SO install CD || Moodle install shar file. Note 1. Not SUSE package because want to fix the version.  This enables direct config of the database, the structure of which may change even across minor package revisions, to facilitate auto-config. Note 2. Shar file executes script to configure Moodle (incl MySQL) ||
-|| SO install CD || 
+|| SO install CD || Restore backed-up data (unless is first install) - user accounts, ... (see above backup step) ||
 || SO install CD || Course materials, incl Moodle courses and Media (encrypted if can) ||
-||  ||  ||
-|| SO install CD || New version Moodle, New patch, New Apache, MySQL etc |
 
+=== Update process ===
+|| Types of updates || Individual steps ||
+|| Distro updates || Update RPMs. Options: download over net, SUSE Patch CD||
+|| Moodle updates || Options: download over net (Moodle's own upgrade mechanism), our own Patch process if net connection not good enough ||
+|| Existing course material revisions ||  ||
+|| News moodle courses ||  ||
+|| New applications || Distro RPM install ||
+|| New applications || Config - global and/or centre-specific ||
+|| SO config changes || SO-specific, global config of system ||
+|| SO config changes || SO-specific, centre-specific config of system  ||
 
 Issues:
   * When restoring moodle data (e.g. User results), will it be associated with the right artefacts.  e.g. will a score be associated with the correct quiz?
