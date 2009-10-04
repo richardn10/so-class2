@@ -34,6 +34,7 @@ Install the latest available patched version of SwitchedOn Moodle (ie if the new
 Overwrite the moodle www files with the new moodle version (the one that we're creating the patch for).
 
 *Not forgetting the SwitchedOn customisations!*
+The customisations are stored in the `moodle/moodle_www-so-mods` directory.
 
 For example:
 {{{
@@ -59,7 +60,7 @@ vi /srv/www/moodle/config.php
 install querysniffer
 
 The following perl packages were required for me (EB):
-{{
+{{{
   wget http://search.cpan.org/CPAN/authors/id/T/TI/TIMPOTTER/Net-PcapUtils-0.01.tar.gz
   tar zxvf Net-PcapUtils-0.01.tar.gz
   Net-PcapUtils-0.01
@@ -112,9 +113,27 @@ http://localhost/moodle/admin/index.php
 === Step 8 ===
 Once you've finished setting up Moodle, stop the mysqlsniff.pl process by pressing Ctrl+C.
 
-This will have created a file called mysqlsniff-<whateverTheDateIs>.sql
+This will have created a file called `mysqlsniff-<whateverTheDateIs>.sql`
+
+=== Step 9 ===
+
+Create a new patch directory in `moodle/install/patches/`.  It will be the next number in the sequence.  From now on, I will assume it's called 4 (i.e. this is patch 4 - being built on patch 3 in step 2 above).
+
+=== Step 10 ===
+
+Copy the .sql file generated in step 9 into the new directory as `patch_4-db.sql`.
+
+(You'll have to change this next line, it needs the correct path and the correct patch numbers!)
+{{{
+  cp mysqlsniff-<whateverTheDateIs>.sql moodle/install/patches/4/patch_4-db.sql
+}}}
+
+=== Step 11 ===
+
+
 
 *BELOW THIS POINT IN DEVLOPMENT!!!*
+
 Rename this and put it into the new patch dir
 run the sharer
 run the shar file on the site machines.
