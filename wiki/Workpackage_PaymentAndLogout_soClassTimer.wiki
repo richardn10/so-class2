@@ -7,7 +7,7 @@ Go back to [Workpackage_PaymentAndLogout Payment and Logout]
 
 The soClassTimer service is a Windows Service that logs off a user from a workstation after a designated period of time has elapsed.
 
-This page describes the work done to date (07/04/2009).
+This page describes the work done to date (04/10/2009).
 
 == SVN Details ==
 
@@ -31,7 +31,11 @@ This code is found in the serviceTask function.
 
 5. Connect to the so_class database on the server.
 
-6. select iMinutes from tblworkstation where strWorkstation = this workstation name.
+6. Update a timestamp in tblWorkstation so that the administrator knows that the service is still alive.
+
+7. Store the time elapsed since the logon in tblWorkstation so that the administrator can tell if the user has prevented the service from loggin them off.
+
+6. select iMinutes from tblWorkstation where strWorkstation = this workstation name.
 
 7. If the time elapsed since the last logon has exceeded what is defined in tblworkstation then continue.
 
@@ -42,16 +46,5 @@ This code is found in the serviceTask function.
 
 == !ToDo List ==
 
-1. Include tblworkstation in the creation script for the so_class database.
-
-2. Store the user's logon name in tblworkstation and retrieve it before steps 2 and 3 above.
-
-3. Add a new field to tblworkstation that will store the date and time of the last communication from the workstation.  Update this field from the so_classTimer service.  This will enable the facilitator to see if the service has crashed.
-
-4. Warn the user 5 minutes before logging off.
-
-5. Store the elapsed time since the last logon in tblworkstation.  This will enable the facilitator to see if any user has prevented the service from logging them off.
-
-6. Store the IP address of the database server in the workstations registry and retrieve it in stage 6 above.
-
-7. Create a user called so_classTimer on the database (password is currently hard-coded as password).
+1. Warn the user 5 minutes before logging off.
+2. Allow different logon names to be used on the workstations, rather than a single predefined one
