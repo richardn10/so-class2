@@ -6,13 +6,147 @@
 
 = Introduction =
 
-This document is a draft and in need of (serious) improvement!
-
-*I've had some more thoughts on this and think I'll change the approach AGAIN! :-)  In the mean time, use these instructions _-- Adam._*
+There are two steps to getting the installation of moodle on the site machines.
+  # Installing Moodle on the HQ sever, applying the patches, configuring moodle and then finally creating a patched version of Moodle for distributing to the sites.
+  # The patched version of Moodle will be distributed to the sites.  It will be a shar file which will install the patched version of Moodle on to the machine and update all the databases and config files.
 
 = Requirements =
-Subversion Client
-E.g. TortoiseSVN - see [Workpackage_Repository_InstallingSVN]
+  * Subversion Client _- E.g. TortoiseSVN - see [Workpackage_Repository_InstallingSVN]_
+  * shar - included in the install of openSUSE
+  * querysniffer (see step 5)
+  * access to the internet for the first step - the moodle on the HQ machine
+
+= Creating a Moodle install =
+
+*Note: It is important that this is not on a _live_ machine.  The method this process uses is a MySQL packet sniffer from http://iank.org/querysniffer/  The only connections to the database should be created by Moodle!*
+
+== Step 1 ==
+Use svn to get the following:
+
+  * moodle/install
+  * moodle/moodle_www-so-mods
+
+== Step 2 ==
+Install the latest available patched version of SwitchedOn Moodle (ie if the new patch you're creating is patch version 4, install patch version 3)
+
+== Step 3 ==
+
+Overwrite the moodle www files with the new moodle version (the one that we're creating the patch for).
+
+*Not forgetting the SwitchedOn customisations!*
+
+For example:
+{{{
+   cd /srv/www/
+   rm -rf moodle
+   jar zxvf moodle-1.9.4.tgz
+   cp -R <path_to>/moodle_www-so-mods/* moodle/
+}}}
+
+
+=== Step 4 ===
+Configure moodle to connect to 127.0.0.1 (and not localhost).
+Otherwise tcpdump won't catch the packets
+(needs to connect to ip, rather than unix socket).
+
+{{{
+vi /srv/www/moodle/config.php
+  $CFG->dbhost    = '127.0.0.1';
+}}}
+
+
+=== Step 5 ===
+install querysniffer
+
+The following perl packages were required for me (EB):
+{{
+  wget http://search.cpan.org/CPAN/authors/id/T/TI/TIMPOTTER/Net-PcapUtils-0.01.tar.gz
+  tar zxvf Net-PcapUtils-0.01.tar.gz
+  Net-PcapUtils-0.01
+  perl Makefile.PL
+  sudo make install
+
+  wget http://search.cpan.org/CPAN/authors/id/A/AT/ATRAK/NetPacket-0.04.tar.gz
+  tar zxvf NetPacket-0.04.tar.gz
+  cd NetPacket-0.04
+  perl Makefile.PL
+  sudo make install
+
+  wget http://iank.org/querysniffer/querysniffer-0.10.tar.gz
+  tar zxvf querysniffer-0.10.tar.gz
+  cd querysniffer
+}}}
+
+Hack the perl so that it appends the ; delimiter to all queries.
+{{{
+  vi mysqlsniff.pl
+}}}
+
+modify the line
+{{{
+      print(substr($data,5) . "\n");
+}}}
+to be
+{{{
+      print(substr($data,5) . ";\n");
+}}}
+
+===  Step 6 ===
+Capture MySQL traffic.
+
+*Notes:*
+  * Have to use a specific interface (e.g. not 'any').
+  * Have to run as root, otherwise doesn't find any of the interfaces.
+
+_(Ed, can you please edit this and remove the line that is wrong. - AB)_
+{{{
+  #sudo ./mysqlsniff.x86 lo > mysqlsniff-`date +%Y%m%d`.sql
+  sudo perl mysqlsniff.pl lo > mysqlsniff-`date +%Y%m%d`.sql
+}}}
+
+
+=== Step 7 ===
+Perform the moodle upgrade from the web interface.
+http://localhost/moodle/admin/index.php
+
+=== Step 8 ===
+Once you've finished setting up Moodle, stop the mysqlsniff.pl process by pressing Ctrl+C.
+
+This will have created a file called mysqlsniff-<whateverTheDateIs>.sql
+
+*BELOW THIS POINT IN DEVLOPMENT!!!*
+Rename this and put it into the new patch dir
+run the sharer
+run the shar file on the site machines.
+
+
+
+# Step n/a
+# WE could filter out only the queries that we need for updates.
+# (e.g. We only need '^(UPDATE|INSERT|DELETE|SET|ALTER|CREATE|SET)'.)
+#
+# However:
+# - We'd be in danger of missing out any future queries that are needed.
+#    (Obviously non-SELECTs etc.)
+# - It doesn't matter anyway even if we do execute e.g. SELECTs.
+# - Keep the full set of queries so that we have a record of what
+#   the actual Moodle update actually does against the DB.
+# 
+# So don't use either of these!
+#grep -iE '^(UPDATE|INSERT|DELETE|SET|ALTER|CREATE)' mysqlsniff-`date +%Y%m%d`.sql
+#grep -viE '^(SELECT|SHOW)' mysqlsniff-`date +%Y%m%d`.sql > test.sql
+
+
+# Step n/a
+# Add the ';' query delimiter to the end of every line.
+# This is so the queries can be input directly into mysql command line.
+# (The MySQL protocol doesn't send the query delimiter.)
+#
+# However don't do this, since there are queries that run over multiple lines.
+# (Instead the previous mysqlsniff.pl hack was used.)
+#sed -i 's/$/;/' mysqlsniff-`date +%Y%m%d`.sql
+
+
 
 = Installing Moodle =
 
