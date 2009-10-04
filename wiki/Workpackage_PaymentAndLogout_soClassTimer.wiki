@@ -35,16 +35,16 @@ This code is found in the serviceTask function.
 
 7. Store the time elapsed since the logon in tblWorkstation so that the administrator can tell if the user has prevented the service from loggin them off.
 
-6. select iMinutes from tblWorkstation where strWorkstation = this workstation name.
+8. select iMinutes from tblWorkstation where strWorkstation = this workstation name.
 
-7. If the time elapsed since the last logon has exceeded what is defined in tblworkstation then continue.
+9. If the time elapsed since the last logon has exceeded what is defined in tblworkstation then continue.
 
-8. Use WMI to connect to the workstation.
+10. Use WMI to connect to the workstation.
 
-9. Send a !Win32Shutdown command to logoff the machine.
+11. Send a !Win32Shutdown command to logoff the machine.
 
 
 == !ToDo List ==
 
-1. Warn the user 5 minutes before logging off.
+1. Warn the user 5 minutes before logging off.  The plan is to create a tray notification application and use .Net Remoting to communicate between that and the service.
 2. Allow different logon names to be used on the workstations, rather than a single predefined one
