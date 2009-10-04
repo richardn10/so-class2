@@ -30,6 +30,10 @@ The configuration of Switched On has several parts:
 || SO install CD || Restore backed-up data (unless is first install) - user accounts, ... (see above backup step) ||
 || SO install CD || Course materials, incl Moodle courses and Media (encrypted if can) ||
 
+Options:
+Autoyast
+Kiwi
+
 === Update process ===
 || Types of updates || Individual steps ||
 || Distro updates || Update RPMs. Options: download over net, SUSE Patch CD||
