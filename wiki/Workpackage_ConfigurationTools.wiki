@@ -17,6 +17,23 @@ The configuration of Switched On has several parts:
   # The *Switched On Configuration Tool* - which runs automatically in a browser from the Installation CD once the machine has been _Switched On_.  This allows installing of Lessons, Media and (perhaps) users contained on the CD.
   The same CD as step 2, but once it has detected that the machine has been switched on, then this is run.
 
+== Tentative mapping of install/config stages to physical media ==
+|| Media / Stage || Individual steps ||
+|| SUSE: Creation of standard distro || e.g. OpenSUSE 11.1, 2, ... ||
+|| HQ: install CD creation || Add RPMs for SO-needed apps.  e.g. Apache, MySQL, ... ||
+|| HQ: install CD creation || SO-specific, global config of system ||
+|| HQ: install CD creation || SO-specific & centre-specific config of system ||
+|| HQ: install CD creation || Moodle install shar file. Note 1. Not SUSE package because want to fix the version.  This enables direct config of the database, the structure of which may change even across minor package revisions, to facilitate auto-config. Note 2. Shar file executes script to configure Moodle (incl MySQL) ||
+|| HQ: install CD creation || Moodle config ||
+||  ||  ||
+|| HQ: install CD creation || New version Moodle, New patch, New Apache, MySQL etc ||
+
+
+Linux:
+Minor revisions and major revisions
+Moodle upgrades - via Linux distro or downloaded directly and upgraded by Moodle itself, overwriting PHP files, moding database etc.
+
+
 = Requirements =
 
   * Base configuration should be the same for all main servers (thin client server)
