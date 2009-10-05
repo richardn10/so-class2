@@ -5,7 +5,7 @@
 = Installation of the OpenVPN client on Windows =
 
   * Download the OpenVPN package from [http://so-class2.googlecode.com/svn/trunk/vpnconfig/vpnclient_windows/switchedon_openvpn-2.0.9-gui-1.0.3-install.exe here] If it asks, save the file on the Desktop.  * The install package is Switched On custom. (The creation
-instructions are here - [Workpackage_VPN_Create_Installer_Windows]). Do not use openvpn from another source, because it will lack configuration and certificate files.)
+instructions are here - [Workpackage_VPN_Create_Installer_Windows]). Do not use openvpn from another source, because it will lack configuration and certificate files.) *
   * Start the installation by double clicking on the switchedon_openvpn-2.0.9-gui-1.0.3-install.exe file.
   * If asked or the application is trustable, choose run.
   * Choose on all places the default settings (just stay clicking next, I agree, Install and Finish)
