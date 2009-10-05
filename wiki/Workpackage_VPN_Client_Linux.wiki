@@ -14,32 +14,40 @@ yum install openvpn #for Fedora/RedHat/CentOS
 
   * Copy the certificate manager to your home folder (for example)
 {{{
-cp -r /usr/share/openvpn/easy-rsa/2.0 ~/certificate_manager # for OpenSuse
-cp -r /usr/share/doc/openvpn/examples/easy-rsa/2.0 ~/certificate_manager # for Debian/Ubuntu
-cp -r /usr/share/doc/packages/openvpn/easy-rsa/2.0 ~/certificate_manager #for Fedora/RedHat/CentOS
+mkdir ~/switchedonvpn
+cp -r /usr/share/openvpn/easy-rsa/2.0 ~/switchedonvpn/certificate_manager # for OpenSuse
+cp -r /usr/share/doc/openvpn/examples/easy-rsa/2.0 ~/switchedonvpn/certificate_manager # for Debian/Ubuntu
+cp -r /usr/share/doc/packages/openvpn/easy-rsa/2.0 ~/switchedonvpn/certificate_manager #for Fedora/RedHat/CentOS
 }}}
 
-  * Go to the certificate_manager directory and download some configuration files
+  * Go to the switchedonvpn directory and download some configuration files
 {{{
-cd ~/certificate_manager
-wget
-wget
-wget
+cd ~/switchedonvpn/
+wget -O client.conf http://so-class2.googlecode.com/svn/trunk/vpnconfig/vpnclient_linux/client.conf
+wget -O certificate_manager/keys/ca.crt http://so-class2.googlecode.com/svn/trunk/vpnconfig/vpnclient_linux/ca.crt
+wget -O certificate_manager/vars http://so-class2.googlecode.com/svn/trunk/vpnconfig/vpnclient_linux/vars
+}}}
+
+  * Configure config
+{{{
+cd ~/switchedonvpn/
+sed -i s/NAMECENTER/[yourname]/g client.conf # replace [yourname] !. e.g s/NAMECENTER/richard/g
 }}}
 
   * Generate a key request. Give as name the name you got from the SwitchedOn admin
 {{{
+cd ~/switchedonvpn/certificate_manager
 . ./vars
-./build-req
+./build-req [yourname]
 }}}
 
   * Send the file "keys/`[`yourname`]`.req" to the switchedon admin. DO NOT SHARE THE .key FILE!
 
   * The admin sends back a `[`yourname`]`.crt file. Place this in the keys folder.
-  * The admin sends also a `[`yourname`]`.conf file. Place this file in your home directory. If you putted your certificates in a different folder, change this file accordingly
+directory. If you putted your certificates in a different folder, change this file accordingly
   * Start the openvpn client (in your home folder)
 {{{
-sudo openvpn [yourname].conf
+sudo openvpn client.conf
 }}}
 
   * Test the connection (for example with ping)
