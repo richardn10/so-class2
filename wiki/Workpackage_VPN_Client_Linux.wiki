@@ -30,8 +30,7 @@ wget -O certificate_manager/vars http://so-class2.googlecode.com/svn/trunk/vpnco
 
   * Configure config
 {{{
-cd ~/switchedonvpn/
-sed -i s/NAMECENTER/[yourname]/g client.conf # replace [yourname] !. e.g s/NAMECENTER/richard/g
+nano client.conf # correct the paths for the keys.
 }}}
 
   * Generate a key request. Give as name the name you got from the SwitchedOn admin
@@ -45,10 +44,17 @@ cd ~/switchedonvpn/certificate_manager
 
   * The admin sends back a `[`yourname`]`.crt file. Place this in the keys folder.
 directory. If you putted your certificates in a different folder, change this file accordingly
-  * Start the openvpn client (in your home folder)
+  * Start the openvpn client
 {{{
 sudo openvpn client.conf
 }}}
+
+If you want to have the connection always on (or just as a service) you should put the configuration and the certificate_manager directory in /etc/openvpn.
+{{{
+service openvpn start #starts service
+chkconfig --add openvpn #service will start on system boot
+}}}
+
 
   * Test the connection (for example with ping)
 {{{
