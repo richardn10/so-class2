@@ -6,7 +6,7 @@ class Default_Model_Course extends Default_Model_Abstract {
 	protected $_numberOfLessons;
 	protected $_lessonPrice;
 	
-	protected $_mapper;
+	protected $_mapperClass = 'Default_Model_CourseMapper';
 
     public function setId($id) {
         $this->_id = (int) $id;

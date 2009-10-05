@@ -2,6 +2,8 @@
 
 class Default_Model_Abstract {
 
+	protected $_mapperClass;
+	
 	protected $_mapper;
 	protected $_row;
 	
@@ -52,7 +54,7 @@ class Default_Model_Abstract {
     public function getMapper()
     {
         if (null === $this->_mapper) {
-            $this->setMapper(new Default_Model_UserMapper());
+            $this->setMapper(new $this->_mapperClass());
         }
         return $this->_mapper;
     }
