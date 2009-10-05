@@ -1,0 +1,25 @@
+<?php echo $this->form ?>
+Results: <br />
+<dl>
+    <?php foreach ($this->users as $user): ?>
+    <dt><?php echo $this->escape($user->username) ?></dt>
+    <dd><a href="<?php echo $this->url(
+    array(
+        'controller' => 'user',
+        'action'     => 'view',
+    	'id'		=> $user->id
+    ), 
+    'default', 
+    true) ?>"> <?php echo $this->escape($user->firstname)." ".$this->escape($user->lastname) ?></a> (<a href="<?php echo $this->url(
+    array(
+        'controller' => 'user',
+        'action'     => 'edit',
+    	'id'		=> $user->id
+    ), 
+    'default', 
+    true) ?>">edit</a>)</dd>
+    <?php endforeach ?>
+    
+   
+    
+</dl>

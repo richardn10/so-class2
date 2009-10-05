@@ -1,0 +1,27 @@
+Username: <?php echo $this->escape($this->user->username) ?><br />
+First Name: <?php echo $this->escape($this->user->firstname) ?><br />
+Last Name: <?php echo $this->escape($this->user->lastname) ?><br />
+<br />
+
+<h3>Enrolments</h3>
+<table>
+<?php foreach($this->enrolments as $enrolment):?>
+<tr><td><?php echo $this->escape($enrolment->course->name) ?></td><td><?php echo $this->escape($enrolment->enrolmentDate) ?></td><td><a href="<?php echo $this->url(
+    array(
+        'controller' => 'lesson',
+        'action'     => 'register',
+    	'enrolment'	 => $enrolment->id
+    ), 
+    'default', 
+    true) ?>">Register Lesson</a></td></tr>
+<?php endforeach?>
+</table>
+
+
+<a href="<?php echo $this->url(
+    array(
+        'controller' => 'user',
+        'action'     => 'index'
+    ), 
+    'default', 
+    true) ?>">Index</a>
