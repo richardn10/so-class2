@@ -84,6 +84,27 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
         return $entries;
     }
     
+    public function fetchUnEnrolledCourses(Default_Model_User $user) {
+		$courseMapper = new Default_Model_CourseMapper();
+		return $courseMapper->fetchCoursesWithEnrolmentByUser($user->getId());
+    }
+    
+    public function fetchEnrolments(Default_Model_User $user, $courseid) {
+    	$select = $this->getDbTable()->select();
+    	$select->where("Enrolment.courseid = ?", $courseid);
+    	$resultSet = $this->getDbTable()->findDependentRowset('Default_Model_DbTable_Enrolment', 'User', $select);
+    	
+    	$entries = array();
+    	foreach ($resultSet as $row) {
+            $enrolment = new Default_Model_Enrolment();
+            
+            $enrolmentMapper->convertRowToEntry($row, $enrolment);
+            $entries[] = $enrolment;
+        }
+        return $entries;
+    	
+    }
+    
     protected function convertRowToEntry($row, Default_Model_User $entry) {
     	$entry->setId($row->id)
         	  ->setUsername($row->username)

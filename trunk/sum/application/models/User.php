@@ -6,7 +6,7 @@ class Default_Model_User extends Default_Model_Abstract {
 	protected $_firstname;
 	protected $_lastname;
 	
-	protected $_mapper;
+	protected $_mapperClass = 'Default_Model_UserMapper';
 
     public function setId($id) {
         $this->_id = (int) $id;
@@ -52,5 +52,13 @@ class Default_Model_User extends Default_Model_Abstract {
     
     public function fetchEnrolmentCourses() {
     	return $this->getMapper()->fetchEnrolmentCourses($this);
+    }
+    
+    public function fetchUnEnrolledCourses() {
+    	return $this->getMapper()->fetchUnEnrolledCourses($this);
+    }
+    
+    public function fetchEnrolments($courseid) {
+    	return $this->getMapper()->fetchEnrolments($this, $courseid);
     }
 }

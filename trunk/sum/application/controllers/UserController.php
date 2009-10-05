@@ -51,7 +51,11 @@ class UserController extends Zend_Controller_Action
 		}
 
 		$this->view->users = $users;
-		$this->view->form = new Default_Form_SearchUser();
+		
+		if(!$this->_hasParam('submit')) {
+			$form = new Default_Form_SearchUser();
+		}
+		$this->view->form = $form;
 	}
 
 	public function viewAction()
@@ -64,9 +68,10 @@ class UserController extends Zend_Controller_Action
 		 
 		$model = new Default_Model_User();
 		$user = $model->find($userid);
-		$this->view->user = $user;
 		
+		$this->view->user = $user;
 		$this->view->enrolments = $user->fetchEnrolmentCourses();
+		$this->view->unEnrolledCourses = $user->fetchUnEnrolledCourses();
 	}
 
 	public function editAction()

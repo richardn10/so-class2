@@ -41,6 +41,26 @@ class Default_Model_CourseMapper extends Default_Model_Mapper {
         return $entries;
     }
     
+    public function fetchCoursesWithEnrolmentByUser($userid) {
+    	$select = $this->getDbTable()->select();
+//    	$select->setIntegrityCheck(false)
+//    	       ->from('Course')
+//    	       ->joinLeft('Enrolment', 'Enrolment.courseid = Course.id')
+//    	       ->where("Enrolment.enrolmentid IS NULL")
+//    	       ->where("Enrolment.userid = ?", $userid);
+    	
+    	$select->where("id NOT IN (SELECT courseid FROM Enrolment WHERE userid = ?)", $userid);
+    	
+    	$resultSet = $this->getDbTable()->fetchAll($select);
+    	$entries   = array();
+        foreach ($resultSet as $row) {
+            $entry = new Default_Model_Course();
+			$this->convertRowToEntry($row, $entry);
+            $entries[] = $entry;
+        }
+        return $entries;
+    	       
+    }
     
     function convertRowToEntry($row, Default_Model_Course $entry) {
     	$entry->setId($row->id)
