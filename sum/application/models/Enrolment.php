@@ -2,13 +2,14 @@
 class Default_Model_Enrolment extends Default_Model_Abstract {
 	
 	protected $_id;
-	protected $_userid;
-	protected $_courseid;
+	protected $_userId;
+	protected $_courseId;
 	protected $_enrolmentDate;
 	protected $_finishDate = null;
 	
 	protected $_course = null;
 	protected $_user = null;
+	protected $_numberLessons = null;
 	
 	protected $_mapperClass = 'Default_Model_EnrolmentMapper';
 	
@@ -21,31 +22,31 @@ class Default_Model_Enrolment extends Default_Model_Abstract {
     	return $this->_id;
     }
 	
-	public function setUserid($text)
+	public function setUserId($text)
     {
-        $this->_userid = (int) $text;
+        $this->_userId = (int) $text;
         return $this;
     }
 
-    public function getUserid()
+    public function getUserId()
     {
-        return $this->_userid;
+        return $this->_userId;
     }
     
-    public function setCourseid($text)
+    public function setCourseId($text)
     {
-        $this->_courseid = (int) $text;
+        $this->_courseId = (int) $text;
         return $this;
     }
 
-    public function getCourseid()
+    public function getCourseId()
     {
-        return $this->_courseid;
+        return $this->_courseId;
     }
     
-    public function setEnrolmentDate($text)
+    public function setEnrolmentDate(Zend_Date $date)
     {
-        $this->_enrolmentDate = (string) $text;
+        $this->_enrolmentDate = $date;
         return $this;
     }
 
@@ -54,9 +55,9 @@ class Default_Model_Enrolment extends Default_Model_Abstract {
         return $this->_enrolmentDate;
     }
     
-    public function setFinishDate($text)
+    public function setFinishDate(Zend_Date $date)
     {
-        $this->_finishDate = (string) $text;
+        $this->_finishDate = $date;
         return $this;
     }
 
@@ -69,8 +70,9 @@ class Default_Model_Enrolment extends Default_Model_Abstract {
 	function getCourse()
 	{
 		if(null === $this->_course) {
-			$course = new Default_Model_Course();
-			$this->_course = $course->find($this->_courseid);
+//			$course = new Default_Model_Course();
+//			$this->_course = $course->find($this->_courseid);
+			$this->_course = $this->getMapper()->getCourse($this);
 		}
 		
 		return $this->_course;
@@ -82,10 +84,23 @@ class Default_Model_Enrolment extends Default_Model_Abstract {
 		return $this;
 	}
 	
+	function getNumberLessons() {
+		if(null === $this->_numberLessons) {
+			$this->_numberLessons = $this->getMapper()->getNumberLessons($this);
+		}	
+		return $this->_numberLessons;
+	}
+	
+	function setNumberLessons($numberLessons) {
+		$this->_numberLessons = (int) $numberLessons;
+		return $this;
+	}
 	function getUser() {
 		if(null === $this->_user) {
-			$user = new Default_Model_User();
-			$this->_user = $user->find($this->_userid);
+//			$user = new Default_Model_User();
+//			$this->_user = $user->find($this->_userid);
+			$this->_user = $this->getMapper()->getUser($this);
+			
 		}
 		return $this->_user;
 	}

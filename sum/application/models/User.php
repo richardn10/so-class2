@@ -6,6 +6,8 @@ class Default_Model_User extends Default_Model_Abstract {
 	protected $_firstname;
 	protected $_lastname;
 	
+	protected $_transactionBalance = null;
+	
 	protected $_mapperClass = 'Default_Model_UserMapper';
 
     public function setId($id) {
@@ -48,6 +50,29 @@ class Default_Model_User extends Default_Model_Abstract {
     public function getLastname()
     {
         return $this->_lastname;
+    }
+    
+    public function getFullName()
+    {
+    	return $this->_firstname . " " . $this->_lastname;
+    }
+    
+    public function getTransactionBalance()
+    {
+    	if(null === $this->_transactionBalance) {
+    		$this->setTransactionBalance($this->getMapper()->getTransactionBalance($this));
+    	}
+    	return $this->_transactionBalance;
+    }
+    
+    public function setTransactionBalance($balance)
+    {
+    	$this->_transactionBalance = (int) $balance;
+    	return $this;
+    }
+    
+    public function getTransactionHistory() {
+    	return $this->getMapper()->getTransactionHistory($this);
     }
     
     public function fetchEnrolmentCourses() {

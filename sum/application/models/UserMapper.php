@@ -16,6 +16,7 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
         if (null === ($id = $user->getId())) {
             unset($data['id']);
             $this->getDbTable()->insert($data);
+            $user->setId($this->getDbTable()->getAdapter()->lastInsertId());
         } else {
             $this->getDbTable()->update($data, array('id = ?' => $id));
         }
@@ -30,6 +31,7 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
         $this->convertRowToEntry($row, $user);
     	
     }
+    
     public function findByAnyField($needle) {
     	$select = $this->getDbTable()->select();
     	$select->where('username LIKE ?', '%'.$needle.'%')
@@ -92,7 +94,9 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
     public function fetchEnrolments(Default_Model_User $user, $courseid) {
     	$select = $this->getDbTable()->select();
     	$select->where("Enrolment.courseid = ?", $courseid);
-    	$resultSet = $this->getDbTable()->findDependentRowset('Default_Model_DbTable_Enrolment', 'User', $select);
+    	$resultSet = $user->getRow()->findDependentRowset('Default_Model_DbTable_Enrolment', 'User', $select);
+    	
+    	$enrolmentMapper = new Default_Model_EnrolmentMapper();
     	
     	$entries = array();
     	foreach ($resultSet as $row) {
@@ -105,7 +109,17 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
     	
     }
     
-    protected function convertRowToEntry($row, Default_Model_User $entry) {
+    public function getTransactionBalance(Default_Model_User $user) {
+    	$transMapper = new Default_Model_TransactionMapper();
+    	return $transMapper->getBalance($user->getId());
+    }
+    
+    public function getTransactionHistory(Default_Model_User $user) {
+    	$transactionMapper = new Default_Model_TransactionMapper();
+    	return $transactionMapper->getCompleteHistory($user->getId());
+    }
+    
+    function convertRowToEntry($row, Default_Model_User $entry) {
     	$entry->setId($row->id)
         	  ->setUsername($row->username)
               ->setFirstname($row->firstname)

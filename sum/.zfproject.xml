@@ -18,13 +18,16 @@
           <actionMethod actionName="search"/>
           <actionMethod actionName="view"/>
           <actionMethod actionName="edit"/>
+          <actionMethod actionName="transactionhistory"/>
         </controllerFile>
         <controllerFile controllerName="course">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="enroll"/>
         </controllerFile>
         <controllerFile controllerName="lesson">
           <actionMethod actionName="index"/>
           <actionMethod actionName="register"/>
+          <actionMethod actionName="confirm"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -61,6 +64,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="lesson">
             <viewScriptFile forActionName="register"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="lesson">
+            <viewScriptFile forActionName="confirm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="course">
+            <viewScriptFile forActionName="enroll"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="user">
+            <viewScriptFile forActionName="transactionhistory"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
