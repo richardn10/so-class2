@@ -29,5 +29,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$dbAdapter = $resource->getDbAdapter();
 		$dbAdapter->setProfiler($profiler);
     }
+    
+    protected function _initTimeZone()
+    {
+    	date_default_timezone_set('UTC');
+    }
 }
 

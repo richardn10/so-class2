@@ -9,7 +9,8 @@ class Default_Model_CourseMapper extends Default_Model_Mapper {
         $data = array(
             'name'   => $course->getName(),
             'number_lessons' => $course->getNumberOfLessons(),
-            'lesson_price' => $course->getLessonPrice()
+            'lesson_price' => $course->getLessonPrice(),
+        	'lesson_length' => $course->getLessonLength()
         );
 
         if (null === ($id = $user->getId())) {
@@ -67,6 +68,7 @@ class Default_Model_CourseMapper extends Default_Model_Mapper {
         	  ->setName($row->name)
               ->setNumberOfLessons($row->number_lessons)
               ->setLessonPrice($row->lesson_price)
+              ->setLessonLength($row->lesson_length)
               ->setMapper($this);
     }
 	

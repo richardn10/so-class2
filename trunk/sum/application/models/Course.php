@@ -5,6 +5,7 @@ class Default_Model_Course extends Default_Model_Abstract {
 	protected $_name;
 	protected $_numberOfLessons;
 	protected $_lessonPrice;
+	protected $_lessonLength;
 	
 	protected $_mapperClass = 'Default_Model_CourseMapper';
 
@@ -48,5 +49,16 @@ class Default_Model_Course extends Default_Model_Abstract {
     public function getLessonPrice()
     {
         return $this->_lessonPrice;
+    }
+    
+	public function setLessonLength($num)
+    {
+        $this->_lessonLength = (int) $num;
+        return $this;
+    }
+
+    public function getLessonLength()
+    {
+        return $this->_lessonLength;
     }
 }

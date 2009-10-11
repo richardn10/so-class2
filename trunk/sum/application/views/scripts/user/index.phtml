@@ -4,7 +4,17 @@
         'action'     => 'search'
     ), 
     'default', 
-    true) ?>">Search!</a>
+    true) ?>">Search!</a><br />
+    
+    <a href="<?php echo $this->url(
+    array(
+        'controller' => 'user',
+        'action'     => 'add'
+    ), 
+    'default', 
+    true) ?>">Add user</a><br />
+    <br />
+
 
 Users: <br />
 <dl>
@@ -17,7 +27,7 @@ Users: <br />
     	'id'		=> $user->id
     ), 
     'default', 
-    true) ?>"> <?php echo $this->escape($user->firstname)." ".$this->escape($user->lastname) ?></a> (<a href="<?php echo $this->url(
+    true) ?>"> <?php echo $this->escape($user->fullname) ?></a> (<a href="<?php echo $this->url(
     array(
         'controller' => 'user',
         'action'     => 'edit',

@@ -1,6 +1,14 @@
 Username: <?php echo $this->escape($this->user->username) ?><br />
-First Name: <?php echo $this->escape($this->user->firstname) ?><br />
-Last Name: <?php echo $this->escape($this->user->lastname) ?><br />
+Name: <?php echo $this->escape($this->user->fullname) ?><br />
+<br />
+Balance: <?php echo $this->user->transactionBalance ?> (<a href="<?php echo $this->url(
+    array(
+        'controller' => 'user',
+        'action'     => 'transactionhistory',
+    	'id'		=> $this->user->id
+    ), 
+    'default', 
+    true) ?>">Transaction history</a>)<br />
 <br />
 
 <h3>Enrolments</h3>
@@ -11,9 +19,7 @@ Last Name: <?php echo $this->escape($this->user->lastname) ?><br />
     array(
         'controller' => 'lesson',
         'action'     => 'register',
-    	'user'		=> $this->user->id,
-    	'course'	 => $enrolment->course->id
-    	
+    	'enrolment'		=> $enrolment->id
     ), 
     'default', 
     true) ?>">Register Lesson</a></td></tr>
