@@ -1,0 +1,25 @@
+<h1>Terminals</h1>
+<a href="<?php echo $this->url(
+    array(
+        'controller' => 'terminal',
+        'action'     => 'add'
+    ), 
+    'default', 
+    true) ?>">Add terminal</a>
+
+<table>
+<tr><td>Name</td></tr>
+<?php foreach($this->terminals as $terminalStatus):?>
+	<tr>
+		<td><?php echo $this->escape($terminalStatus->terminal->name) ?> <a href="<?php echo $this->url(
+    array(
+        'controller' => 'terminal',
+        'action'     => 'edit',
+    	'id'		=> $terminalStatus->terminal->id
+    ), 
+    'default', 
+    true) ?>">(edit)</a></td>
+	</tr>
+
+<?php endforeach;?>
+</table>

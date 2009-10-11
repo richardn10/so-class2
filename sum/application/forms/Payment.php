@@ -6,6 +6,11 @@ class Default_Form_Payment extends Zend_Form
         // Set the method for the display form to POST
         $this->setMethod('post');
        
+        $this->addElement('select', 'terminal', array(
+        	'label'	=> 'Terminal:',
+        	'required'	=> true
+        ));
+        
         $this->addElement('text', 'amount', array(
             'label'      => 'Payment Received (Rp):',
             'required'   => true,
