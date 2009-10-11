@@ -1,0 +1,13 @@
+<h1>Confirm Enrolment</h1>
+<h2>User</h2>
+Username: <?php echo $this->escape($this->user->username) ?><br />
+Name: <?php echo $this->escape($this->user->fullname) ?><br />
+
+
+<h2>Course</h2>
+Name: <?php echo $this->escape($this->course->name) ?><br />
+Number lessons: <?php echo $this->escape($this->course->numberOfLessons) ?><br />
+Lesson Price: <?php echo $this->escape($this->course->lessonPrice) ?><br />
+
+<?php echo $this->form ?>
+

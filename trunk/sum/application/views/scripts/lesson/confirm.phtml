@@ -1,0 +1,17 @@
+User: <?php echo $this->escape($this->enrolment->user->fullname)?> <br />
+<br />
+
+
+<h2>Lesson</h2>
+Course: <?php echo $this->escape($this->enrolment->course->name)?> 
+(<?php echo $this->escape($this->enrolment->enrolmentdate) ?>)<br />
+Duration: <?php echo $this->escape($this->enrolment->course->lessonLength)?><br />
+Cost: <?php echo $this->escape($this->enrolment->course->lessonPrice)?>
+
+<h2>Financial</h2>
+Old User balance: <?php echo $this->enrolment->user->transactionBalance ?> <br />
+Cost: <?php echo $this->escape($this->enrolment->course->lessonPrice)?><br />
+Payment: <?php echo $this->escape($this->payment)?><br />
+New User balance: <?php echo ($this->enrolment->user->transactionBalance -$this->enrolment->course->lessonPrice + $this->payment) ?> <br />
+
+<?php echo $this->form ?>
