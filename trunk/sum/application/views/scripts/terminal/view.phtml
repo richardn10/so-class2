@@ -1,0 +1,10 @@
+Terminal name: <?php echo $this->escape($this->terminal->name) ?>
+<br />
+<a href="<?php echo $this->url(
+    array(
+        'controller' => 'terminal',
+        'action'     => 'edit',
+    	'id'		=> $this->terminal->id
+    ), 
+    'default', 
+    true) ?>">edit</a>

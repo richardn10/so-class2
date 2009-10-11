@@ -17,7 +17,6 @@ class Default_Model_LessonMapper extends Default_Model_Mapper {
 
         if (null === ($id = $lesson->getId())) {
             unset($data['id']);
-            $data['date'] = "NOW()";
             $this->getDbTable()->insert($data);
         } else {
             //$this->getDbTable()->update($data, array('id = ?' => $id));
