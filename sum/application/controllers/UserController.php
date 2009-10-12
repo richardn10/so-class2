@@ -19,12 +19,12 @@ class UserController extends Zend_Controller_Action
 		$request = $this->getRequest();
 		$form    = new Default_Form_User();
 
-		$form->getElement('username')->addValidator(
-        'Db_NoRecordExists', true, array(
-        	'table' => 'User', 
-        	'field' => 'username'
-        	)
-        );
+//		$form->getElement('username')->addValidator(
+//        'Db_NoRecordExists', true, array(
+//        	'table' => 'User', 
+//        	'field' => 'username'
+//        	)
+//        );
         if ($request->isPost()) {
         	if ($form->isValid($request->getPost())) {
         		$user = new Default_Model_User($form->getValues());
@@ -86,36 +86,40 @@ class UserController extends Zend_Controller_Action
 
 		$id = $this->_getParam('id');
 
-		$form->getElement('username')->addValidator(
-        	'Db_NoRecordExists', true, array(
-        		'table' => 'User', 
-        		'field' => 'username',
-        		'exclude' => array(
-        			'field' => 'id',
-        			'value' => $id)
-				)
-		);
+//		$form->getElement('username')->addValidator(
+//        	'Db_NoRecordExists', true, array(
+//        		'table' => 'User', 
+//        		'field' => 'username',
+//        		'exclude' => array(
+//        			'field' => 'id',
+//        			'value' => $id)
+//				)
+//		);
 		$model = new Default_Model_User();
+		$origUser = $model->find($id);
+		
+		
 		if ($this->getRequest()->isPost()) {
 			if ($form->isValid($request->getPost())) {
-				$user = new Default_Model_User($form->getValues());
-				$user->save();
+				$origUser->setFirstName($form->getValue('firstname'));
+				$origUser->setLastName($form->getValue('lastname'));
+//				$user = new Default_Model_User($form->getValues());
+//				$user->setUsername($origUser->userName);
+				$origUser->save();
 				$this->_helper->FlashMessenger('User saved');
 				$this->_helper->redirector('view', 'user','default',array('id' => $form->getValue('id')) );
 			}
 			 
 		}
 		else {
-
-			$user = $model->find($id);
 			$userarr = array (
-        				'id' => $user->getId(),
-        				'username' => $user->getUsername(),
-        				'firstname' => $user->getFirstname(),
-        				'lastname' => $user->getLastname()
+        				'id' => $origUser->getId(),
+        				'firstname' => $origUser->getFirstname(),
+        				'lastname' => $origUser->getLastname()
 			);
 			$form->setDefaults($userarr);
 		}
+		$this->view->user = $origUser;
 		$this->view->form = $form;
 	}
 

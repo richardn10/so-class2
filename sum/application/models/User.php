@@ -104,4 +104,17 @@ class Default_Model_User extends Default_Model_Abstract {
     public function fetchEnrolments($courseid) {
     	return $this->getMapper()->fetchEnrolments($this, $courseid);
     }
+    
+    
+    public function save()
+    {
+    	// username generation procedure
+    	if(null === $this->getId()) {
+    		$this->setUserName("temp".rand(10000, 99999));
+    		$this->getMapper()->save($this);
+    		$this->setUserName("a".sprintf("%05d", $this->getId()));
+    		$this->save();
+    	}
+        $this->getMapper()->save($this);
+    }
 }

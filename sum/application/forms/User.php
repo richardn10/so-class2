@@ -6,14 +6,6 @@ class Default_Form_User extends Zend_Form
     {
         // Set the method for the display form to POST
         $this->setMethod('post');
-
-        $this->addElement('text', 'username', array(
-            'label'      => 'Username:',
-            'required'   => true,
-            'validators' => array(
-                array('validator' => 'StringLength', 'options' => array(3, 30))
-                )
-        ));
         
         $this->addElement('text', 'firstname', array(
             'label'      => 'First Name:',
