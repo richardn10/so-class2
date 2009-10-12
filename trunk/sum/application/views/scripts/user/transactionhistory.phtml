@@ -10,7 +10,7 @@ Balance: <?php echo $this->user->transactionBalance ?><br />
 <?php foreach($this->historylines as $entry):?>
 	<tr>
 		<td><?php echo $this->escape($entry->description) ?></td>
-		<td><?php echo $this->escape($entry->date->toString(null,$locale)) ?></td>
+		<td><?php echo $entry->date ?></td>
 		<td style='color: #FF0000;'><?php echo $this->escape($entry->cost) ?></td>
 		<td style='color: #00FF00;'><?php echo $this->escape($entry->payment) ?></td>
 	
