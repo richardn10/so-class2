@@ -6,6 +6,7 @@ class Default_Form_SearchUser extends Zend_Form
     {
         // Set the method for the display form to POST
         $this->setMethod('get');
+        $this->setAttrib('accept-charset', 'UTF-8');
 
         $this->addElement('text', 'name', array(
             'label'      => 'Name:',
