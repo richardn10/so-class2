@@ -1,5 +1,5 @@
 <?php
-class Default_Model_TerminalReservationMapper extends Default_Model_Mapper {
+class Default_Model_Mapper_TerminalReservation extends Default_Model_Mapper {
 	
 	protected $_dbtableType = 'Default_Model_DbTable_TerminalReservation';
 	

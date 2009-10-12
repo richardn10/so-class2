@@ -9,7 +9,7 @@ class Default_Model_User extends Default_Model_Abstract {
 	protected $_transactionBalance = null;
 	protected $_activeReservations = null;
 	
-	protected $_mapperClass = 'Default_Model_UserMapper';
+	protected $_mapperClass = 'Default_Model_Mapper_User';
 
     public function setId($id) {
         $this->_id = (int) $id;

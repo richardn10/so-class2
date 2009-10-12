@@ -21,7 +21,7 @@ LEFT JOIN ActiveReservations as tr
 JOIN User as u ON (tr.userid = u.id)
 
  */
-class Default_Model_TerminalMapper extends Default_Model_Mapper {
+class Default_Model_Mapper_Terminal extends Default_Model_Mapper {
 
 	protected $_dbtableType = 'Default_Model_DbTable_Terminal';
 

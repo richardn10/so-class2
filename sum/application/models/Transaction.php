@@ -9,7 +9,7 @@ class Default_Model_Transaction extends Default_Model_Abstract {
 	protected $_type;
 	
 	
-	protected $_mapperClass = 'Default_Model_TransactionMapper';
+	protected $_mapperClass = 'Default_Model_Mapper_Transaction';
 	
 	public function setId($id) {
         $this->_id = (int) $id;

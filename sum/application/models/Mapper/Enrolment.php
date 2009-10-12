@@ -1,6 +1,6 @@
 <?php
 
-class Default_Model_EnrolmentMapper extends Default_Model_Mapper {
+class Default_Model_Mapper_Enrolment extends Default_Model_Mapper {
 	
 	protected $_dbtableType = 'Default_Model_DbTable_Enrolment';
 	
@@ -51,7 +51,7 @@ class Default_Model_EnrolmentMapper extends Default_Model_Mapper {
 	}
 	
 	function getNumberLessons(Default_Model_Enrolment $enrolment) {
-		$lessonMapper = new Default_Model_LessonMapper();
+		$lessonMapper = new Default_Model_Mapper_Lesson();
 		return $lessonMapper->getNumberLessons($enrolment->getId());
 	}
 	

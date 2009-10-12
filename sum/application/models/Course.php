@@ -11,7 +11,7 @@ class Default_Model_Course extends Default_Model_Abstract {
 	protected $_activeEnrolments;
 	protected $_notActiveEnrolments;
 	
-	protected $_mapperClass = 'Default_Model_CourseMapper';
+	protected $_mapperClass = 'Default_Model_Mapper_Course';
 
     public function setId($id) {
         $this->_id = (int) $id;

@@ -5,7 +5,7 @@ class Default_Model_Terminal extends Default_Model_Abstract {
 	
 	protected $_currentReservation = null;
 	
-	protected $_mapperClass = 'Default_Model_TerminalMapper';
+	protected $_mapperClass = 'Default_Model_Mapper_Terminal';
 	
     public function setId($id) {
         $this->_id = (int) $id;

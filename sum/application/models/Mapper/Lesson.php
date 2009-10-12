@@ -1,6 +1,6 @@
 <?php
 
-class Default_Model_LessonMapper extends Default_Model_Mapper {
+class Default_Model_Mapper_Lesson extends Default_Model_Mapper {
 	
 	protected $_dbtableType = 'Default_Model_DbTable_Lesson';
 	

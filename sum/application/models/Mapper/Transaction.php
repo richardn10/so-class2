@@ -1,6 +1,6 @@
 <?php
 
-class Default_Model_TransactionMapper extends Default_Model_Mapper {
+class Default_Model_Mapper_Transaction extends Default_Model_Mapper {
 	
 	protected $_dbtableType = 'Default_Model_DbTable_Transaction';
 	

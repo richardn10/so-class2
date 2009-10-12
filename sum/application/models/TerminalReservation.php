@@ -11,7 +11,7 @@ class Default_Model_TerminalReservation extends Default_Model_Abstract {
 	protected $_user = null;
 	
 	
-	protected $_mapperClass = 'Default_Model_TerminalReservationMapper';
+	protected $_mapperClass = 'Default_Model_Mapper_TerminalReservation';
 	
 	
 	public function setId($id) {
