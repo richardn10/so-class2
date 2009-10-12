@@ -95,12 +95,10 @@ class Default_Model_Enrolment extends Default_Model_Abstract {
 		$this->_numberLessons = (int) $numberLessons;
 		return $this;
 	}
+	
 	function getUser() {
 		if(null === $this->_user) {
-//			$user = new Default_Model_User();
-//			$this->_user = $user->find($this->_userid);
 			$this->_user = $this->getMapper()->getUser($this);
-			
 		}
 		return $this->_user;
 	}

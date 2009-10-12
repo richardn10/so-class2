@@ -20,20 +20,21 @@ class UserController extends Zend_Controller_Action
 		$form    = new Default_Form_User();
 
 		$form->getElement('username')->addValidator(
-        			'Db_NoRecordExists', true, array(
-        				'table' => 'User', 
-        				'field' => 'username'
-        				)
-        				);
-        				if ($request->isPost()) {
-        					if ($form->isValid($request->getPost())) {
-        						$model = new Default_Model_User($form->getValues());
-        						$model->save();
-        						return $this->_helper->redirector('index');
-        					}
-        				}
+        'Db_NoRecordExists', true, array(
+        	'table' => 'User', 
+        	'field' => 'username'
+        	)
+        );
+        if ($request->isPost()) {
+        	if ($form->isValid($request->getPost())) {
+        		$user = new Default_Model_User($form->getValues());
+        		$user->save();
+        		$this->_helper->FlashMessenger('User created');
+        		return $this->_helper->redirector('view', 'user','default',array('id' => $user->id) );
+        	}
+        }
 
-        				$this->view->form = $form;
+        $this->view->form = $form;
 	}
 
 	public function searchAction()
@@ -70,8 +71,11 @@ class UserController extends Zend_Controller_Action
 		$user = $model->find($userid);
 
 		$this->view->user = $user;
-		$this->view->enrolments = $user->fetchEnrolmentCourses();
+		$this->view->enrolments = $user->fetchNotFinishedEnrolmentCourses();
+		$this->view->finishedEnrolments = $user->fetchFinishedEnrolmentCourses();
 		$this->view->unEnrolledCourses = $user->fetchUnEnrolledCourses();
+		
+		$this->view->messages = $this->_helper->FlashMessenger->getMessages();
 	}
 
 	public function editAction()
@@ -83,19 +87,20 @@ class UserController extends Zend_Controller_Action
 		$id = $this->_getParam('id');
 
 		$form->getElement('username')->addValidator(
-        			'Db_NoRecordExists', true, array(
-        				'table' => 'User', 
-        				'field' => 'username',
-        				'exclude' => array(
-        					'field' => 'id',
-        					'value' => $id)
-		)
+        	'Db_NoRecordExists', true, array(
+        		'table' => 'User', 
+        		'field' => 'username',
+        		'exclude' => array(
+        			'field' => 'id',
+        			'value' => $id)
+				)
 		);
 		$model = new Default_Model_User();
 		if ($this->getRequest()->isPost()) {
 			if ($form->isValid($request->getPost())) {
-				$model = new Default_Model_User($form->getValues());
-				$model->save();
+				$user = new Default_Model_User($form->getValues());
+				$user->save();
+				$this->_helper->FlashMessenger('User saved');
 				$this->_helper->redirector('view', 'user','default',array('id' => $form->getValue('id')) );
 			}
 			 

@@ -63,12 +63,32 @@ class Default_Model_CourseMapper extends Default_Model_Mapper {
     	       
     }
     
+    function getEnrolments(Default_Model_Course $course, $active = null) {
+    	$select = $this->getDbTable()->select();
+    	if(false === $active) 
+    		$select->where('finish_date IS NOT NULL');
+    	if(true === $active)
+    		$select->where('finish_date IS NULL');
+    	
+    	$resultSet = $course->getRow()->findDependentRowset('Default_Model_DbTable_Enrolment', 'Course', $select);
+    	
+    	$entries   = array();
+    	$enrolmentMapper = new Default_Model_EnrolmentMapper();
+        foreach ($resultSet as $row) {
+            $entry = new Default_Model_Enrolment();
+			$enrolmentMapper->convertRowToEntry($row, $entry);
+            $entries[] = $entry;
+        }
+        return $entries;
+    }
+    
     function convertRowToEntry($row, Default_Model_Course $entry) {
     	$entry->setId($row->id)
         	  ->setName($row->name)
               ->setNumberOfLessons($row->number_lessons)
               ->setLessonPrice($row->lesson_price)
               ->setLessonLength($row->lesson_length)
+              ->setRow($row)
               ->setMapper($this);
     }
 	

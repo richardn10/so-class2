@@ -23,6 +23,8 @@
         <controllerFile controllerName="course">
           <actionMethod actionName="index"/>
           <actionMethod actionName="enroll"/>
+          <actionMethod actionName="view"/>
+          <actionMethod actionName="finish"/>
         </controllerFile>
         <controllerFile controllerName="lesson">
           <actionMethod actionName="index"/>
@@ -34,6 +36,11 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="edit"/>
           <actionMethod actionName="view"/>
+        </controllerFile>
+        <controllerFile controllerName="reservation">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="clear"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -92,6 +99,21 @@
           <viewControllerScriptsDirectory forControllerName="terminal">
             <viewScriptFile forActionName="view"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="reservation">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="reservation">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="reservation">
+            <viewScriptFile forActionName="clear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="course">
+            <viewScriptFile forActionName="view"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="course">
+            <viewScriptFile forActionName="finish"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -123,6 +145,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>

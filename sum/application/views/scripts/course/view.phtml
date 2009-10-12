@@ -1,0 +1,37 @@
+<ul>
+<?php foreach($this->messages as $message):?>
+	<li><?php echo $message ?></li>
+<?php endforeach;?>
+</ul>
+
+<h2>View course</h2>
+Name: <?php echo $this->escape($this->course->name) ?> <br />
+Number of lessons: <?php echo $this->escape($this->course->numberOfLessons) ?><br />
+Lesson lenght: <?php echo $this->escape($this->course->lessonLength) ?><br />
+Lesson price: <?php echo $this->escape($this->course->lessonPrice) ?><br />
+
+
+<h2>Active Enrolments</h2>
+<table>
+<?php foreach($this->course->activeEnrolments as $enrolment):?>
+	<tr>
+		<td><?php echo $this->escape($enrolment->user->userName) ?></td>
+		<td><?php echo $this->escape($enrolment->user->fullName) ?></td>
+		<td><?php echo $enrolment->enrolmentDate ?></td>
+		<td><?php echo $this->escape($enrolment->numberLessons) ?></td>
+	</tr>
+<?php endforeach;?>
+</table>
+
+<h2>Past Enrolments</h2>
+<table>
+<?php foreach($this->course->notActiveEnrolments as $enrolment):?>
+	<tr>
+		<td><?php echo $this->escape($enrolment->user->userName) ?></td>
+		<td><?php echo $this->escape($enrolment->user->fullName) ?></td>
+		<td><?php echo $enrolment->startDate ?></td>
+		<td><?php echo $enrolment->finishDate ?></td>
+		<td><?php echo $enrolment->numberLessons ?></td>
+	</tr>
+<?php endforeach;?>
+</table>

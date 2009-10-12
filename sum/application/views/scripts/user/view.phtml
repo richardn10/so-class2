@@ -1,3 +1,8 @@
+<ul>
+<?php foreach($this->messages as $message):?>
+	<li><?php echo $message ?></li>
+<?php endforeach;?>
+</ul>
 Username: <?php echo $this->escape($this->user->username) ?><br />
 Name: <?php echo $this->escape($this->user->fullname) ?><br />
 <br />
@@ -10,6 +15,17 @@ Balance: <?php echo $this->user->transactionBalance ?> (<a href="<?php echo $thi
     'default', 
     true) ?>">Transaction history</a>)<br />
 <br />
+<?php if(count($this->user->activeReservations) > 0):?>
+	<h2>Current Terminal Reservation<?php if(count($this->user->activeReservations) > 0) echo "s"?></h2>
+	<table>
+	<?php foreach($this->user->activeReservations as $reservation):?>
+	<tr><td><?php echo $this->escape($reservation->terminalName) ?></td><td><?php echo $reservation->startDate ?></td><td><?php echo $reservation->endDate ?></td></tr>
+		
+	<?php endforeach;?>
+	</table>
+
+<?php endif;?>
+
 
 <h3>Enrolments</h3>
 <table>
@@ -22,7 +38,30 @@ Balance: <?php echo $this->user->transactionBalance ?> (<a href="<?php echo $thi
     	'enrolment'		=> $enrolment->id
     ), 
     'default', 
-    true) ?>">Register Lesson</a></td></tr>
+    true) ?>">Register Lesson</a></td>
+    <td><a href="<?php echo $this->url(
+    array(
+        'controller' => 'course',
+        'action'     => 'finish',
+    	'id'		=> $enrolment->id
+    ), 
+    'default', 
+    true) ?>">Finish Enrolment</a></td></tr>
+<?php endforeach?>
+</table>
+
+<h3>Previous Enrolments</h3>
+<table>
+<?php foreach($this->finishedEnrolments as $enrolment):?>
+<tr><td><?php echo $this->escape($enrolment->course->name) ?></td><td><?php echo $this->escape($enrolment->enrolmentDate) ?></td><td><a href="<?php echo $this->url(
+    array(
+        'controller' => 'course',
+        'action'     => 'enroll',
+    	'user'		=> $this->user->id,
+    	'course'	 => $enrolment->course->id
+    ), 
+    'default', 
+    true) ?>">Enroll again</a></td></tr>
 <?php endforeach?>
 </table>
 
