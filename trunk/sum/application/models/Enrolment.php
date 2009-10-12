@@ -11,7 +11,7 @@ class Default_Model_Enrolment extends Default_Model_Abstract {
 	protected $_user = null;
 	protected $_numberLessons = null;
 	
-	protected $_mapperClass = 'Default_Model_EnrolmentMapper';
+	protected $_mapperClass = 'Default_Model_Mapper_Enrolment';
 	
     public function setId($id) {
         $this->_id = (int) $id;

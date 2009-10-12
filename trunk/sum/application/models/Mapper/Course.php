@@ -1,6 +1,6 @@
 <?php
 
-class Default_Model_CourseMapper extends Default_Model_Mapper {
+class Default_Model_Mapper_Course extends Default_Model_Mapper {
 
 	protected $_dbtableType = 'Default_Model_DbTable_Course';
 	    
@@ -73,7 +73,7 @@ class Default_Model_CourseMapper extends Default_Model_Mapper {
     	$resultSet = $course->getRow()->findDependentRowset('Default_Model_DbTable_Enrolment', 'Course', $select);
     	
     	$entries   = array();
-    	$enrolmentMapper = new Default_Model_EnrolmentMapper();
+    	$enrolmentMapper = new Default_Model_Mapper_Enrolment();
         foreach ($resultSet as $row) {
             $entry = new Default_Model_Enrolment();
 			$enrolmentMapper->convertRowToEntry($row, $entry);

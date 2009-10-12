@@ -13,7 +13,7 @@ class Default_Model_Lesson extends Default_Model_Abstract {
 	protected $_debitTransaction;
 	protected $_creditTransaction;
 	
-	protected $_mapperClass = 'Default_Model_LessonMapper';
+	protected $_mapperClass = 'Default_Model_Mapper_Lesson';
 	
     public function setId($id) {
         $this->_id = (int) $id;

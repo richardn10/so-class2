@@ -1,6 +1,6 @@
 <?php
 
-class Default_Model_UserMapper extends Default_Model_Mapper {
+class Default_Model_Mapper_User extends Default_Model_Mapper {
 
 	protected $_dbtableType = 'Default_Model_DbTable_User';
 	    
@@ -73,8 +73,8 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
     	$resultSet = $userRow->findManyToManyRowset('Default_Model_DbTable_Course', 'Default_Model_DbTable_Enrolment', null, null,$select);
     	
     	$entries = array();
-    	$enrolmentMapper = new Default_Model_EnrolmentMapper();
-    	$courseMapper = new Default_Model_CourseMapper();
+    	$enrolmentMapper = new Default_Model_Mapper_Enrolment();
+    	$courseMapper = new Default_Model_Mapper_Course();
     	
         foreach ($resultSet as $row) {
             $enrolment = new Default_Model_Enrolment();
@@ -91,7 +91,7 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
     }
     
     public function fetchUnEnrolledCourses(Default_Model_User $user) {
-		$courseMapper = new Default_Model_CourseMapper();
+		$courseMapper = new Default_Model_Mapper_Course();
 		return $courseMapper->fetchCoursesWithEnrolmentByUser($user->getId());
     }
     
@@ -114,7 +114,7 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
     }
     
     public function getTransactionBalance(Default_Model_User $user) {
-    	$transMapper = new Default_Model_TransactionMapper();
+    	$transMapper = new Default_Model_Mapper_Transaction();
     	return $transMapper->getBalance($user->getId());
     }
     
@@ -142,7 +142,7 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
     }
     
     public function getTransactionHistory(Default_Model_User $user) {
-    	$transactionMapper = new Default_Model_TransactionMapper();
+    	$transactionMapper = new Default_Model_Mapper_Transaction();
     	return $transactionMapper->getCompleteHistory($user->getId());
     }
     
