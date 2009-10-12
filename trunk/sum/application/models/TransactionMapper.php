@@ -56,7 +56,7 @@ class Default_Model_TransactionMapper extends Default_Model_Mapper {
 		foreach($rowSet as $row) {
 			$entries[] = (object) array(
 				"description" => "Lesson (".$row->course_name.")",
-				"date" => new Zend_Date($row->lesson_date),
+				"date" => new Zend_Date($row->lesson_date, Zend_Date::ISO_8601),
 				"payment" => $row->credit_amount,
 				"cost" => -1 * $row->debit_amount
 			);

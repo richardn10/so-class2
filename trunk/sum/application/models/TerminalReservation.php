@@ -5,6 +5,10 @@ class Default_Model_TerminalReservation extends Default_Model_Abstract {
 	protected $_userId;
 	protected $_startDate;
 	protected $_endDate;
+	protected $_cancelled = false;
+	
+	protected $_terminal = null;
+	protected $_user = null;
 	
 	
 	protected $_mapperClass = 'Default_Model_TerminalReservationMapper';
@@ -58,4 +62,27 @@ class Default_Model_TerminalReservation extends Default_Model_Abstract {
     {
         return $this->_endDate;
     }
+    
+    public function setCancelled($cancelled) {
+    	$this->_cancelled = (bool) $cancelled;
+        return $this;
+    }
+    
+    public function getCancelled() {
+    	return $this->_cancelled;
+    }
+    
+	function getTerminal() {
+		if(null === $this->_terminal) {
+			$this->_terminal = $this->getMapper()->getTerminal($this);	
+		}
+		return $this->_terminal;
+	}
+	
+	function getUser() {
+		if(null === $this->_user) {
+			$this->_user = $this->getMapper()->getUser($this);
+		}
+		return $this->_user;
+	}
 }

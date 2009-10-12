@@ -11,6 +11,9 @@ class Default_Model_EnrolmentMapper extends Default_Model_Mapper {
             'courseid' => $enrolment->getCourseId(),
         	'enrolment_date' => $enrolment->getEnrolmentDate()->toString('YYYY-MM-dd HH:mm:ss')
         );
+        
+        if(null !== $enrolment->getFinishDate()) 
+        	$data['finish_date'] = $enrolment->getFinishDate()->toString('YYYY-MM-dd HH:mm:ss');
 
         if (null === ($id = $enrolment->getId())) {
             unset($data['id']);
@@ -57,9 +60,10 @@ class Default_Model_EnrolmentMapper extends Default_Model_Mapper {
     	$entry->setId($row->enrolmentid)
         	  ->setUserid($row->userid)
               ->setCourseid($row->courseid)
-              ->setEnrolmentDate(new Zend_Date($row->enrolment_date))
-              ->setFinishDate(new Zend_Date($row->finish_date))
+              ->setEnrolmentDate(new Zend_Date($row->enrolment_date, Zend_Date::ISO_8601))
               ->setRow($row)
               ->setMapper($this);
+        if(!is_null($row->finish_date)) 
+        	$entry->setFinishDate(new Zend_Date($row->finish_date, Zend_Date::ISO_8601));
     }
 }

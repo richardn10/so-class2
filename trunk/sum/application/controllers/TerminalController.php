@@ -12,6 +12,7 @@ class TerminalController extends Zend_Controller_Action
 	{
 		$terminalModel = new Default_Model_Terminal();
 		$this->view->terminals = $terminalModel->getTerminalStatusses();
+		$this->view->messages = $this->_helper->FlashMessenger->getMessages();
 	}
 
 	public function addAction()
@@ -81,7 +82,6 @@ class TerminalController extends Zend_Controller_Action
 
 		$this->view->terminal = $terminal;
 	}
-
 
 }
 

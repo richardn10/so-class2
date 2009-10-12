@@ -1,3 +1,9 @@
+<ul>
+<?php foreach($this->messages as $message):?>
+	<li><?php echo $message ?></li>
+<?php endforeach;?>
+</ul>
+
 <h1>Terminals</h1>
 <a href="<?php echo $this->url(
     array(
@@ -18,7 +24,30 @@
     	'id'		=> $terminalStatus->terminal->id
     ), 
     'default', 
-    true) ?>">(edit)</a></td>
+    true) ?>">(edit)</a></td><td><?php if(is_numeric($terminalStatus->status->reservationid)):?>
+    									Reserved 
+    									<a href="<?php echo $this->url(
+									    array(
+									        'controller' => 'reservation',
+									        'action'     => 'edit',
+									    	'id'		=> $terminalStatus->status->reservationid
+									    ), 
+									    'default', 
+									    true) ?>">(change terminal)</a>
+									    
+									    <a href="<?php echo $this->url(
+									    array(
+									        'controller' => 'reservation',
+									        'action'     => 'clear',
+									    	'id'		=> $terminalStatus->status->reservationid
+									    ), 
+									    'default', 
+									    true) ?>">(Clear Reservation)</a>
+    							<?php else: ?>
+    								Free
+    							<?php endif;?>
+    
+    </td>
 	</tr>
 
 <?php endforeach;?>

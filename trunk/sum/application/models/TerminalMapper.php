@@ -3,7 +3,7 @@
 /*
  * CREATE VIEW ActiveReservations as SELECT id as reservationid, terminalid, userid, start, end FROM TerminalReservation WHERE start < UTC_TIMESTAMP() AND end > UTC_TIMESTAMP()
  * 
- * CREATE VIEW TerminalStatus as SELECT terminalid, userid, start, end, id as reservationid, NULL as loginid FROM TerminalReservation WHERE start < UTC_TIMESTAMP() AND end > UTC_TIMESTAMP()
+ * CREATE VIEW TerminalStatus as SELECT terminalid, userid, start, end, id as reservationid, NULL as loginid FROM TerminalReservation WHERE start < UTC_TIMESTAMP() AND end > UTC_TIMESTAMP() and cancelled = 0
  * 
  * CREATE VIEW TerminalStatus as
 SELECT t.id as terminalid, t.name, tr.reservationid, tr.userid, u.username, u.firstname, u.lastname, tr.start, tr.end

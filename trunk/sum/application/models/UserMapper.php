@@ -60,13 +60,17 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
         return $entries;
     }
     
-    public function fetchEnrolmentCourses(Default_Model_User $user) {
+    public function fetchEnrolmentCourses(Default_Model_User $user, $finished = null) {
     	$userRow = $user->getRow();
 		if(null === $userRow) {
 			throw new Zend_Exception("No user db row present");
 		}
-    	
-    	$resultSet = $userRow->findManyToManyRowset('Default_Model_DbTable_Course', 'Default_Model_DbTable_Enrolment');
+    	$select = $this->getDbTable()->select();
+    	if(false === $finished)
+    		$select->where('finish_date IS NULL');
+    	if(true === $finished)
+    		$select->where('finish_date IS NOT NULL');
+    	$resultSet = $userRow->findManyToManyRowset('Default_Model_DbTable_Course', 'Default_Model_DbTable_Enrolment', null, null,$select);
     	
     	$entries = array();
     	$enrolmentMapper = new Default_Model_EnrolmentMapper();
@@ -112,6 +116,29 @@ class Default_Model_UserMapper extends Default_Model_Mapper {
     public function getTransactionBalance(Default_Model_User $user) {
     	$transMapper = new Default_Model_TransactionMapper();
     	return $transMapper->getBalance($user->getId());
+    }
+    
+    public function getActiveReservations(Default_Model_User $user) {
+    	$select = $this->getDbTable()->select();
+    	$select->setIntegrityCheck(false)
+    		->from('TerminalStatus as ts', array('t.name as terminalname', 'ts.start', 'ts.end'))
+    		->join('Terminal as t', 'ts.terminalid = t.id')
+    		->where('userid = ?', $user->getId());
+    		
+    	$rowSet = $this->getDbTable()->fetchAll($select);
+    	
+    	$entries = array();
+    	foreach($rowSet as $row) {
+    		$entry = array(
+    			'terminalName' => $row->terminalname,
+    			'startDate' => new Zend_Date($row->start, Zend_Date::ISO_8601),
+    			'endDate' => new Zend_Date($row->end, Zend_Date::ISO_8601)
+    		);
+    		$entries[] = (object) $entry;
+    	}
+    	
+    	return $entries;
+    	    	
     }
     
     public function getTransactionHistory(Default_Model_User $user) {

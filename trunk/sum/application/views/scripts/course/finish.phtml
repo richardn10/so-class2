@@ -1,0 +1,13 @@
+<h1>Finish Enrolments</h1>
+<table>
+<?php foreach($this->enrolments as $enrolment):?>
+<tr>
+	<td><?php echo $this->escape($enrolment->user->fullName)?></td>
+	<td><?php echo $this->escape($enrolment->course->name)?></td>
+	<td><?php echo $enrolment->numberLessons?></td>
+	<td><?php echo $enrolment->enrolmentDate?></td>
+</tr>
+<?php endforeach;?>
+</table>
+
+<?php echo $this->form ?>

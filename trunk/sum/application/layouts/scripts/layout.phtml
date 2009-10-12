@@ -24,7 +24,37 @@ echo $this->doctype() ?>
             </div>
             
 	    <div id="container-eyecatcher">
-                <div id="container-navigation"><ul id="navigation"><li><a href="#">Home</a></li><li><a href="#">Register Users Attendance</a></li><li><a href="db_adduser.php">Add User</a></li><li><a href="db_manageusers.php">Manage Users and Subscriptions</a></li><li><a href="#">Logout</a></li></ul></div>
+                <div id="container-navigation"><ul id="navigation">
+                <li><a href="<?php echo $this->url(
+    array(
+        'controller' => 'index',
+        'action'     => 'index'
+    ), 
+    'default', 
+    true) ?>">Home</a></li>
+                <li><a href="<?php echo $this->url(
+    array(
+        'controller' => 'user',
+        'action'     => 'index'
+    ), 
+    'default', 
+    true) ?>">Users</a></li>
+                <li><a href="<?php echo $this->url(
+    array(
+        'controller' => 'course',
+        'action'     => 'index'
+    ), 
+    'default', 
+    true) ?>">Courses</a></li>
+                <li><a href="<?php echo $this->url(
+    array(
+        'controller' => 'terminal',
+        'action'     => 'index'
+    ), 
+    'default', 
+    true) ?>">Terminals</a></li>
+                <li><a href="#">Logout</a></li>
+                </ul></div>
             <img src="<?php echo $this->baseUrl('images/SO_eyecatcher.jpg'); ?>" alt="SwitchedOn picture" />
 	    </div>
 

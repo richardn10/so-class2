@@ -1,1 +1,21 @@
-<?php print_r($this->result) ?>
+<h1>Courses</h1>
+<table>
+<tr><td>Name</td><td># Lessons</td><td>Length lesson</td><td>Price lesson</td><td>Active Enrolments</td></tr>
+<?php foreach($this->courses as $course):?>
+	<tr>
+		<td><a href="<?php echo $this->url(
+		    array(
+		        'controller' => 'course',
+		        'action'     => 'view',
+		    	'id'		=> $course->id
+		    ), 
+		    'default', true) ?>
+		    "><?php echo $this->escape($course->name) ?></a>
+    	</td>
+		<td><?php echo $course->numberOfLessons ?></td>
+		<td><?php echo $course->lessonLength ?></td>
+		<td><?php echo $course->lessonPrice ?></td>
+		<td><?php echo count($course->activeEnrolments) ?></td>
+	</tr>
+<?php endforeach;?>
+</table>

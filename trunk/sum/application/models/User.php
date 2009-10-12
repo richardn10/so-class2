@@ -7,6 +7,7 @@ class Default_Model_User extends Default_Model_Abstract {
 	protected $_lastname;
 	
 	protected $_transactionBalance = null;
+	protected $_activeReservations = null;
 	
 	protected $_mapperClass = 'Default_Model_UserMapper';
 
@@ -71,12 +72,29 @@ class Default_Model_User extends Default_Model_Abstract {
     	return $this;
     }
     
+    public function setActiveReservations(array $reservations) {
+    	$this->_activeReservations = $reservations;
+    	return $this;
+    }
+    
+    public function getActiveReservations() {
+    	if(null === $this->_activeReservations) {
+    		$this->setActiveReservations($this->getMapper()->getActiveReservations($this));
+    	}
+    	return $this->_activeReservations;
+    }
+    
     public function getTransactionHistory() {
     	return $this->getMapper()->getTransactionHistory($this);
     }
     
-    public function fetchEnrolmentCourses() {
-    	return $this->getMapper()->fetchEnrolmentCourses($this);
+    public function fetchNotFinishedEnrolmentCourses() {
+    	return $this->getMapper()->fetchEnrolmentCourses($this, false);
+    
+    }
+    
+    public function fetchFinishedEnrolmentCourses() {
+    	return $this->getMapper()->fetchEnrolmentCourses($this, true);
     }
     
     public function fetchUnEnrolledCourses() {
