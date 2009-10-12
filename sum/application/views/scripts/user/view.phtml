@@ -4,7 +4,7 @@
 <?php endforeach;?>
 </ul>
 Username: <?php echo $this->escape($this->user->username) ?><br />
-Name: <?php echo $this->escape($this->user->fullname) ?><br />
+Name: <?php echo $this->escape($this->user->fullname) ?> | <?php echo $this->user->fullname ?><br />
 <br />
 Balance: <?php echo $this->user->transactionBalance ?> (<a href="<?php echo $this->url(
     array(

@@ -5,6 +5,7 @@ class Default_Form_Reservation extends Zend_Form
     {
         // Set the method for the display form to POST
         $this->setMethod('post');
+        $this->setAttrib('accept-charset', 'UTF-8');
        
         $this->addElement('select', 'terminal', array(
         	'label'	=> 'Terminal:',

@@ -4,7 +4,7 @@ body,html {
 	height: 100%;
 	width: 100%;
 	background-color: #FFFFFF;
-	background-image: url(../../tmpl/images/bg_main.gif);
+	background-image: url(../images/bg_main.gif);
 	background-repeat: repeat-x;
 	font-family: Arial, Verdana, Helvetica, sans-serif;
 	font-size: 12px;
@@ -23,7 +23,7 @@ body,html {
 	width: 670px;
 	height: 85px;
 	padding: 20px 40px 0px 40px;
-	background-image: url(../../tmpl/images/bg_header.gif);
+	background-image: url(../images/bg_header.gif);
 	line-height: 85px;
 	font-size:28px;
 	font-weight:bold;
@@ -49,7 +49,7 @@ span, #container-name span,#container-slogan span {
 	width: 670px;
 	padding: 0px 40px 0px 40px;
 	height: 175px;	
-	background-image: url(../../tmpl/images/bg_eyecatcher.gif);
+	background-image: url(../images/bg_eyecatcher.gif);
 }
 
 #container-navigation {
@@ -86,7 +86,7 @@ ul#navigation {
 
 #container-content {
 	width:670px;
-	background-image: url(../../tmpl/images/bg_content.gif);
+	background-image: url(../images/bg_content.gif);
 	background-repeat: no-repeat;
 	padding: 20px 40px 0px 40px;
 	margin: 0 0 0 0;
@@ -151,7 +151,7 @@ h1 {
 	color: #666666;
 	margin: 0 0 0 0;
 	padding: 0px 0 20px 25px;
-	background-image: url(../../tmpl/images/h1_arrow.gif);
+	background-image: url(../images/h1_arrow.gif);
 	background-repeat: no-repeat;
 	background-position: 5px 7px;
 	line-height: 24px;
@@ -224,7 +224,7 @@ hr {
 	background-color: #f7f7f7;
 	border-bottom: 1px solid #E5E5E5;
 	padding: 15px 15px 15px 65px;
-	background-image: url(../../tmpl/images/bg_quote.gif);
+	background-image: url(../images/bg_quote.gif);
 	background-repeat: no-repeat;
 	background-position: 10px 10px;
 	color: #0066CC;
@@ -269,7 +269,7 @@ ul#news {
 
 #news li {
 	list-style: none;
-	background-image: url(../../tmpl/images/li_cube.gif);
+	background-image: url(../images/li_cube.gif);
 	background-repeat: no-repeat;
 	background-position: 2px 6px;
 	padding: 2px 0px 2px 15px;
