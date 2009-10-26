@@ -15,6 +15,8 @@
  * [Workpackage_Moodle_Results_Summariser Moodle Results Summariser]
  * [Workpackage_Meta_Moodle_Course Meta-Moodle Course]
 
+* [MeetingMinutes Meeting Minutes]
+
 * *Things you may want to do*
  * [InstallingMoodle Installing Moodle]
 
