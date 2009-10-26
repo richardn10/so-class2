@@ -1,0 +1,10 @@
+#summary Meeting Minutes
+
+= Introduction =
+Record of discussions.
+
+= Details =
+
+  * [MM091024 24th October 2009]
+
+Next meeting, 11am GMT, 5th Dec 09
