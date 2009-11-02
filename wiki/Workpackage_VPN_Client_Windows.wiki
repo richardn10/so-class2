@@ -10,7 +10,7 @@
   * Choose on all places the default settings (just stay clicking next, I agree, Install and Finish)
   * If it gives a warning, click "Continue Anyway"
 
-With Windows Vista I (richardn10) installed as above (thus configuring the VPN) then had to install over the top http://openvpn.net/vista.html from http://openvpn.net/index.php/open-source/downloads.html.  i.e. version 2.0.9 did not work, despite the claim on
+With Windows Vista I (richardn10) installed as above (thus configuring the VPN) then had to install over the top OpenVPN 2.1_rc20 from http://openvpn.net/index.php/open-source/downloads.html.  i.e. version 2.0.9 did not work, despite the claim on
 http://openvpn.net/vista.html that 2.0.9+ works on vista.
 
 
