@@ -10,6 +10,10 @@
   * Choose on all places the default settings (just stay clicking next, I agree, Install and Finish)
   * If it gives a warning, click "Continue Anyway"
 
+With Windows Vista I (richardn10) installed as above (thus configuring the VPN) then had to install over the top http://openvpn.net/vista.html from http://openvpn.net/index.php/open-source/downloads.html.  i.e. version 2.0.9 did not work, despite the claim on
+http://openvpn.net/vista.html that 2.0.9+ works on vista.
+
+
   * Start the Certificate Wizard by going to Start-> All Programs -> OpenVPN -> My Certificate Wizard
   * Fill in your name and email-address and click "Create Request"
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_VPN_files/makerequest.png]
