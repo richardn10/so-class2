@@ -13,6 +13,7 @@
 With Windows Vista I (richardn10) installed as above (thus configuring the VPN) then had to install over the top OpenVPN 2.1_rc20 from http://openvpn.net/index.php/open-source/downloads.html.  i.e. version 2.0.9 did not work, despite the claim on
 http://openvpn.net/vista.html that 2.0.9+ works on vista.
 
+Vista: Run As Administrator.  Note from Readme: 'on Windows Vista, you will need to run the OpenVPN GUI with administrator privileges, so that it can add routes to the routing table that are pulled from the OpenVPN server. You can do this by right-clicking on the OpenVPN GUI desktop icon, and selecting "Run as administrator".'
 
   * Start the Certificate Wizard by going to Start-> All Programs -> OpenVPN -> My Certificate Wizard
   * Fill in your name and email-address and click "Create Request"
