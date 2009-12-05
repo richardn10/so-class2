@@ -14,5 +14,6 @@ Work as usual is defined in the workpackage areas (not issues).
 = Details =
 
   * [MM091024 24th October 2009]
+  * [MM091205 5th December 2009]
 
-Next meeting, 11am GMT, 5th Dec 09
+Next meeting, 11am GMT, ...
