@@ -1,16 +1,20 @@
 #summary Meeting minutes 5th Dec 10
 
 = Attendees =
+eva
+
  * Edward R
- * Farayi U
  * Pete S
  * Adam B
  * Richard N - chair
+ * Farayi
+ * Eva
+ * Neil
 
-= Apologies =
- * Edward B
- * Phil A
- * Neil R
+= Attempts =
+ * Pete Edwards
+ * Pete Thorpe
+(sorry chaps, the chair's fault for not dialling into the conference bridge)
 
 = Actions =
 See the issues list - [http://code.google.com/p/so-class2/issues]
@@ -20,20 +24,24 @@ The actions do not replace the workpackage specs in the wiki, though may refer t
 = Updates and discussion =
 
 == Richard ==
-Booked into Intalio course to develop workflow solution for Switched On sponsor admin system (not in Google code).
+Currently working on implementing the sponsorship correspondence admin system and changing the sponsorship web page to make it clearer.
 
 == Adam - Config ==
-Intends to develop Switched On installer as RPMs in a Switched On repositort, so can be installed as any other application.   Will not comply to full SUSE spec as not going to be in official distro.
+Been somewhat waylayed by paying work!  Hopes to be back on the Switched On development after the Christmas/New Year hols.
 
-Discussed installation approach with Richard at length.  Intend to use AutoYast.
-
-== Edward - SUM: MS shutdown/messages ==
-Wants to add auto-login.
-Was some discussion as to whether could be done in Linux as well, but the way not obvious and is not strong requirement.
+== Edward / Eva - SUM: MS shutdown/messages ==
+Edward introduced Eva, who will be taking over on this task.
+Edward is currently prototyping a CRM (Customer Relationship Management) solution using Sugar CRM (Open Source) for managing the Switched On sponsor contacts.
 
 == Pete & Farayi - SUM: UI/management app ==
-Some core functionality is in place.  Farayi to start looking at closer.
-Discussed merits of using Zend Framework as opposed to CodeIgniter or CakePHP.  Google trends shows it is similarly popular and its link to the creators of PHP (same company) makes it a good choice.
+Work been on hold due to other busyness.  Farayi to document the SUM scenario with review input from Richard by end Dec.
+
+== Pete - VPN ==
+Well on way to completion.
+Will implement second VPN on Tuesday.
+
+== Neil ==
+Will design the SUM user interface, once spec'd  by Richard and co.
 
 = Next conference call =
-11am GMT, Sat ... 2010.
+11am GMT, Sat 23rd Jan, 2010.
