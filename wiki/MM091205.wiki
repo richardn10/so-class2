@@ -1,7 +1,6 @@
-#summary Meeting minutes 5th Dec 10
+#summary Meeting minutes 5th Dec 09
 
 = Attendees =
-eva
 
  * Edward R
  * Pete S
@@ -45,3 +44,5 @@ Will design the SUM user interface, once spec'd  by Richard and co.
 
 = Next conference call =
 11am GMT, Sat 23rd Jan, 2010.
+
+Merry Christmas and a Happy New Year in the meantime!
