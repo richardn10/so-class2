@@ -1,0 +1,39 @@
+#summary Meeting minutes 5th Dec 10
+
+= Attendees =
+ * Edward R
+ * Farayi U
+ * Pete S
+ * Adam B
+ * Richard N - chair
+
+= Apologies =
+ * Edward B
+ * Phil A
+ * Neil R
+
+= Actions =
+See the issues list - [http://code.google.com/p/so-class2/issues]
+
+The actions do not replace the workpackage specs in the wiki, though may refer to work to be done on the wiki.
+
+= Updates and discussion =
+
+== Richard ==
+Booked into Intalio course to develop workflow solution for Switched On sponsor admin system (not in Google code).
+
+== Adam - Config ==
+Intends to develop Switched On installer as RPMs in a Switched On repositort, so can be installed as any other application.   Will not comply to full SUSE spec as not going to be in official distro.
+
+Discussed installation approach with Richard at length.  Intend to use AutoYast.
+
+== Edward - SUM: MS shutdown/messages ==
+Wants to add auto-login.
+Was some discussion as to whether could be done in Linux as well, but the way not obvious and is not strong requirement.
+
+== Pete & Farayi - SUM: UI/management app ==
+Some core functionality is in place.  Farayi to start looking at closer.
+Discussed merits of using Zend Framework as opposed to CodeIgniter or CakePHP.  Google trends shows it is similarly popular and its link to the creators of PHP (same company) makes it a good choice.
+
+= Next conference call =
+11am GMT, Sat ... 2010.
