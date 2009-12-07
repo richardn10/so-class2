@@ -13,7 +13,7 @@ Read WorkpackageDocumentationInstructions
 
 = Team documentation =
 
-SugarCRM - please rename according to convention (see WorkpackageDocumentationInstructions)
+[SugarCRM] - please rename according to convention (see WorkpackageDocumentationInstructions)
 
 ----
 
