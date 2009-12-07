@@ -18,7 +18,7 @@ Envisaged will use Astericks PBX, though feel free to review alternatives.
 
 = Team documentation =
 
-Workpackage_PBX_Setup
+[Workpackage_PBX_DevConfSol PBX Developer Conference Solution]
 
 ----
 
