@@ -15,7 +15,7 @@
  * [Workpackage_Moodle_Results_Summariser Moodle Results Summariser]
  * [Workpackage_Meta_Moodle_Course Meta-Moodle Course]
  * [Workpackage_IT_System_Monitoring IT System Monitoring]
- * [Workpackage_CustomerRelationshipManagement Customer Relationship Mgmt]
+ * [Workpackage_CustomerRelationshipManagement Customer Relationship Management]
  * [Workpackage_PBX PBX]
 
 * [MeetingMinutes Meeting Minutes]
