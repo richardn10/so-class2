@@ -9,7 +9,7 @@ Read WorkpackageDocumentationInstructions
 = Requirements =
 
 == Initial work ==
-Envisaged will use Astericks PBX, though feel free to review alternatives.
+Envisaged will use Asterisk PBX, though feel free to review alternatives.
   * Set up and document/script to hold developer conference calls
 
 == Future envisaged work ==
