@@ -4,7 +4,7 @@
 
 = Installation of the OpenVPN client on Windows =
 
-  * Download the the latest OpenVPN package from [http://www.openvpn.net/download.html here]
+  * Download the the latest OpenVPN package from [http://www.openvpn.net/download.html here] (Choose the latest Windows Installer)
   * Install OpenVPN by starting the installer and accepting all default options. 
   * If it gives a warning, click "Continue Anyway"
 
