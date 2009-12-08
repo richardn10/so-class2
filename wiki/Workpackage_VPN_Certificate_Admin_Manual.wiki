@@ -6,7 +6,7 @@ Best to receive the certificates as files created by the OpenVPN client applicat
 
 = Signing Certificates =
 
-  * Person will send a .csr file. Store this file as `[`username`]`.csr in /etc/openvpn/dev_keymanager/keys for access to the developer network and /etc/openvpn/support_keymanager/keys for access to the support network. Below `dev_` is used but this can be change to `support_` if appropriate
+  * Person will send a .csr file. Store this file as `[`username`]`.csr in /etc/openvpn/dev_keymanager/keys for access to the developer network and /etc/openvpn/support_keymanager/keys for access to the support network. Below `dev_` is used but this can be change to `support_` if appropriate *Do not forget to run `. ./vars` again when you switch between keymanagers!*
 
   * Check or certificate already exists (see below). If a certificate with that name already exists, first revoke the old one (see below).
 
