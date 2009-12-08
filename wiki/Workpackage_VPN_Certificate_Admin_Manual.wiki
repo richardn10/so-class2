@@ -1,18 +1,18 @@
 #summary Manual for managing certificates (Admin)
 
-All this actions have to be performed on the vpn server. Copy files from and to the svn server with scp (Linux) or WinSCP (Windows)
+All this actions have to be performed on the vpn server. Copy files from and to the vpn server with scp (Linux) or WinSCP (Windows)
 
-Best to receive the certificates as files created by the OpenVPN client application.  If certificate is received as copy/paste into an email, ensure is created as Unix file (different newline/carriage return to windoes) with no extra blank lines inserted, a single new line at the and end the Certificate Starts and Ends labels in place.
+Best to receive the certificates as files created by the OpenVPN client application.  If certificate is received as copy/paste into an email, ensure is created as Unix file (different newline/carriage return to windows) with no extra blank lines inserted, a single new line at the and end the Certificate Starts and Ends labels in place.
 
 = Signing Certificates =
 
-  * Person will send a .csr file. Store this file as `[`username`]`.csr in /etc/openvpn/key_manager/keys
+  * Person will send a .csr file. Store this file as `[`username`]`.csr in /etc/openvpn/dev_keymanager/keys for access to the developer network and /etc/openvpn/support_keymanager/keys for access to the support network. Below `dev_` is used but this can be change to `support_` if appropriate
 
   * Check or certificate already exists (see below). If a certificate with that name already exists, first revoke the old one (see below).
 
   * Move to key_manager directory and sign request
 {{{
-cd /etc/openvpn/key_manager
+cd /etc/openvpn/dev_keymanager
 . ./vars
 ./sign-req [username] # No extension
 }}}
@@ -23,19 +23,19 @@ This will give an error message on the end (like: chmod: cannot access 'username
 
 = Revoking a certificate =
 {{{
-cd /etc/openvpn/key_manager
+cd /etc/openvpn/dev_keymanager
 . ./vars
 ./revoke-full [username] # No extension
 }}}
 
 = See the database of certificates =
 {{{
-less /etc/openvpn/key_manager/keys/index.txt
+less /etc/openvpn/dev_keymanager/keys/index.txt
 }}}
 for all certificates
 or
 {{{
-grep ^V /etc/openvpn/key_manager/keys/index.txt
+grep ^V /etc/openvpn/dev_keymanager/keys/index.txt
 }}}
 for all valid certificates.
 
