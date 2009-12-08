@@ -8,8 +8,7 @@
   * Install OpenVPN by starting the installer and accepting all default options. 
   * If it gives a warning, click "Continue Anyway"
 
-  * Now download the Switched On package [
-http://so-class2.googlecode.com/svn/trunk/vpnconfig/vpnclient_windows/installer/switchedon_vpn_config.exe here]
+  * Now download the Switched On package [http://so-class2.googlecode.com/svn/trunk/vpnconfig/vpnclient_windows/installer/switchedon_vpn_config.exe here]
   * Install the package. You can choose the configurations you need (Support network and Developer network).
 
 Vista: Run As Administrator.  Note from Readme: 'on Windows Vista, you will need to run the OpenVPN GUI with administrator privileges, so that it can add routes to the routing table that are pulled from the OpenVPN server. You can do this by right-clicking on the OpenVPN GUI desktop icon, and selecting "Run as administrator".'
