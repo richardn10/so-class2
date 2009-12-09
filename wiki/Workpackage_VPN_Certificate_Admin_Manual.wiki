@@ -42,10 +42,12 @@ for all valid certificates.
 Every line shows a certificate. V means Valid, R means Revoked. CN is the certificate name
 
 = Finding out IP addresses =
-People with access to the VPN server can see the following files
+People with access to the VPN server can see the following files, but only those currently connected:
   * /etc/openvpn/support_openvpn-status.log
   * /etc/openvpn/dev_openvpn-status.log
 (Virtual Address under Routing Table)
 
 The IP adresses are persistent for a certificate name, so they are supposed to stay
 the same over time.
+
+For all certificates given out, check the certificate admin manual in the bottom. ipp.txt and support_ipp.txt are also used for storing the persistent addresses.
