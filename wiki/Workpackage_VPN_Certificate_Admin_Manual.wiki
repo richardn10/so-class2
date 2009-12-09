@@ -40,3 +40,12 @@ grep ^V /etc/openvpn/dev_keymanager/keys/index.txt
 for all valid certificates.
 
 Every line shows a certificate. V means Valid, R means Revoked. CN is the certificate name
+
+= Finding out IP addresses =
+People with access to the VPN server can see the following files
+  * /etc/openvpn/support_openvpn-status.log
+  * /etc/openvpn/dev_openvpn-status.log
+(Virtual Address under Routing Table)
+
+The IP adresses are persistent for a certificate name, so they are supposed to stay
+the same over time.
