@@ -1,0 +1,118 @@
+#summary Describes the sub-system to be implemented to upload images and videos for sponsors.
+#sidebar TableOfContents
+
+Go back to [Workpackages].
+
+= Introduction =
+Read WorkpackageDocumentationInstructions
+
+= Requirements / Solution Outline =
+
+== The problem ==
+Need to upload photos and videos of Switched On sponsored students to the Switched On web server and YouTube respectively.
+The bandwidth in the training centres can be low and the network and electricity supply highly unreliable.  Yet we need to make good use of the administrator's time so the cannot sit endlessly pressing the send button.  There may be 50 student profiles with photos and videos to create and upload, and we need to pay them for their time... (gasp!  yes, there are similarities between me and Scrooge for any not acquainted with my Yorkshire ways!)
+
+The users are largely tech un-savvy.  We need to reduce maintenance time as much as possible, so the code needs to be (or become as we improve it) robust with error-handling etc.
+
+Furthermore, it needs to integrate with our Intalio business process.
+
+== Proposed solution ==
+
+There are 5 components of the system:
+ * Intalio workflow/business process engine (Richard setting up with free help from a kind company called MphasiS).  Interaction via web, web services (SOAP) or preferably Apache ActiveMQ for messaging (see below)
+ * Switched On FTP server for storing photos
+ * YouTube for hosting videos
+ * Switched On Christmas code challenge 1:  PHP running in Apache on the local machine (in the Switched On training centre) - to be called from a link in an Intalio page that will then receive the file location (video or photo) and store it for the PHP Windows service (below)
+ * Switched On Christmas code challenge 2:  PHP Windows service (not Linux at this stage, but we'll get em migrated!) to process files and upload them reliably in the background, and reliably notify Intalio one completed
+
+The series of steps:
+
+=== Code challenge 1) ===
+Comms Admin user selects file to upload and file gets put in processing queue:
+ * Web page served to our Communications Administrator by Intalio as part of some wider process (Comms Admin enters student profile, messages, photos and video in the Switched On training centres.  These will be used in comms with sponsors.)  A given web page will include a section to upload photos and/or video.  The upload interaction point is simply a hyperlink on the page with a get string URL to pass info to the locally hosted apache along the lines:
+
+
+<a href="http://localhost:87/upload_photo?filename=103435345&correlation_id=13876234754325" target="NewWin">Click here to upload head and shoulder profile photo</a>
+
+ * The Comms Admin clicks this link and a new browser window opens that asks the user to browse for the photo using an input field:
+<input type="file" name="somename" size="40">
+The file should be submitted to the local Apache server using the submit button (though it is local, this will allow us to host the file processing component on another machine in the network in the future).
+ * The local server renames the file to: photo_id.jpeg/gif/png (ending the same as the uploaded file) and saves it in a local folder.
+ * The local server also appends the correlation_id, file-type and photo_id in a local "work-log" (MySQL database table(s)), to be processed by the PHP Windows Service (Linux daemon in future!)
+ * The local server window closes and the user can continue entering student profile info in the Intalio service whilst the server is busy processing and uploading files in the background.   The intalio server will be waiting for a notification at some stage that the file has been successfully uploaded before sending an email to the sponsor containing links to the photos and video (see below)
+
+===Code challenge 2)===
+*PHP regularly scheduled task processes and uploads from the file queue*
+
+ * Reads next (top) entry in the work-log table(s) (see above) - including filename and correlation_id.  If there are no more items in the worklog, go to sleep for 2 mins and then check again.
+ * If is a video
+  ** Compresses the video to flash format .flv (bandwidth can be low) to make it significantly smaller.  Recommend use the utility ffmpeg  (www.ffmpeg.org), naming it with the same filename except with the .flv extension
+  ** Upload it to YouTube using the Direct Upload API documented at: http://code.google.com/intl/en/apis/youtube/2.0/developers_guide_php.html#Direct_Upload
+  ** Test that upload is successful.  If fails, try again two more times.  Log every attempted upload, with start and end times and success/failure.
+  ** Invoke Intalio to notify of success/failure, passing correlation_id (so Intalio knows which process the file upload corresponds to), filename and success/failure flag.  This may be done via a web service (PHP web services are reasonably documented but you need to ensure the necessary extension is loaded), or, preferably via the the Apache ActiveMQ interface for greater resiliency and to save having to code in our own mechanism (remember that there could be a power cut at any moment!  Richard can provide the interface details, depending on whether you want a Web Service or messaging interface.
+ * If is an image
+  ** For the slightly more adventurous: Check if there were previous attempts to upload the file (there may have been a powercut so the file at the top of the work-log may already be partly uploaded) and append the rest of the file if the APPE command or equivalent is available in PHP.  Otherwise, just re-attempt and write over.
+  ** Upload it via FTP to the Switched On server (FTP details will be given).
+  ** Resiliency: if fails, re-attempt, appending or overwriting if you prefer.  Log all attempts, successful or failed.
+  ** Invoke Intalio to notify of success/failure as for video.
+ * Move the file to a processed and uploaded file (in case of the video, just keep the original file, not the flv)
+ * Remove entry from top of work-log and add to it to a process files log, along with the time was uploaded time.
+ * Go back to step 1.
+
+
+
+
+= Discussion record =
+Can see in full in the google group.
+
+---
+
+Peter Smit:
+
+I would not have any requirements for later integration (with SUM workpackage), except that if a nice Zend Framework structure would be used it is later trivial to integrate it in one application tree. So complete ZF would be nice, but is of course not necessary. And if we need some php extensions later, it will be easy to install that package, without affecting anything else.
+
+---
+
+Richard to Peter Smit:
+
+Given your comment about messaging, I now recommend using a database because:
+
+1. I'd rather move to messaging (Zend_Queue using Apache ActiveMQ) at some future point if  not right from the start, to cope with network and server outages.
+2. Messaging could also reduce the coding we need to do, as it will schedule work automatically coming to/from the main Switched On Intalio server (BPMS)
+3. I expect we'll put it on the same server as SUM (Switched On User Management) at some point soon, and SUM needs a database anyway.
+
+
+Question:
+
+2. Would there be benefit in using the queue to manage the uploads?  i.e. the PHP page that uploads the files to the local Switched On training centre server saves the file, compresses it if need be, and pops it on a message queue to be processed...
+
+---
+
+answer and reply:
+
+Pete, 
+
+1. I don't know exactly the essentials of ActiveMQ, for example the
+persistence with server outages (is the queue stored on disk?). The
+advantage of using Zend_Queue is that it doesn't matter. Just one line
+of code change (or configuration file) and another type of queue is
+used
+
+I zeroed in on this because ActiveMQ is supported by Zend_Queue and is an implementation of JMS, which is necessary for compatibility with Intalio.  I believe ActiveMQ uses MySQL for persistence.  I may have misunderstood something though as I had only a cursory look.
+
+2. We are using MySQL for SUM. Sqlite is a server/fileformat that can
+be accessed with sql-like statements. (sqlite.org). I think that MySQL
+is the easiest.
+
+MySQL it is then.
+
+----
+
+= Team documentation =
+
+[Workpackage_Sponsorship_Uploads_Implem Sponsorship Uploads Implementation]
+
+----
+
+= Workpackage Team Members =
+ * To be grabbed - If no takers, Peter Smit will take up in the New Year
