@@ -17,6 +17,7 @@
  * [Workpackage_IT_System_Monitoring IT System Monitoring]
  * [Workpackage_CustomerRelationshipManagement Customer Relationship Management]
  * [Workpackage_PBX PBX]
+ * [Workpackage_Sponsorship_Uploads Sponsorship Uploads]
 
 * [MeetingMinutes Meeting Minutes]
 
