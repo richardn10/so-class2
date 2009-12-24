@@ -1,0 +1,20 @@
+#summary Intro and instructions on how to use the Switched On source code store
+
+= Introduction =
+
+The source code repository is where we store and share our work.  Here are some basic instructions to get you started and point you to further guidance.
+
+= Details =
+The repository uses an application called Subversion to store the code, keep a history of all versions of the code, and enable developers to work together and merge their changes on the same code base.
+
+The two main ways of interacting with the subversion repository are through:
+ # The command line, for the more experienced.  To get started, see http://code.google.com/p/so-class2/source/checkout
+ # A GUI interface.  The recommended way for Windows users is TortoiseSVN, at http://tortoisesvn.tigris.org/
+   * You will use the path: https://so-class2.googlecode.com/svn/trunk/ so-class2 --username richardn10
+   * Note the "S" in httpS is essential.  Otherwise you will waste lots of time!
+   * You will need the password at: http://code.google.com/hosting/settings
+   * The following guide may be helpful - 
+
+If you have not used Subversion before, please read the help manual to understand the basic concepts before starting.  It is a good clear read.  Someone more experienced in the Switched On team could take you through setting it up and your first couple of checkins/outs.
+
+In Google code you can find some very basic instructions to get you
