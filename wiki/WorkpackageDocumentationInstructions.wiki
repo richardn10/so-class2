@@ -15,7 +15,23 @@ Make sure only one person from your workpackage group is updating a wiki page at
  * Create one or more sub-pages if you can logically split your work into sub-areas taken on by different individuals.
 
 = Images and other files as part of deliverables =
-Put images needed on your wiki pages in svn under wiki/Workpackage_Name/image.png
+Put images needed on your wiki pages in svn under wiki/Workpackage_Name_files/image.png
+
+This is a different subversion root to the code.  It is checked out using:
+ * Tortoise SVN:  https://so-class2.googlecode.com/svn/wiki/ so-wiki --username [username]
+ * Command line:  svn checkout https://so-class2.googlecode.com/svn/wiki/ so-wiki --username [username]   
+ * No password needed for either, it seems, unless it automatically used the code subversion password
+
+For instructions on using Subversion for the code repository, see [UsingSourceCodeRepository]  (the same applies, but with a different repository root)
+
+Add a directory called Workpackage_Name_files and put your files under there.
+They may be included in the wiki now using:
+
+http://so-class2.googlecode.com/svn/wiki/Workpackage_Name_files/filename
+
+e.g. To include an image in your wiki page:
+
+`[http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/SponsorshipSystemDeploymentDiagram-Production.png]`
 
 Other files you may need should also be stored in the subversion under:
 Workpackage_Name/suitable path
