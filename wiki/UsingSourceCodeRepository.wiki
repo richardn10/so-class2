@@ -12,7 +12,7 @@ If you have not used Subversion before, please read a manual, such as the help m
 The two main ways of interacting with the subversion repository are through:
  # The command line, for the more experienced.  To get started, see http://code.google.com/p/so-class2/source/checkout
  # A GUI interface.  The recommended way for Windows users is TortoiseSVN, at http://tortoisesvn.tigris.org/
-   * You will use the path: https://so-class2.googlecode.com/svn/trunk/ so-class2 --username richardn10
+   * You will use the path: https://so-class2.googlecode.com/svn/trunk/ so-class2 --username _your username_
    * Note the "S" in httpS is essential.  Otherwise you will waste lots of time!
    * You will need the password at: http://code.google.com/hosting/settings
    * The following guide may be helpful - [http://engtech.wordpress.com/2007/03/03/howto_google_code_hosting_subversion_tortoisesvn/ Getting Started with Google Code Hosting, Subversion, and TortoiseSVN without feeling like an Idiot]  If you Google you will find other good guides too.
