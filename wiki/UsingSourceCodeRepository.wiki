@@ -7,6 +7,8 @@ The source code repository is where we store and share our work.  Here are some 
 = Details =
 The repository uses an application called Subversion to store the code, keep a history of all versions of the code, and enable developers to work together and merge their changes on the same code base.
 
+If you have not used Subversion before, please read a manual, such as the help manual for TortoiseSVN (see below) to understand the basic concepts before starting.  The TortoiseSVN manual is a good clear read.  Someone more experienced in the Switched On team could take you through setting it up and your first couple of checkins/outs.
+
 The two main ways of interacting with the subversion repository are through:
  # The command line, for the more experienced.  To get started, see http://code.google.com/p/so-class2/source/checkout
  # A GUI interface.  The recommended way for Windows users is TortoiseSVN, at http://tortoisesvn.tigris.org/
@@ -16,5 +18,3 @@ The two main ways of interacting with the subversion repository are through:
    * The following guide may be helpful - [http://engtech.wordpress.com/2007/03/03/howto_google_code_hosting_subversion_tortoisesvn/ Getting Started with Google Code Hosting, Subversion, and TortoiseSVN without feeling like an Idiot]  If you Google you will find other good guides too.
 
 Documentation-related deliverables to go on this wiki, are stored under a different subversion root.  See UsingSourceCodeRepository.
-
-If you have not used Subversion before, please read the help manual to understand the basic concepts before starting.  It is a good clear read.  Someone more experienced in the Switched On team could take you through setting it up and your first couple of checkins/outs.
