@@ -60,7 +60,7 @@ The file should be submitted to the local Apache server using the submit button 
  * Go back to step 1.
 
 
-
+[http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/SponsorshipSystemDeploymentDiagram-Production.png]
 
 = Discussion record =
 Can see in full in the google group.
