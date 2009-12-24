@@ -15,4 +15,6 @@ The two main ways of interacting with the subversion repository are through:
    * You will need the password at: http://code.google.com/hosting/settings
    * The following guide may be helpful - [http://engtech.wordpress.com/2007/03/03/howto_google_code_hosting_subversion_tortoisesvn/ Getting Started with Google Code Hosting, Subversion, and TortoiseSVN without feeling like an Idiot]  If you Google you will find other good guides too.
 
+Documentation-related deliverables to go on this wiki, are stored under a different subversion root.  See UsingSourceCodeRepository.
+
 If you have not used Subversion before, please read the help manual to understand the basic concepts before starting.  It is a good clear read.  Someone more experienced in the Switched On team could take you through setting it up and your first couple of checkins/outs.
