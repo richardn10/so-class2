@@ -61,6 +61,8 @@ The file should be submitted to the local Apache server using the submit button 
 
 
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/SponsorshipSystemDeploymentDiagram-Production.png]
+*Deployment Architecture*
+This shows the components relevant to this workpackage in the context of the system current architecture for the sponsorship programme.
 
 = Discussion record =
 Can see in full in the google group.
