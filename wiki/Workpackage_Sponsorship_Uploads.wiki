@@ -31,8 +31,9 @@ The series of steps:
 Comms Admin user selects file to upload and file gets put in processing queue:
  * Web page served to our Communications Administrator by Intalio as part of some wider process (Comms Admin enters student profile, messages, photos and video in the Switched On training centres.  These will be used in comms with sponsors.)  A given web page will include a section to upload photos and/or video.  The upload interaction point is simply a hyperlink on the page with a get string URL to pass info to the locally hosted apache along the lines:
 
-
+{{{
 <a href="http://localhost:87/upload_photo?filename=103435345&correlation_id=13876234754325" target="NewWin">Click here to upload head and shoulder profile photo</a>
+}}}
 
  * The Comms Admin clicks this link and a new browser window opens that asks the user to browse for the photo using an input field:
 <input type="file" name="somename" size="40">
