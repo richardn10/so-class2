@@ -71,9 +71,10 @@ Communicate back to Intalio:
 
 ===Installation===
 (can come later)
+Windows initially, SUSE Linux later.
  * Ideally a script to auto-install and configure
- * Apache should run as a service
- * Scheduled job should run automatically so uploads will occur automatically
+ * Apache & MySQL should run as services
+ * Scheduled / cron job should run automatically so uploads will occur automatically
  * Shortcut on desktop to uploads status
 
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/SponsorshipSystemDeploymentDiagram-Production.png]
