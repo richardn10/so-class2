@@ -32,7 +32,8 @@ Comms Admin user selects file to upload and file gets put in processing queue:
  * Web page served to our Communications Administrator by Intalio as part of some wider process (Comms Admin enters student profile, messages, photos and video in the Switched On training centres.  These will be used in comms with sponsors.)  A given web page will include a section to upload photos and/or video.  The upload interaction point is simply a hyperlink on the page with a get string URL to pass info to the locally hosted apache along the lines:
 
 {{{
-<a href="http://socs/sponsorship/uploads?filetype={image|video}&corrid={long_number}" target="_blank">Click here to upload head and shoulder profile photo</a>
+<a href="http://socs/sponsorship/uploads?filetype={image|video}&corrid={long_number}" target="_blank">
+Click here to upload head and shoulder profile photo</a>
 }}}
 
  * The Comms Admin clicks this link and a new browser window opens that asks the user to browse for the photo using an input field:
@@ -62,11 +63,18 @@ The file should be submitted to the local Apache server using the submit button 
  * Go back to step 1.
 
 Communicate back to Intalio:
- * Message to Intalio - WS call (RESTful, not SOAP).  filename/id, correlation id, filetype, service name (e.g. YouTube)
- * 
+ * Message to Intalio - Web Service call (RESTful, not SOAP) passing filename/id, correlation id, filetype, service name (e.g. YouTube)
 
 ===Status of uploads===
  * Page to indicate upload status.
+ * Shortcut on desktop to open this page
+
+===Installation===
+(can come later)
+ * Ideally a script to auto-install and configure
+ * Apache should run as a service
+ * Scheduled job should run automatically so uploads will occur automatically
+ * Shortcut on desktop to uploads status
 
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/SponsorshipSystemDeploymentDiagram-Production.png]
 *Deployment Architecture*
