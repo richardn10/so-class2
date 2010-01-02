@@ -77,6 +77,9 @@ Windows initially, SUSE Linux later.
  * Scheduled / cron job should run automatically so uploads will occur automatically
  * Shortcut on desktop to uploads status
 
+===Future Requirements===
+We will probably want to use it to upload other files, such as logs and student work for assessment.
+
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/SponsorshipSystemDeploymentDiagram-Production.png]
 *Deployment Architecture*
 This shows the components relevant to this workpackage in the context of the system current architecture for the sponsorship programme.
