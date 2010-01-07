@@ -6,8 +6,8 @@ class So_Intalio
 	private $_key;
 	private $_keyTimeout;
 	
-	const INCOMING_STRING = "INTALIOTOUPLOAD";
-	const OUTGOING_STRING = "UPLOADTOINTALIO";
+	const INCOMING_STRING = "INTALIOTOSUA";
+	const OUTGOING_STRING = "SUATOINTALIO";
 	
 	public function __construct($key, $endpoint, $keyTimeout = 900) {
 		$this->_key = $key;
