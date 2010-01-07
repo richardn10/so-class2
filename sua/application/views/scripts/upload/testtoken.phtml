@@ -1,0 +1,13 @@
+<h1>A test token</h1>
+
+<a href='<?php echo $this->url(
+    array(
+        'controller' => 'upload',
+        'action'     => 'index',
+    	'filetype'	 => $this->filetype,
+    	'correlationid' => $this->correlationId,
+    	'timestamp' => $this->timestamp,
+    	'token'		=> $this->token,
+    ), 
+    'default', 
+    true) ?>'>Fill form with a bogus correlation id</a>
