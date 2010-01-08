@@ -29,11 +29,11 @@ The series of steps:
 
 === Code challenge 1) ===
 Comms Admin user selects file to upload and file gets put in processing queue:
- * Web page served to our Communications Administrator by Intalio as part of some wider process (Comms Admin enters student profile, messages, photos and video in the Switched On training centres.  These will be used in comms with sponsors.)  A given web page will include a section to upload photos and/or video.  The upload interaction point is simply a hyperlink on the page with a get string URL to pass info to the locally hosted apache along the lines:
+ * Web page served to our Communications Administrator by Intalio as part of some wider process (Comms Admin enters student profile, messages, photos and video in the Switched On training centres.  These will be used in comms with sponsors.)  A given web page will include a section to upload photos and/or video.  The upload interaction point is a button on the page that opens an iframe in a modal window with a URL and get string to pass info to the locally hosted apache along the lines:
 
 {{{
-<a href="http://socs/sponsorship/uploads?filetype={image|video}&corrid={long_number}" target="_blank">
-Click here to upload head and shoulder profile photo</a>
+http://socs/sponsorship/uploads?filetype={image|video}&corrid={long_number}
+&timestamp={yyyymmdd-hhmm}&security={SHA-256, see text}
 }}}
 
  * The Comms Admin clicks this link and a new browser window opens that asks the user to browse for the photo using an input field:
