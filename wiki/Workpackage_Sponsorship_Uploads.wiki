@@ -28,13 +28,23 @@ There are 5 components of the system:
 The series of steps:
 
 === Code challenge 1) ===
-Comms Admin user selects file to upload and file gets put in processing queue:
+Comms Admin user selects file to upload and file gets put in processing queue.
+
+The file is uploaded from the Intalio BPMS-served page and communication goes to the Switched On Server app and back to the Intalio page as per the following diagram.
+
+[http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/ss_file_upload_windows.png]
+
+The steps of the process as far as the Switched On Server Upload application is concerned are as follows:
+
  * Web page served to our Communications Administrator by Intalio as part of some wider process (Comms Admin enters student profile, messages, photos and video in the Switched On training centres.  These will be used in comms with sponsors.)  A given web page will include a section to upload photos and/or video.  The upload interaction point is a button on the page that opens an iframe in a modal window with a URL and get string to pass info to the locally hosted apache along the lines:
 
 {{{
 http://socs/sponsorship/uploads?filetype={image|video}&corrid={long_number}
 &timestamp={yyyymmdd-hhmm}&security={SHA-256, see text}
 }}}
+(socs is some identifier, here standing for Switched On Centre Server)
+
+When the upload form is started 2 parameters enable security, namely a timestamp and a verification token. The verification token is made by taking a SHA-256 of the concatenation of a secret string (to be shared privately), timestamp, the correlation id (for the Intalio process) and the text "INTALIOTOUPLOADAPP".
 
  * The Comms Admin clicks this link and a new browser window opens that asks the user to browse for the photo using an input field:
 <input type="file" name="somename" size="40">
@@ -42,7 +52,7 @@ The file should be submitted to the local Apache server using the submit button 
  * Naming of files:The local server renames the file to: "eight random alphanumeric characters".jpeg/gif/png (ending the same as the uploaded file) and saves it in a local folder.  (note the filename is assigned by this app or the service the file is uploaded to.  This is necessary in the case of YouTube.) 
  * Naming videos - 
  * The local server also appends the correlation_id, file-type and photo_id in a local "work-log" (MySQL database table(s)), to be processed by the PHP Windows Service (Linux daemon in future!)
- * The local server window closes and the user can continue entering student profile info in the Intalio service whilst the server is busy processing and uploading files in the background.   The intalio server will be waiting for a notification at some stage that the file has been successfully uploaded before sending an email to the sponsor containing links to the photos and video (see below)
+ * The modal window closes and the user can continue entering student profile info in the Intalio service whilst the server is busy processing and uploading files in the background.   The intalio server will be waiting for a notification at some stage that the file has been successfully uploaded before sending an email to the sponsor containing links to the photos and video (see below)
 
 ===Code challenge 2)===
 *PHP regularly scheduled task processes and uploads from the file queue*
@@ -81,6 +91,7 @@ Windows initially, SUSE Linux later.
 We will probably want to use it to upload other files, such as logs and student work for assessment.
 
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/SponsorshipSystemDeploymentDiagram-Production.png]
+
 *Deployment Architecture*
 This shows the components relevant to this workpackage in the context of the system current architecture for the sponsorship programme.
 
