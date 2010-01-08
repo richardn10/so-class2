@@ -73,9 +73,11 @@ The file should be submitted to the local Apache server using the submit button 
    * resource store {YouTube|SOWeb}
    * tstamp={yyyymmdd-hhmm}
    * token=SHA-256 of the concatenation of a secret string (to be shared privately), timestamp, the correlation id and the text "INTALIOTOUPLOADAPP".
+  * Also upload the compressed video to the Switched On FTP server as a backup (but have a config file that allows to turn this feature off).
  * If is an image
+  * Compress the image to 200px wide (retaining aspect ratio).  Upload both it and the original, but call the compressed version - filename-200px.file-extn.  [new requirement as found there is a need to be able to review compressed versions on images in the Intalio processes.]
   * For the slightly more adventurous: Check if there were previous attempts to upload the file (there may have been a powercut so the file at the top of the work-log may already be partly uploaded) and append the rest of the file if the APPE command or equivalent is available in PHP.  Otherwise, just re-attempt and write over.
-  * Upload it via FTP to the Switched On server (FTP details will be given).
+  * Upload the image and its compressed version via FTP to the Switched On server (FTP details will be given).
   * Resiliency: if fails, re-attempt, appending or overwriting if you prefer.  Log all attempts, successful or failed.
   * Invoke Intalio to notify of success/failure as for video.
  * Move the file to a processed and uploaded file (in case of the video, just keep the original file, not the flv)
