@@ -10,7 +10,7 @@ Read WorkpackageDocumentationInstructions
 
 == The problem ==
 Need to upload photos and videos of Switched On sponsored students to the Switched On web server and YouTube respectively.
-The bandwidth in the training centres can be low and the network and electricity supply highly unreliable.  Yet we need to make good use of the administrator's time so the cannot sit endlessly pressing the send button.  There may be 50 student profiles with photos and videos to create and upload, and we need to pay them for their time... (gasp!  yes, there are similarities between me and Scrooge for any not acquainted with my Yorkshire ways!)
+The bandwidth in the training centres can be low and the network and electricity supply highly unreliable.  Yet we need to make good use of the administrator's time so the Coms Admin cannot sit endlessly pressing the send button.  There may be 50 student profiles with photos and videos to create and upload, and we need to pay them for their time... (gasp!  yes, there are similarities between me and Scrooge for any not acquainted with my Yorkshire ways!)
 
 The users are largely tech un-savvy.  We need to reduce maintenance time as much as possible, so the code needs to be (or become as we improve it) robust with error-handling etc.
 
@@ -18,23 +18,28 @@ Furthermore, it needs to integrate with our Intalio business process.
 
 == Proposed solution ==
 
-There are 5 components of the system:
- * Intalio workflow/business process engine (Richard setting up with free help from a kind company called MphasiS).  Interaction via web, web services (SOAP) or preferably Apache ActiveMQ for messaging (see below)
+There are 5 components of the system (see deployment diagram at bottom):
+ * Intalio workflow/business process engine (Richard setting up with free help from a kind company called MphasiS).  Interaction via web, RESTful web services
  * Switched On FTP server for storing photos
  * YouTube for hosting videos
- * Switched On Christmas code challenge 1:  PHP running in Apache on the local machine (in the Switched On training centre) - to be called from a link in an Intalio page that will then receive the file location (video or photo) and store it for the PHP Windows service (below)
- * Switched On Christmas code challenge 2:  PHP Windows service (not Linux at this stage, but we'll get em migrated!) to process files and upload them reliably in the background, and reliably notify Intalio one completed
+ * Receiving the file to upload:  PHP running in Apache on the Training Centre Server (in the Switched On training centre) - to be called from a link in an Intalio page that will then receive the file location (video or photo) and store it for the PHP scheduled script (below)
+ * Uploading the file:  Sceduled PHP script (Windows at this stage though Linux later!) to process files and upload them reliably in the background, and reliably notify Intalio when completed
 
-The series of steps:
+[http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/SponsorshipSystemDeploymentDiagram-Production.png]
 
-=== Code challenge 1) ===
-Comms Admin user selects file to upload and file gets put in processing queue.
+*Deployment Architecture*
+This shows the components relevant to this workpackage in the context of the system current architecture for the sponsorship programme.
+
+== Training Centre Server Scripts and Interation with the Business Process Management Server == 
+
+=== Receiving the file to upload ===
+Comms Admin user selects file to upload and file gets put in processing queue for upload.
 
 The file is uploaded from the Intalio BPMS-served page and communication goes to the Switched On Server app and back to the Intalio page as per the following diagram.
 
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/ss_file_upload_windows.png]
 
-The steps of the process as far as the Switched On Server Upload application is concerned are as follows:
+The steps of the process, focusing mainly on the Switched On Server Upload application, though it shows how it integrates with the Intalio Business Process:
 
  * Web page served to our Communications Administrator by Intalio as part of some wider process (Comms Admin enters student profile, messages, photos and video in the Switched On training centres.  These will be used in comms with sponsors.)  A given web page will include a section to upload photos and/or video.  The upload interaction point is a button on the page that opens an iframe in a modal window with a URL and get string to pass info to the locally hosted apache along the lines:
 
@@ -54,20 +59,25 @@ The file should be submitted to the local Apache server using the submit button 
  * The local server also appends the correlation_id, file-type and photo_id in a local "work-log" (MySQL database table(s)), to be processed by the PHP Windows Service (Linux daemon in future!)
  * The modal window closes and the user can continue entering student profile info in the Intalio service whilst the server is busy processing and uploading files in the background.   The intalio server will be waiting for a notification at some stage that the file has been successfully uploaded before sending an email to the sponsor containing links to the photos and video (see below)
 
-===Code challenge 2)===
+===Uploading the file===
 *PHP regularly scheduled task processes and uploads from the file queue*
 
  * Reads next (top) entry in the work-log table(s) (see above) - including filename and correlation_id.  If there are no more items in the worklog, go to sleep for 2 mins and then check again.
  * If is a video
-  ** Compresses the video to flash format .flv (bandwidth can be low) to make it significantly smaller.  Recommend use the utility ffmpeg  (www.ffmpeg.org), naming it with the same filename except with the .flv extension
-  ** Upload it to YouTube using the Direct Upload API documented at: http://code.google.com/intl/en/apis/youtube/2.0/developers_guide_php.html#Direct_Upload
-  ** Test that upload is successful.  If fails, try again two more times.  Log every attempted upload, with start and end times and success/failure.
-  ** Invoke Intalio to notify of success/failure, passing correlation_id (so Intalio knows which process the file upload corresponds to), filename and success/failure flag.  This may be done via a web service (PHP web services are reasonably documented but you need to ensure the necessary extension is loaded), or, preferably via the the Apache ActiveMQ interface for greater resiliency and to save having to code in our own mechanism (remember that there could be a power cut at any moment!  Richard can provide the interface details, depending on whether you want a Web Service or messaging interface.
+  * Compresses the video to flash format .flv (bandwidth can be low) to make it significantly smaller.  Recommend use the utility ffmpeg  (www.ffmpeg.org), naming it with the same filename except with the .flv extension
+  * Upload it to YouTube using the Direct Upload API documented at: http://code.google.com/intl/en/apis/youtube/2.0/developers_guide_php.html#Direct_Upload
+  * Test that upload is successful.  If fails, try again two more times.  Log every attempted upload, with start and end times and success/failure.
+  * Invoke Intalio to notify of success/failure, passing (genericised for video and images).  This should be done via a RESTful web service (remember that there could be a power cut at any moment!):
+   * corrid={long_number} - so Intalio knows which process the file upload corresponds to
+   * filename (as generated by YouTube or the app in the case of an image upload)
+   * resource store {YouTube|SOWeb}
+   * tstamp={yyyymmdd-hhmm}
+   * token=SHA-256 of the concatenation of a secret string (to be shared privately), timestamp, the correlation id and the text "INTALIOTOUPLOADAPP".
  * If is an image
-  ** For the slightly more adventurous: Check if there were previous attempts to upload the file (there may have been a powercut so the file at the top of the work-log may already be partly uploaded) and append the rest of the file if the APPE command or equivalent is available in PHP.  Otherwise, just re-attempt and write over.
-  ** Upload it via FTP to the Switched On server (FTP details will be given).
-  ** Resiliency: if fails, re-attempt, appending or overwriting if you prefer.  Log all attempts, successful or failed.
-  ** Invoke Intalio to notify of success/failure as for video.
+  * For the slightly more adventurous: Check if there were previous attempts to upload the file (there may have been a powercut so the file at the top of the work-log may already be partly uploaded) and append the rest of the file if the APPE command or equivalent is available in PHP.  Otherwise, just re-attempt and write over.
+  * Upload it via FTP to the Switched On server (FTP details will be given).
+  * Resiliency: if fails, re-attempt, appending or overwriting if you prefer.  Log all attempts, successful or failed.
+  * Invoke Intalio to notify of success/failure as for video.
  * Move the file to a processed and uploaded file (in case of the video, just keep the original file, not the flv)
  * Remove entry from top of work-log and add to it to a process files log, along with the time was uploaded time.
  * Go back to step 1.
@@ -90,10 +100,6 @@ Windows initially, SUSE Linux later.
 ===Future Requirements===
 We will probably want to use it to upload other files, such as logs and student work for assessment.
 
-[http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/SponsorshipSystemDeploymentDiagram-Production.png]
-
-*Deployment Architecture*
-This shows the components relevant to this workpackage in the context of the system current architecture for the sponsorship programme.
 
 = Discussion record =
 Can see in full in the google group.
