@@ -102,14 +102,15 @@ If the upload process encounters an error, it should be reported to a RESTful in
  * idss_Att
  * corr_id
  * tstamp 
- * token - secutity, as above
+ * token - security, as above
  * error message - Textual
- * number - number of errors sent regarding this file
+ * retry attempt number - number of errors sent regarding this file
 
 Security credentials not needed as will be on secured machines and network.
 
 ===Status of uploads===
- * Page to indicate upload status.
+ * Page to indicate upload status, including any errors encountered, retry attempt number
+ * Ability to cancel a certain file upload - password protected so only the AreaManager can do this (has the ability to wreak havoc with the process if wrong files deleted)
  * Shortcut on desktop to open this page
 
 ===Installation===
