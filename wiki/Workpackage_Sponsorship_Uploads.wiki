@@ -91,10 +91,6 @@ This web service is to reside on the BPMS server and will delete an uploaded fil
 
 Security credentials not needed as will be on secured machines and network.
 
-
-Communicate back to Intalio:
- * Message to Intalio - Web Service call (RESTful, not SOAP) passing filename/id, correlation id, filetype, service name (e.g. YouTube)
-
 ===Status of uploads===
  * Page to indicate upload status.
  * Shortcut on desktop to open this page
