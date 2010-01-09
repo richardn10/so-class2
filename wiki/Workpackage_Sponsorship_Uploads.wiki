@@ -39,7 +39,7 @@ The file is uploaded from the Intalio BPMS-served page and communication goes to
 
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/ss_file_upload_windows.png]
 
-*Note: the way Peter has implemented the proof of concept, the modal window IS the iframe.  That is an even simpler (and better) solution.  Hence this diagram is not quite accurate now.*
+*Note: the way Peter has implemented the proof of concept, ( I think ) the modal window IS the iframe.  That is an even simpler (and better) solution.  Hence this diagram is not quite accurate now.*
 
 The steps of the process, focusing mainly on the Switched On Server Upload application, though it shows how it integrates with the Intalio Business Process:
 
