@@ -11,7 +11,7 @@
 		        function(event){
 			        $.postMessage(
 		                return_element + '|' + '',
-		                decodeURI(return_url),
+		                return_url,
 		                parent
 		            );
 		            event.preventDefault();
@@ -25,7 +25,7 @@
 		        function(event){
 			        $.postMessage(
 		                return_element + '|' + filename,
-		                decodeURI(return_url),
+		                return_url,
 		                parent
 		            );
 		            event.preventDefault();
