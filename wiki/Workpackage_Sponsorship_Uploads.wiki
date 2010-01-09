@@ -87,6 +87,8 @@ The file should be submitted to the local Apache server using the submit button 
    * resource store {YouTube|SOWeb}
    * tstamp={yyyymmdd-hhmm}
    * token=SHA-256 of the concatenation of a secret string (to be shared privately), timestamp, the correlation id and the text "INTALIOTOUPLOADAPP".
+   * error message - Textual (Null if success)
+   * retry attempt number - number of upload re-starts or resumes
   * Also upload the compressed video to the Switched On FTP server as a backup (but have a config file that allows to turn this feature off).
   * Question: given the unreliability apparently of the network in the slum area, any idea if YouTube allows file transfer to continue if the network transfer is interrupted?
  * If is an image
@@ -110,8 +112,7 @@ If the upload process encounters an error, it should be reported to a RESTful in
  * corr_id
  * tstamp 
  * token - security, as above
- * error message - Textual
- * retry attempt number - number of errors sent regarding this file
+
 
 Security credentials not needed as will be on secured machines and network.
 
