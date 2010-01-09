@@ -125,7 +125,7 @@ class UploadController extends Zend_Controller_Action
 			$this->view->nosuccess = false;
 			$this->view->return_url = $this->_getParam('return_url');
 			$this->view->return_element = $this->_getParam('return_element');
-			$this->view->filename = $newFullFilename;
+			$this->view->filename = $newFilename;
 			//return $this->_helper->redirector('success', 'upload','default',array('return_url' => urlencode($this->_getParam('return_url')), 'return_element' => $this->_getParam('return_element'), 'filename' => $newFilename) );
 		}
     	else {
