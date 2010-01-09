@@ -122,9 +122,16 @@ class UploadController extends Zend_Controller_Action
 				//$work->save();
 //			}
 			
-			return $this->_helper->redirector('success', 'upload','default',array('return_url' => $this->_getParam('return_url'), 'return_element' => $this->_getParam('return_element'), 'filename' => $newFilename) );
+			$this->view->nosuccess = false;
+			$this->view->return_url = $this->_getParam('return_url');
+			$this->view->return_element = $this->_getParam('return_element');
+			$this->view->filename = $this->_getParam('filename');
+			//return $this->_helper->redirector('success', 'upload','default',array('return_url' => urlencode($this->_getParam('return_url')), 'return_element' => $this->_getParam('return_element'), 'filename' => $newFilename) );
 		}
     	else {
+    		
+    		$this->view->nosuccess = true;
+    		
     		$this->view->return_url = $this->_getParam('return_url');
 			$this->view->return_element = $this->_getParam('return_element');
 		
@@ -142,7 +149,7 @@ class UploadController extends Zend_Controller_Action
 		}
 		
 		$this->view->filename = $this->_getParam('filename');
-		$this->view->return_url = $this->_getParam('return_url');
+		$this->view->return_url = urldecode($this->_getParam('return_url'));
 		$this->view->return_element = $this->_getParam('return_element');
 	}
 	
