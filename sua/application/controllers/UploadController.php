@@ -9,6 +9,7 @@ class UploadController extends Zend_Controller_Action
 	}
 	
 	public function processAction() {
+		throw new Exception("Not in use yet");
 		$pid = getmypid();
 		
 		if(count($works = Model_Work::getByPid($pid)) > 0) {
@@ -56,13 +57,16 @@ class UploadController extends Zend_Controller_Action
 	}
 	
 	public function cleanAction() {
-		
+		throw new Exception("Not in use yet");
 	}
 	
 	public function indexAction() {
+
 		if(!$this->_hasParam('correlationid')
 			|| !$this->_hasParam('timestamp')
 			|| !$this->_hasParam('token')
+			|| !$this->_hasParam('return_url')
+			|| !$this->_hasParam('return_element')
 			) 
 		{
 			throw new Exception('Not all parameters are provided');
@@ -102,37 +106,53 @@ class UploadController extends Zend_Controller_Action
 			
 			$fileinfo = $form->file->getFileInfo();
 			
-			if(is_array($form->file->getFilename())) {
-				foreach($form->file->getFilename() as $key => $filename) {
-					$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo[$key]['type']);
-					$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
-					rename($filename, $newFullFilename);
-					$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
-					$work->save();
-				}
-			} else {
+//			if(is_array($form->file->getFilename())) {
+//				foreach($form->file->getFilename() as $key => $filename) {
+//					$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo[$key]['type']);
+//					$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
+//					rename($filename, $newFullFilename);
+//					$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
+//					$work->save();
+//				}
+//			} else {
 				$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo['file']['type']);
 				$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
 				rename($form->file->getFilename(), $newFullFilename);
-				$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
-				$work->save();
-			}
+				//$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
+				//$work->save();
+//			}
 			
-			$this->view->successUpload = true;
-			$this->view->correlationId = $this->_getParam('correlationid');
+			return $this->_helper->redirector('success', 'upload','default',array('return_url' => $this->_getParam('return_url'), 'return_element' => $this->_getParam('return_element'), 'filename' => $newFilename) );
 		}
     	else {
-    		$this->view->successUpload = false;
+    		$this->view->return_url = $this->_getParam('return_url');
+			$this->view->return_element = $this->_getParam('return_element');
+		
         	$this->view->form = new Form_Upload();
     	}
 	}
 	
-	public function statusAction() {
+	public function successAction() {
+		if(!$this->_hasParam('filename')
+			|| !$this->_hasParam('return_url')
+			|| !$this->_hasParam('return_element')
+			) 
+		{
+			throw new Exception('Not all parameters are provided');
+		}
 		
+		$this->view->filename = $this->_getParam('filename');
+		$this->view->return_url = $this->_getParam('return_url');
+		$this->view->return_element = $this->_getParam('return_element');
+	}
+	
+	public function statusAction() {
+		throw new Exception("Not in use yet");
 	}
 	
 	
 	public function testtokenAction() {
+		throw new Exception("Not in use yet");
 		$this->view->timestamp = $timestamp = time();
 		$this->view->correlationId = $correlationId = rand(10000000, 99999999);
 		$this->view->token = $this->_bootstrap->getResource('intalio')->getIncomingToken($correlationId, $timestamp);
