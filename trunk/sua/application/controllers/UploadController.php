@@ -86,7 +86,7 @@ class UploadController extends Zend_Controller_Action
 			
 			
 			if($this->_hasParam('filetype') && $this->_getParam('filetype') == 'image') {
-				$form->file->addValidator('MimeType', true, array('image/jpeg','image/gif','image/png'));
+//				$form->file->addValidator('MimeType', true, array('image/jpeg','image/gif','image/png'));
 			} else {
 				$form->file->addValidator('MimeType', true, array('video/x-msvideo'));
 			}
