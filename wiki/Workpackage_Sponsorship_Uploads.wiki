@@ -39,6 +39,8 @@ The file is uploaded from the Intalio BPMS-served page and communication goes to
 
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/ss_file_upload_windows.png]
 
+The upload process on the Training Centre ( local ) Server is called the *Switched On User Agent, or SUA*.
+
 Note, the URL of the upload agent page (loaded in the iframe) comes from the Business Process Server database as a user option.  If the database entry does not exist or does not work, the following default should be used:
 "http://localhost/sponsorship/uploads"
 If that page does not exist, the following text should be displayed:
