@@ -44,7 +44,7 @@ The steps of the process, focusing mainly on the Switched On Server Upload appli
  * Web page served to our Communications Administrator by Intalio as part of some wider process (Comms Admin enters student profile, messages, photos and video in the Switched On training centres.  These will be used in comms with sponsors.)  A given web page will include a section to upload photos and/or video.  The upload interaction point is a button on the page that opens an iframe in a modal window with a URL and get string to pass info to the locally hosted apache along the lines:
 
 {{{
-http://socs/sponsorship/uploads?idss_Att={long_number}&filetype={image|video}&corrid={long_number}
+http://socs/sponsorship/uploads?idss_Att={long_number}&batchid={short_number}&filetype={image|video}&corrid={long_number}
 &tstamp={yyyymmdd-hhmm}&token={SHA-256, see text}
 }}}
 
@@ -82,6 +82,7 @@ The file should be submitted to the local Apache server using the submit button 
    * tstamp={yyyymmdd-hhmm}
    * token=SHA-256 of the concatenation of a secret string (to be shared privately), timestamp, the correlation id and the text "INTALIOTOUPLOADAPP".
   * Also upload the compressed video to the Switched On FTP server as a backup (but have a config file that allows to turn this feature off).
+  * Question: given the unreliability apparently of the network in the slum area, any idea if YouTube allows file transfer to continue if the network transfer is interrupted?
  * If is an image
   * Compress the image to 200px wide (retaining aspect ratio).  Upload both it and the original, but call the compressed version - filename-200px.file-extn.  [new requirement as found there is a need to be able to review compressed versions on images in the Intalio processes.]
   * For the slightly more adventurous: Check if there were previous attempts to upload the file (there may have been a powercut so the file at the top of the work-log may already be partly uploaded) and append the rest of the file if the APPE command or equivalent is available in PHP.  Otherwise, just re-attempt and write over.
