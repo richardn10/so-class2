@@ -105,14 +105,12 @@ The file should be submitted to the local Apache server using the submit button 
 
 Note the Upload Agent continually retries if necessary.  It will be stopped only by manual intervention through the status page.  The com admin/area manager will be notified via the Business Process Server of problems, so they can intervene.
 
-===Deleting file===
-This web service is to reside on the BPMS server, but written in PHP (or similar), not as a Business Process, and will delete an uploaded file (e.g. if uploaded by mistake).  Takes the parameters:
-   * array of idss_Att values to read the necessary details to be able to delete the file from ss_Att  ( using sileid and resource store {YouTube|SOWeb} )
-   * deletes the rows from ss_Att once files removed.
+===Deleting files===
+This web service is to reside on the BPMS server, but written in PHP (or similar), not as a Business Process, and will delete uploaded files (e.g. if uploaded by mistake).  Takes array of idss_Att values to read the necessary details to be able to delete the file from ss_Att  ( using sileid and resource store {YouTube|SOWeb} ).  Deletes the rows from ss_Att once files removed.
 
-Exposes RESTful interface "BatchDeleteUploadedFIles"
+Exposes RESTful interface "BatchDeleteUploadedFiles"
 
-Need handle error if fails to delete.  Only leaves orphaned files, not a major issue.
+Needs return error if fails to delete.  Only leaves orphaned files, not a major issue.
 
 ===Reporting error===
 If the upload process encounters an error, it should be reported to the same RESTful interface as the successful uploads on the business process server ( see above ).
