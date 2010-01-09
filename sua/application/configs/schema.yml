@@ -1,0 +1,60 @@
+options:
+  type: INNODB
+  collate: utf8_general_ci
+  charset: utf8
+
+Work:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    correlation_id: 
+      type: integer
+      notnull: true
+    file_name: 
+      type: string(300)
+      notnull: true
+    file_type: 
+      type: enum
+      values: [image, video]
+      notnull: true
+    file_mimetype: string(100)
+    file_id: string(20)
+  relations:
+    StatusLines:
+      class: StatusLine
+      foreign: work_id
+      local: id
+      type: many
+
+StatusLine:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    work_id: 
+      type: integer
+      notnull: true
+    process_id: 
+      type: integer
+      notnull: true
+    action:
+      type: enum
+      values: [media_received, image_upload_ftp, video_conversion, video_upload_youtube, report_intalio]
+      notnull: true
+    event_start: 
+      type: timestamp
+      notnull: true
+    event_end: timestamp
+    result:
+      type: enum
+      values: [success, active, failure]
+      notnull: true
+    message: string(300)
+  relations:
+    Work:
+      local: work_id
+      foreign: id
+
