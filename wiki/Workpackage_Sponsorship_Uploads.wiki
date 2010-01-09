@@ -39,6 +39,11 @@ The file is uploaded from the Intalio BPMS-served page and communication goes to
 
 [http://so-class2.googlecode.com/svn/wiki/Workpackage_Sponsorship_Uploads_files/ss_file_upload_windows.png]
 
+Note, the URL of the upload agent page (loaded in the iframe) comes from the Business Process Server database as a user option.  If the database entry does not exist or does not work, the following default should be used:
+"http://localhost/sponsorship/uploads"
+If that page does not exist, the following text should be displayed:
+"The local Upload page cannot be found.  You need to know the address of the agent used to upload your files.  It can be set using the "User Options" process.  Contact the Switched On administrator/manager if you cannot successfully set this."
+
 The steps of the process, focusing mainly on the Switched On Server Upload application, though it shows how it integrates with the Intalio Business Process:
 
  * Web page served to our Communications Administrator by Intalio as part of some wider process (Comms Admin enters student profile, messages, photos and video in the Switched On training centres.  These will be used in comms with sponsors.)  A given web page will include a section to upload photos and/or video.  The upload interaction point is a button on the page that opens an iframe in a modal window with a URL and get string to pass info to the locally hosted apache along the lines:
@@ -47,6 +52,8 @@ The steps of the process, focusing mainly on the Switched On Server Upload appli
 http://socs/sponsorship/uploads?idss_Att={long_number}&batchid={short_number}&filetype={image|video}&corrid={long_number}
 &tstamp={yyyymmdd-hhmm}&token={SHA-256, see text}
 }}}
+
+
 
 These are:
  * socs is some identifier, here standing for Switched On Centre Server)
