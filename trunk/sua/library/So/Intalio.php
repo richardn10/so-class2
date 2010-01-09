@@ -22,7 +22,7 @@ class So_Intalio
 	}
 	
 	public function getIncomingToken($correlationId, $timestamp) {
-		return hash('sha256', $this->_key . $correlationId . $timestamp . INCOMING_STRING);
+		return hash('sha256', $this->_key . $correlationId . $timestamp . self::INCOMING_STRING);
 	}
 	
 	private function getOutgoingToken($correlationId, $timestamp) {
