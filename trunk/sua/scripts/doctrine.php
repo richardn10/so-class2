@@ -23,5 +23,6 @@ $application = new Zend_Application(
 
 $application->getBootstrap()->bootstrap("doctrine");
 
-$cli = new Doctrine_Cli($application->getOption('doctrine'));
+$cli = new Doctrine_Cli($application->getBootstrap()->getPluginResource('doctrine')->getOptions());
+//$application->getOption('doctrine'));
 $cli->run($_SERVER['argv']);
