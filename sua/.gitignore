@@ -1,3 +1,4 @@
 public/thumbnails/*
 application/configs/config.ini
 logs/*/*
+data/*/*

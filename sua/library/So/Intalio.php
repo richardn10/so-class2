@@ -15,23 +15,23 @@ class So_Intalio
 		$this->_keyTimeout = $keyTimeout;
 	}
 
-	public function validateIncomingToken($token, $correlationId, $timestamp) 
+	public function validateIncomingToken($token, $attachmentId, $timestamp) 
 	{
-		return ($token == $this->getIncomingToken($correlationId, $timestamp)) 
+		return ($token == $this->getIncomingToken($attachmentId, $timestamp)) 
 					&& (abs(time()-$timestamp) < $this->_keyTimeout);
 	}
 	
-	public function getIncomingToken($correlationId, $timestamp) {
-		return hash('sha256', $this->_key . $correlationId . $timestamp . self::INCOMING_STRING);
+	public function getIncomingToken($attachmentId, $timestamp) {
+		return hash('sha256', $this->_key . $attachmentId . $timestamp . self::INCOMING_STRING);
 	}
 	
-	private function getOutgoingToken($correlationId, $timestamp) {
-		return hash('sha256', $this->_key . $correlationId . $timestamp . OUTGOING_STRING);
+	private function getOutgoingToken($attachmentId, $timestamp) {
+		return hash('sha256', $this->_key . $attachmentId . $timestamp . OUTGOING_STRING);
 	}
 	
-	public function sendUploadConfirmation($correlationId, $fileType, $fileService, $fileId) {
+	public function sendUploadConfirmation($attachmentId, $fileType, $fileService, $fileId) {
 		$timestamp = time();
-		$token = $this->getOutgoingToken($correlationId, $timestamp);
+		$token = $this->getOutgoingToken($attachmentId, $timestamp);
 	}
 	
 	public function getRandomString(

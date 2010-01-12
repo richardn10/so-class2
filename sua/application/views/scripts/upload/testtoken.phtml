@@ -5,9 +5,11 @@
         'controller' => 'upload',
         'action'     => 'index',
     	'filetype'	 => $this->filetype,
-    	'correlationid' => $this->correlationId,
+    	'attachmentid' => $this->attachmentId,
     	'timestamp' => $this->timestamp,
     	'token'		=> $this->token,
+    	'return_element' => 'none',
+    	'return_url' => 'none'
     ), 
     'default', 
-    true) ?>'>Fill form with a bogus correlation id</a>
+    true) ?>'>Fill form with a bogus attachment id</a>

@@ -39,6 +39,6 @@ class So_Ftp
 		
 		ftp_chdir($this->_connection, $this->_path);
 		ftp_pasv($this->_connection, true);
-		ftp_put($this->_connection, $filename, $sourceDir, FTP_BINARY);
+		ftp_put($this->_connection, $filename, $sourceDir.'/'.$filename, FTP_BINARY);
 	}
 }
