@@ -1,6 +1,4 @@
 <?php
-
-require_once 'So/Intalio.php';
 class So_Resource_Intalio extends Zend_Application_Resource_ResourceAbstract {
 	
 	private $_endpoint;

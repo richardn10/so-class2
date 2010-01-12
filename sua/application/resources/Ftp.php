@@ -1,6 +1,4 @@
 <?php 
-require_once 'So/Ftp.php';
-
 class So_Resource_Ftp extends Zend_Application_Resource_ResourceAbstract {
 	
 	/**
