@@ -1,7 +1,5 @@
 <?php
 
-//require_once 'Zend/Log/Writer/Stream.php';
-
 class So_Resource_Log extends Zend_Application_Resource_ResourceAbstract {
 	
 	private $_writers;

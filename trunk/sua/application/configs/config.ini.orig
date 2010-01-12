@@ -1,0 +1,65 @@
+; Copy this file to config.ini and set the values. 
+; All the lines below that are commented out have default values. Uncomment these lines to change their value
+; For string values: Use double quotes " "
+
+[production]
+;------------------------
+; FTP Settings
+;------------------------
+resources.ftp.params.host = ""
+resources.ftp.params.username = ""
+resources.ftp.params.password = ""
+
+;resources.ftp.params.port = 21
+;resources.ftp.params.path = "/uploads"
+
+;------------------------
+; Youtube Settings
+;------------------------
+resources.youtube.httpClient.username = ""
+resources.youtube.httpClient.password = ""
+resources.youtube.httpClient.source = ""
+resources.youtube.httpClient.authenticationURL = ""
+
+resources.youtube.developerKey = ""
+resources.youtube.applicationId = ""
+resources.youtube.clientId = ""
+
+;------------------------
+; Intalio Settings
+;------------------------
+
+resources.intalio.endpoint = ""
+resources.intalio.key = ""
+
+;resources.intalio.keyTimeout = 900
+
+;------------------------
+; Database Settings
+;------------------------
+
+; example dsn = "mysql://user:password@host/database"
+resources.doctrine.dsn = ""
+
+resources.db.params.username = ""
+resources.db.params.password = ""
+
+resources.db.params.dbname = "mini-challenge"
+;resources.db.params.host = "localhost"
+;resources.db.adapter = "Mysqli"
+;resources.db.params.charset = "UTF8"
+
+;------------------------
+; Log Settings
+;------------------------
+
+;resources.log.writer.1.type = Zend_Log_Writer_Stream
+;resources.log.writer.1.param = APPLICATION_PATH "/../logs/application/standard.log"
+
+;------------------------
+; Path Settings
+;------------------------
+;media.upload_path = APPLICATION_PATH "/../data/uploads"
+;media.queue_path = APPLICATION_PATH "/../data/queue"
+;media.backup_path = APPLICATION_PATH "/../data/backup"
+;media.thumbnail_path = APPLICATION_PATH "/../public/thumbnails"

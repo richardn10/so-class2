@@ -1,6 +1,4 @@
 <?php
-require_once 'So/Youtube.php';
-
 class So_Resource_Youtube extends Zend_Application_Resource_ResourceAbstract {
 	
 	private $_httpClientParams;
