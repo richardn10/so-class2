@@ -1,2 +1,3 @@
-application/configs/*.ini
+public/thumbnails/*
+application/configs/config.ini
 logs/*/*
