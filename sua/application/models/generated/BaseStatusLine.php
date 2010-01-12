@@ -11,7 +11,8 @@
  * @property enum $action
  * @property timestamp $event_start
  * @property timestamp $event_end
- * @property enum $result
+ * @property boolean $finished
+ * @property boolean $success
  * @property string $message
  * @property Work $Work
  * 
@@ -43,10 +44,10 @@ abstract class BaseStatusLine extends Doctrine_Record
              'values' => 
              array(
               0 => 'media_received',
-              1 => 'image_upload_ftp',
-              2 => 'video_conversion',
-              3 => 'video_upload_youtube',
-              4 => 'report_intalio',
+              1 => 'create_thumbnail',
+              2 => 'convert',
+              3 => 'upload',
+              4 => 'report',
              ),
              'notnull' => true,
              ));
@@ -57,14 +58,14 @@ abstract class BaseStatusLine extends Doctrine_Record
         $this->hasColumn('event_end', 'timestamp', null, array(
              'type' => 'timestamp',
              ));
-        $this->hasColumn('result', 'enum', null, array(
-             'type' => 'enum',
-             'values' => 
-             array(
-              0 => 'success',
-              1 => 'active',
-              2 => 'failure',
-             ),
+        $this->hasColumn('finished', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             'notnull' => true,
+             ));
+        $this->hasColumn('success', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
              'notnull' => true,
              ));
         $this->hasColumn('message', 'string', 300, array(

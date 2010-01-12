@@ -9,7 +9,7 @@ Work:
       type: integer
       primary: true
       autoincrement: true
-    correlation_id: 
+    attachment_id: 
       type: integer
       notnull: true
     file_name: 
@@ -21,6 +21,12 @@ Work:
       notnull: true
     file_mimetype: string(100)
     file_id: string(20)
+    current_pid:
+      type: integer
+    finished:
+      type: boolean
+      default: false
+      notnull: true
   relations:
     StatusLines:
       class: StatusLine
@@ -42,15 +48,19 @@ StatusLine:
       notnull: true
     action:
       type: enum
-      values: [media_received, image_upload_ftp, video_conversion, video_upload_youtube, report_intalio]
+      values: [media_received, create_thumbnail, convert, upload, report]
       notnull: true
     event_start: 
       type: timestamp
       notnull: true
     event_end: timestamp
-    result:
-      type: enum
-      values: [success, active, failure]
+    finished:
+      type: boolean
+      default: false
+      notnull: true
+    success: 
+      type: boolean
+      default: false
       notnull: true
     message: string(300)
   relations:

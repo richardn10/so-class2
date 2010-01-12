@@ -13,4 +13,38 @@
 class Work extends BaseWork
 {
 
+	public static function findByPidAndFinished($pid = null, $finished = false, $loadStatusses = false) {
+		$query = Doctrine_Query::create()
+				->from('Work w');
+				
+		if(null === $pid) $query->where('w.current_pid IS NULL');
+		else $query->where('w.current_pid = ?', $pid);
+		
+		if(null !== $finished) $query->andWhere('w.finished = ?', $finished);
+
+		if($loadStatusses) {
+			$query->leftJoin('w.StatusLines s');
+		}
+		return $query->execute();
+	}
+	
+	public static function setWorksToPid($pid, $max) {
+		$query = Doctrine_Query::create()
+				 ->update('Work w')
+				 ->set('w.current_pid', '?', $pid)
+				 ->where('w.current_pid IS NULL')
+				 ->andWhere('finished = ?', false)
+				 ->limit($max);
+		return $query->execute();
+	}
+	
+	public function getLastStatusLine() {
+		$query = Doctrine_Query::create()
+				 ->from('StatusLine s')
+				 ->where('s.id = (SELECT MAX(s2.id) FROM StatusLine s2 WHERE s2.work_id = ?)', $this->id);
+		
+		
+		$result =  $query->execute();
+		return count($result) > 0 ? $result[0] : false;
+	}
 }
