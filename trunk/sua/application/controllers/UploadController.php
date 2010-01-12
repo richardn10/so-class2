@@ -9,32 +9,44 @@ class UploadController extends Zend_Controller_Action
 	}
 	
 	public function processAction() {
-		throw new Exception("Not in use yet");
 		$pid = getmypid();
 		
-		if(count($works = Model_Work::getByPid($pid)) > 0) {
-			foreach($works as $work) {
-				$work->setError(1);
-				$work->save();
-			}
-		}
-		
-		$works = Model_Work::claimWorks($pid);
-		
-		$youtubeContainer = $this->_bootstrap->getResource('youtube');
-		$ftp = $this->_bootstrap->getResource('ftp');
-		$intalio = $this->_bootstrap->getResource('intalio');
+		$works = Work::findByPidAndFinished($pid, false);
 		
 		foreach($works as $work) {
-			switch($work->getFiletype()) {
-				case 'image':
-					$ftp->upload(APPLICATION_PATH ."/../data/queue/", $work->getFilename());
-					$intalio->sendUploadConfirmation($work->getCorrelationId(), 'image', 'ftp', $work->getFilename());
-					$work->setFinishedNow();
-					$work->save();
-					rename(APPLICATION_PATH ."/../data/queue/". $work->getFilename(), APPLICATION_PATH ."/../data/backup/". $work->getFilename());
-					break;
-				case 'video':
+			$work->current_pid = null;
+			$work->save();
+		}
+		
+		while(true) {
+			Work::setWorksToPid($pid, 1);
+			
+			$works = Work::findByPidAndFinished($pid, false, true);
+			
+			if(count($works) == 0) break;
+			
+			$uploadProcessor = $this->_bootstrap->getResource('uploadProcessor');
+			
+			foreach($works as $work) {
+				echo "Start processing work: ".$work->id."<br>\n";
+				$uploadProcessor->process($work);
+			}
+		}
+				
+//		$youtubeContainer = $this->_bootstrap->getResource('youtube');
+//		$ftp = $this->_bootstrap->getResource('ftp');
+//		$intalio = $this->_bootstrap->getResource('intalio');
+//		
+//		foreach($works as $work) {
+//			switch($work->getFiletype()) {
+//				case 'image':
+//					$ftp->upload(APPLICATION_PATH ."/../data/queue/", $work->getFilename());
+//					$intalio->sendUploadConfirmation($work->getCorrelationId(), 'image', 'ftp', $work->getFilename());
+//					$work->setFinishedNow();
+//					$work->save();
+//					rename(APPLICATION_PATH ."/../data/queue/". $work->getFilename(), APPLICATION_PATH ."/../data/backup/". $work->getFilename());
+//					break;
+//				case 'video':
 //					$yt = $youtubeContainer->getYoutube();
 //					
 //					$myVideoEntry = new Zend_Gdata_YouTube_VideoEntry();
@@ -48,12 +60,12 @@ class UploadController extends Zend_Controller_Action
 //					$work->setFinishedNow();
 //					$work->save();
 //					rename(APPLICATION_PATH ."/../data/queue/", $work->getFilename(), APPLICATION_PATH ."/../data/backup/", $work->getFilename());
-					break;
-				default: 
-					$work->setError(1);
-					$work->save();
-			}
-		}
+//					break;
+//				default: 
+//					$work->setError(1);
+//					$work->save();
+//			}
+//		}
 	}
 	
 	public function cleanAction() {
@@ -62,11 +74,12 @@ class UploadController extends Zend_Controller_Action
 	
 	public function indexAction() {
 
-		if(!$this->_hasParam('correlationid')
+		if(!$this->_hasParam('attachmentid')
 			|| !$this->_hasParam('timestamp')
 			|| !$this->_hasParam('token')
 			|| !$this->_hasParam('return_url')
 			|| !$this->_hasParam('return_element')
+			|| !$this->_hasParam('filetype')
 			) 
 		{
 			throw new Exception('Not all parameters are provided');
@@ -74,7 +87,7 @@ class UploadController extends Zend_Controller_Action
 		
 		if(!$this->_bootstrap->getResource('intalio')->validateIncomingToken(
 				$this->_getParam('token'),
-				$this->_getParam('correlationid'),
+				$this->_getParam('attachmentid'),
 				$this->_getParam('timestamp')
 			)
 		) {
@@ -85,10 +98,13 @@ class UploadController extends Zend_Controller_Action
 		if($this->getRequest()->isPost()) {
 			
 			
-			if($this->_hasParam('filetype') && $this->_getParam('filetype') == 'image') {
-//				$form->file->addValidator('MimeType', true, array('image/jpeg','image/gif','image/png'));
-			} else {
+			if( $this->_getParam('filetype') == 'image') {
+				$form->file->addValidator('MimeType', true, array('image/jpeg', 'image/pjpeg','image/gif','image/png'));
+			} elseif( $this->_getParam('filetype') == 'video') {
+				throw new Exception('Video not supported yet');
 				$form->file->addValidator('MimeType', true, array('video/x-msvideo'));
+			} else {
+				throw new Exception('No valid filetype provided');
 			}
 			
 			if (!$form->isValid($this->getRequest()->getPost())) 
@@ -115,12 +131,37 @@ class UploadController extends Zend_Controller_Action
 //					$work->save();
 //				}
 //			} else {
-				$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo['file']['type']);
-				$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
-				rename($form->file->getFilename(), $newFullFilename);
-				//$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
-				//$work->save();
+				
+			$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo['file']['type']);
+			$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
+			rename($form->file->getFilename(), $newFullFilename);
+			//$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
+			//$work->save();
+			
+			$work = new Work();
+			$work->attachment_id = $this->_getParam('attachmentid');
+			$work->file_name = $newFilename;
+			$work->file_type = $this->_getParam('filetype');
+			$work->file_mimetype = $fileinfo['file']['type'];
+			$work->current_pid = getmypid();
+			$work->save();
+			
+			$statusLine = new StatusLine();
+			$statusLine->process_id = getmypid();
+			$statusLine->action = "media_received";
+			$statusLine->event_start = $statusLine->event_end = date('Y-m-d H:i:s');
+			$statusLine->success = true;
+			$statusLine->finished = true;
+			$statusLine->link('Work', $work->id);
+			$statusLine->save();
+				
 //			}
+			
+			$uploadProcessor = $this->_bootstrap->getResource('uploadProcessor');
+			$uploadProcessor->createThumbnail($work);
+			
+			$work->current_pid = null;
+			$work->save();
 			
 			$this->view->nosuccess = false;
 			$this->view->return_url = $this->_getParam('return_url');
@@ -159,16 +200,18 @@ class UploadController extends Zend_Controller_Action
 	
 	
 	public function testtokenAction() {
-		throw new Exception("Not in use yet");
+//		throw new Exception("Not in use yet");
+		
 		$this->view->timestamp = $timestamp = time();
-		$this->view->correlationId = $correlationId = rand(10000000, 99999999);
-		$this->view->token = $this->_bootstrap->getResource('intalio')->getIncomingToken($correlationId, $timestamp);
+		$this->view->attachmentId = $attachmentId = rand(10000000, 99999999);
+		$this->view->token = $this->_bootstrap->getResource('intalio')->getIncomingToken($attachmentId, $timestamp);
 		$this->view->filetype = 'image';
 	}
 	
 	public function getExtension($mimeType) {
 		switch($mimeType) {
 			case 'image/jpeg':
+			case 'image/pjpeg':
 				return 'jpg';
 				break;
 			case 'image/png':
