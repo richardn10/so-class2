@@ -29,9 +29,14 @@ class Form_Upload extends Zend_Form
         	 ),
         ));
 
-		$this->addElement('submit', 'submit', array(
+        $this->addElement('submit', 'submit', array(
             'ignore'   => true,
             'label'    => 'Save',
+        ));
+        
+		$this->addElement('reset', 'cancel', array(
+            'ignore'   => true,
+            'label'    => 'Cancel',
         ));
     }
 }

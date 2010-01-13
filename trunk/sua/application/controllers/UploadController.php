@@ -195,7 +195,8 @@ class UploadController extends Zend_Controller_Action
 	}
 	
 	public function statusAction() {
-		throw new Exception("Not in use yet");
+		$works = Work::findAll();
+		$this->view->works = $works;
 	}
 	
 	

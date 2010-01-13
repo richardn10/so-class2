@@ -63,3 +63,9 @@ resources.db.params.dbname = "mini-challenge"
 ;media.queue_path = APPLICATION_PATH "/../data/queue"
 ;media.backup_path = APPLICATION_PATH "/../data/backup"
 ;media.thumbnail_path = APPLICATION_PATH "/../public/thumbnails"
+
+
+; DO NOT REMOVE
+[staging : production]
+[testing : production]
+[development : production]

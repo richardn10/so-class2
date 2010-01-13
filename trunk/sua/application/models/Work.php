@@ -28,6 +28,12 @@ class Work extends BaseWork
 		return $query->execute();
 	}
 	
+	public static function findAll() {
+		$query = Doctrine_Query::create()
+		->from('Work w');
+		return $query->execute();
+	}
+	
 	public static function setWorksToPid($pid, $max) {
 		$query = Doctrine_Query::create()
 				 ->update('Work w')
@@ -47,4 +53,5 @@ class Work extends BaseWork
 		$result =  $query->execute();
 		return count($result) > 0 ? $result[0] : false;
 	}
+
 }
