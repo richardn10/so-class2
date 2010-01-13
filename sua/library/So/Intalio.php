@@ -26,7 +26,7 @@ class So_Intalio
 	}
 	
 	private function getOutgoingToken($attachmentId, $timestamp) {
-		return hash('sha256', $this->_key . $attachmentId . $timestamp . OUTGOING_STRING);
+		return hash('sha256', $this->_key . $attachmentId . $timestamp . self::OUTGOING_STRING);
 	}
 	
 	public function sendUploadConfirmation($attachmentId, $fileType, $fileService, $fileId) {
