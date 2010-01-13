@@ -13,6 +13,16 @@ class So_Ftp
 	
 	private $_connected = false;
 
+	protected $_targeturl;
+	
+	public function setTargeturl($url) {
+		$this->_targeturl = $url;
+	}
+	
+	public function getTargeturl() {
+		return $this->_targeturl;
+	}
+	
 	
 	public function __construct($params) {
 		$this->_host = $params['host'];

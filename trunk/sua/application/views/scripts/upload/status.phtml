@@ -1,5 +1,13 @@
 <h1>Statusses</h1>
 
+<a href='<?php echo $this->url(
+    array(
+        'controller' => 'upload',
+        'action'     => 'process',
+    ), 
+    'default', 
+    true) ?>'>Do processing (background job) run</a>
+    
 <?php foreach($this->works as $work): ?>
 <div class="work">
 <b>Attachment: <?php echo $work->attachment_id?>, Filename: <?php echo $this->escape($work->file_name)?>, File mimetype: <?php echo $this->escape($work->file_mimetype)?></b>
@@ -16,7 +24,15 @@
   	</tr>
   <?php foreach($work->StatusLines as $line):?>
   	<tr>
-  		<td><?php echo $this->escape($line->action)?></td>
+  		<td>
+  			<?php if($line->action == 'upload' && $work->file_type == 'image' && $line->success): ?>
+  			<a href="<?php echo $this->escape($this->ftpurl).$this->escape($work->file_name)?>">
+  			<?php endif;?>
+  			<?php echo $this->escape($line->action)?>
+  			
+  			
+  			<?php if($line->action == 'upload' && $line->success): ?></a><?php endif;?>
+  		</td>
   		<td><?php echo $this->escape($line->event_start)?></td>
   		<td><?php echo $this->escape($line->event_start)?></td>
   		<td><?php echo $line->finished?"Finished":"In Progress"?></td>
