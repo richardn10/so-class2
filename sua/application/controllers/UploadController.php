@@ -197,6 +197,7 @@ class UploadController extends Zend_Controller_Action
 	public function statusAction() {
 		$works = Work::findAll();
 		$this->view->works = $works;
+		$this->view->ftpurl = $this->_bootstrap->getResource('ftp')->getTargeturl();
 	}
 	
 	

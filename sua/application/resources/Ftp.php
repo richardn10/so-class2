@@ -13,6 +13,16 @@ class So_Resource_Ftp extends Zend_Application_Resource_ResourceAbstract {
      */
 	protected $_params = array();
 	
+	protected $_targeturl;
+	
+	public function setTargeturl($url) {
+		$this->_targeturl = $url;
+	}
+	
+	public function getTargeturl() {
+		return $this->_targeturl;
+	}
+	
     public function setParams(array $params)
     {
         $this->_params = $params;
@@ -23,6 +33,7 @@ class So_Resource_Ftp extends Zend_Application_Resource_ResourceAbstract {
     {
         if (null === $this->_ftp) {
             $this->_ftp = new So_Ftp($this->_params);
+            $this->_ftp->setTargeturl($this->getTargeturl());
         }
         return $this->_ftp;
     }

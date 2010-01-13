@@ -10,6 +10,8 @@ resources.ftp.params.host = ""
 resources.ftp.params.username = ""
 resources.ftp.params.password = ""
 
+resources.ftp.targeturl = ""
+
 ;resources.ftp.params.port = 21
 ;resources.ftp.params.path = "/uploads"
 
