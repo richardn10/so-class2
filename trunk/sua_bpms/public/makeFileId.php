@@ -1,16 +1,15 @@
 <?php
 /*
-*Configuration
+*Configuration is in ../conf/config.inc.php (rename config.inc.php.orig and edit!)
 */
-$key = "";
+require('../conf/config.inc.php');
 
-$mysql_username = "";
-$mysql_password = "";
-$mysql_host = "";
-$mysql_database = "";
-$mysql_table = "";
-
-$training_centre_server_url = "http://sua-test.smitmail.eu/upload";
+/*
+* Input validation
+*/
+if(!isset($_GET['form_pending_id']) || !ctype_digit($_GET['form_pending_id']) ) {
+     die("No form pending id given");
+}
 
 /*
 * User authentication
@@ -25,21 +24,20 @@ $training_centre_server_url = "http://sua-test.smitmail.eu/upload";
 
 $mysqli = new Mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_database);
 
-$statement = $mysqli->prepare("INSERT INTO ".$mysql_table." VALUES(?)");
-$statement->bind_param("aparam");
-$statement->execute();
+$statement = $mysqli->prepare("INSERT INTO ".$mysql_table." (title, description, date, ss_FormPending_idss_FormPending) VALUES(?,?,?, ?)");
+$statement->bind_param('sssi',$_GET['title'],$_GET['description'],date('YmdHis'), $_GET['form_pending_id']);
+$statement->execute() or die($statement->error);
 
-$file_id = $mysqli->insert_id;
+$file_id = $statement->insert_id;
 
 
 
 header("Cache-Control: no-cache"); 
-$file_id = rand(10000000, 99999999);
 $timestamp = time();
 $addition = "INTALIOTOSUA";
 
-$token = hash('sha256', $key . $correlationid . $timestamp . $addition);
+$token = hash('sha256', $key . $file_id . $timestamp . $addition);
 
-echo $training_centre_server_url."?attachmentid=${correlationid}&timestamp=${timestamp}&token=${token}";
+echo $training_centre_server_url."?file_id=${file_id}&timestamp=${timestamp}&token=${token}&description=".$_GET['description']."&title=".$_GET['title']."&form_pending_id=".$_GET['form_pending_id'];
 //echo "http://sua-demo-s.smitmail.eu/?correlationid=${correlationid}&timestamp=${timestamp}&token=${token}";
 
