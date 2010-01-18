@@ -37,6 +37,22 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     protected function _initUploadProcessor() {
     	return new So_UploadProcessor($this);
     }
+    
+    protected function _initDoctype()
+    {
+        $this->bootstrap('view');
+        $view = $this->getResource('view');
+        $view->doctype('HTML4_STRICT');
+    }
+    
+    protected function _initJQuery()
+    {
+        $this->bootstrap('view');
+        $view = $this->getResource('view');
+        ZendX_JQuery::enableView($view);
+        $view->jQuery()->setLocalPath('/js/jquery-1.3.2.min.js');
+        $view->jQuery()->setVersion('1.3.2');
+    }
 //    public function _initDoctrine()
 //    {
 //    	require_once('Doctrine/Core.php');

@@ -9,9 +9,14 @@ Work:
       type: integer
       primary: true
       autoincrement: true
-    attachment_id: 
+    file_id: 
       type: integer
       notnull: true
+    form_pending_id:
+      type: integer
+      notnull: true
+    title: string(300)
+    description: string(500)
     file_name: 
       type: string(300)
       notnull: true
@@ -20,7 +25,7 @@ Work:
       values: [image, video]
       notnull: true
     file_mimetype: string(100)
-    file_id: string(20)
+    file_service_id: string(20)
     current_pid:
       type: integer
     finished:
