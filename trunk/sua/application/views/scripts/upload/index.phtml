@@ -1,31 +1,52 @@
-<?php if($this->nosuccess):?>
+<?php 
+$this->jQuery()
+       ->enable()
+       ->addJavascriptFile('/js/jquery.ba-postmessage.min.js')
+       ->addJavascriptFile('/js/jquery.form.js')
+       ->addOnload("
+          var return_url = '".$this->escape($this->return_url)."';
+		  var return_element = '". $this->escape($this->formActionParams['return_element']) ."';
+		  var file_id = ".$this->escape($this->formActionParams['file_id']).";
+         ")
+       
+       ->addOnload("
+         $('#cancel').click(
+            function(event){
+              	$.postMessage(
+	                return_element + '||',
+	                return_url,
+	                parent
+	            );
+              event.preventDefault();
+            
+            }
+         );
+       
+       ")
+       ->addOnload("
+          $('#uploadform').ajaxForm({ 
+            dataType:  'xml',
+            success: function(responseXML) {
+              var success = $('success', responseXML).text();
+              var filename = $('filename', responseXML).text();
+              var message = $('message', responseXML).text(); 
+			  if(success == 'true') {
+			   
+			  	$.postMessage(
+	                return_element + '|' + file_id + '|' + filename,
+	                return_url,
+	                parent
+	            );
+			  } else {
+			  	$('#error_message').html(message);
+			  }
+            }
+          }); 
+         ")
+       ;
+?>
+
 <h1>Uploader</h1>
-    <script type="text/javascript">
-		var return_url = "<?php echo $this->escape($this->return_url) ?>";
-		var return_element = "<?php echo $this->escape($this->return_element) ?>";
-		var filename = '';
-	</script>
-<?php echo $this->form ?>
-
-
-<a href="" class="cancel_modal">Cancel</a>
-<?php else:?>
-<h1>Uploaded</h1>
-<p>The file you selected is successfully uploaded. This file will be processed in the background and putted into the Sponsorship system. This can take a while. The status you can find on <a href='<?php echo $this->url(
-    array(
-        'controller' => 'upload',
-        'action'     => 'status',
-    	'correlationid' => $this->correlationId,
-    ), 
-    'default', 
-    true) ?>'>this page</a>.</p>
-    
-    <script type="text/javascript">
-		var filename = "<?php echo $this->escape($this->filename) ?>";
-		var return_url = "<?php echo $this->escape($this->return_url) ?>";
-		var return_element = "<?php echo $this->escape($this->return_element) ?>";
-	</script>
-	<p>Filename: <?php echo $this->escape($this->filename) ?></p> 
-    <a href="" class="return_modal">Attach this file</a> <a href="" class="cancel_modal">Cancel</a>
-    
-<?php endif; ?>
+<span id="error_message" style="color:red"></span>
+<?php $this->form->setAction($this->url($this->formActionParams));
+echo $this->form ?>

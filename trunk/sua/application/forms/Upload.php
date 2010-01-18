@@ -8,6 +8,8 @@ class Form_Upload extends Zend_Form
         $this->setMethod('post');
         $this->setAttrib('accept-charset', 'UTF-8');
 		$this->setAttrib('enctype', 'multipart/form-data');
+//		$this->setAction('/upload/submit/format/xml');
+		$this->setAttrib('id', 'uploadform');
 		
 //		$this->addElement('text', 'correlationId', array(
 //			'label'      => 'Correlation Id:',
@@ -29,7 +31,7 @@ class Form_Upload extends Zend_Form
         	 ),
         ));
 
-        $this->addElement('submit', 'submit', array(
+        $this->addElement('submit', 'filesubmit', array(
             'ignore'   => true,
             'label'    => 'Save',
         ));

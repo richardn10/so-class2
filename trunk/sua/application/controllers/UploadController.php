@@ -6,6 +6,10 @@ class UploadController extends Zend_Controller_Action
 
 	public function init() {
 		$this->_bootstrap = $this->getInvokeArg('bootstrap');
+		
+        $contextSwitch = $this->_helper->getHelper('contextSwitch');
+        $contextSwitch->addActionContext('submit', 'xml')
+                      ->initContext();
 	}
 	
 	public function processAction() {
@@ -74,7 +78,10 @@ class UploadController extends Zend_Controller_Action
 	
 	public function indexAction() {
 
-		if(!$this->_hasParam('attachmentid')
+		if(!$this->_hasParam('file_id')
+		    || !$this->_hasParam('form_pending_id')
+		    || !$this->_hasParam('title')
+		    || !$this->_hasParam('description')
 			|| !$this->_hasParam('timestamp')
 			|| !$this->_hasParam('token')
 			|| !$this->_hasParam('return_url')
@@ -87,112 +94,227 @@ class UploadController extends Zend_Controller_Action
 		
 		if(!$this->_bootstrap->getResource('intalio')->validateIncomingToken(
 				$this->_getParam('token'),
-				$this->_getParam('attachmentid'),
+				$this->_getParam('file_id'),
 				$this->_getParam('timestamp')
 			)
 		) {
 			throw new Exception('Token not valid');
 		}
 		
-		$form = new Form_Upload();
-		if($this->getRequest()->isPost()) {
-			
-			
-			if( $this->_getParam('filetype') == 'image') {
-				$form->file->addValidator('MimeType', true, array('image/jpeg', 'image/pjpeg','image/gif','image/png'));
-			} elseif( $this->_getParam('filetype') == 'video') {
-				throw new Exception('Video not supported yet');
-				$form->file->addValidator('MimeType', true, array('video/x-msvideo'));
-			} else {
-				throw new Exception('No valid filetype provided');
-			}
-			
-			if (!$form->isValid($this->getRequest()->getPost())) 
-			{
-			    throw new Exception('Bad data: '.print_r($form->getMessages(), true));
-			}
-			
-			try {
-				$form->file->receive();
-			} 
-			catch (Zend_File_Transfer_Exception $e) 
-			{
-				throw new Exception('Bad data: '.$e->getMessage());
-			}
-			
-			$fileinfo = $form->file->getFileInfo();
-			
-//			if(is_array($form->file->getFilename())) {
-//				foreach($form->file->getFilename() as $key => $filename) {
-//					$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo[$key]['type']);
-//					$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
-//					rename($filename, $newFullFilename);
-//					$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
-//					$work->save();
-//				}
+//		$form = new Form_Upload();
+//		if($this->getRequest()->isPost()) {
+//			
+//			
+//			if( $this->_getParam('filetype') == 'image') {
+//				$form->file->addValidator('MimeType', true, array('image/jpeg', 'image/pjpeg','image/gif','image/png'));
+//			} elseif( $this->_getParam('filetype') == 'video') {
+//				throw new Exception('Video not supported yet');
+//				$form->file->addValidator('MimeType', true, array('video/x-msvideo'));
 //			} else {
-				
-			$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo['file']['type']);
-			$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
-			rename($form->file->getFilename(), $newFullFilename);
-			//$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
-			//$work->save();
-			
-			$work = new Work();
-			$work->attachment_id = $this->_getParam('attachmentid');
-			$work->file_name = $newFilename;
-			$work->file_type = $this->_getParam('filetype');
-			$work->file_mimetype = $fileinfo['file']['type'];
-			$work->current_pid = getmypid();
-			$work->save();
-			
-			$statusLine = new StatusLine();
-			$statusLine->process_id = getmypid();
-			$statusLine->action = "media_received";
-			$statusLine->event_start = $statusLine->event_end = date('Y-m-d H:i:s');
-			$statusLine->success = true;
-			$statusLine->finished = true;
-			$statusLine->link('Work', $work->id);
-			$statusLine->save();
-				
+//				throw new Exception('No valid filetype provided');
 //			}
-			
-			$uploadProcessor = $this->_bootstrap->getResource('uploadProcessor');
-			$uploadProcessor->createThumbnail($work);
-			
-			$work->current_pid = null;
-			$work->save();
-			
-			$this->view->nosuccess = false;
-			$this->view->return_url = $this->_getParam('return_url');
-			$this->view->return_element = $this->_getParam('return_element');
-			$this->view->filename = $newFilename;
-			//return $this->_helper->redirector('success', 'upload','default',array('return_url' => urlencode($this->_getParam('return_url')), 'return_element' => $this->_getParam('return_element'), 'filename' => $newFilename) );
-		}
-    	else {
+//			
+//			if (!$form->isValid($this->getRequest()->getPost())) 
+//			{
+//			    throw new Exception('Bad data: '.print_r($form->getMessages(), true));
+//			}
+//			
+//			try {
+//				$form->file->receive();
+//			} 
+//			catch (Zend_File_Transfer_Exception $e) 
+//			{
+//				throw new Exception('Bad data: '.$e->getMessage());
+//			}
+//			
+//			$fileinfo = $form->file->getFileInfo();
+//			
+////			if(is_array($form->file->getFilename())) {
+////				foreach($form->file->getFilename() as $key => $filename) {
+////					$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo[$key]['type']);
+////					$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
+////					rename($filename, $newFullFilename);
+////					$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
+////					$work->save();
+////				}
+////			} else {
+//				
+//			$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo['file']['type']);
+//			$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
+//			rename($form->file->getFilename(), $newFullFilename);
+//			//$work = new Model_Work($this->_getParam('correlationid'), $newFilename, $this->_getParam('filetype'));
+//			//$work->save();
+//			
+//			$work = new Work();
+//			$work->attachment_id = $this->_getParam('attachmentid');
+//			$work->file_name = $newFilename;
+//			$work->file_type = $this->_getParam('filetype');
+//			$work->file_mimetype = $fileinfo['file']['type'];
+//			$work->current_pid = getmypid();
+//			$work->save();
+//			
+//			$statusLine = new StatusLine();
+//			$statusLine->process_id = getmypid();
+//			$statusLine->action = "media_received";
+//			$statusLine->event_start = $statusLine->event_end = date('Y-m-d H:i:s');
+//			$statusLine->success = true;
+//			$statusLine->finished = true;
+//			$statusLine->link('Work', $work->id);
+//			$statusLine->save();
+//				
+////			}
+//			
+//			$uploadProcessor = $this->_bootstrap->getResource('uploadProcessor');
+//			$uploadProcessor->createThumbnail($work);
+//			
+//			$work->current_pid = null;
+//			$work->save();
+//			
+//			$this->view->nosuccess = false;
+//			$this->view->return_url = $this->_getParam('return_url');
+//			$this->view->return_element = $this->_getParam('return_element');
+//			$this->view->filename = $newFilename;
+//			//return $this->_helper->redirector('success', 'upload','default',array('return_url' => urlencode($this->_getParam('return_url')), 'return_element' => $this->_getParam('return_element'), 'filename' => $newFilename) );
+//		}
+//    	else {
     		
+    		$formActionParams = $this->getRequest()->getParams();
+    		$formActionParams['action'] = 'submit';
+    		$formActionParams['format'] = 'xml';
+    		
+    		$this->view->formActionParams = array_map('urlencode',$formActionParams);
+    		$this->view->return_url = $formActionParams['return_url'];
     		$this->view->nosuccess = true;
-    		
-    		$this->view->return_url = $this->_getParam('return_url');
-			$this->view->return_element = $this->_getParam('return_element');
 		
         	$this->view->form = new Form_Upload();
-    	}
+//    	}
 	}
 	
-	public function successAction() {
-		if(!$this->_hasParam('filename')
+	public function submitAction() {
+		
+		$this->view->success = true;
+		$this->view->message = '';
+		
+		if(!$this->_hasParam('file_id')
+		    || !$this->_hasParam('form_pending_id')
+		    || !$this->_hasParam('title')
+		    || !$this->_hasParam('description')
+			|| !$this->_hasParam('timestamp')
+			|| !$this->_hasParam('token')
 			|| !$this->_hasParam('return_url')
 			|| !$this->_hasParam('return_element')
+			|| !$this->_hasParam('filetype')
 			) 
 		{
-			throw new Exception('Not all parameters are provided');
+			$this->view->success = false;
+			$this->view->message ="Not all parameters are provided";
+			return;
 		}
 		
-		$this->view->filename = $this->_getParam('filename');
-		$this->view->return_url = urldecode($this->_getParam('return_url'));
-		$this->view->return_element = $this->_getParam('return_element');
+		if(!$this->_bootstrap->getResource('intalio')->validateIncomingToken(
+				$this->_getParam('token'),
+				$this->_getParam('file_id'),
+				$this->_getParam('timestamp')
+			)
+		) {
+			$this->view->success = false;
+			$this->view->message ="Token not valid";
+			return;
+		}
+		
+		$form = new Form_Upload();
+		if(!$this->getRequest()->isPost()) {
+			$this->view->success = false;
+			$this->view->message ="Wrong protocol";
+			return;
+		} 
+			
+			
+		if( $this->_getParam('filetype') == 'image') {
+			$form->file->addValidator('MimeType', true, array('image/jpeg', 'image/pjpeg','image/gif','image/png'));
+		} elseif( $this->_getParam('filetype') == 'video') {
+			throw new Exception('Video not supported yet');
+			$form->file->addValidator('MimeType', true, array('video/x-msvideo'));
+		} else {
+			$this->view->success = false;
+			$this->view->message = "Not a valid filetype (".$this->_getParam('filetype').")";
+			return;
+		}
+			
+		if (!$form->isValid($this->getRequest()->getPost())) 
+		{
+			$this->view->success = false;
+			$messages = $form->getMessages();
+			$messageStrings = array();
+			foreach($messages as $messageArray) 
+				$messageStrings[] = implode(', ',$messageArray);
+			
+			$this->view->message = implode(', ',$messageStrings);
+//			$this->view->message = print_r($form->getMessages(),true);
+			return;
+		}
+			
+		try {
+			$form->file->receive();
+		} 
+		catch (Zend_File_Transfer_Exception $e) 
+		{
+			$this->view->success = false;
+			$this->view->message = $e->getMessage();
+			return;
+		}
+		
+		$fileinfo = $form->file->getFileInfo();
+		
+		$newFilename = $this->_bootstrap->getResource('intalio')->getRandomString().'.'.$this->getExtension($fileinfo['file']['type']);
+		$newFullFilename = APPLICATION_PATH ."/../data/queue/".$newFilename;
+		rename($form->file->getFilename(), $newFullFilename);
+
+		$work = new Work();
+		$work->file_id = $this->_getParam('file_id');
+		$work->form_pending_id = $this->_getParam('form_pending_id');
+		$work->title= $this->_getParam('title');
+		$work->description = $this->_getParam('description');
+		$work->file_name = $newFilename;
+		$work->file_type = $this->_getParam('filetype');
+		$work->file_mimetype = $fileinfo['file']['type'];
+		$work->current_pid = getmypid();
+		$work->save();
+			
+		$statusLine = new StatusLine();
+		$statusLine->process_id = getmypid();
+		$statusLine->action = "media_received";
+		$statusLine->event_start = $statusLine->event_end = date('Y-m-d H:i:s');
+		$statusLine->success = true;
+		$statusLine->finished = true;
+		$statusLine->link('Work', $work->id);
+		$statusLine->save();
+				
+			
+		$uploadProcessor = $this->_bootstrap->getResource('uploadProcessor');
+		$uploadProcessor->createThumbnail($work);
+		
+		$work->current_pid = null;
+		$work->save();
+		
+		$this->view->filename = $newFilename;
+			
+		$this->view->message = "Everything ok";
 	}
+	
+//	public function successAction() {
+//		if(!$this->_hasParam('filename')
+//			|| !$this->_hasParam('return_url')
+//			|| !$this->_hasParam('return_element')
+//			) 
+//		{
+//			throw new Exception('Not all parameters are provided');
+//		}
+//		
+//		$this->view->filename = $this->_getParam('filename');
+//		$this->view->return_url = urldecode($this->_getParam('return_url'));
+//		$this->view->return_element = $this->_getParam('return_element');
+//	}
 	
 	public function statusAction() {
 		$works = Work::findAll();
