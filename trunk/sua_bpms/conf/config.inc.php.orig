@@ -1,3 +1,11 @@
 <?
 
-$mysql
+$key = "";
+
+$mysql_username = "";
+$mysql_password = "";
+$mysql_host = "";
+$mysql_database = "";
+$mysql_table = "ss_File";
+
+$training_centre_server_url = "";
