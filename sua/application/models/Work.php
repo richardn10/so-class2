@@ -34,13 +34,18 @@ class Work extends BaseWork
 		return $query->execute();
 	}
 	
-	public static function setWorksToPid($pid, $max) {
+	public static function setWorksToPid($pid, $max, $excludeWorks = null) {
 		$query = Doctrine_Query::create()
 				 ->update('Work w')
 				 ->set('w.current_pid', '?', $pid)
 				 ->where('w.current_pid IS NULL')
-				 ->andWhere('finished = ?', false)
-				 ->limit($max);
+				 ->andWhere('finished = ?', false);
+		
+		if(!is_null($excludeWorks) && !empty($excludeWorks)) 
+			$query->andWhereNotIn('w.id', $excludeWorks);
+		
+
+		$query->limit($max);
 		return $query->execute();
 	}
 	
@@ -50,8 +55,8 @@ class Work extends BaseWork
 				 ->where('s.id = (SELECT MAX(s2.id) FROM StatusLine s2 WHERE s2.work_id = ?)', $this->id);
 		
 		
-		$result =  $query->execute();
-		return count($result) > 0 ? $result[0] : false;
+		return $query->fetchOne();
+//		return count($result) > 0 ? $result[0] : false;
 	}
 
 }
