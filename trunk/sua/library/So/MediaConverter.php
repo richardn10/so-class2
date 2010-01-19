@@ -29,7 +29,7 @@ class So_MediaConverter {
 				$sourceImage = imagecreatefrompng($source);
 				break;
 			default:
-				throw new Exception("Unknow mime-type"); 
+				throw new Exception("Image Converter: Unknow mime-type"); 
 		}
 		$targetImage = imagecreatetruecolor($targetWidth, $targetHeight);
 		

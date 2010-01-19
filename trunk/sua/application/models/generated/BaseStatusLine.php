@@ -8,7 +8,8 @@
  * @property integer $id
  * @property integer $work_id
  * @property integer $process_id
- * @property enum $action
+ * @property string $action
+ * @property string $result_url
  * @property timestamp $event_start
  * @property timestamp $event_end
  * @property boolean $finished
@@ -39,17 +40,14 @@ abstract class BaseStatusLine extends Doctrine_Record
              'type' => 'integer',
              'notnull' => true,
              ));
-        $this->hasColumn('action', 'enum', null, array(
-             'type' => 'enum',
-             'values' => 
-             array(
-              0 => 'media_received',
-              1 => 'create_thumbnail',
-              2 => 'convert',
-              3 => 'upload',
-              4 => 'report',
-             ),
+        $this->hasColumn('action', 'string', 30, array(
+             'type' => 'string',
              'notnull' => true,
+             'length' => '30',
+             ));
+        $this->hasColumn('result_url', 'string', 300, array(
+             'type' => 'string',
+             'length' => '300',
              ));
         $this->hasColumn('event_start', 'timestamp', null, array(
              'type' => 'timestamp',

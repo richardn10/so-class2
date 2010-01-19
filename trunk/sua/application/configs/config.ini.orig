@@ -4,30 +4,6 @@
 
 [production]
 ;------------------------
-; FTP Settings
-;------------------------
-resources.ftp.params.host = ""
-resources.ftp.params.username = ""
-resources.ftp.params.password = ""
-
-resources.ftp.targeturl = ""
-
-;resources.ftp.params.port = 21
-;resources.ftp.params.path = "/uploads"
-
-;------------------------
-; Youtube Settings
-;------------------------
-resources.youtube.httpClient.username = ""
-resources.youtube.httpClient.password = ""
-resources.youtube.httpClient.source = ""
-resources.youtube.httpClient.authenticationURL = ""
-
-resources.youtube.developerKey = ""
-resources.youtube.applicationId = ""
-resources.youtube.clientId = ""
-
-;------------------------
 ; Intalio Settings
 ;------------------------
 
@@ -43,13 +19,39 @@ resources.intalio.key = ""
 ; example dsn = "mysql://user:password@host/database"
 resources.doctrine.dsn = ""
 
-resources.db.params.username = ""
-resources.db.params.password = ""
+;------------------------
+; Upload Settings
+;------------------------
 
-resources.db.params.dbname = "mini-challenge"
-;resources.db.params.host = "localhost"
-;resources.db.adapter = "Mysqli"
-;resources.db.params.charset = "UTF8"
+; Image
+;========================
+; receiving the upload
+fileprocessor.image.receive_media.actionClass = "Nothing"
+fileprocessor.image.receive_media.nextAction = "make_thumbnail"
+
+; make a thumbnail
+fileprocessor.image.make_thumbnail.actionClass = "Thumbnail"
+fileprocessor.image.make_thumbnail.nextAction = "upload_ftp"
+fileprocessor.image.make_thumbnail.options.width = 200
+fileprocessor.image.make_thumbnail.options.source_path = APPLICATION_PATH "/../data/queue"
+fileprocessor.image.make_thumbnail.options.target_path = APPLICATION_PATH "/../public/thumbnails"
+
+; upload with ftp
+fileprocessor.image.upload_ftp.actionClass = "Ftp"
+fileprocessor.image.upload_ftp.nextAction = "report_intalio"
+fileprocessor.image.upload_ftp.options.host = ""
+fileprocessor.image.upload_ftp.options.username = ""
+fileprocessor.image.upload_ftp.options.password = ""
+fileprocessor.image.upload_ftp.options.port = 21
+fileprocessor.image.upload_ftp.options.source_path = APPLICATION_PATH "/../data/queue"
+fileprocessor.image.upload_ftp.options.target_path = "/uploads"
+fileprocessor.image.upload_ftp.options.result_url = "http://..../uploads/"
+
+; report to intalio
+fileprocessor.image.report_intalio.actionClass = "Intalio"
+fileprocessor.image.report_intalio.nextAction = ""
+
+
 
 ;------------------------
 ; Log Settings
