@@ -38,6 +38,6 @@ $addition = "INTALIOTOSUA";
 
 $token = hash('sha256', $key . $file_id . $timestamp . $addition);
 
-echo $training_centre_server_url."?file_id=${file_id}&timestamp=${timestamp}&token=${token}&description=".$_GET['description']."&title=".$_GET['title']."&form_pending_id=".$_GET['form_pending_id'];
+echo $training_centre_server_url."?file_id=${file_id}&timestamp=${timestamp}&token=${token}&description=".rawurlencode($_GET['description'])."&title=".rawurlencode($_GET['title'])."&form_pending_id=".$_GET['form_pending_id'];
 //echo "http://sua-demo-s.smitmail.eu/?correlationid=${correlationid}&timestamp=${timestamp}&token=${token}";
 
