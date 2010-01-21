@@ -18,8 +18,9 @@ Work:
     title: string(300)
     description: string(500)
     file_name: 
-      type: string(300)
+      type: string(30)
       notnull: true
+    thumbnail_file_name: string(30)
     file_type: 
       type: enum
       values: [image, video]

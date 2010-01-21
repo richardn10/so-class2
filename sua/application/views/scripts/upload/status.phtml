@@ -9,9 +9,11 @@
     true) ?>'>Do processing (background job) run</a>
     
 <?php foreach($this->works as $work): ?>
-<div class="work">
+<div class="work" style='clear: both'>
 <b>Attachment: <?php echo $work->file_id?>, Filename: <?php echo $this->escape($work->file_name)?>, File mimetype: <?php echo $this->escape($work->file_mimetype)?></b>
-<img src="/thumbnails/<?php echo $this->escape($work->file_name)?>" alt="thumbnail" width="200" style="float:right">
+<?php if(!is_null($work->thumbnail_file_name)): ?>
+<img src="/thumbnails/<?php echo $this->escape($work->thumbnail_file_name)?>" alt="thumbnail" width="200" style="float:right">
+<?php endif; ?>
 <table>
   	<tr>
   		<td>action</td>
@@ -34,7 +36,7 @@
   			<?php if($line->result_url != null): ?></a><?php endif;?>
   		</td>
   		<td><?php echo $this->escape($line->event_start)?></td>
-  		<td><?php echo $this->escape($line->event_start)?></td>
+  		<td><?php echo $this->escape($line->event_end)?></td>
   		<td><?php echo $line->finished?"Finished":"In Progress"?></td>
   		<td><?php echo $line->finished?($line->success?"Success":"Fail"):""?></td>
   		<td><?php echo $this->escape($line->message)?></td>
