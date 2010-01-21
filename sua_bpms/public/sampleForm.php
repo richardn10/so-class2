@@ -10,8 +10,10 @@
 var sua_url = "http://mini-challenge";
 function clearFileUpload(divid) {
 	$('#'+divid+'-filename').val('');
-    	$('#'+divid+'-fileid').val('');
-	$('#'+divid+'-thumbnail').html("");
+    $('#'+divid+'-fileid').val('');
+	$('#'+divid+'-thumbnail').html('');
+	$('#'+divid+'-title').val('');
+	$('#'+divid+'-description').val('');
 	$('#'+divid+'-title').removeAttr("disabled"); 
 	$('#'+divid+'-description').removeAttr("disabled"); 
 	$('#'+divid+'-choosefile').removeAttr("disabled"); 
@@ -19,7 +21,7 @@ function clearFileUpload(divid) {
 $(document).ready(function(){
 	$.receiveMessage(
         function(e){
-            var parts = e.data.split('|', 3);
+            var parts = e.data.split('|', 4);
             var divid = parts[0];
 			$.modal.close();
             if(parts[1] == "") {
@@ -27,7 +29,7 @@ $(document).ready(function(){
 			} else {
 				$('#'+divid+'-filename').val(parts[2]);
     			$('#'+divid+'-fileid').val(parts[1]);
-				$('#'+divid+'-thumbnail').html("<img src='"+sua_url+"/thumbnails/"+parts[2]+"' alt=''>");
+				$('#'+divid+'-thumbnail').html("<img src='"+sua_url+"/thumbnails/"+parts[3]+"' alt=''>");
 				$('#'+divid+'-title').attr("disabled", true);
 				$('#'+divid+'-description').attr("disabled", true);
 				$('#'+divid+'-choosefile').attr("disabled", true);
@@ -56,8 +58,11 @@ $(document).ready(function(){
                 async: false
             }).responseText;
             
-
-            $.modal('<iframe src="' + iframe_url + '&amp;return_element=' + event.target.parentNode.id +'&amp;filetype=image&amp;return_url=' + encodeURI(window.location)+ '" height="450" width="450" style="border:0">', {
+	    var filetype = 'image';
+            if($('#'+divid).hasClass("upload-video")) {
+		filetype = 'video';
+	    }
+            $.modal('<iframe src="' + iframe_url + '&amp;return_element=' + event.target.parentNode.id +'&amp;filetype='+ filetype + '&amp;return_url=' + encodeURIComponent(window.location)+ '" height="450" width="450" style="border:0">', {
 	            closeHTML:"",
 	            containerCss:{
 		            backgroundColor:"#ddd",
@@ -75,6 +80,7 @@ $(document).ready(function(){
     $(".file-reset-button").click(
         function(event){
 			clearFileUpload(event.target.parentNode.id);
+            event.preventDefault();
 		}
 	);
 
@@ -94,7 +100,7 @@ $(document).ready(function(){
 <h2>A form</h2>
 <form method='post' action='showsubmit.php'>
 <input type='hidden' id='form_pending_id' name='form_pending_id' value='<?php echo rand(100000, 999999); ?>'>
-<div id="headimage">
+<div id="headimage" class="upload-image">
   <h2>Head Image</h2>
   <input type='text' id='headimage-filename' name='headimage-filename' value='' DISABLED>
   <label for="headimage-title">Title</label><input type='text' id='headimage-title' name='headimage-title' value=''>
@@ -105,7 +111,7 @@ $(document).ready(function(){
   <div id='headimage-thumbnail'></div>
 </div>
 
-<div id="normalimage">
+<div id="normalimage" class="upload-image">
   <h2>Normal Image</h2>
   <input type='text' id='normalimage-filename' name='normalimage-filename' value='' DISABLED>
   <label for="normalimage-title">Title</label><input type='text' id='normalimage-title' name='normalimage-title' value=''>
@@ -114,6 +120,17 @@ $(document).ready(function(){
   <input type='submit' id='normalimage-choosefile' value='Choose' class='file-choose-button'>
   <input type='reset' id='normalimage-reset' value='Clear' class='file-reset-button'>
   <div id='normalimage-thumbnail'></div>
+</div>
+
+<div id="video1" class="upload-video">
+  <h2>Video</h2>
+  <input type='text' id='video1-filename' name='video1-filename' value='' DISABLED>
+  <label for="video1-title">Title</label><input type='text' id='video1-title' name='video1-title' value=''>
+  <label for="video1-description">Description</label><input type='text' id='video1-description' name='video1-description' value=''>
+  <input type='hidden' id='video1-fileid' name='video1-fileid' value=''>
+  <input type='submit' id='video1-choosefile' value='Choose' class='file-choose-button'>
+  <input type='reset' id='video1-reset' value='Clear' class='file-reset-button'>
+  <div id='video1-thumbnail'></div>
 </div>
 
 
