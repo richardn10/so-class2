@@ -82,7 +82,7 @@ class UploadController extends Zend_Controller_Action
     	$formActionParams['action'] = 'submit';
     	$formActionParams['format'] = 'xml';
     	
-    	$this->view->formActionParams = array_map('urlencode',$formActionParams);
+    	$this->view->formActionParams = array_map('rawurlencode',$formActionParams);
     	$this->view->return_url = $formActionParams['return_url'];
     	$this->view->nosuccess = true;
 	
@@ -133,8 +133,8 @@ class UploadController extends Zend_Controller_Action
 		if( $this->_getParam('filetype') == 'image') {
 			$form->file->addValidator('MimeType', true, array('image/jpeg', 'image/pjpeg','image/gif','image/png'));
 		} elseif( $this->_getParam('filetype') == 'video') {
-			throw new Exception('Video not supported yet');
-			$form->file->addValidator('MimeType', true, array('video/x-msvideo'));
+//			throw new Exception('Video not supported yet');
+			$form->file->addValidator('MimeType', true, array('video/x-msvideo', 'video/x-flv'));
 		} else {
 			$this->view->success = false;
 			$this->view->message = "Not a valid filetype (".$this->_getParam('filetype').")";
@@ -172,8 +172,8 @@ class UploadController extends Zend_Controller_Action
 		$work = new Work();
 		$work->file_id = $this->_getParam('file_id');
 		$work->form_pending_id = $this->_getParam('form_pending_id');
-		$work->title= $this->_getParam('title');
-		$work->description = $this->_getParam('description');
+		$work->title= rawurldecode($this->_getParam('title'));
+		$work->description = rawurldecode($this->_getParam('description'));
 		$work->file_name = $newFilename;
 		$work->file_type = $this->_getParam('filetype');
 		$work->file_mimetype = $fileinfo['file']['type'];
@@ -187,6 +187,7 @@ class UploadController extends Zend_Controller_Action
 		$fileProcessor->releaseWork($work);
 		
 		$this->view->filename = $newFilename;
+		$this->view->thumbnail = $work->thumbnail_file_name;
 			
 		$this->view->message = "";
 	}
@@ -218,6 +219,9 @@ class UploadController extends Zend_Controller_Action
 				break;
 			case 'video/x-msvideo':
 				return 'avi';
+				break;
+			case 'video/x-flv':
+				return 'flv';
 				break;
 			default:
 				throw new Exception('Unknown MimeType: '.$mimeType);

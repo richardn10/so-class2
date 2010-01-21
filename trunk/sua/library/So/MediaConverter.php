@@ -13,10 +13,7 @@ class So_MediaConverter {
 	}
 	
 	public function makeImageThumbnail($source, $target, $filetype) {
-		list($sourceWidth, $sourceHeight) = getimagesize($source); 
-		$targetWidth = $this->_targetWidth;
-		$targetHeight = $targetWidth / $sourceWidth * $sourceHeight;
-		
+	
 		switch($filetype) {
 			case "image/jpeg":
 			case "image/pjpeg":
@@ -31,6 +28,29 @@ class So_MediaConverter {
 			default:
 				throw new Exception("Image Converter: Unknow mime-type"); 
 		}
+		
+		$this->_makeThumbnail($sourceImage, $target, $filetype);
+		imagedestroy($sourceImage);		
+	}
+	
+	public function makeVideoThumbnail($source, $target) {
+		
+		$movie = new ffmpeg_movie($source, false);
+		$frame = $movie->getNextKeyFrame();
+		
+		$sourceImage = $frame->toGDImage();
+		$this->_makeThumbnail($sourceImage, $target, "image/jpeg");
+		imagedestroy($sourceImage);	
+		
+	}
+	
+	private function _makeThumbnail($sourceImage, $target, $filetype) {
+		$sourceWidth = imagesx($sourceImage);
+		$sourceHeight = imagesy($sourceImage);
+		
+		$targetWidth = $this->_targetWidth;
+		$targetHeight = $targetWidth / $sourceWidth * $sourceHeight;
+		
 		$targetImage = imagecreatetruecolor($targetWidth, $targetHeight);
 		
 		imagecopyresampled($targetImage, $sourceImage, 0,0,0,0, $targetWidth, $targetHeight,$sourceWidth, $sourceHeight);
@@ -48,9 +68,7 @@ class So_MediaConverter {
 				break;
 		}
 		
-	}
-	
-	public function makeVideoThumbnail($source, $target) {
+		imagedestroy($targetImage);
 		
 	}
 }

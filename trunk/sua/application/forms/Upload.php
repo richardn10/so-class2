@@ -24,7 +24,7 @@ class Form_Upload extends Zend_Form
 //            'multiFile'   => 6,
             'validators'  => array(
         		array('Count', false, array('min' =>1, 'max' => 1)),
-        		array('Size', false, array('max' => '500MB')),
+        		array('Size', false, array('max' => '2000MB')),
             ),
             'filters'	  => array(
         		'Rename' => array('target' => APPLICATION_PATH. '/../data/uploads/'),

@@ -11,6 +11,7 @@
  * @property string $title
  * @property string $description
  * @property string $file_name
+ * @property string $thumbnail_file_name
  * @property enum $file_type
  * @property string $file_mimetype
  * @property string $file_service_id
@@ -49,10 +50,14 @@ abstract class BaseWork extends Doctrine_Record
              'type' => 'string',
              'length' => '500',
              ));
-        $this->hasColumn('file_name', 'string', 300, array(
+        $this->hasColumn('file_name', 'string', 30, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => '300',
+             'length' => '30',
+             ));
+        $this->hasColumn('thumbnail_file_name', 'string', 30, array(
+             'type' => 'string',
+             'length' => '30',
              ));
         $this->hasColumn('file_type', 'enum', null, array(
              'type' => 'enum',
