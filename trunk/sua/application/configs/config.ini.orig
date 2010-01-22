@@ -39,17 +39,46 @@ fileprocessor.image.make_thumbnail.options.target_path = APPLICATION_PATH "/../p
 ; upload with ftp
 fileprocessor.image.upload_ftp.actionClass = "Ftp"
 fileprocessor.image.upload_ftp.nextAction = "report_intalio"
-fileprocessor.image.upload_ftp.options.host = ""
-fileprocessor.image.upload_ftp.options.username = ""
-fileprocessor.image.upload_ftp.options.password = ""
+fileprocessor.image.upload_ftp.options.host = "192.168.2.157"
+fileprocessor.image.upload_ftp.options.username = "switchedon"
+fileprocessor.image.upload_ftp.options.password = "onswitched"
 fileprocessor.image.upload_ftp.options.port = 21
 fileprocessor.image.upload_ftp.options.source_path = APPLICATION_PATH "/../data/queue"
 fileprocessor.image.upload_ftp.options.target_path = "/uploads"
-fileprocessor.image.upload_ftp.options.result_url = "http://..../uploads/"
+fileprocessor.image.upload_ftp.options.result_url = "http://192.168.2.157/uploads/"
 
 ; report to intalio
 fileprocessor.image.report_intalio.actionClass = "Intalio"
 fileprocessor.image.report_intalio.nextAction = ""
+
+
+; Video
+;========================
+; receiving the upload
+fileprocessor.video.receive_media.actionClass = "Nothing"
+fileprocessor.video.receive_media.nextAction = "make_thumbnail"
+
+; make a thumbnail
+fileprocessor.video.make_thumbnail.actionClass = "Thumbnail"
+fileprocessor.video.make_thumbnail.nextAction = "convert_video"
+fileprocessor.video.make_thumbnail.options.width = 200
+fileprocessor.video.make_thumbnail.options.source_path = APPLICATION_PATH "/../data/queue"
+fileprocessor.video.make_thumbnail.options.target_path = APPLICATION_PATH "/../public/thumbnails"
+
+fileprocessor.video.convert_video.actionClass = "VideoConvert"
+fileprocessor.video.convert_video.nextAction = "upload_youtube"
+fileprocessor.video.convert_video.options[] = 
+
+fileprocessor.video.upload_youtube.actionClass = "YoutubeUpload"
+fileprocessor.video.upload_youtube.nextAction = ""
+fileprocessor.video.upload_youtube.options.httpClient.username = "PeterSmitSo" 
+fileprocessor.video.upload_youtube.options.httpClient.password = "s0keh1tys"
+fileprocessor.video.upload_youtube.options.httpClient.source = "sua"
+fileprocessor.video.upload_youtube.options.httpClient.authenticationURL = "https://www.google.com/youtube/accounts/ClientLogin"
+fileprocessor.video.upload_youtube.options.developerKey = "AI39si6e-bzB2iEF9W4ISDo3TeeXRq9LrjTJMkuAcAtEKm2PnCBQlH9KmOOWF0G6clSdXsXgjKFh_16XcHNbgluMRWbGoyGmLw"
+fileprocessor.video.upload_youtube.options.applicationId = "SO Sponsorship (sua)"
+fileprocessor.video.upload_youtube.options.clientId = "SO Sponsorship"
+fileprocessor.video.upload_youtube.options.source_path = APPLICATION_PATH "/../data/queue"
 
 
 
