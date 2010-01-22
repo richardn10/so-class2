@@ -2,11 +2,12 @@
 
 class ErrorController extends Zend_Controller_Action
 {
-	public function init() {
+	public function init() 
+	{
 		$this->_bootstrap = $this->getInvokeArg('bootstrap');
 		
         $contextSwitch = $this->_helper->getHelper('contextSwitch');
-        $contextSwitch->addActionContext('submit', 'xml')
+        $contextSwitch->addActionContext('error', 'xml')
                       ->initContext();
 	}
 	

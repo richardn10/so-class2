@@ -13,7 +13,8 @@
 class Work extends BaseWork
 {
 
-	public static function findByPidAndFinished($pid = null, $finished = false, $loadStatusses = false) {
+	public static function findByPidAndFinished($pid = null, $finished = false, $loadStatusses = false) 
+	{
 		$query = Doctrine_Query::create()
 				->from('Work w');
 				
@@ -22,19 +23,20 @@ class Work extends BaseWork
 		
 		if(null !== $finished) $query->andWhere('w.finished = ?', $finished);
 
-		if($loadStatusses) {
-			$query->leftJoin('w.StatusLines s');
-		}
+		if($loadStatusses) $query->leftJoin('w.StatusLines s');
+		
 		return $query->execute();
 	}
 	
-	public static function findAll() {
+	public static function findAll() 
+	{
 		$query = Doctrine_Query::create()
-		->from('Work w');
+	        	->from('Work w');
 		return $query->execute();
 	}
 	
-	public static function setWorksToPid($pid, $max, $excludeWorks = null) {
+	public static function setWorksToPid($pid, $max, $excludeWorks = null) 
+	{
 		$query = Doctrine_Query::create()
 				 ->update('Work w')
 				 ->set('w.current_pid', '?', $pid)
@@ -44,19 +46,18 @@ class Work extends BaseWork
 		if(!is_null($excludeWorks) && !empty($excludeWorks)) 
 			$query->andWhereNotIn('w.id', $excludeWorks);
 		
-
 		$query->limit($max);
 		return $query->execute();
 	}
 	
-	public function getLastStatusLine() {
+	public function getLastStatusLine() 
+	{
 		$query = Doctrine_Query::create()
 				 ->from('StatusLine s')
 				 ->where('s.id = (SELECT MAX(s2.id) FROM StatusLine s2 WHERE s2.work_id = ?)', $this->id);
 		
 		
 		return $query->fetchOne();
-//		return count($result) > 0 ? $result[0] : false;
 	}
 
 }

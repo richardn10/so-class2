@@ -1,7 +1,7 @@
 <?php
 
-abstract class So_Fileprocessor_Action {
-	
+abstract class So_Fileprocessor_Action 
+{	
 	protected $_actionName;
 	protected $_work;
 	protected $_options;
@@ -9,18 +9,20 @@ abstract class So_Fileprocessor_Action {
 	protected $_statusLine;
 	protected $_success;
 	protected $_message;
-	protected $_resultUrl;
+	protected $_resultUrl;	
 	
-	
-	public function setActionName($actionName) {
+	public function setActionName($actionName) 
+	{
 		$this->_actionName = $actionName;
 	}
 	
-	public function setOptions($options) {
+	public function setOptions($options) 
+	{
 		$this->_options = $options;
 	}
 	
-	protected function _preAction($work) {
+	protected function _preAction($work) 
+	{
 		$this->_statusLine = new StatusLine();
 		$this->_success = false;
 		$this->_message = null;
@@ -34,7 +36,8 @@ abstract class So_Fileprocessor_Action {
 		$this->_statusLine->save();
 	}
 	
-	public function Act($work) {
+	public function Act($work) 
+	{
 		$this->_preAction($work);
 		try {
 			$this->_doAction($work);
@@ -47,7 +50,8 @@ abstract class So_Fileprocessor_Action {
 	
 	protected abstract function _doAction($work);
 	
-	protected function _postAction() {
+	protected function _postAction() 
+	{
 		$this->_statusLine->event_end = date('Y-m-d H:i:s');
 		$this->_statusLine->finished = true;
 		$this->_statusLine->success = $this->_success;
