@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
-	<buildpathentry kind="src" path="public"/>
+	<buildpathentry kind="src" path=""/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
-	<buildpathentry kind="src" path="tests/application"/>
-	<buildpathentry external="true" kind="lib" path="/opt/zendframework/ZendFramework-1.9.6/library"/>
-	<buildpathentry external="true" kind="lib" path="/opt/doctrine/Doctrine-1.2.1/lib"/>
-	<buildpathentry kind="src" path="library/So"/>
-	<buildpathentry kind="src" path="application"/>
-	<buildpathentry kind="src" path="scripts"/>
-	<buildpathentry kind="src" path="tests/library"/>
 </buildpath>

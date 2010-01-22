@@ -12,7 +12,6 @@ class UploadController extends Zend_Controller_Action
      */
     private $_bootstrap;
 
-
     public function init()
     {
         // init bootstrap variable
@@ -21,7 +20,7 @@ class UploadController extends Zend_Controller_Action
         // Make the submit action returning xml output
         $contextSwitch = $this->_helper->getHelper('contextSwitch');
         $contextSwitch->addActionContext('submit', 'xml')
-                      ->initContext();
+            ->initContext();
     }
 
     public function processAction()
@@ -73,14 +72,14 @@ class UploadController extends Zend_Controller_Action
     {
 
         if(!$this->_hasParam('file_id')
-           || !$this->_hasParam('form_pending_id')
-           || !$this->_hasParam('title')
-           || !$this->_hasParam('description')
-           || !$this->_hasParam('timestamp')
-           || !$this->_hasParam('token')
-           || !$this->_hasParam('return_url')
-           || !$this->_hasParam('return_element')
-           || !$this->_hasParam('filetype')
+            || !$this->_hasParam('form_pending_id')
+            || !$this->_hasParam('title')
+            || !$this->_hasParam('description')
+            || !$this->_hasParam('timestamp')
+            || !$this->_hasParam('token')
+            || !$this->_hasParam('return_url')
+            || !$this->_hasParam('return_element')
+            || !$this->_hasParam('filetype')
         ) {
             throw new Exception('Not all parameters are provided');
         }
@@ -105,20 +104,21 @@ class UploadController extends Zend_Controller_Action
         $this->view->form = new Form_Upload();
     }
 
-    public function submitAction() {
+    public function submitAction() 
+    {
         try {
             $this->view->success = true;
             $this->view->message = '';
 
             if(!$this->_hasParam('file_id')
-               || !$this->_hasParam('form_pending_id')
-               || !$this->_hasParam('title')
-               || !$this->_hasParam('description')
-               || !$this->_hasParam('timestamp')
-               || !$this->_hasParam('token')
-               || !$this->_hasParam('return_url')
-               || !$this->_hasParam('return_element')
-               || !$this->_hasParam('filetype')
+                || !$this->_hasParam('form_pending_id')
+                || !$this->_hasParam('title')
+                || !$this->_hasParam('description')
+                || !$this->_hasParam('timestamp')
+                || !$this->_hasParam('token')
+                || !$this->_hasParam('return_url')
+                || !$this->_hasParam('return_element')
+                || !$this->_hasParam('filetype')
             ) {
                 $this->view->success = false;
                 $this->view->message ="Not all parameters are provided";
@@ -207,20 +207,23 @@ class UploadController extends Zend_Controller_Action
         }
     }
 
-    public function statusAction() {
+    public function statusAction() 
+    {
         $works = Work::findAll();
         $this->view->works = $works;
     }
 
 
-    public function testtokenAction() {
+    public function testtokenAction() 
+    {
         $this->view->timestamp = $timestamp = time();
         $this->view->attachmentId = $attachmentId = rand(10000000, 99999999);
         $this->view->token = $this->_bootstrap->getResource('intalio')->getIncomingToken($attachmentId, $timestamp);
         $this->view->filetype = 'image';
     }
 
-    public function getExtension($mimeType) {
+    public function getExtension($mimeType) 
+    {
         switch($mimeType) {
             case 'image/jpeg':
             case 'image/pjpeg':
