@@ -27,25 +27,23 @@
 class So_Fileprocessor_Action_Ftp extends So_Fileprocessor_Action
 {
 
+    /**
+     * @param Work $work
+     * @return void
+     * @see library/So/Fileprocessor/So_Fileprocessor_Action#_doAction($work)
+     */
     protected function _doAction($work)
     {
+        /**
+         * @var So_Ftp
+         */
+        $ftp = Zend_Controller_Front::getInstance()
+                            ->getParam('bootstrap')
+                            ->getResource('multiftp')
+                            ->getFtp($this->_options['ftpresource']);
 
-        if(false === $connection = ftp_connect($this->_options['host'], $this->_options['port']))
-            throw new Exception("FTP couldn't connect");
-
-        if(!ftp_login($connection, $this->_options['username'], $this->_options['password']))
-            throw new Exception("FTP login details wrong") ;
-
-        if(!ftp_chdir($connection, $this->_options['target_path']))
-            throw new Exception("FTP target directory does not exist") ;
-
-        if(!ftp_pasv($connection, true))
-            throw new Exception("FTP Passive mode not supported");
-
-        if(!ftp_put($connection, $work->file_name, $this->_options['source_path'].'/'.$work->file_name, FTP_BINARY))
-            throw new Exception("FTP Upload failed");
-        else $this->_success = true;
-
-        $this->_resultUrl = $this->_options['result_url'].$work->file_name;
+        $ftp->upload($this->_options['source_dir'], $work->file_name);
+        $this->_success = true;
+        $this->_resultUrl = $ftp->getTargeturl().$work->file_name;
     }
 }

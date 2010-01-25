@@ -25,22 +25,19 @@
  */
 
 
-class So_Fileprocessor_Action_YoutubeUpload extends So_Fileprocessor_Action {
+class So_Fileprocessor_Action_Youtube extends So_Fileprocessor_Action {
 
+    /**
+     * @param Work $work
+     * @return void
+     * @see library/So/Fileprocessor/So_Fileprocessor_Action#_doAction($work)
+     */
     protected function _doAction($work)
     {
-        $httpClient = Zend_Gdata_ClientLogin::getHttpClient(
-            $username = $this->_options['httpClient']['username'],
-            $password = $this->_options['httpClient']['password'],
-            $service = 'youtube',
-            $client = null,
-            $source = $this->_options['httpClient']['source'], // a short string identifying your application
-            $loginToken = null,
-            $loginCaptcha = null,
-            $this->_options['httpClient']['authenticationURL']
-        );
-
-        $yt = new Zend_Gdata_YouTube($httpClient, $this->_options['applicationId'], $this->_options['clientId'], $this->_options['developerKey']);
+        $yt = Zend_Controller_Front::getInstance()
+                    ->getParam('bootstrap')
+                    ->getResource('youtube')
+                    ->getYoutube();
         $yt->setMajorProtocolVersion(2);
 
 
