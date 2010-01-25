@@ -16,22 +16,20 @@ resources.doctrine.dsn = ""
 
 ; Ftp server for images
 ;======================
-resources.multiftp.image_ftp.options.source_path = APPLICATION_PATH "/../data/queue"
-resources.multiftp.image_ftp.options.host = ""
-resources.multiftp.image_ftp.options.username = ""
-resources.multiftp.image_ftp.options.password = ""
-resources.multiftp.image_ftp.options.port = 21
-resources.multiftp.image_ftp.options.target_path = "/uploads"
+resources.multiftp.image_ftp.host = ""
+resources.multiftp.image_ftp.username = ""
+resources.multiftp.image_ftp.password = ""
+resources.multiftp.image_ftp.port = 21
+resources.multiftp.image_ftp.target_path = "/uploads"
 
 
 ; Ftp server for video's
 ;=======================
-resources.multiftp.video_ftp.options.source_path = APPLICATION_PATH "/../data/queue"
-resources.multiftp.video_ftp.options.host = ""
-resources.multiftp.video_ftp.options.username = ""
-resources.multiftp.video_ftp.options.password = ""
-resources.multiftp.video_ftp.options.port = 21
-resources.multiftp.video_ftp.options.target_path = "/uploads"
+resources.multiftp.video_ftp.host = ""
+resources.multiftp.video_ftp.username = ""
+resources.multiftp.video_ftp.password = ""
+resources.multiftp.video_ftp.port = 21
+resources.multiftp.video_ftp.target_path = "/uploads"
 
 
 ; Intalio server
@@ -42,13 +40,13 @@ resources.intalio.key = ""
 
 ; Youtube Server
 ;===============
-resources.youtube.options.httpClient.username = "PeterSmitSo" 
-resources.youtube.options.httpClient.password = ""
-resources.youtube.options.httpClient.source = "sua"
-resources.youtube.options.httpClient.authenticationURL = "https://www.google.com/youtube/accounts/ClientLogin"
-resources.youtube.options.developerKey = ""
-resources.youtube.options.applicationId = "SO Sponsorship (sua)"
-resources.youtube.options.clientId = "SO Sponsorship"
+resources.youtube.httpClient.username = "PeterSmitSo" 
+resources.youtube.httpClient.password = ""
+resources.youtube.httpClient.source = "sua"
+resources.youtube.httpClient.authenticationURL = "https://www.google.com/youtube/accounts/ClientLogin"
+resources.youtube.developerKey = ""
+resources.youtube.applicationId = "SO Sponsorship (sua)"
+resources.youtube.clientId = "SO Sponsorship"
 
 ; Master SUA server
 ;==================
@@ -75,6 +73,7 @@ fileprocessor.image.make_thumbnail.nextAction = "upload_ftp"
 
 ; upload with ftp
 fileprocessor.image.upload_ftp.actionClass = "Ftp"
+fileprocessor.image.upload_ftp.options.source_path = APPLICATION_PATH "/../data/queue"
 fileprocessor.image.upload_ftp.options.ftpresource = "image_ftp"
 fileprocessor.image.upload_ftp.options.result_url = "http://192.168.2.157/uploads/"
 fileprocessor.image.upload_ftp.nextAction = "report_intalio"
