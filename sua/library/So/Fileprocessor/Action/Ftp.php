@@ -42,7 +42,7 @@ class So_Fileprocessor_Action_Ftp extends So_Fileprocessor_Action
                             ->getResource('multiftp')
                             ->getFtp($this->_options['ftpresource']);
 
-        $ftp->upload($this->_options['source_dir'], $work->file_name);
+        $ftp->upload($this->_options['source_path'], $work->file_name);
         $this->_success = true;
         $this->_resultUrl = $ftp->getTargeturl().$work->file_name;
     }

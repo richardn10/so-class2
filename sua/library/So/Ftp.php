@@ -90,7 +90,7 @@ class So_Ftp
         $this->_username = $params['username'];
         $this->_password = $params['password'];
 
-        $this->_path = $params['path'];
+        $this->_path = $params['target_path'];
     }
 
 

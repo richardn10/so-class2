@@ -93,7 +93,6 @@ class So_Resource_Youtube extends Zend_Application_Resource_ResourceAbstract
      */
     private function getHttpClient()
     {
-
         $httpClient = Zend_Gdata_ClientLogin::getHttpClient(
             $username = $this->_options['httpClient']['username'],
             $password = $this->_options['httpClient']['password'],

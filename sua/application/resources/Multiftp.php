@@ -50,7 +50,7 @@ class So_Resource_Multiftp extends Zend_Application_Resource_ResourceAbstract {
         foreach ($options as $id => $params) {
             $this->_ftps[$id] = new So_Ftp($params);
 
-            if (isset($params['default']) && $params['default'] == true)
+        if (isset($params['default']) && $params['default'] == true)
                 $this->_setDefault($this->_ftps[$id]);
         }
 
@@ -86,8 +86,8 @@ class So_Resource_Multiftp extends Zend_Application_Resource_ResourceAbstract {
             return $this->getDefaultFtp();
         }
 
-        if (isset($this->_ftps[_ftps])) {
-            return $this->_ftps[_ftps];
+        if (isset($this->_ftps[$ftp])) {
+            return $this->_ftps[$ftp];
         }
 
         throw new Exception(

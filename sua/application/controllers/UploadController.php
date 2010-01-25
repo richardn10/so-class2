@@ -41,8 +41,7 @@ class UploadController extends Zend_Controller_Action
         // Avoids endless loops when the works fail
         $excludeWorks = array();
         $cnt = 0;
-
-        while(++$cnt < MAX_WORKS_PER_RUN) {
+        while(++$cnt < self::MAX_WORKS_PER_RUN) {
             //request a work item
             Work::setWorksToPid($pid, 1, $excludeWorks);
             $works = Work::findByPidAndFinished($pid, false, true);
@@ -104,7 +103,7 @@ class UploadController extends Zend_Controller_Action
         $this->view->form = new Form_Upload();
     }
 
-    public function submitAction() 
+    public function submitAction()
     {
         try {
             $this->view->success = true;
@@ -207,14 +206,14 @@ class UploadController extends Zend_Controller_Action
         }
     }
 
-    public function statusAction() 
+    public function statusAction()
     {
         $works = Work::findAll();
         $this->view->works = $works;
     }
 
 
-    public function testtokenAction() 
+    public function testtokenAction()
     {
         $this->view->timestamp = $timestamp = time();
         $this->view->attachmentId = $attachmentId = rand(10000000, 99999999);
@@ -222,7 +221,7 @@ class UploadController extends Zend_Controller_Action
         $this->view->filetype = 'image';
     }
 
-    public function getExtension($mimeType) 
+    public function getExtension($mimeType)
     {
         switch($mimeType) {
             case 'image/jpeg':
