@@ -27,60 +27,63 @@
 class So_Ftp
 {
     /**
+     * The hostname of the FTP server
+     *
      * @var string
      */
-    private $_host;
+    protected $_host;
+
     /**
+     * The port number of the FTP server
      * @var int
      */
-    private $_port;
+    protected $_port;
+
     /**
+     * The username for logging in
+     *
      * @var string
      */
-    private $_username;
-    /**
-     * @var string
-     */
-    private $_password;
+    protected $_username;
 
     /**
      * @var string
      */
-    private $_path;
+    protected $_password;
 
     /**
+     * The path on the remote server where the files need to be stored
+     * @var string
+     */
+    protected $_path;
+
+    /**
+     * A php ftp resource
+     *
      * @var resource
      */
-    private $_connection;
+    protected $_connection;
 
     /**
+     * Indicates whether the ftp_connect has been invoked
+     *
      * @var bool
      */
-    private $_connected = false;
+    protected $_connected = false;
 
     /**
+     * The url prefix that can be used to retrieve the uploaded files with http
      * @var string
      */
     protected $_targeturl;
 
+
     /**
-     * @param string $url
+     * Constructor
+     *
+     * @param array $params
      * @return void
      */
-    public function setTargeturl($url)
-    {
-        $this->_targeturl = $url;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTargeturl()
-    {
-        return $this->_targeturl;
-    }
-
-
     public function __construct($params) {
         $this->_host = $params['host'];
         $this->_port = $params['port'];
@@ -91,21 +94,65 @@ class So_Ftp
     }
 
 
-    public function connect() {
-        if(false === $this->_connection = ftp_connect($this->_host, $this->_port)) throw new Exception("FTP couldn't connect") ;
-        if(false === ftp_login($this->_connection, $this->_username, $this->_password)) throw new Exception("FTP login details wrong") ;
-
+    /**
+     * Set the url prefix that can be used to retrieve the uploaded files with http
+     *
+     * @param string $url
+     * @return void
+     */
+    public function setTargeturl($url)
+    {
+        $this->_targeturl = $url;
     }
 
+    /**
+     * Get the url prefix that can be used to retrieve the uploaded files with http
+     * @return string
+     */
+    public function getTargeturl()
+    {
+        return $this->_targeturl;
+    }
+
+
+    /**
+     * Connect to the ftp server and test credentials
+     *
+     * @return void
+     */
+    public function connect() {
+        if(false === $this->_connection = ftp_connect($this->_host, $this->_port))
+            throw new Exception("FTP couldn't connect") ;
+        if(false === ftp_login($this->_connection, $this->_username, $this->_password))
+            throw new Exception("FTP login details wrong") ;
+        $this->_connected = true;
+    }
+
+    /**
+     * Close the connection and free the ftp resource
+     *
+     * @return void
+     */
     public function close() {
         ftp_close($this->_connection);
+        $this->_connected = false;
     }
 
+    /**
+     * Connect if not done yet, and then transfer the file from sourcedir to the ftp server
+     *
+     * @param string $sourceDir The local directory where the file can be found
+     * @param string $filename The name of the file to be uploaded (without directory)
+     * @return void
+     */
     public function upload($sourceDir, $filename) {
         if(!$this->_connected) $this->connect();
 
-        ftp_chdir($this->_connection, $this->_path);
-        ftp_pasv($this->_connection, true);
-        ftp_put($this->_connection, $filename, $sourceDir.'/'.$filename, FTP_BINARY);
+        if(!ftp_chdir($this->_connection, $this->_path))
+            throw new Exception("FTP target directory does not exist");
+        if(!ftp_pasv($this->_connection, true))
+            throw new Exception("FTP Passive mode not supported");
+        if(!ftp_put($this->_connection, $filename, $sourceDir.'/'.$filename, FTP_BINARY))
+            throw new Exception("FTP Upload failed");
     }
 }
