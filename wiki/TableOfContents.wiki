@@ -1,6 +1,6 @@
 * *_Switched On_*
 
-* [SODW0910] October 09 Developer Weekend Overview
+* [SODW1005] May '10 Developer Weekend Overview
 
 * [TheChallenge The Challenge]
 
