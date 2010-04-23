@@ -1,0 +1,66 @@
+#summary Info: Switched On Developer weekend - Fleet (or near) 3-4th October '09
+
+= Introduction =
+
+The Switched On October 2010 is going to be another action-packed, fun-filled, mega-meaningful weekend!
+
+= The Workpackages =
+These will be focused and, hopefully, realistic.  We did our blue-sky thinking at the last event.  Now we're churning out the goods!
+  # Finishing the system to charge for use of the computers & auto switch off after time-out  (PHP with agents on MS, Linux and Thin client systems) - Peter Smit, Farayi U, Edward R, Eva T.
+  # Making things look pretty - Phil Allnutt, Neil R
+  # Moodle RPM - Ed B and Peter T
+  # Image/Video upload for the sponsorship system - Peter Smit
+  # Nagios Monitoring - Tom
+  # Various expert things - Ben F
+
+= People who say they're coming =
+  * Peter Smit! - making it over from Finland!!!
+  * Edward R
+  * Edward B
+  * Phil A
+  * Neil R
+  * Farayi U
+  * Richard N
+  * Eva T?
+  * Tom W?
+  * Ben F?
+
+* Can't make it this time:
+  * Tim F - In between mad busy things
+  * Adam B - will be plate throwing at a Greek wedding...
+  
+
+= Draft agenda =
+== Sat 15th May ==
+  * 10am arrive and coffee 
+  * 10:30am Intro tasks - this time they'll be focused and well-specified cos we need results!!
+  * 11:30 Work and work, with some breaks when we feel like lunch, dinner, drinks etc.  
+  * Unless people lead us astray for another Indian for lunch!!
+  * Sometime - stop for sleep
+
+== Sun 16th May ==
+  * 10.00am - Optional Fleet Family Church meeting (Let's be a blessing!)
+  * Grab a takeaway and head to the office for some final techy tenacity and fun.
+  * 4pm, feel satisfied with our works and head home
+  * Go back to work for a rest!
+
+= Accommodation =
+Lodge of some kind as below.  If you're broke let me know and we'll see what can be done!
+I suspect some lifts can be arranged for those who are wheely-challenged.
+
+The following seems a good place to stay - recommended by Phil and endorsed by Edward:
+at this location, and includes suggested ways to book... might be possible for £37
+http://www.trivago.co.uk/fleet-39396/hotel/days-inn-fleet-m3-445691
+
+= Location of the Office =
+Qubix International Limited<br>
+5 High Street<br>
+Knaphill<br>
+Woking<br>
+Surrey<br>
+GU21 2PG<br>
+
+There should be enough parking at the office but if not then there's free parking 2 mins down the road.
+
+Google Maps: http://maps.google.com/maps?q=england%2C%20GU21%202PG<br>
+Directions: http://www.qubix-uk.com/contact-us
