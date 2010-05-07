@@ -21,7 +21,8 @@
 
 * [MeetingMinutes Meeting Minutes]
 
-* *Things you may want to do*
+* *Getting set up to develop*
+ * [ServerVM Installing Server Virtual Machine]
  * [InstallingMoodle Installing Moodle]
 
 * [WorkpackageDocumentationInstructions Workpackage Documentation Instructions]
