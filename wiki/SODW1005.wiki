@@ -1,8 +1,8 @@
-#summary Info: Switched On Developer weekend - Fleet (or near) 3-4th October '09
+#summary Info: Switched On Developer weekend - Fleet (or near) 15-16th May '10
 
 = Introduction =
 
-The Switched On October 2010 is going to be another action-packed, fun-filled, mega-meaningful weekend!
+The Switched On May 2010 Dev Weekend is going to be another action-packed, fun-filled, mega-meaningful weekend!
 
 = The Workpackages =
 These will be focused and, hopefully, realistic.  We did our blue-sky thinking at the last event.  Now we're churning out the goods!
