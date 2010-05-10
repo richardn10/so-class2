@@ -18,6 +18,7 @@
  * [Workpackage_CustomerRelationshipManagement Customer Relationship Management]
  * [Workpackage_PBX PBX]
  * [Workpackage_Sponsorship_Uploads Sponsorship Uploads]
+ * [Workpackage_RPMs Switched On RPM Creation]
 
 * [MeetingMinutes Meeting Minutes]
 
