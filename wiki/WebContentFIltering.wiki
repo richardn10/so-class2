@@ -24,9 +24,9 @@ specific proxy port temporarily in browser.
 
 *RPM versions in use:*
 
-<ul>dansguardian:</ul>
-<ul>squid:</ul>
-<ul>libcreposix</ul>
+<ul>dansguardian: dansguardian-2.10.0.3-12.1.x86_64</ul>
+<ul>squid: squid-2.7.STABLE6-2.5.2.x86_64</ul>
+<ul>libpcreposix0-7.9.0.-2.3.1.x86_64</ul>
 
 These should be added to swithedon rpm repository prior starting the installation
 
