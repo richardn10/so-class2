@@ -1,0 +1,38 @@
+# This file contains all tasks that are needed to set-up swithedon functionality with name 'usersetup'
+# Single tasklist-file contains commands that are needed to be executed in order to succesfully configure certain functionality area.
+#
+run zypper ar /opt/switchedon/ local
+run zypper --non-interactive in dansguardian
+
+run cp -p /etc/squid/squid.conf /etc/squid/squid.conf.orig
+run cp -p /opt/switchedon/squid.conf.switchedon /etc/squid/squid.conf
+
+run cp -p /etc/dansguardian/dansguardian.conf /etc/dansguardian/dansguardian.conf.orig
+run cp -p /opt/switchedon/dansguardian.conf.switchedon /etc/dansguardian/dansguardian.conf
+
+run cp -p /etc/dansguardian/lists/bannedurllist /etc/dansguardian/lists/bannedurllist.orig
+run cp -p /opt/switchedon/dansguardian.bannedurllist.switchedon /etc/dansguardian/lists/bannedurllist
+
+run cp -p /etc/dansguardian/lists/bannedsitelist /etc/dansguardian/bannedsitelist.orig
+run cp -p /opt/switchedon/dansguardian.bannedsitelist.switchedon /etc/dansguardian/lists/bannedsitelist
+
+run cp -p /etc/dansguardian/lists/weightedphraselist /etc/dansguardian/lists/weightedphraselist.orig
+run cp -p /opt/switchedon/dansguardian.weightedphraselist.switchedon /etc/dansguardian/lists/weightedphraselist
+
+run mkdir -p /etc/dansguardian/lists/blacklists/shalla/
+run tar xvfz /opt/switchedon/shallalist.tar.gz -C /etc/dansguardian/lists/blacklists/shalla/
+
+run service squid start
+run service dansguardian start
+
+run chkconfig squid on
+run chkconfig dansguardian on
+
+run cp -p /etc/sysconfig/SuSEfirewall2 /etc/sysconfig/SuSEfirewall2.orig
+run cp -p /opt/switchedon/SuSEfirewall2.switchedon /etc/sysconfig/SuSEfirewall2
+run cp -p /opt/switchedon/SuSEfirewall2-custom.switchedon /etc/sysconfig/scripts/SuSEfirewall2-custom
+
+run service SuSEfirewall2_init stop
+run service SuSEfirewall2_setup stop
+run service SuSEfirewall2_init start
+run service SuSEfirewall2_setup start
