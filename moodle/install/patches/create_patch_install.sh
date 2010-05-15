@@ -53,6 +53,7 @@ moodleCorePackageSubdir=`grep -E "^moodle-core-package-subdir=" $patchInfoFile |
 moodleWwwSubdir=`grep -E "^moodle-www-subdir=" $patchInfoFile | sed 's/.*=\(.*\)/\1/'`
 dbExistingSchema=`grep -E "^db-existing-schema=" $patchInfoFile | sed 's/.*=\(.*\)/\1/'`
 patchWww=`grep -E "^patch-www=" $patchInfoFile | sed 's/.*=\(.*\)/\1/'`
+moodleVersion=`grep -E "^moodle-core-package-url=" 0/patch_0.txt | sed 's/.*moodle-\(.*\)\.tgz/\1/'`
 
 if [ "$moodleCorePackageUrl" != "" -a "$moodleCorePackageFile" = "" ] ;then
 	echo "ERROR: moodle-core-package-file must be set, since moodle-core-package-url is set"
@@ -181,3 +182,45 @@ echo "** Completed creating patch install for $patchId: $patchDesc"
 echo ""
 echo "created patch install shar: $SHAR"
 echo ""
+
+echo ""
+echo ""
+echo "** Checking/creating environment to build RPM"
+echo ""
+
+RPMVER=$moodleVersion
+
+if [ "x$RPM_HOME" != "x" ] ; then
+	echo "RPM_HOME is set: $RPM_HOME"
+	
+	tar zcvf $RPM_HOME/SOURCES/moodle-patch-install_$patchId.tar.gz $SHAR
+	PATCH=$patchId rpmbuild --define="%_topdir $RPM_HOME" --define="%ver $RPMVER" -bb moodle-patch-install.spec
+	cp $RPM_HOME/RPMS/i386/moodle-$RPMVER-$patchId.i386.rpm .
+
+else
+	echo "RPM_HOME not set, building temporary RPM build environment"
+	RPM_HOME=/tmp/temprpmhome/
+	TEMP_RPM_HOME=$RPM_HOME
+
+	mkdir $RPM_HOME
+	mkdir $RPM_HOME/SOURCES
+	mkdir $RPM_HOME/BUILD
+	mkdir $RPM_HOME/BUILDROOT
+	mkdir $RPM_HOME/SPECS
+	mkdir $RPM_HOME/RPMS
+	mkdir $RPM_HOME/RPMS/i386
+	mkdir $RPM_HOME/SRPMS
+
+	
+fi
+
+
+tar zcvf $RPM_HOME/SOURCES/moodle-patch-install_$patchId.tar.gz $SHAR
+PATCH=$patchId rpmbuild --define="%_topdir $RPM_HOME" --define="%ver $RPMVER" --define="%shardir $SHAR_DIR" -bb moodle-patch-install.spec
+cp $RPM_HOME/RPMS/i386/moodle-$RPMVER-$patchId.i386.rpm .
+
+if [ -n $TEMP_RPM_HOME ] ; then
+	echo "removing temporary RPM_HOME area at $TEMP_RPM_HOME"
+	rm -r $TEMP_RPM_HOME
+fi
+
