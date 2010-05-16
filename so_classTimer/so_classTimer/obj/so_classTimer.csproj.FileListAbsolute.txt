@@ -1,0 +1,13 @@
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.pdb
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\obj\Debug\so_classTimer.exe
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\obj\Debug\so_classTimer.pdb
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Release\so_classTimer.exe
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Release\so_classTimer.pdb
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Release\MySql.Data.dll
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\obj\Release\so_classTimer.exe
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\obj\Release\so_classTimer.pdb
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\soUtils.dll
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\soUtils.pdb

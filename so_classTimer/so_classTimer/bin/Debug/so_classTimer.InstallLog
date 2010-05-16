@@ -1,0 +1,95 @@
+﻿Installing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe assembly.
+Committing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe assembly.
+Remove InstallState file because there are no installers.
+Installing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe assembly.
+Committing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe assembly.
+Remove InstallState file because there are no installers.
+Uninstalling assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe assembly.
+Uninstalling assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe assembly.
+Installing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+Installing service SwitchedOn Classroom Timer...
+Service SwitchedOn Classroom Timer has been successfully installed.
+Creating EventLog source SwitchedOn Classroom Timer in log Application...
+Committing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+Uninstalling assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+Removing EventLog source SwitchedOn Classroom Timer.
+Service SwitchedOn Classroom Timer is being removed from the system...
+Service SwitchedOn Classroom Timer was successfully removed from the system.
+Installing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+Installing service SwitchedOn Classroom Timer...
+Service SwitchedOn Classroom Timer has been successfully installed.
+Creating EventLog source SwitchedOn Classroom Timer in log Application...
+Committing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+Installing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog
+Installing service SwitchedOn Classroom Timer...
+Service SwitchedOn Classroom Timer has been successfully installed.
+Creating EventLog source SwitchedOn Classroom Timer in log Application...
+Committing assembly 'C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.exe
+   i = 
+   logfile = C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\so_classTimer\bin\Debug\so_classTimer.InstallLog

@@ -1,0 +1,6 @@
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soUtils\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soUtils\bin\Debug\soUtils.dll
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soUtils\bin\Debug\soUtils.pdb
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soUtils\bin\Debug\MySql.Data.dll
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soUtils\obj\Debug\soUtils.dll
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soUtils\obj\Debug\soUtils.pdb
