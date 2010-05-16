@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "so_classTimer", "so_classTimer\so_classTimer.csproj", "{8F7D39EF-BD69-4B93-859C-DBC1B851BE03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soClassNotify", "soClassNotify\soClassNotify.csproj", "{AF72993A-536D-49E4-AB35-70F0A0E6E65F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soUtils", "soUtils\soUtils.csproj", "{D439203B-D6D8-41D8-AF2A-5877BF1DB3DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F7D39EF-BD69-4B93-859C-DBC1B851BE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F7D39EF-BD69-4B93-859C-DBC1B851BE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F7D39EF-BD69-4B93-859C-DBC1B851BE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F7D39EF-BD69-4B93-859C-DBC1B851BE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF72993A-536D-49E4-AB35-70F0A0E6E65F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF72993A-536D-49E4-AB35-70F0A0E6E65F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF72993A-536D-49E4-AB35-70F0A0E6E65F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF72993A-536D-49E4-AB35-70F0A0E6E65F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D439203B-D6D8-41D8-AF2A-5877BF1DB3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D439203B-D6D8-41D8-AF2A-5877BF1DB3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D439203B-D6D8-41D8-AF2A-5877BF1DB3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D439203B-D6D8-41D8-AF2A-5877BF1DB3DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

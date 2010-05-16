@@ -1,0 +1,11 @@
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\bin\Debug\soClassNotify.exe
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\bin\Debug\soClassNotify.pdb
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\obj\Debug\soClassNotify.Form1.resources
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\obj\Debug\soClassNotify.Properties.Resources.resources
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\obj\Debug\soClassNotify.csproj.GenerateResource.Cache
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\obj\Debug\soClassNotify.exe
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\obj\Debug\soClassNotify.pdb
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\bin\Debug\soUtils.dll
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\bin\Debug\MySql.Data.dll
+C:\Users\edward.QUBIX\Documents\Visual Studio 2005\Projects\so_classTimer\soClassNotify\bin\Debug\soUtils.pdb
