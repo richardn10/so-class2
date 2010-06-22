@@ -7,7 +7,7 @@
 <script type="text/javascript" src="js/jquery.ba-postmessage.min.js"></script>
 
 <script type="text/javascript">
-var sua_url = "http://mini-challenge";
+var sua_url = "http://sua-demo.petersmit.eu";
 function clearFileUpload(divid) {
 	$('#'+divid+'-filename').val('');
     $('#'+divid+'-fileid').val('');
@@ -54,8 +54,7 @@ $(document).ready(function(){
 			}
 
             var iframe_url = $.ajax({
-                url: "makeFileId.php?form_pending_id="+encodeURIComponent($('#form_pending_id').val())+'&title=' + encodeURIComponent(title) + '&description=' + encodeURIComponent(description),
-                async: false
+                url: "makeFileId.php?file_id=<?php echo rand(); ?>&form_pending_id="+encodeURIComponent($('#form_pending_id').val())+'&title=' + encodeURIComponent(title) + '&description=' + encodeURIComponent(description),                async: false
             }).responseText;
             
 	    var filetype = 'image';
