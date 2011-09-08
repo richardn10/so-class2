@@ -1,4 +1,4 @@
-#summary What we hope to demonstrate at the end of the Switched On Developer Weekend, and the team assignments.
+#summary Sets the scene for the Switched On Developer Weekends (start 2009 and continuing in 2010, and the team assignments.
 #sidebar TableOfContents
 
 Go back to [Home].
